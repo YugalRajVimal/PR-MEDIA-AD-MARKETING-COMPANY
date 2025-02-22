@@ -30,11 +30,11 @@ const Packages = () => {
         {/* Buttons Section */}
         <div className="w-full text-center md:text-left py-2 rounded-xl flex md:flex-row flex-col gap-8 justify-evenly items-center">
           {["4.99 Crore", "99 Lakh", "9 Lakh"].map((price, index) => (
-            <a href={`/package${index + 1}`}>
+            <a href={`/package${index + 1}`} className="w-full md:w-auto">
               <button
                 key={index}
                 ref={(el) => (buttonsRef.current[index] = el)}
-                className="px-10 py-3 my-auto md:w-auto w-full bg-black text-[#fff2e1] rounded-full shadow-lg hover:bg-[#3B2E22] border border-white border-[2px] transition-transform transform hover:scale-105"
+                className="px-10 py-3 my-auto w-full bg-black text-[#fff2e1] rounded-full shadow-lg hover:bg-[#3B2E22] border border-white border-[2px] transition-transform transform hover:scale-105"
                 onMouseEnter={() => vibrateButton(buttonsRef.current[index])}
                 onClick={() => vibrateButton(buttonsRef.current[index])}
               >
