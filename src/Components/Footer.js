@@ -1,37 +1,11 @@
 import React, { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/all";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const Footer = () => {
   const footerRef = useRef(null);
 
-  useEffect(() => {
-    const context = gsap.context(() => {
-      // Animating footer sections with a staggered effect
-      gsap.from(".footer-section", {
-        opacity: 0,
-        y: 50,
-        duration: 1,
-        stagger: 0.3,
-        scrollTrigger: {
-          trigger: footerRef.current,
-          start: "top 85%",
-          toggleActions: "play none none reverse",
-        },
-      });
-    }, footerRef);
-
-    return () => context.revert();
-  }, []);
-
   return (
-    <footer
-      ref={footerRef}
-      className="bg-[#4E3C2C] text-white px-8 py-12 w-screen"
-    >
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+    <footer className="bg-black text-[#fff2e1] px-8 py-12 w-screen">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Left Section */}
         <div className="footer-section">
           <h2 className="text-2xl font-bold mb-2">About Us</h2>
@@ -41,7 +15,7 @@ const Footer = () => {
           </p>
         </div>
 
-        {/* Middle Section */}
+        {/* Middle Section
         <div className="footer-section">
           <h3 className="text-lg font-semibold mb-2">Quick Links</h3>
           <ul className="text-sm space-y-1">
@@ -67,10 +41,10 @@ const Footer = () => {
               </a>
             </li>
           </ul>
-        </div>
+        </div> */}
 
         {/* End Section */}
-        <div className="footer-section flex flex-col items-start md:items-center">
+        <div className="footer-section flex flex-col items-center md:items-center">
           <p className="text-sm">&copy; 2024. All rights reserved.</p>
           <p className="text-sm">
             Powered by <span className="font-semibold">Gowappily Infotech</span>

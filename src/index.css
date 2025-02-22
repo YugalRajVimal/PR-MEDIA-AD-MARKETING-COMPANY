@@ -2,10 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-html,body{
+html, body {
   width: 100vw;
-}
-
-#root{
-  width: 100vw;
+  scroll-behavior: smooth; /* Enables smooth scrolling */
+  overflow-x: hidden; /* Prevents unwanted horizontal scroll */
 }

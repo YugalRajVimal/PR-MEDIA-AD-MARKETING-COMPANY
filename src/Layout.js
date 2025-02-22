@@ -4,7 +4,7 @@ import Footer from "./Components/Footer";
 
 const Layout = () => {
   return (
-    <div className="relative bg-gray-100 w-screen">
+    <div className="relative bg-[#fff2e1] w-screen">
       <Nav />
 
       {/* <LandingPageBackground /> */}
