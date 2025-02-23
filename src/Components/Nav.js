@@ -36,7 +36,7 @@ const Nav = () => {
   }, [isMenuOpen, isLargeScreen]);
 
   return (
-    <nav className="h-[90px] px-6 py-2 flex justify-between items-center gap-4  fixed top-0 left-0 w-full z-20 backdrop-blur-md">
+    <nav className="h-[70px] px-6 py-2 flex justify-between items-center gap-4  fixed top-0 left-0 w-full z-20 backdrop-blur-md">
       <div
         ref={logoRef}
         className="flex flex-col justify-center items-center text-center"
