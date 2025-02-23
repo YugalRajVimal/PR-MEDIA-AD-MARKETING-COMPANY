@@ -36,14 +36,14 @@ const Nav = () => {
   }, [isMenuOpen, isLargeScreen]);
 
   return (
-    <nav className=" px-6 py-2 flex justify-between items-center gap-4 relative border border-zinc-400 border-b-2 sticky top-0 z-20 backdrop-blur-md">
+    <nav className="h-[90px] px-6 py-2 flex justify-between items-center gap-4  fixed top-0 left-0 w-full z-20 backdrop-blur-md">
       <div
         ref={logoRef}
-        className="flex flex-col justify-center items-center text-center font-mono"
+        className="flex flex-col justify-center items-center text-center"
       >
         <a href="/">
           <h1 className="text-lg sm:text-xl">The PR</h1>
-          <span className="text-xl sm:text-3xl -mt-2">Media</span>
+          <span className="text-xl sm:text-3xl -mt-2 font-semibold">Media</span>
         </a>
       </div>
 

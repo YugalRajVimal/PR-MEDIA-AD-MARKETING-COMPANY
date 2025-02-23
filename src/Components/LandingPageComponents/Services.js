@@ -29,7 +29,7 @@ const services = [
 
 const ServiceCard = ({ title, items }) => {
   return (
-    <div className="w-full md:w-full bg-[#fff2e1]  rounded-lg shadow-lg border border-[1px] border-black p-6">
+    <div className="w-full md:w-full bg-white  rounded-lg shadow-lg border border-[1px] border-black p-6">
       <h2 className="text-xl font-bold text-gray-900">{title}</h2>
       <ul className="mt-4 space-y-2 text-gray-700 text-sm md:text-base">
         {items.map((item, index) => (

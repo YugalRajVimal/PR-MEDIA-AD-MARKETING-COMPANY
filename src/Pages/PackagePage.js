@@ -3,11 +3,11 @@ import React from "react";
 const PackagePage = (props) => {
   const { packagePrice } = props;
   return (
-    <div className="p-10 bg-black text-white h-screen">
+    <div className="md:p-10 bg-black text-white h-screen mt-[90px]">
       <h2 className="text-4xl md:text-5xl lg:text-6xl text-center p-6 font-semibold">
         {packagePrice}
       </h2>
-      <p className="px-24 py-10">
+      <p className="px-6 sm:px-10 md:px-24 py-10">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, sunt
         nemo iusto ullam excepturi dolorum blanditiis, delectus corrupti
         perspiciatis voluptatibus libero. Vero nulla eaque, veritatis quidem at

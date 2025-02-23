@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
+import { FaWhatsapp } from "react-icons/fa";
+import { FiMail } from "react-icons/fi";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -30,13 +32,21 @@ const Card2 = () => {
   }, []);
 
   return (
-    <section ref={aboutRef3} className=" py-16 p-4 sm:p-10 md:px-20 bg-[#fff2e1]">
+    <section ref={aboutRef3} className=" py-16 p-4 sm:p-10 md:px-20 bg-white">
       <div className="max-w-6xl mx-auto h-full flex flex-col md:flex-row items-center gap-12 ">
         {/* Text Section */}
-        <div className="w-full text-center md:text-left m-5 py-20 px-4  rounded-xl flex justify-evenly items-center border border-black border-[2px]">
+        <div className="relative w-full text-center md:text-left m-5 py-20 px-4  rounded-xl flex justify-evenly items-center border border-black border-[2px]">
           <p className="text-xl">
             Speak to our team today, plus schedule your free audit call today.
           </p>
+          <div className="absolute bottom-4 right-4 text-2xl flex justify-end gap-4">
+            <span>
+              <FaWhatsapp />
+            </span>
+            <span>
+              <FiMail />
+            </span>
+          </div>
         </div>
       </div>
     </section>

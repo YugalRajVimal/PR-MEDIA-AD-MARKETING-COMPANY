@@ -5,28 +5,22 @@ const Headline = () => {
   const marqueeRef = useRef(null);
 
   useEffect(() => {
-    gsap.to(marqueeRef.current, {
-      xPercent: -50, // Moves exactly half the width of the text container
-      duration: 22, // Smooth speed adjustment
-      ease: "linear",
-      repeat: -1
-    });
+    gsap.fromTo(
+      marqueeRef.current,
+      { x: "-100%" }, // Start from the right edge
+      { 
+        x: "0", // Stop at the center
+        duration: 8, // Adjust speed
+        ease: "power2.out" // Smooth deceleration
+      }
+    );
   }, []);
 
   return (
-    <div className="relative w-full overflow-hidden border border-black border-t-0 py-4 px-2 font-mono whitespace-nowrap">
-      <div ref={marqueeRef} className="flex w-max text-[#FFC300]">
-        <span className="text-2xl md:text-4xl pr-6">
-          The PR Media - Luxury PR & Marketing Company •
-        </span>
-        <span className="text-2xl md:text-4xl pr-6">
-          The PR Media - Luxury PR & Marketing Company •
-        </span>
-        <span className="text-2xl md:text-4xl pr-6">
-          The PR Media - Luxury PR & Marketing Company •
-        </span>
-        <span className="text-2xl md:text-4xl pr-6">
-          The PR Media - Luxury PR & Marketing Company •
+    <div className="relative w-full overflow-hidden py-4 px-2 font-mono text-center">
+      <div ref={marqueeRef} className="inline-block text-black w-full">
+        <span className="text-xl md:text-3xl lg:text-4xl font-bold">
+          The PR Media - Luxury PR & Marketing Company
         </span>
       </div>
     </div>
