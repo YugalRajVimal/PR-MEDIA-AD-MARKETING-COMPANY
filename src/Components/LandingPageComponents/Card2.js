@@ -40,7 +40,7 @@ const Card2 = () => {
             Speak to our team today, plus schedule your free audit call today.
           </p>
           <div className="absolute bottom-4 right-4 text-2xl flex justify-end gap-4">
-            <span>
+            <span className="text-[#2cb317]">
               <FaWhatsapp />
             </span>
             <span>
