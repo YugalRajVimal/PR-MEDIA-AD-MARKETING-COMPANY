@@ -18,9 +18,9 @@ const DemoCallCard = () => {
           <span>15 min</span>
         </div>
 
-        <div className="flex items-center justify-start gap-2 mt-2 text-[#0B0B45]">
+        <div className="flex items-center text-left justify-start gap-2 mt-2 text-[#0B0B45]">
           <PiVideoCameraBold size={18} />
-          <span className="text-sm">
+          <span className="text-sm ">
             Web conferencing details provided upon confirmation.
           </span>
         </div>
