@@ -3,8 +3,8 @@ import { FaCheckCircle } from "react-icons/fa";
 
 const AuditCallCard = () => {
   return (
-    <div className="p-4 sm:p-10 md:p-20 flex justify-center bg-[#dbc3ab]">
-      <div className="bg-[#dbc3ab] p-6 md:p-8 shadow-lg rounded-lg w-full border border-[2px] border-black">
+    <div className="p-4 sm:p-10 md:p-20 flex justify-center">
+      <div className=" p-6 md:p-8 shadow-lg rounded-lg w-full border border-[2px] border-black">
         {/* Title */}
         <h2 className=" text-lg md:text-xl font-extrabold uppercase">
           This audit call is perfect for:

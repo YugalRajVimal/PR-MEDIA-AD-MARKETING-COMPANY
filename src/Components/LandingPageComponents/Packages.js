@@ -23,7 +23,7 @@ const Packages = () => {
   };
 
   return (
-    <section className="p-4 sm:p-10 md:p-20 bg-[#dbc3ab]">
+    <section className="p-4 sm:p-10 md:p-20">
       <div className=" h-full flex flex-col justify-evenly items-center gap-10 p-10 bg-black text-[#fff2e1] rounded-xl">
         <h2 className="text-4xl font-semibold">Packages</h2>
 

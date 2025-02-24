@@ -14,19 +14,26 @@ import AuditCallCard from "../Components/LandingPageComponents/AuditCallCard";
 
 const LandingPage = () => {
   return (
-    <div className=" bg-[#dbc3ab] pt-[70px] z-[10] text-black">
-      <Headline />
-      {/* <Carousel /> */}
-      <AboutUs />
-      <Card1 />
-      <Packages />
-      <Testimonials2 />
-      <DemoCallCard />
-      <Card2 />
-      <AuditCallCard />
-      <Services />
-      {/* <Testimonials />
+    <div className=" pt-[70px] text-black">
+      {/* <div className="fixed -top-[70px] left-0 h-screen w-screen flex justify-center items-center ">
+        <img src="banner.png" className="h-full w-full object-contain" />
+      </div> */}
+     
+
+      <div className="z-[10] bg-[#dbc3ab] backdrop-blur-md">
+        {/* <Carousel /> */}
+        <Headline />
+        <AboutUs />
+        <Card1 />
+        <Packages />
+        <Testimonials2 />
+        <DemoCallCard />
+        <Card2 />
+        <AuditCallCard />
+        <Services />
+        {/* <Testimonials />
       <ContactUs /> */}
+      </div>
     </div>
   );
 };

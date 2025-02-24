@@ -4,7 +4,7 @@ const Testimonials2 = () => {
   return (
     <div
       id="testimonials"
-      className="p-4 sm:p-10 md:p-20 bg-[#dbc3ab] text-[#fff2e1]"
+      className="p-4 sm:p-10 md:p-20 text-[#fff2e1]"
     >
       <h2 className="text-4xl md:text-5xl lg:text-6xl text-center text-black font-semibold p-6">
         Testimonials

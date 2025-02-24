@@ -34,7 +34,7 @@ const Card2 = () => {
   return (
     <section
 
-      className=" py-16 p-4 sm:p-10 md:px-20 bg-[#dbc3ab]"
+      className=" py-16 p-4 sm:p-10 md:px-20"
     >
       <div className="max-w-6xl mx-auto h-full flex flex-col md:flex-row items-center gap-12 ">
         {/* Text Section */}
