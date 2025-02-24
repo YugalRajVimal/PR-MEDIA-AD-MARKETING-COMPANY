@@ -4,7 +4,7 @@ import Footer from "./Components/Footer";
 
 const Layout = () => {
   return (
-    <div className="relative bg-[#291f12] w-screen h-screen">
+    <div className="relative bg-[#dbc3ab] w-screen h-screen">
       <div className="">
         <Nav />
 

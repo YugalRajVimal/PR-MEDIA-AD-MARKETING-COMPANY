@@ -18,7 +18,7 @@ const Headline = () => {
 
   return (
     <div className="relative w-full overflow-hidden py-4 px-2 text-center z-[10]">
-      <div ref={marqueeRef} className="inline-block text-white w-full">
+      <div ref={marqueeRef} className="inline-block text-black w-full">
         <span className="text-2xl md:text-3xl lg:text-4xl font-bold">
           The PR Media - Luxury PR & Marketing Company
         </span>

@@ -3,10 +3,10 @@ import { PiVideoCameraBold, PiClockBold } from "react-icons/pi";
 
 const DemoCallCard = () => {
   return (
-    <div className="p-6 md:p-20 flex justify-center bg-[#291f12]">
-      <div className="relative bg-[#291f12] p-6 shadow-lg rounded-lg w-[350px]  md:w-[614px] text-center border border-black overflow-hidden">
+    <div className="p-6 md:p-20 flex justify-center bg-[#dbc3ab]">
+      <div className="relative bg-[#dbc3ab] p-6 shadow-lg rounded-lg w-[350px]  md:w-[614px] text-center border border-black overflow-hidden">
         {/* Ribbon */}
-        <div className="absolute flex flex-col justify-center items-center w-[46%] md:w-[25%] -right-8 top-[42%] md:-right-8 md:top-[45%]   bg-gray-700 text-white text-xs font-semibold px-4 py-1 transform rotate-45 origin-top-right">
+        <div className="absolute flex flex-col justify-center items-center w-[46%] md:w-[25%] -right-8 top-[42%] md:-right-8 md:top-[45%]   bg-gray-700 text-black text-xs font-semibold px-4 py-1 transform rotate-45 origin-top-right">
           Powered by <span>GoWappily</span>
         </div>
 
