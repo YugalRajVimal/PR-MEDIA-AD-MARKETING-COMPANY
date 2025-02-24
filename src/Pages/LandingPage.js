@@ -14,9 +14,8 @@ import AuditCallCard from "../Components/LandingPageComponents/AuditCallCard";
 
 const LandingPage = () => {
   return (
-    <div className="bg-white pt-[70px]">
+    <div className=" bg-[291f12] pt-[70px] z-[10]">
       <Headline />
-
       {/* <Carousel /> */}
       <AboutUs />
       <Card1 />

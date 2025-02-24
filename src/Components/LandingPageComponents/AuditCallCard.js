@@ -3,8 +3,8 @@ import { FaCheckCircle } from "react-icons/fa";
 
 const AuditCallCard = () => {
   return (
-    <div className="p-4 sm:p-10 md:p-20 flex justify-center bg-white">
-      <div className="bg-white p-6 md:p-8 shadow-lg rounded-lg w-full border border-[2px] border-black">
+    <div className="p-4 sm:p-10 md:p-20 flex justify-center bg-[291f12]">
+      <div className="bg-[291f12] p-6 md:p-8 shadow-lg rounded-lg w-full border border-[2px] border-black">
         {/* Title */}
         <h2 className="text-[#0B0B45] text-lg md:text-xl font-extrabold uppercase">
           This audit call is perfect for:
@@ -53,7 +53,7 @@ const AuditCallCard = () => {
             <p>
               Companies that
               <span className="font-extrabold">
-                 need a dedicated agency to help them succeed.
+                need a dedicated agency to help them succeed.
               </span>
             </p>
           </li>

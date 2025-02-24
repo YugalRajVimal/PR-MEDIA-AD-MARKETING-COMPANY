@@ -4,14 +4,16 @@ import Footer from "./Components/Footer";
 
 const Layout = () => {
   return (
-    <div className="relative bg-white w-screen">
-      <Nav />
+    <div className="relative bg-[291f12] w-screen h-screen">
+      <div className="">
+        <Nav />
 
-      {/* <LandingPageBackground /> */}
+        {/* <LandingPageBackground /> */}
 
-      <Outlet />
+        <Outlet />
 
-      <Footer />
+        <Footer />
+      </div>
     </div>
   );
 };

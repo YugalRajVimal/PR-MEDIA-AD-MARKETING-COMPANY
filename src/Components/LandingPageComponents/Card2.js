@@ -32,7 +32,10 @@ const Card2 = () => {
   }, []);
 
   return (
-    <section ref={aboutRef3} className=" py-16 p-4 sm:p-10 md:px-20 bg-white">
+    <section
+      ref={aboutRef3}
+      className=" py-16 p-4 sm:p-10 md:px-20 bg-[291f12]"
+    >
       <div className="max-w-6xl mx-auto h-full flex flex-col md:flex-row items-center gap-12 ">
         {/* Text Section */}
         <div className="relative w-full text-center md:text-left m-5 py-20 px-4  rounded-xl flex justify-evenly items-center border border-black border-[2px]">

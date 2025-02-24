@@ -6,7 +6,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Card1 = () => {
   return (
-    <section className="   p-4 sm:p-10 md:p-20 bg-white">
+    <section className="   p-4 sm:p-10 md:p-20 bg-[291f12]">
       <div className=" w-full h-full flex flex-col md:flex-row items-center gap-12">
         {/* Image Section
         <div className="w-full h-[500px] md:w-1/2 flex justify-center items-center">

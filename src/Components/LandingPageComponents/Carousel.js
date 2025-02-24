@@ -75,7 +75,7 @@ const Carousel = () => {
       <div
         ref={textRef}
         className="absolute top-1/2 left-12 sm:left-20 transform -translate-y-1/2 
-                bg-white/20 backdrop-blur-md border border-white/40 shadow-lg text-[#fff2e1] 
+                bg-[291f12]/20 backdrop-blur-md border border-white/40 shadow-lg text-[#fff2e1] 
                 text-lg sm:text-2xl md:text-4xl font-semibold rounded-xl p-4 sm:p-6 w-3/5 sm:w-1/2 
                 flex justify-start items-center"
       >
