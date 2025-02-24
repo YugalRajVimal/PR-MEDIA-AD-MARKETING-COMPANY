@@ -14,7 +14,7 @@ import AuditCallCard from "../Components/LandingPageComponents/AuditCallCard";
 
 const LandingPage = () => {
   return (
-    <div className=" pt-[70px] text-black">
+    <div className=" pt-[70px] text-black bg-[#dbc3ab]">
       {/* <div className="fixed -top-[70px] left-0 h-screen w-screen flex justify-center items-center ">
         <img src="banner.png" className="h-full w-full object-contain" />
       </div> */}

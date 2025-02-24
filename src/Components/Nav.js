@@ -375,7 +375,7 @@ const Nav = () => {
 
   return (
     <nav
-      className="h-[70px] px-6 py-2 bg-[#dbc3ab] flex justify-between items-center gap-4 fixed top-0 left-0 w-full z-20 backdrop-blur-md transition-colors duration-300"
+      className="h-[70px] px-6 py-2 flex justify-between items-center gap-4 fixed top-0 left-0 w-full z-20 backdrop-blur-md transition-colors duration-300"
       style={{
         color: scrollPosition === 0 || isAtBottom ? "black" : "#FFD700",
       }}
