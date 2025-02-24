@@ -6,7 +6,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const AboutUs = () => {
   return (
-    <section className="p-4 sm:p-10 md:p-20 h-[40vh] md:h-[50vh] text-[#0B0B45] z-[10]">
+    <section className="p-4 sm:p-10 md:p-20 h-[40vh] md:h-[50vh] text-white z-[10]">
       <div className="max-w-6xl mx-auto h-full flex flex-col md:flex-row justify-center items-center gap-12">
         {/* Image Section
         <div className="w-full h-[500px] md:w-1/2 flex justify-center items-center">

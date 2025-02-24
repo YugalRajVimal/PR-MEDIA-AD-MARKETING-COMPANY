@@ -77,7 +77,7 @@ const Testimonials = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center p-8 relative text-center bg-[291f12]">
+    <div className="flex flex-col items-center justify-center p-8 relative text-center bg-[#291f12]">
       <h2 className="text-[130px] text-gray-200 font-serif italic opacity-70">
         Testimonial
       </h2>
@@ -85,7 +85,7 @@ const Testimonials = () => {
         {/* Left Button */}
         <button
           onClick={() => slideTestimonial("prev")}
-          className="text-black text-4xl mx-4"
+          className="text-white text-4xl mx-4"
         >
           <FaChevronLeft className="p-2 bg-[#dca73a] rounded-full" />
         </button>
@@ -111,7 +111,7 @@ const Testimonials = () => {
         {/* Right Button */}
         <button
           onClick={() => slideTestimonial("next")}
-          className="text-black text-4xl mx-4"
+          className="text-white text-4xl mx-4"
         >
           <FaChevronRight className="p-2 bg-[#dca73a] rounded-full" />
         </button>
