@@ -67,18 +67,16 @@ const Packages = () => {
 
   // Vibrate animation in X & Y axes
   const vibrateButton = (btn) => {
-    gsap.fromTo(
-      btn,
-      { x: -8 },
-      {
-        x: 0,
-        duration: 0.1,
-        repeat: 6, // 3 full cycles (back & forth)
-        yoyo: true,
-        ease: "power2.inOut",
-      }
-    );
+    gsap.to(btn, {
+      x: 16, // Move right
+      duration: 0.2,
+      repeat: 6, // 3 full cycles (back & forth)
+      yoyo: true,
+      ease: "power2.inOut",
+      onComplete: () => gsap.set(btn, { x: 0 }) // Reset position
+    });
   };
+  
 
   useEffect(() => {
     buttonsRef.current.forEach((btn) => {
