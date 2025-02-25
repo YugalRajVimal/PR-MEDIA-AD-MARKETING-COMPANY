@@ -11,6 +11,12 @@
   font-family: Medio;
 }
 
+.bg-clip-text {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
 html, body {
   width: 100vw;
   scroll-behavior: smooth; /* Enables smooth scrolling */
