@@ -83,7 +83,6 @@ const Packages = () => {
       ScrollTrigger.create({
         trigger: btn,
         start: "top 80%",
-        once: true, // Ensures it runs only once per page load
         onEnter: () => vibrateButton(btn),
       });
     });
