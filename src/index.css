@@ -16,6 +16,19 @@
   -webkit-text-fill-color: transparent;
 }
 
+@keyframes vibrate {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+
+.animate-vibrate {
+  animation: vibrate 0.5s ease-in-out 1;
+}
+
+
 
 html, body {
   width: 100vw;

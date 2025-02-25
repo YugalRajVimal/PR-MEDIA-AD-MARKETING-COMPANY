@@ -154,43 +154,38 @@
 // };
 
 // export default Packages;
-
-
 import React, { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const Packages = () => {
-  const buttonRefs = useRef([]);
+  const sectionRef = useRef(null);
 
   useEffect(() => {
-    buttonRefs.current.forEach((btn) => {
-      gsap.fromTo(
-        btn,
-        { x: 0 },
-        {
-          x: -14, // Vibrate left-right
-          duration: 0.2,
-          repeat: 2, // 3 total movements
-          yoyo: true,
-          ease: "power1.inOut",
-          scrollTrigger: {
-            trigger: btn,
-            start: "top 80%", // Triggers when 80% in view
-            toggleActions: "play none none reset",
-          },
-          onComplete: () => {
-            gsap.to(btn, { x: 0, duration: 0.2, ease: "power1.out" }); // Reset to center
-          },
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          document.querySelectorAll(".price-button").forEach((btn) => {
+            btn.classList.add("animate-vibrate");
+          });
+
+          setTimeout(() => {
+            document.querySelectorAll(".price-button").forEach((btn) => {
+              btn.classList.remove("animate-vibrate");
+            });
+          }, 1000);
         }
-      );
-    });
+      },
+      { threshold: 0.6 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
   }, []);
 
   return (
-    <section className="p-4 sm:p-10 md:p-20">
+    <section ref={sectionRef} className="p-4 sm:p-10 md:p-20">
       <div className="h-full flex flex-col justify-evenly items-center gap-10 p-10 bg-black text-[#fff2e1] rounded-xl">
         <h2 className="text-4xl font-semibold">Packages</h2>
 
@@ -199,8 +194,7 @@ const Packages = () => {
           {["4.99 Crore", "99 Lakh", "9 Lakh"].map((price, index) => (
             <a key={index} href={`/package${index + 1}`} className="w-full md:w-auto">
               <button
-                ref={(el) => (buttonRefs.current[index] = el)}
-                className="p-3 md:px-10 py-1 md:py-3 my-auto w-fit text-xl text-[#fff2e1] rounded-full shadow-lg hover:bg-[#3B2E22] transition-transform transform hover:scale-105 whitespace-nowrap"
+                className="price-button p-3 md:px-10 py-1 md:py-3 my-auto w-fit text-xl text-[#fff2e1] rounded-full shadow-lg hover:bg-[#3B2E22] transition-transform transform hover:scale-105 whitespace-nowrap"
               >
                 {price}
               </button>
