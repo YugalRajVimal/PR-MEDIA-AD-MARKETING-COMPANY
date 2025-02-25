@@ -66,7 +66,7 @@ import React from "react";
 
 const Card1 = () => {
   return (
-    <div className="flex flex-col items-center p-6 text-center">
+    <div className="flex flex-col items-center px-6 pb-6 pt-16 text-center">
       {/* Title */}
       <h2 className="text-lg font-bold uppercase text-white opacity-90 mb-2">
         Total Revenue Generated

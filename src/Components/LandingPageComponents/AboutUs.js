@@ -20,10 +20,14 @@ const AboutUs = () => {
         {/* Text Section */}
         <div className="w-full text-center md:text-left">
           {/* <h2 className="text-2xl font-bold mb-4">Our Philosophy</h2> */}
-          <p className="text-lg leading-relaxed">
-            "Emotions sells, not Just ads. AI Ads and Premium Videos Catch Eyes,
-            But story telling Capture Hearts, Make your brand unforgettable"
+          <p
+            className="text-lg leading-relaxed font-bold text-black text-center"
+            style={{ textShadow: "3px 3px 6px rgba(0, 0, 0, 0.7)" }}
+          >
+            "Emotions sell, not just ads. AI Ads and Premium Videos Catch Eyes,
+            But storytelling Captures Hearts, Make your brand unforgettable"
           </p>
+
           {/* <button className="mt-6 px-6 py-3 bg-[#4E3C2C] text-[#fff2e1] rounded-lg shadow-lg hover:bg-[#3B2E22] transition-transform transform hover:scale-105">
             Learn More
           </button> */}
