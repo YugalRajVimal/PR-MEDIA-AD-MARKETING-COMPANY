@@ -10,11 +10,11 @@ const AuditCallCard = () => {
           <FaPhone />
         </div>
         {/* Title */}
-        <h2 className=" text-lg md:text-xl font-extrabold uppercase text-center">
+        <h2 className=" text-lg md:text-xl font-extrabold uppercase text-center pt-3">
           This audit call is perfect for:
         </h2>
 
-        <div className="w-[90%] border border-[1px] border-black mx-auto"></div>
+        <div className="w-[90%] md:w-[70%] lg:w-[60%] border border-[1px] border-black mx-auto"></div>
 
         {/* List Items */}
         <ul className="mt-4 space-y-4  text-sm md:text-base font-medium">
