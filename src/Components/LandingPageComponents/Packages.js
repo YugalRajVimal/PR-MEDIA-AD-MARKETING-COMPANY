@@ -159,7 +159,7 @@ const Packages = () => {
     }, 500); // Delay for smoother initialization
 
     return () => ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-  }, []);
+  });
 
   return (
     <section className="p-4 sm:p-10 md:p-20">
