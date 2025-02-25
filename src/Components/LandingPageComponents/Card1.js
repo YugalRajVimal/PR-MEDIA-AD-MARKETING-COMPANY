@@ -81,11 +81,11 @@ const Card1 = () => {
       <div className="grid grid-cols-2 gap-6 mt-6 w-full max-w-2xl text-white">
         {[
           { label: "Clients Helped", value: "98" },
-          { label: "Total Ad Spend", value: "₹114.3Cr." }
+          { label: "Total Ad Spend", value: "₹114.3 Cr." }
         ].map((item, index) => (
           <div
             key={index}
-            className="bg-[#0a0510] p-6 rounded-xl shadow-lg border border-yellow-500 hover:shadow-yellow-400 transition-all flex flex-col items-center"
+            className="bg-[#0a0510] p-6 rounded-xl shadow-lg border border-yellow-500 hover:shadow-yellow-400 transition-all flex flex-col justify-center items-center"
           >
             <h3 className="text-sm font-semibold">{item.label}</h3>
             <p className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400 drop-shadow-md shadow-yellow-400">
