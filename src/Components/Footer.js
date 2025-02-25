@@ -4,7 +4,7 @@ const Footer = () => {
   const footerRef = useRef(null);
 
   return (
-    <footer className="bg-black text-[#fff2e1] px-8 py-12 w-screen">
+    <footer className="bg-[#3B2E22] text-[#fff2e1] px-8 py-12 w-screen">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Left Section */}
         <div className="footer-section">

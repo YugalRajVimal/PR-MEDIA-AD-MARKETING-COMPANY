@@ -6,7 +6,7 @@ const Testimonials2 = () => {
       <h2 className="text-4xl md:text-5xl lg:text-6xl text-center text-[#3B2E22] font-semibold p-6">
         Testimonials
       </h2>
-      <div className="flex flex-col items-center gap-10 max-w-3xl mx-auto">
+      <div className="flex flex-col items-center gap-2 max-w-3xl mx-auto bg-[#3B2E22] rounded-xl">
         {[
           { name: "Iman Gadzhi", role: "Founder", img: "user.png" },
           {
@@ -18,7 +18,7 @@ const Testimonials2 = () => {
         ].map((person, index) => (
           <div
             key={index}
-            className="flex flex-col items-center gap-2 bg-[#4C0F25] p-6 rounded-xl shadow-lg w-full"
+            className="flex flex-col items-center gap-2 p-6 rounded-xl w-full"
           >
             <div className="h-24 w-24 rounded-full border-4 border-[#9D2140] overflow-hidden">
               <img
