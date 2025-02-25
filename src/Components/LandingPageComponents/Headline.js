@@ -26,7 +26,7 @@ const Headline = () => {
         {/* Marquee Text - Ensuring it appears above the image */}
         <div ref={marqueeRef} className="relative text-black w-full  ">
           <span className="text-2xl md:text-3xl lg:text-4xl font-bold">
-            The PR Media - Luxury PR & Marketing Company
+            PR & Marketing
           </span>
         </div>
 

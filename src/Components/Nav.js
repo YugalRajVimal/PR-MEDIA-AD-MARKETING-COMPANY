@@ -375,7 +375,7 @@ const Nav = () => {
 
   return (
     <nav
-      className="h-[70px] px-6 py-2 flex justify-between items-center gap-4 fixed top-0 left-0 w-full z-20 backdrop-blur-md transition-colors duration-300"
+      className="h-[70px] px-6 py-2 flex justify-center items-center gap-4 fixed top-0 left-0 w-full z-20 backdrop-blur-md transition-colors duration-300"
       style={{
         color: scrollPosition === 0 || isAtBottom ? "black" : "#FFD700",
       }}
@@ -387,11 +387,6 @@ const Nav = () => {
         <a href="/">
           <img src="logo1.svg" className="h-40 object-contain" alt="Logo" />
         </a>
-      </div>
-
-      <div className="text-center text-xl">
-        <h5>Premium</h5>
-        <h5>Ads</h5>
       </div>
     </nav>
   );

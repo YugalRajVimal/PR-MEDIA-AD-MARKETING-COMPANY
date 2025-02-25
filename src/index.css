@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: Medio;
+  src: url("../public/Medio.otf");
+}
+
+.font-medio {
+  font-family: Medio;
+}
+
 html, body {
   width: 100vw;
   scroll-behavior: smooth; /* Enables smooth scrolling */
