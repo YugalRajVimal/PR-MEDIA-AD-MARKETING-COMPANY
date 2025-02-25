@@ -16,15 +16,7 @@ const services = [
       "Expert Real Estate Ads That Help You Get the Best Price for Your Property",
       "Boost Your Property Sale with Ads That Attract the Right Buyers",
     ],
-  },
-  {
-    title: "App Development & ERP Development",
-    items: [
-      "Experts in App & ERP Development, Creating Catchy, High Converting Websites",
-      "Transforming Ideas into Powerful Apps, ERPs, and Captivating Websites",
-      "Innovative App & ERP Development with Eye-Catching, Conversion-Driven Websites",
-    ],
-  },
+  }
 ];
 
 const ServiceCard = ({ title, items }) => {

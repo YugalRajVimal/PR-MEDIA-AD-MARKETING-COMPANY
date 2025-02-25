@@ -15,29 +15,25 @@ const Footer = () => {
           </p>
         </div>
 
-        {/* Middle Section
-        <div className="footer-section">
-          <h3 className="text-lg font-semibold mb-2">Quick Links</h3>
+        {/* Middle Section */}
+        {/* <div className="footer-section flex justify-center">
           <ul className="text-sm space-y-1">
+            <h3 className="text-lg font-semibold mb-2">Packages</h3>
+
             <li>
-              <a href="#" className="hover:text-gray-300 transition">
-                Home
+              <a href="/package1" className="hover:text-gray-300 transition">
+                4.99 Crore
               </a>
             </li>
             <li>
-              <a href="#" className="hover:text-gray-300 transition">
-                About Us
+              <a href="/package2" className="hover:text-gray-300 transition">
+                99 Lakh
               </a>
             </li>
 
             <li>
-              <a href="#" className="hover:text-gray-300 transition">
-                Services
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:text-gray-300 transition">
-                Contact
+              <a href="/package3" className="hover:text-gray-300 transition">
+                9 Lakh
               </a>
             </li>
           </ul>
@@ -45,7 +41,7 @@ const Footer = () => {
 
         {/* End Section */}
         <div className="footer-section flex flex-col items-center md:items-center">
-          <p className="text-sm">&copy; 2024. All rights reserved.</p>
+          <p className="text-sm">&copy; 2013. All rights reserved.</p>
           <p className="text-sm">
             Powered by <span className="font-semibold">Gowappily Infotech</span>
           </p>
