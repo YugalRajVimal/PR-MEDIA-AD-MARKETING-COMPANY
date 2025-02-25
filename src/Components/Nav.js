@@ -138,7 +138,7 @@
 //   return (
 //     <nav
 //       className={`h-[70px] px-6 py-2 flex justify-between items-center gap-4 fixed top-0 left-0 w-full z-20 backdrop-blur-md transition-colors duration-300 ${
-//         scrollPosition > 0 ? "text-[#FFD700]" : "text-black"
+//         scrollPosition > 0 ? "text-[#FFD700]" : "text-[#3B2E22]"
 //       }`}
 //     >
 //       <div
@@ -217,7 +217,7 @@
 //   return (
 //     <nav
 //       className={`h-[70px]  px-6 py-2 flex justify-between items-center gap-4 fixed top-0 left-0 w-full z-20 backdrop-blur-md transition-colors duration-300 ${
-//         scrollPosition === 0 || isAtBottom ? "text-black" : "text-[#FFD700]"
+//         scrollPosition === 0 || isAtBottom ? "text-[#3B2E22]" : "text-[#FFD700]"
 //       }`}
 //     >
 //       <div
@@ -296,7 +296,7 @@
 //   return (
 //     <nav
 //       className={`h-[70px] px-6 py-2 flex justify-between items-center gap-4 fixed top-0 left-0 w-full z-20 backdrop-blur-md transition-colors duration-300 ${
-//         scrollPosition === 0 || isAtBottom ? "text-black" : "text-[#ffd700]"
+//         scrollPosition === 0 || isAtBottom ? "text-[#3B2E22]" : "text-[#ffd700]"
 //       }`}
 //     >
 //       <div

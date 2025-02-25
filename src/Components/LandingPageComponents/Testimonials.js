@@ -85,7 +85,7 @@ const Testimonials = () => {
         {/* Left Button */}
         <button
           onClick={() => slideTestimonial("prev")}
-          className="text-black text-4xl mx-4"
+          className="text-[#3B2E22] text-4xl mx-4"
         >
           <FaChevronLeft className="p-2 bg-[#dca73a] rounded-full" />
         </button>
@@ -111,7 +111,7 @@ const Testimonials = () => {
         {/* Right Button */}
         <button
           onClick={() => slideTestimonial("next")}
-          className="text-black text-4xl mx-4"
+          className="text-[#3B2E22] text-4xl mx-4"
         >
           <FaChevronRight className="p-2 bg-[#dca73a] rounded-full" />
         </button>

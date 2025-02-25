@@ -6,7 +6,7 @@ const DemoCallCard = () => {
     <div className="p-6 md:p-20 flex justify-center">
       <div className="relative p-6 shadow-lg rounded-lg w-[350px]  md:w-[614px] text-center border border-black overflow-hidden">
         {/* Ribbon */}
-        <div className="absolute flex flex-col justify-center items-center w-[46%] md:w-[25%] -right-8 top-[42%] md:-right-8 md:top-[45%]   bg-gray-700 text-black text-xs font-semibold px-4 py-1 transform rotate-45 origin-top-right">
+        <div className="absolute flex flex-col justify-center items-center w-[46%] md:w-[25%] -right-8 top-[42%] md:-right-8 md:top-[45%]   bg-gray-700 text-[#3B2E22] text-xs font-semibold px-4 py-1 transform rotate-45 origin-top-right">
           Powered by <span>GoWappily</span>
         </div>
 

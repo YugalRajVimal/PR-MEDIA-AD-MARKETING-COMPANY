@@ -24,9 +24,9 @@ const Headline = () => {
       </div> */}
       <div className="relative backdrop-blur-sm z-[30]">
         {/* Marquee Text - Ensuring it appears above the image */}
-        <div ref={marqueeRef} className="relative text-black w-full  ">
+        <div ref={marqueeRef} className="relative text-[#3B2E22] w-full  ">
           <span className="text-2xl md:text-3xl lg:text-4xl font-bold">
-            PR & Marketing
+            PR <span className="font-serif font-light">&</span> Marketing
           </span>
         </div>
 

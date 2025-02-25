@@ -6,7 +6,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const AboutUs = () => {
   return (
-    <section className="p-4 sm:p-10 md:px-20 md:py-0 text-black">
+    <section className="p-4 sm:p-10 md:px-20 md:py-0 text-[#3B2E22]">
       <div className="max-w-6xl mx-auto h-full flex flex-col justify-evenly items-center">
         {/* Image Section
         <div className="w-full h-[500px] md:w-1/2 flex justify-center items-center">
@@ -18,11 +18,11 @@ const AboutUs = () => {
         </div> */}
 
         {/* Text Section */}
-        <div className="w-full text-center md:text-left pt-8 md:pt-10">
-          <h2 className="text-2xl font-bold mb-4">Our Philosophy</h2>
+        <div className="w-full text-center md:text-left">
+          {/* <h2 className="text-2xl font-bold mb-4">Our Philosophy</h2> */}
           <p className="text-lg leading-relaxed">
-            Emotions sells, not Just ads. AI Ads and Premium Videos Catch Eyes,
-            But story telling Capture Hearts, Make your brand unforgettable.
+            "Emotions sells, not Just ads. AI Ads and Premium Videos Catch Eyes,
+            But story telling Capture Hearts, Make your brand unforgettable"
           </p>
           {/* <button className="mt-6 px-6 py-3 bg-[#4E3C2C] text-[#fff2e1] rounded-lg shadow-lg hover:bg-[#3B2E22] transition-transform transform hover:scale-105">
             Learn More
