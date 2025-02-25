@@ -102,7 +102,7 @@ const Packages = () => {
             <a key={index} href={`/package${index + 1}`} className="w-full md:w-auto">
               <button
                 ref={(el) => (buttonsRef.current[index] = el)}
-                className="p-2 md:px-10 py-1 md:py-3 my-auto w-fit bg-black text-xl text-[#fff2e1] rounded-full shadow-lg hover:bg-[#3B2E22] transition-transform transform hover:scale-105 whitespace-nowrap"
+                className="p-3 md:px-10 py-1 md:py-3 my-auto w-fit text-xl text-[#fff2e1] rounded-full shadow-lg hover:bg-[#3B2E22] transition-transform transform hover:scale-105 whitespace-nowrap"
                 onMouseEnter={() => vibrateButton(buttonsRef.current[index])}
                 onClick={() => vibrateButton(buttonsRef.current[index])}
               >

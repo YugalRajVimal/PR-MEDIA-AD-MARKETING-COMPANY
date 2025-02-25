@@ -21,8 +21,7 @@ const AboutUs = () => {
         <div className="w-full text-center md:text-left">
           {/* <h2 className="text-2xl font-bold mb-4">Our Philosophy</h2> */}
           <p
-            className="text-lg leading-relaxed font-bold text-black text-center"
-            style={{ textShadow: "3px 3px 6px rgba(0, 0, 0, 0.7)" }}
+            className="text-lg leading-relaxed  text-black text-center"
           >
             "Emotions sell, not just ads. AI Ads and Premium Videos Catch Eyes,
             But storytelling Captures Hearts, Make your brand unforgettable"

@@ -88,7 +88,7 @@ const Card1 = () => {
             className="bg-[#0a0510] py-6 px-2 rounded-xl shadow-lg border border-yellow-500 hover:shadow-yellow-400 transition-all flex flex-col justify-center items-center"
           >
             <h3 className="text-sm font-semibold">{item.label}</h3>
-            <p className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400 drop-shadow-md shadow-yellow-400 whitespace-nowrap">
+            <p className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400 drop-shadow-md shadow-yellow-400 whitespace-nowrap">
               {item.value}
             </p>
           </div>
