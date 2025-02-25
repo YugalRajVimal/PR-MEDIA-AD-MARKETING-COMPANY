@@ -31,10 +31,10 @@ const Headline = () => {
         </div>
 
         {/* Logo Image - Making sure it's on top */}
-        <div className="relative h-[140px] md:h-[280px] w-full overflow-hidden flex justify-center items-center ">
+        <div className="relative h-[160px] md:h-[280px] w-full overflow-hidden flex justify-center items-center ">
           <img
             src="logo2.svg"
-            className="h-[180%] md:h-[130%] w-[200%] md:w-full object-cover md:object-contain"
+            className="h-[160%] md:h-[130%] w-[100%] md:w-full object-cover md:object-contain"
           />
         </div>
       </div>
