@@ -174,7 +174,7 @@ const Packages = () => {
           }, 1000);
         }
       },
-      { threshold: 0.6 }
+      { threshold: 0.3 }
     );
 
     if (sectionRef.current) {
@@ -194,7 +194,7 @@ const Packages = () => {
           {["4.99 Crore", "99 Lakh", "9 Lakh"].map((price, index) => (
             <a key={index} href={`/package${index + 1}`} className="w-full md:w-auto">
               <button
-                className="price-button p-3 md:px-10 py-1 md:py-3 my-auto w-fit text-[22px] text-[#fff2e1] rounded-full hover:bg-[#3B2E22] transition-transform transform hover:scale-105 whitespace-nowrap"
+                className="price-button w-[142px] p-3 md:px-10 py-1 md:py-3 my-auto text-[22px] text-[#fff2e1] rounded-full hover:bg-[#3B2E22] transition-transform transform hover:scale-105 whitespace-nowrap"
               >
                 {price}
               </button>
