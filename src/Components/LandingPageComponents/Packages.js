@@ -174,7 +174,7 @@ const Packages = () => {
           }, 1000);
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.6 }
     );
 
     if (sectionRef.current) {
