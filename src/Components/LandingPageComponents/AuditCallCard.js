@@ -17,7 +17,7 @@ const AuditCallCard = () => {
         <div className="w-[90%] md:w-[70%] lg:w-[60%] border border-[1px] border-black mx-auto"></div>
 
         {/* List Items */}
-        <ul className="mt-4 space-y-4  text-sm md:text-base font-medium">
+        <ul className="mt-4 space-y-4  text-md md:text-base font-medium">
           <li className="flex items-start gap-3">
             <FaCheckCircle className=" mt-1 shrink-0 " />
 
