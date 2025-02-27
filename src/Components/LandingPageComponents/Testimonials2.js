@@ -7,9 +7,9 @@ const Testimonials2 = () => {
         Testimonials
       </h2>
       <div className="relative flex flex-col items-center gap-2 w-full h-[888px]  mx-auto bg-[#3B2E22] z-[-2]">
-        <div className="h-[106%] w-full absolute -top-[3%] left-0 z-[-1]">
+        {/* <div className="h-[106%] w-full absolute -top-[3%] left-0 z-[-1]">
           <img src="bg1.png" className="h-full w-full" />
-        </div>
+        </div> */}
         {[
           { name: "Iman Gadzhi", role: "Founder", img: "user.png" },
           {
