@@ -11,11 +11,11 @@ const Testimonials2 = () => {
           <img src="bg1.png" className="h-full w-full" />
         </div> */}
         {[
-          { name: "Kapil Poswal", role: "Founder & CEO", img: "user.png" },
+          { name: "Kapil Poswal", role: "Founder & CEO", img: "kapil.png" },
           {
             name: "Rohan Bhati",
             role: "Chief Marketing Officer",
-            img: "user.png",
+            img: "rohan.png",
           },
           { name: "Ashish Chhawri", role: "Copywriter", img: "user.png" },
         ].map((person, index) => (

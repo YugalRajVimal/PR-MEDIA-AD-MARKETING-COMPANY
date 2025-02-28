@@ -39,7 +39,7 @@ const Card2 = () => {
           <p className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400 drop-shadow-md shadow-yellow-400">
             Speak to our team today, plus schedule your free audit call today.
           </p>
-          <div className="absolute bottom-4 right-4 text-3xl h-[30px] flex justify-end gap-1">
+          <div className="absolute w-full bottom-4 right-4 text-3xl h-[30px] flex justify-end gap-1">
             <span>
               <img src="mailIcon.png" className="h-full object-contain" />
             </span>
