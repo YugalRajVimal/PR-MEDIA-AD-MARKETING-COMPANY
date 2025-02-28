@@ -29,8 +29,8 @@ const CompanyTrustUs = () => {
       <div className="relative flex gap-6 overflow-hidden w-full">
         <div ref={scrollRef} className="flex gap-6 whitespace-nowrap transition-transform duration-500 ease-linear">
           {[...Array(2)].map((_, index) => (
-            <div key={index} className="flex gap-12">
-              <div className="h-24 aspect-[1/1] rounded-full bg-[#3B2E22] p-2">A</div>
+            <div key={index} className="flex justify-center gap-12">
+              <div className="h-24 aspect-[1/1] rounded-full bg-[#3B2E22] p-2 ml-5">A</div>
               <div className="h-24 aspect-[1/1] rounded-full bg-[#3B2E22] p-2"></div>
               <div className="h-24 aspect-[1/1] rounded-full bg-[#3B2E22] p-2"></div>
               <div className="h-24 aspect-[1/1] rounded-full bg-[#3B2E22] p-2"></div>
