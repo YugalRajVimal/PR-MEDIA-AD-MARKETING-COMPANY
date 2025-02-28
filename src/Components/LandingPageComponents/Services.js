@@ -45,7 +45,7 @@ const ServiceCard = ({ title, items }) => {
 
       <ul className="sticky top-[15%] mt-4 space-y-2 relative text-md md:text-base">
         {items.map((item, index) => (
-          <li key={index} className="sticky top-[15%] relative h-48">
+          <li key={index} className="sticky top-[15%] flex justify-center relative h-48">
             <div className="sticky top-[15%] h-48 w-full max-w-[450px] bg-slate-200 rounded-md overflow-hidden">
               <img src={item.image} className="h-full w-full object-cover" />
             </div>
