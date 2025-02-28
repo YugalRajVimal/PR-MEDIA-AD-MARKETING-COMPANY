@@ -170,6 +170,7 @@ const Packages = () => {
           setTimeout(() => {
             document.querySelectorAll(".price-button").forEach((btn) => {
               btn.classList.remove("animate-vibrate");
+              btn.style.transform = "translateX(0) translateY(0)"; // Reset position
             });
           }, 1000);
         }
@@ -190,12 +191,14 @@ const Packages = () => {
         <h2 className="text-4xl font-semibold">Packages</h2>
 
         {/* Buttons Section */}
-        <div className="w-full text-center md:text-left py-2 rounded-xl flex gap-2 sm:gap-4 md:gap-8 justify-evenly items-center">
+        <div className="w-full flex justify-evenly items-center gap-2 md:gap-4">
           {["4.99 Crore", "99 Lakh", "9 Lakh"].map((price, index) => (
-            <a key={index} href={`/package${index + 1}`} className="w-full md:w-auto">
-              <button
-                className="price-button w-fit p-3 md:px-10 py-1 md:py-3 my-auto text-[22px] text-[#fff2e1] rounded-full hover:bg-[#3B2E22] transition-transform transform hover:scale-105 whitespace-nowrap"
-              >
+            <a
+              key={index}
+              href={`/package${index + 1}`}
+              className=" text-center"
+            >
+              <button className="price-button w-fit  md:px-10 py-1 md:py-3 my-auto text-[22px] text-[#fff2e1] rounded-full hover:bg-[#3B2E22] transition-transform transform hover:scale-105 whitespace-nowrap">
                 {price}
               </button>
             </a>
