@@ -17,7 +17,7 @@ const Testimonials2 = () => {
             role: "Chief Marketing Officer",
             img: "rohan.png",
           },
-          { name: "Ashish Chhawri", role: "Copywriter", img: "user.png" },
+          { name: "Vineet Chhawri", role: "Copywriter", img: "vineet.png" },
         ].map((person, index) => (
           <div
             key={index}
@@ -27,7 +27,7 @@ const Testimonials2 = () => {
               <img
                 src={person.img}
                 alt={person.name}
-                className=" object-cover h-[120%] w-[120%] "
+                className=" object-cover h-[130%] w-[130%] "
               />
             </div>
 
