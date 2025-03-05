@@ -65,7 +65,7 @@ const Footer = () => {
 
         {/* End Section */}
         <div className="footer-section flex flex-col items-center md:items-center">
-          <p className="text-sm">&copy; 2013. All rights reserved.</p>
+          <p className="text-sm">&copy; 2019. All rights reserved.</p>
           <p className="text-sm">
             Powered by <span className="font-semibold">Gowappily Infotech</span>
           </p>

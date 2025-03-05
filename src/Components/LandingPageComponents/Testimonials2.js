@@ -23,11 +23,17 @@ const Testimonials2 = () => {
             key={index}
             className="flex flex-col items-center gap-2 p-6 rounded-xl w-full z-[1]"
           >
-            <div className="h-24 w-24 rounded-full border-4 border-[#9D2140] overflow-hidden">
+            <div
+              className={`h-24 w-24 rounded-full border-4 border-[#9D2140] overflow-hidden  ${
+                index == 1 && "flex justify-center items-center"
+              }`}
+            >
               <img
                 src={person.img}
                 alt={person.name}
-                className={`object-cover ${index==0?"h-[100%] w-[100%]":"h-[130%] w-[130%]"} `} 
+                className={`object-cover ${
+                  index == 0 ? "h-[100%] w-[100%]" : "h-[130%] w-[130%]"
+                } ${index == 1 ? "h-[90%] w-[90%]" : "h-[130%] w-[130%]"}`}
               />
             </div>
 
