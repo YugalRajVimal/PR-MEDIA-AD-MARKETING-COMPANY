@@ -7,30 +7,6 @@ import { FiMail } from "react-icons/fi";
 gsap.registerPlugin(ScrollTrigger);
 
 const Card2 = () => {
-  const aboutRef3 = useRef(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        aboutRef3.current,
-        { opacity: 0, y: 50 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1.2,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: aboutRef3.current,
-            start: "top 80%", // Start when top of section is 80% in view
-            toggleActions: "play none none none", // Play once, no repeat
-          },
-        }
-      );
-    }, aboutRef3);
-
-    return () => ctx.revert(); // Cleanup on unmount
-  }, []);
-
   return (
     <section className="  px-4 sm:px-10 md:px-20  ">
       <div className=" mx-auto   flex flex-col md:flex-row items-center gap-12 ">
@@ -39,11 +15,14 @@ const Card2 = () => {
           <p className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400 drop-shadow-md shadow-yellow-400">
             Speak to our team today, plus schedule your free audit call today.
           </p>
-          <div className="absolute w-full bottom-4 right-4 text-3xl h-[30px] flex justify-end gap-1">
-            <span>
-              <img src="mailIcon.png" className="h-full object-contain" />
+          <div className="absolute w-full bottom-4 right-4 text-3xl h-[30px] text-right space-x-1 ">
+            <span className="absolute top-1/2 -translate-y-1/2 right-[32px]">
+              <img
+                src="mailIcon.png"
+                className="h-[30px] object-contain inline-block "
+              />
             </span>
-            <span className="text-[#2cb317]">
+            <span className="absolute top-1/2 -translate-y-1/2 right-0 text-[#2cb317] inline-block">
               <FaWhatsapp />
             </span>
           </div>
