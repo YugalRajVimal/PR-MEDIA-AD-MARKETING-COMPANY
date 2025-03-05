@@ -22,7 +22,7 @@ const CompanyTrustUs = () => {
   }, []);
 
   return (
-    <div id="company" className="p-4 sm:p-10 md:p-20 pt-20 pb-16 text-[#fff2e1] overflow-hidden">
+    <div id="company" className="p-4 sm:p-10 md:p-20 pt-20 pb-12 text-[#fff2e1] overflow-hidden">
       <h2 className="text-4xl md:text-5xl lg:text-6xl text-center text-[#3B2E22] font-semibold p-6">
         Companies That Trust Us
       </h2>
@@ -30,12 +30,22 @@ const CompanyTrustUs = () => {
         <div ref={scrollRef} className="flex gap-6 whitespace-nowrap transition-transform duration-500 ease-linear">
           {[...Array(2)].map((_, index) => (
             <div key={index} className="flex justify-center gap-12">
-              <div className="h-24 aspect-[1/1] rounded-full bg-[#3B2E22] p-2 ml-5">A</div>
-              <div className="h-24 aspect-[1/1] rounded-full bg-[#3B2E22] p-2"></div>
-              <div className="h-24 aspect-[1/1] rounded-full bg-[#3B2E22] p-2"></div>
-              <div className="h-24 aspect-[1/1] rounded-full bg-[#3B2E22] p-2"></div>
-              <div className="h-24 aspect-[1/1] rounded-full bg-[#3B2E22] p-2"></div>
-              <div className="h-24 aspect-[1/1] rounded-full bg-[#3B2E22] p-2">Z</div>
+              <div className="h-32 aspect-[1/1] rounded-full p-2 ml-5">
+              <img src="/logocom/logo00001.png" className="h-full object-contain" />
+              </div>
+              <div className="h-32 aspect-[1/1] rounded-full p-2">
+              <img src="/logocom/logo00002.svg" className="h-full object-contain" />
+              </div>
+              <div className="h-32 aspect-[1/1] rounded-full p-2">
+              <img src="/logocom/logo00003.webp" className="h-full scale-[1.2] object-contain" />
+              </div>
+              <div className="h-32 aspect-[1/1] rounded-full p-2">
+              <img src="/logocom/logo00004.png" className="h-full  scale-[0.8] object-contain" />
+              </div>
+              <div className="h-32 aspect-[1/1] rounded-full p-2">
+              <img src="/logocom/logo00005.png" className="h-full object-contain" />
+              </div>
+
             </div>
           ))}
         </div>
