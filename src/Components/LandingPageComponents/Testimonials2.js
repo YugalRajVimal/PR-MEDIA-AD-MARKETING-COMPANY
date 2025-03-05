@@ -27,7 +27,7 @@ const Testimonials2 = () => {
               <img
                 src={person.img}
                 alt={person.name}
-                className=" object-cover h-[130%] w-[130%] "
+                className={`object-cover ${index==0?"h-[100%] w-[100%]":"h-[130%] w-[130%]"} `} 
               />
             </div>
 
