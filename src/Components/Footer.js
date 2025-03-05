@@ -5,7 +5,7 @@ const Footer = () => {
 
   return (
     <footer className="bg-[#3B2E22] text-[#fff2e1] px-8 py-12 w-screen">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Left Section */}
         <div className="footer-section">
           <h2 className="text-2xl font-bold mb-2">About Us</h2>
@@ -14,30 +14,54 @@ const Footer = () => {
             thrive in the digital era.
           </p>
         </div>
+        <div className="footer-section w-full flex justify-between">
+          <div className="footer-section flex w-1/2 justify-center">
+            <ul className="text-sm space-y-1">
+              <h3 className="text-lg font-semibold mb-2">Quick Links</h3>
 
-        {/* Middle Section */}
-        {/* <div className="footer-section flex justify-center">
-          <ul className="text-sm space-y-1">
-            <h3 className="text-lg font-semibold mb-2">Packages</h3>
+              <li>
+                <a href="/" className="hover:text-gray-300 transition">
+                  Home
+                </a>
+              </li>
+              <li>
+                <a href="#company" className="hover:text-gray-300 transition whitespace-nowrap">
+                  Company that Trust Us
+                </a>
+              </li>
 
-            <li>
-              <a href="/package1" className="hover:text-gray-300 transition">
-                4.99 Crore
-              </a>
-            </li>
-            <li>
-              <a href="/package2" className="hover:text-gray-300 transition">
-                99 Lakh
-              </a>
-            </li>
+              <li>
+                <a href="#call" className="hover:text-gray-300 transition">
+                  Demo Call
+                </a>
+              </li>
+            </ul>
+          </div>
 
-            <li>
-              <a href="/package3" className="hover:text-gray-300 transition">
-                9 Lakh
-              </a>
-            </li>
-          </ul>
-        </div> */}
+          {/* Middle Section */}
+          <div className="footer-section flex w-1/2 justify-evenly w-full">
+            <ul className="text-sm space-y-1">
+              <h3 className="text-lg font-semibold mb-2">Packages</h3>
+
+              <li>
+                <a href="/package1" className="hover:text-gray-300 transition">
+                  4.99 Crore
+                </a>
+              </li>
+              <li>
+                <a href="/package2" className="hover:text-gray-300 transition">
+                  99 Lakh
+                </a>
+              </li>
+
+              <li>
+                <a href="/package3" className="hover:text-gray-300 transition">
+                  9 Lakh
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
 
         {/* End Section */}
         <div className="footer-section flex flex-col items-center md:items-center">
