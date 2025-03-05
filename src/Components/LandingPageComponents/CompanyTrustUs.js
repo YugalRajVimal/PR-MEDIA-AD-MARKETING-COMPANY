@@ -22,7 +22,7 @@ const CompanyTrustUs = () => {
   }, []);
 
   return (
-    <div id="testimonials" className="p-4 sm:p-10 md:p-20 pt-20 text-[#fff2e1] overflow-hidden">
+    <div id="testimonials" className="p-4 sm:p-10 md:p-20 pt-20 pb-16 text-[#fff2e1] overflow-hidden">
       <h2 className="text-4xl md:text-5xl lg:text-6xl text-center text-[#3B2E22] font-semibold p-6">
         Companies That Trust Us
       </h2>

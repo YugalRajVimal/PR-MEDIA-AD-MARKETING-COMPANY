@@ -39,7 +39,7 @@ const services = [
 
 const ServiceCard = ({ title, items }) => {
   return (
-    <div className="  w-full md:w-full rounded-lg shadow-lg border border-black p-6 relative">
+    <div className="  w-full md:w-full rounded-lg  p-6 relative">
       <h2 className="text-xl font-bold text-center pt-3">{title}</h2>
       <div className="w-[90%] md:w-[70%] lg:w-[60%] border border-black mx-auto my-4"></div>
 
@@ -59,7 +59,7 @@ const ServiceCard = ({ title, items }) => {
 const BusinessSalesSection = () => {
   return (
     <div id="services" className="p-4 sm:p-10 md:p-20 min-h-[200vh]">
-      <div className="flex flex-col items-center space-y-10 border border-black p-4 md:p-8 rounded-xl">
+      <div className="flex flex-col items-center space-y-10  p-4 md:p-8 rounded-xl">
         {services.map((service, index) => (
           <ServiceCard key={index} {...service} />
         ))}

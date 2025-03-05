@@ -16,7 +16,7 @@ const Card2 = () => {
             Speak to our team today, plus schedule your free audit call today.
           </p>
           <div className="absolute w-full bottom-4 right-4 text-3xl h-[30px] text-right space-x-1 ">
-            <span className="absolute top-1/2 -translate-y-1/2 right-[35px]">
+            <span className="absolute top-1/2 -translate-y-1/2 right-[38px]">
               <img
                 src="mailIcon.png"
                 className="h-[30px] object-contain inline-block "

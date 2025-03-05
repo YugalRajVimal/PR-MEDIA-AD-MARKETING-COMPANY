@@ -191,7 +191,7 @@ const Packages = () => {
         <h2 className="text-4xl font-semibold">Packages</h2>
 
         {/* Buttons Section */}
-        <div className="w-full flex justify-evenly items-center gap-4">
+        <div className="w-full flex justify-evenly items-center gap-6">
           {["4.99 Crore", "99 Lakh", "9 Lakh"].map((price, index) => (
             <a
               key={index}

@@ -5,7 +5,7 @@ import { FaPhone } from "react-icons/fa6";
 const AuditCallCard = () => {
   return (
     <div className="p-4 sm:p-10 md:p-20 flex justify-center">
-      <div className=" p-6 md:p-8  rounded-lg w-full border border-[2px] border-black ">
+      <div className=" p-6 md:p-8  rounded-lg w-full">
         <div className="h-12 aspect-[1/1] text-white text-2xl rounded-full bg-black mx-auto flex justify-center items-center">
           <FaPhone />
         </div>
