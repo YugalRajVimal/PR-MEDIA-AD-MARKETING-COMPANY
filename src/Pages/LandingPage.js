@@ -12,6 +12,7 @@ import DemoCallCard from "../Components/LandingPageComponents/DemoCallCard";
 import Card2 from "../Components/LandingPageComponents/Card2";
 import AuditCallCard from "../Components/LandingPageComponents/AuditCallCard";
 import CompanyTrustUs from "../Components/LandingPageComponents/CompanyTrustUs";
+import Card3 from "../Components/LandingPageComponents/Card3";
 
 const LandingPage = () => {
   return (
@@ -24,14 +25,23 @@ const LandingPage = () => {
         {/* <Carousel /> */}
         <Headline />
         <AboutUs />
+        <Card3 />
+
         <Card1 />
+
         <Packages />
+        <Card3 />
+
         <CompanyTrustUs />
         <Testimonials2 />
         <DemoCallCard />
         <Card2 />
         <AuditCallCard />
         <Services />
+        <div className="pb-10">
+          <Card3 />
+        </div>
+
         {/* <Testimonials />
       <ContactUs /> */}
       </div>
