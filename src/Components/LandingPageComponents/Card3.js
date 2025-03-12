@@ -5,7 +5,7 @@ import { FiMail } from "react-icons/fi";
 const Card3 = () => {
   return (
     <div className="w-full p-10 pt-10 flex justify-center items-center">
-      <div className="relative h-28 max-w-[500px] text-black flex justify-center items-center font-bold w-full border border-zinc-700 bg-[#dbc3ab] border-[2px]  rounded-t-xl rounded-l-xl p-4  md:p-6 mx-auto">
+      <div className="relative h-28 max-w-[500px] md:max-w-[350px] text-black flex justify-center items-center font-bold w-full border border-zinc-700 bg-[#dbc3ab] border-[2px]  rounded-t-xl rounded-l-xl p-4  md:p-6 mx-auto">
         <div className="flex flex-col gap-4 ">
           <p>Schedule your free audit call today.</p>
         </div>

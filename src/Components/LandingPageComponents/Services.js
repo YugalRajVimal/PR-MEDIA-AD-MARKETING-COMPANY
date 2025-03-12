@@ -40,7 +40,7 @@ const services = [
 const ServiceCard = ({ title, items }) => {
   return (
     <div className="  w-full md:w-full rounded-lg  p-4 md:p-6 relative">
-      <h2 className="text-xl font-bold text-center pt-3">{title}</h2>
+      <h2 className="text-2xl font-bold text-center pt-3">{title}</h2>
       <div className="w-[90%] md:w-[70%] lg:w-[60%] border border-black mx-auto my-4"></div>
 
       <ul className="sticky top-[15%] mt-4 space-y-2 relative text-md md:text-base">

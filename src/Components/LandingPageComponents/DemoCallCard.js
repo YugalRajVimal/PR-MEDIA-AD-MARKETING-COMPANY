@@ -21,7 +21,7 @@ const DemoCallCard = () => {
 
         <div className="flex items-center text-left justify-start gap-2 mt-2 ">
           <PiVideoCameraBold size={18} />
-          <span className="text-sm ">
+          <span className="text-base ">
             We will share the details on WhatsApp and email for your
             convenience.
           </span>

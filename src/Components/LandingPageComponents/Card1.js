@@ -94,7 +94,7 @@ const Card1 = () => {
           </div>
         ))}
       </div>
-      <p className="py-6 text-white text-lg">“Our strategies have helped top brands turn Ad spend into crores in profit, ensuring unmatched returns on investment"</p>
+      <p className="py-6 text-white text-2xl max-w-[905px] ">“Our strategies have helped top brands turn Ad spend into crores in profit, ensuring unmatched returns on investment"</p>
     </div>
   );
 };
