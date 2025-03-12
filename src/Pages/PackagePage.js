@@ -116,7 +116,7 @@ const PackagePage = (props) => {
         </ul>
       </div>
 
-      <p className="text-lg md:text-xl text-center px-4 h-[100px] flex justify-center items-center ">
+      <p className="text-lg md:text-xl text-center text-black px-4 h-[100px] flex justify-center items-center ">
         {packageDetails.management_fee}
       </p>
     </div>
