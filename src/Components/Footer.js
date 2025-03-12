@@ -7,12 +7,18 @@ const Footer = () => {
     <footer className="bg-[#3B2E22] text-[#fff2e1] px-8 py-12 w-screen">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Left Section */}
-        <div className="footer-section">
+        <div className="footer-section flex flex-col gap-4">
           <h2 className="text-2xl font-bold mb-2">About Us</h2>
+
           <p className="text-sm">
             We create innovative web solutions to help businesses grow and
             thrive in the digital era.
           </p>
+
+          <div>
+            <p className="text-sm">Open 10Am to 6Pm</p>
+            <p className="text-sm">Mon to Sat</p>
+          </div>
         </div>
         <div className="footer-section w-full flex justify-between">
           <div className="footer-section flex w-1/2 justify-center">
@@ -25,7 +31,10 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="#company" className="hover:text-gray-300 transition whitespace-nowrap">
+                <a
+                  href="#company"
+                  className="hover:text-gray-300 transition whitespace-nowrap"
+                >
                   Company that Trust Us
                 </a>
               </li>
@@ -64,11 +73,19 @@ const Footer = () => {
         </div>
 
         {/* End Section */}
-        <div className="footer-section flex flex-col items-center md:items-center">
-          <p className="text-sm">&copy; 2019. All rights reserved.</p>
+        <div className="footer-section flex flex-col gap-4 items-center md:items-center">
           <p className="text-sm">
-            Powered by <span className="font-semibold">Gowappily Infotech</span>
+            Office No-217, Second Floor, Krishna Apra Royal Plaza Tower,
+            Commercial Belt, Alfa-1, Near Pari Chowk, Greater Noida, India
           </p>
+          <div>
+            <p className="text-sm">&copy; 2019. All rights reserved.</p>
+
+            <p className="text-sm">
+              Powered by{" "}
+              <span className="font-semibold">Gowappily Infotech</span>
+            </p>
+          </div>
         </div>
       </div>
     </footer>

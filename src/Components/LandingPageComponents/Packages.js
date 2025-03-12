@@ -187,7 +187,7 @@ const Packages = () => {
 
   return (
     <section ref={sectionRef} className="p-4 sm:p-10 md:p-20 flex justify-center items-center">
-      <div className="h-full max-w-[500px] flex flex-col justify-evenly items-center gap-10 p-10 md:p-4 bg-[#3B2E22] text-[#fff2e1] rounded-xl">
+      <div className="h-full w-full md:w-[600px] md:max-w-[600px] flex flex-col justify-evenly items-center gap-10 p-10 md:p-4 bg-[#3B2E22] text-[#fff2e1] rounded-xl">
         <h2 className="text-4xl font-semibold">Packages</h2>
 
         {/* Buttons Section */}
