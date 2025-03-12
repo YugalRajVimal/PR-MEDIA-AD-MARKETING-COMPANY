@@ -17,12 +17,12 @@ const Card3 = () => {
         {/* <div className="h-full w-full absolute top-[6px] left-[6px] bg-[#dbc3ab] z-[-1] rounded-t-xl rounded-l-xl"></div> */}
         <div className="absolute w-full bottom-2 right-2 text-2xl h-[24px] text-right space-x-1 ">
           <span className="absolute top-1/2 -translate-y-1/2 right-[30px]">
-            <a href="">
+            <a href="mailto:info@theprmedia.com" >
               <FiMail />
             </a>
           </span>
           <span className="absolute top-1/2 -translate-y-1/2 right-0 text-black inline-block">
-            <a href="">
+            <a href="https://wa.me/+917500010933">
               <FaWhatsapp />
             </a>
           </span>

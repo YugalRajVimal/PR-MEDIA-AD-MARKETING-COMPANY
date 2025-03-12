@@ -17,7 +17,7 @@ const Card2 = () => {
           </p>
           <div className="absolute w-full bottom-4 right-4 text-3xl h-[30px] text-right space-x-1 ">
             <span className="absolute top-1/2 -translate-y-1/2 right-[38px]">
-              <a href="">
+              <a href="mailto:info@theprmedia.com">
                 <img
                   src="mailIcon.png"
                   className="h-[30px] object-contain inline-block "
@@ -25,7 +25,7 @@ const Card2 = () => {
               </a>
             </span>
             <span className="absolute top-1/2 -translate-y-1/2 right-0 text-[#2cb317] inline-block">
-              <a href="">
+              <a href="https://wa.me/+917500010933">
                 <FaWhatsapp />
               </a>
             </span>
