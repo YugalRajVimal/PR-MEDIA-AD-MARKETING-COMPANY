@@ -1,6 +1,7 @@
 import React from "react";
 import { FaWhatsapp } from "react-icons/fa";
 import { FiMail } from "react-icons/fi";
+import { IoCallOutline } from "react-icons/io5";
 
 const Card3 = () => {
   return (
@@ -16,6 +17,12 @@ const Card3 = () => {
         {/* <div className="h-full w-full absolute top-4 left-4 bg-zinc-500 z-[-2] rounded-t-xl rounded-l-xl"></div> */}
         {/* <div className="h-full w-full absolute top-[6px] left-[6px] bg-[#dbc3ab] z-[-1] rounded-t-xl rounded-l-xl"></div> */}
         <div className="absolute w-full bottom-2 right-2 text-2xl h-[24px] text-right space-x-1 ">
+       
+        <span className="absolute top-1/2 -translate-y-1/2 right-[30px]">
+            <a href="tel:+917500010933" >
+              <IoCallOutline />
+            </a>
+          </span>
           <span className="absolute top-1/2 -translate-y-1/2 right-[30px]">
             <a href="mailto:info@theprmedia.com" >
               <FiMail />
