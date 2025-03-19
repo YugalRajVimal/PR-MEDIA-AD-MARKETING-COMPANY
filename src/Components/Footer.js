@@ -16,7 +16,7 @@ const Footer = () => {
           </p>
 
           <div>
-            <p className="text-sm">Open 10Am to 6Pm</p>
+            <p className="text-sm">Open 10 Am to 6 Pm</p>
             <p className="text-sm">Mon to Sat</p>
           </div>
         </div>
