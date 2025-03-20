@@ -34,7 +34,7 @@ const Headline = () => {
         <div className="relative h-[160px] md:h-[280px] w-full overflow-hidden flex justify-center items-center ">
           <img
             src="logo2.svg"
-            className="h-[160%] md:h-[170%] w-[100%] md:w-full object-cover md:object-contain"
+            className="h-[140%] md:h-[170%] w-[100%] md:w-full object-cover md:object-contain"
           />
         </div>
       </div>
