@@ -60,7 +60,7 @@
 //         ref={menuRef}
 //         className={`overflow-hidden ${
 //           isMenuOpen || isLargeScreen ? "block" : "hidden"
-//         } absolute top-full left-0 w-full bg-[#dbc3ab] shadow-md md:flex md:static md:w-auto md:bg-transparent md:shadow-none gap-6 z-40`}
+//         } absolute top-full left-0 w-full bg-[#dbc3ab] md:bg-[#f7dbb6] shadow-md md:flex md:static md:w-auto md:bg-transparent md:shadow-none gap-6 z-40`}
 //       >
 //         {["Home", "About", "Services", "Contact Us"].map((linkText, index) => (
 //           <li

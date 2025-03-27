@@ -3,7 +3,7 @@
 // const PackagePage = (props) => {
 //   const { packagePrice } = props;
 //   return (
-//     <div className="md:p-10 bg-[#dbc3ab] text-[#3B2E22] min-h-screen mt-[70px] text-[#3B2E22]">
+//     <div className="md:p-10 bg-[#dbc3ab] md:bg-[#f7dbb6] text-[#3B2E22] min-h-screen mt-[70px] text-[#3B2E22]">
 //       <h2 className="text-4xl md:text-5xl lg:text-6xl text-center p-6 font-semibold">
 //         {packagePrice}
 //       </h2>
@@ -80,7 +80,7 @@ const services = [
 const PackagePage = (props) => {
   const { packageDetails } = props;
   return (
-    <div className="md:pt-20 bg-[#dbc3ab] text-[#3B2E22] min-h-screen pt-[100px] text-[#3B2E22]">
+    <div className="md:pt-20 bg-[#dbc3ab] md:bg-[#f7dbb6] text-[#3B2E22] min-h-screen pt-[100px] text-[#3B2E22]">
       <h2 className="text-2xl md:text-3xl font-bold text-center w-full px-4">
         {packageDetails.title}
       </h2>
@@ -97,7 +97,7 @@ const PackagePage = (props) => {
               className="sticky top-[15%] flex justify-center relative h-52"
             >
               <div className="sticky top-[15%] h-52 w-full max-w-[500px] p-2">
-                <div className="relative h-full text-black flex  items-center font-bold w-full border border-zinc-700 bg-[#dbc3ab] border-[2px] rounded-xl p-4  md:p-6">
+                <div className="relative h-full text-black flex  items-center font-bold w-full border border-zinc-700 bg-[#dbc3ab] md:bg-[#f7dbb6] border-[2px] rounded-xl p-4  md:p-6">
                   <div className="flex flex-col gap-4 ">
                     <span>
                       <img
@@ -108,7 +108,7 @@ const PackagePage = (props) => {
                     <p>{feature.description}</p>
                   </div>
                   <div className="h-full w-full absolute top-4 left-4 bg-zinc-500 z-[-2] rounded-xl"></div>
-                  <div className="h-full w-full absolute top-[6px] left-[6px] bg-[#dbc3ab] z-[-1] rounded-xl"></div>
+                  <div className="h-full w-full absolute top-[6px] left-[6px] bg-[#dbc3ab] md:bg-[#f7dbb6] z-[-1] rounded-xl"></div>
                 </div>
               </div>
             </li>

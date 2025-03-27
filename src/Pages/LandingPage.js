@@ -16,12 +16,12 @@ import Card3 from "../Components/LandingPageComponents/Card3";
 
 const LandingPage = () => {
   return (
-    <div className=" pt-[70px] text-[#3B2E22] bg-[#dbc3ab] ">
+    <div className=" pt-[70px] text-[#3B2E22] bg-[#dbc3ab] md:bg-[#f7dbb6] ">
       {/* <div className="fixed -top-[70px] left-0 h-screen w-screen flex justify-center items-center ">
         <img src="banner.png" className="h-full w-full object-contain" />
       </div> */}
 
-      <div className="z-[10] bg-[#dbc3ab] backdrop-blur-md">
+      <div className="z-[10] bg-[#dbc3ab] md:bg-[#f7dbb6] backdrop-blur-md">
         {/* <Carousel /> */}
         <Headline />
         <AboutUs />
