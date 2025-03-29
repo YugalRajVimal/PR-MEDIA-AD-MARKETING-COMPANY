@@ -23,8 +23,8 @@ const AboutUs = () => {
           <p
             className="text-lg leading-relaxed  text-black text-center"
           >
-            "Emotions sell, not just ads. AI Ads and Premium Videos Catch Eyes,
-            But storytelling Captures Hearts, Make your brand unforgettable"
+            Emotions sell, not just ads. AI Ads and Premium Videos Catch Eyes,
+            But storytelling Captures Hearts, Make your brand unforgettable.
           </p>
 
           {/* <button className="mt-6 px-6 py-3 bg-[#4E3C2C] text-[#fff2e1] rounded-lg shadow-lg hover:bg-[#3B2E22] transition-transform transform hover:scale-105">
