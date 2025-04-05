@@ -75,13 +75,13 @@ const Footer = () => {
         {/* End Section */}
         <div className="footer-section flex flex-col gap-4 items-center md:items-center">
           <p className="text-sm">
-            KHET NO - 404, ASIAN PAINT COLONY, KHERLI HAFIZPUR, Yamuna
-            Expressway Industrial Development Area, Gautambuddha Nagar, Uttar
-            Pradesh, 203201
+            Office No-217, Second Floor, Krishna Apra Royal Plaza Tower,
+            Commercial Belt, Alfa-1, Near Pari Chowk, Greater Noida, India ( Pin
+            code - 201310 )
           </p>
           <div>
             <p className="text-sm">
-              Copyright &copy; 2025 THE PR MEDIA. All rights reserved.
+              Copyright &copy; 2019 THE PR MEDIA. All rights reserved.
             </p>
 
             <p className="text-sm">
