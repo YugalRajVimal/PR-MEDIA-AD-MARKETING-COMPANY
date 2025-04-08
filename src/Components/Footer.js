@@ -79,8 +79,11 @@ const Footer = () => {
             Commercial Belt, Alfa-1, Near Pari Chowk, Greater Noida, India ( Pin
             code - 201310 )
           </p>
+          <p className="text-sm text-left w-full">
+            Contact No. 7500030415, 7500010933 
+          </p>
           <div>
-            <p className="text-sm">
+            <p className="text-sm md:text-left md:w-full">
               Copyright &copy; 2019 THE PR MEDIA. All rights reserved.
             </p>
 
