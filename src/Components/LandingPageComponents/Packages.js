@@ -192,7 +192,7 @@ const Packages = () => {
 
         {/* Buttons Section */}
         <div className="w-full flex justify-evenly items-center gap-6">
-          {["4.99 Crore", "99 Lakh", "9 Lakh"].map((price, index) => (
+          {["4.99 Crore", "3.99 Crore", "99 Lakh"].map((price, index) => (
             <a
               key={index}
               href={`/package${index + 1}`}

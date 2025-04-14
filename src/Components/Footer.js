@@ -59,13 +59,13 @@ const Footer = () => {
               </li>
               <li>
                 <a href="/package2" className="hover:text-gray-300 transition">
-                  99 Lakh
+                  3.99 Crore
                 </a>
               </li>
 
               <li>
                 <a href="/package3" className="hover:text-gray-300 transition">
-                  9 Lakh
+                  99 Lakh
                 </a>
               </li>
             </ul>
