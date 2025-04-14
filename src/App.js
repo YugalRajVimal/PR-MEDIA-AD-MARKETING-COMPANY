@@ -7,7 +7,7 @@ import PackagePage from "./Pages/PackagePage";
 const App = () => {
   const packages = [
     {
-      title: "₹9 Lakh Package – Premium Sales Acceleration",
+      title: "₹99 Lakh Package – Premium Sales Acceleration",
       description:
         "For businesses looking to boost sales and real estate listings with expert marketing.",
       features: [
@@ -49,10 +49,10 @@ const App = () => {
         },
       ],
       management_fee:
-        "For our ₹9 Lakh package, we charge an 8% management fee.",
+        "For our ₹99 Lakh package, we charge an 8% management fee.",
     },
     {
-      title: "₹99 Lakh Package – High-Value Business & Real Estate Growth",
+      title: "₹3.99 Crore Package – High-Value Business & Real Estate Growth",
       description:
         "For businesses and real estate projects aiming for market dominance.",
       features: [
@@ -88,7 +88,7 @@ const App = () => {
         },
       ],
       management_fee:
-        "For our ₹99 Lakh package, we charge a 7% management fee.",
+        "For our ₹3.99 Crore package, we charge a 7% management fee.",
     },
     {
       title: "₹4.99 Crore Package – Ultra-Luxury Brand Domination",
