@@ -191,6 +191,9 @@ const Packages = () => {
         <h2 className="text-4xl font-semibold">Packages</h2>
 
         {/* Buttons Section */}
+        <div>
+
+        </div>
         <div className="w-full flex justify-evenly items-center gap-4 md:gap-6">
           {["4.99 Crore", "3.99 Crore", "99 Lakh"].map((price, index) => (
             <a
