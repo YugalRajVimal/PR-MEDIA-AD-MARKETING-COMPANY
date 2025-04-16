@@ -191,14 +191,14 @@ const Packages = () => {
         <h2 className="text-4xl font-semibold">Packages</h2>
 
         {/* Buttons Section */}
-        <div className="w-full flex justify-evenly items-center gap-6">
+        <div className="w-full flex justify-evenly items-center gap-4 md:gap-6">
           {["4.99 Crore", "3.99 Crore", "99 Lakh"].map((price, index) => (
             <a
               key={index}
               href={`/package${index + 1}`}
-              className=" md:w-auto text-center"
+              className="text-center"
             >
-              <button className="price-button w-fit md:px-2 py-1 md:py-3 my-auto text-[22px] text-[#fff2e1] rounded-full hover:bg-[#3B2E22] transition-transform transform hover:scale-105 whitespace-nowrap">
+              <button className="price-button w-fit md:px-2 py-1 md:py-3 my-auto text-[22px] text-[#fff2e1] rounded-full hover:bg-[#3B2E22] transition-transform transform whitespace-nowrap">
                 {price}
               </button>
             </a>
