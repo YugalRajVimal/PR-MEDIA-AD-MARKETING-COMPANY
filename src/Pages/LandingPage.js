@@ -13,6 +13,7 @@ import Card2 from "../Components/LandingPageComponents/Card2";
 import AuditCallCard from "../Components/LandingPageComponents/AuditCallCard";
 import CompanyTrustUs from "../Components/LandingPageComponents/CompanyTrustUs";
 import Card3 from "../Components/LandingPageComponents/Card3";
+import VideoCard1 from "../Components/LandingPageComponents/VideoCard1";
 
 const LandingPage = () => {
   return (
@@ -26,7 +27,7 @@ const LandingPage = () => {
         <Headline />
         <AboutUs />
         <Card3 />
-
+        <VideoCard1 />
         <Card1 />
 
         <Packages />
