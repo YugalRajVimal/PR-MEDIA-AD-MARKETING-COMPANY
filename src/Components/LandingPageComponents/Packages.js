@@ -198,7 +198,7 @@ const Packages = () => {
               href={`/package${index + 1}`}
               className=" md:w-auto text-center"
             >
-              <button className="price-button w-fit  md:px-2 py-1 md:py-3 my-auto text-[22px] text-[#fff2e1] rounded-full hover:bg-[#3B2E22] transition-transform transform hover:scale-105 whitespace-nowrap">
+              <button className="price-button w-fit md:px-2 py-1 md:py-3 my-auto text-[22px] text-[#fff2e1] rounded-full hover:bg-[#3B2E22] transition-transform transform hover:scale-105 whitespace-nowrap">
                 {price}
               </button>
             </a>
