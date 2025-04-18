@@ -5,7 +5,7 @@ const VideoCard1 = () => {
     <div className="flex justify-center items-center px-6  text-center">
       <div className="grid grid-cols-2 gap-6 mt-6 w-full max-w-2xl text-white">
         {/* First Video Card */}
-        <div className="bg-[#3B2E22] py-1 px-1 rounded-xl shadow-lg border border-yellow-500 hover:shadow-yellow-400 transition-all flex flex-col justify-center items-center">
+        <div className="bg-[#3B2E22] py-[2px] px-[2px] rounded-xl shadow-lg border border-yellow-500 hover:shadow-yellow-400 transition-all flex flex-col justify-center items-center">
           <video
             controls
             className="w-full h-full rounded-lg"
@@ -17,7 +17,7 @@ const VideoCard1 = () => {
         </div>
 
         {/* Second Video Card */}
-        <div className="bg-[#3B2E22] py-1 px-1 rounded-xl shadow-lg border border-yellow-500 hover:shadow-yellow-400 transition-all flex flex-col justify-center items-center">
+        <div className="bg-[#3B2E22] py-[2px] px-[2px] rounded-xl shadow-lg border border-yellow-500 hover:shadow-yellow-400 transition-all flex flex-col justify-center items-center">
           <video
             controls
             className="w-full h-full rounded-lg"
