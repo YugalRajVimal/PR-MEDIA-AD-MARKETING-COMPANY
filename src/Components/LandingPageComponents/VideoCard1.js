@@ -8,7 +8,7 @@ const VideoCard1 = () => {
         <div className="bg-[#3B2E22] py-[2px] px-[2px] rounded-xl shadow-lg border border-yellow-500 hover:shadow-yellow-400 transition-all flex flex-col justify-center items-center">
           <video
             controls
-            className="w-full h-full rounded-lg"
+            className="w-full h-full rounded-lg object-cover"
             src="/video00001.mp4"
             poster="/video1Thumbnail.jpg" // 👈 Add your poster image path
           >
@@ -20,7 +20,7 @@ const VideoCard1 = () => {
         <div className="bg-[#3B2E22] py-[2px] px-[2px] rounded-xl shadow-lg border border-yellow-500 hover:shadow-yellow-400 transition-all flex flex-col justify-center items-center">
           <video
             controls
-            className="w-full h-full rounded-lg"
+            className="w-full h-full rounded-lg object-cover"
             src="/video00002.mp4"
             poster="/video2Thumbnail.jpg" // 👈 Add your poster image path
           >
