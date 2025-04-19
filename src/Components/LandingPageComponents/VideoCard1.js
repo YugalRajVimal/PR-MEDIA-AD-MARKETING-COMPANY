@@ -10,6 +10,7 @@ const VideoCard1 = () => {
             autoPlay
             muted
             loop
+            playsInline
             className="w-[70%] h-full rounded-lg object-cover"
             src="/video00001.mp4"
             poster="/video1Thumbnail.jpg"
