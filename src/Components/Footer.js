@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import { FaInstagram } from "react-icons/fa";
 
 const Footer = () => {
   const footerRef = useRef(null);
@@ -80,8 +81,21 @@ const Footer = () => {
             code - 201310 )
           </p>
           <p className="text-sm text-left w-full">
-            Contact No. 7500030415, 7500010933 
+            Contact No. 7500010933, 7500030415
           </p>
+          <p className="text-base text-left w-full h-[30px] flex items-center gap-2">
+            <span>
+              <a
+                href="https://instagram.com/theprmedia01"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaInstagram className="text-pink-500 text-2xl hover:scale-110 transition-transform duration-200" />
+              </a>
+            </span>
+            <span className="pt-1">The PR Media</span>
+          </p>
+
           <div>
             <p className="text-sm md:text-left md:w-full">
               Copyright &copy; 2019 THE PR MEDIA. All rights reserved.
