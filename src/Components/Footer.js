@@ -83,17 +83,18 @@ const Footer = () => {
           <p className="text-sm text-left w-full">
             Contact No. 7500010933, 7500030415
           </p>
-          <p className="text-base text-left w-full h-[30px] flex items-center gap-2">
-            <span>
-              <a
-                href="https://instagram.com/theprmedia01"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+          <p className="text-base text-left w-full h-[30px] ">
+            <a
+              href="https://instagram.com/theprmedia01"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2"
+            >
+              <span>
                 <FaInstagram className="text-pink-500 text-2xl hover:scale-110 transition-transform duration-200" />
-              </a>
-            </span>
-            <span className="pt-1">The PR Media</span>
+              </span>
+              <span className="pt-1">The PR Media</span>
+            </a>
           </p>
 
           <div>

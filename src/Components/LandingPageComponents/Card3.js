@@ -18,7 +18,7 @@ const Card3 = () => {
         {/* <div className="h-full w-full absolute top-[6px] left-[6px] bg-[#dbc3ab] md:bg-[#f7dbb6] z-[-1] rounded-t-xl rounded-l-xl"></div> */}
         <div className="absolute w-full bottom-2 right-2 text-2xl h-[24px] text-right space-x-1 ">
           <span className="absolute top-1/2 -translate-y-1/2 right-[60px]">
-            <a href="tel:+917500010933">
+            <a href="tel:+917500030415">
               <IoCallOutline />
             </a>
           </span>

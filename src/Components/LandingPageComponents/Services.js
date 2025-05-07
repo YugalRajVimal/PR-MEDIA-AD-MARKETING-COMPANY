@@ -2,23 +2,6 @@ import React from "react";
 
 const services = [
   {
-    title: "Business Sales",
-    items: [
-      {
-        image: "/one.png",
-        para: "Expert in Scaling Businesses & Increasing Sales. Storytelling Ads That Capture Hearts and Make Your Brand Unforgettable",
-      },
-      {
-        image: "/two.png",
-        para: "Driving Growth: Proven Strategies to Increase Sales",
-      },
-      {
-        image: "/three.png",
-        para: "Sales Acceleration Experts: We Help Businesses Grow Fast and Reach the Right Target Audience",
-      },
-    ],
-  },
-  {
     title: "Selling Real Estate Made Easy",
     items: [
       {
@@ -32,6 +15,23 @@ const services = [
       {
         image: "/six.png",
         para: "Boost Your Property Sale with Ads That Attract the Right Buyers",
+      },
+    ],
+  },
+  {
+    title: "Business Sales",
+    items: [
+      {
+        image: "/one.png",
+        para: "Expert in Scaling Businesses & Increasing Sales. Storytelling Ads That Capture Hearts and Make Your Brand Unforgettable",
+      },
+      {
+        image: "/two.png",
+        para: "Driving Growth: Proven Strategies to Increase Sales",
+      },
+      {
+        image: "/three.png",
+        para: "Sales Acceleration Experts: We Help Businesses Grow Fast and Reach the Right Target Audience",
       },
     ],
   },

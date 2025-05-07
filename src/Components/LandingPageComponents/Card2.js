@@ -18,7 +18,7 @@ const Card2 = () => {
           </p>
           <div className="absolute w-full bottom-4 right-4 text-3xl h-[30px] text-[#127ac1] text-right space-x-1 ">
             <span className="absolute top-1/2 -translate-y-1/2 right-[76px]">
-              <a href="tel:+917500010933">
+              <a href="tel:+917500030415">
                 <IoMdCall />
               </a>
             </span>
