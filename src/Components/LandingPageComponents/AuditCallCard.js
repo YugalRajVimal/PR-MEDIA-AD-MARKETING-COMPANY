@@ -22,50 +22,69 @@ const AuditCallCard = () => {
             <li className="flex items-start gap-3">
               <FaCheckCircle className=" mt-1 shrink-0 " />
 
-              <p>
+              {/* <p>
                 Businesses that want to turn their website into a{" "}
                 <span className="font-extrabold">high-converting sales</span>{" "}
                 funnel.
+              </p> */}
+              <p>
+                Real estate sellers who want faster deals, better offers, and
+                real results.
               </p>
             </li>
 
             <li className="flex items-start gap-3">
               <FaCheckCircle className=" mt-1 shrink-0 " />
-              <p>
+              {/* <p>
                 Companies looking to take their offline
                 <span className="font-extrabold">
                   {" "}
                   business online and grow.
                 </span>
                 .
+              </p> */}
+              <p>
+                Businesses aiming to get more customers and increase their
+                profits.
               </p>
             </li>
 
             <li className="flex items-start gap-3">
               <FaCheckCircle className=" mt-1 shrink-0 " />
-              <p>
+              {/* <p>
                 Brands that want to
                 <span className="font-extrabold"> increase sales</span> through
                 better funnels and conversion strategies.
+              </p> */}
+              <p>
+                Property owners who want to sell fast without relying on slow
+                brokers.
               </p>
             </li>
 
             <li className="flex items-start gap-3">
               <FaCheckCircle className=" mt-1 shrink-0 " />
-              <p>
+              {/* <p>
                 Businesses aiming to{" "}
                 <span className="font-extrabold"> get more customers</span> and
                 increase their profits.
+              </p> */}
+              <p>
+                Companies that need a dedicated agency to help them succeed.
               </p>
             </li>
 
             <li className="flex items-start gap-3">
               <FaCheckCircle className=" mt-1 shrink-0 " />
-              <p>
+              {/* <p>
                 Companies that{" "}
                 <span className="font-extrabold">
                   need a dedicated agency to help them succeed.
                 </span>
+              </p> */}
+              <p>
+                Sellers frustrated with delays and low offers from traditional
+                agents.
               </p>
             </li>
           </ul>
