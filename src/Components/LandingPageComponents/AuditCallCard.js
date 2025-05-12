@@ -28,8 +28,11 @@ const AuditCallCard = () => {
                 funnel.
               </p> */}
               <p>
-                Real estate sellers who want faster deals, better offers, and
-                real results.
+                Real estate sellers who{" "}
+                <span className="font-extrabold">
+                  want faster deals, better offers,
+                </span>
+                and real results.
               </p>
             </li>
 
@@ -44,8 +47,9 @@ const AuditCallCard = () => {
                 .
               </p> */}
               <p>
-                Businesses aiming to get more customers and increase their
-                profits.
+                Businesses aiming to{" "}
+                <span className="font-extrabold">get more customers</span>
+                and increase their profits.
               </p>
             </li>
 
@@ -57,8 +61,10 @@ const AuditCallCard = () => {
                 better funnels and conversion strategies.
               </p> */}
               <p>
-                Property owners who want to sell fast without relying on slow
-                brokers.
+                Property owners who want to{" "}
+                <span className="font-extrabold">
+                  sell fast without relying on slow brokers.{" "}
+                </span>
               </p>
             </li>
 
@@ -70,7 +76,10 @@ const AuditCallCard = () => {
                 increase their profits.
               </p> */}
               <p>
-                Companies that need a dedicated agency to help them succeed.
+                Companies that{" "}
+                <span className="font-extrabold">
+                  need a dedicated agency to help them succeed.{" "}
+                </span>
               </p>
             </li>
 
@@ -83,8 +92,11 @@ const AuditCallCard = () => {
                 </span>
               </p> */}
               <p>
-                Sellers frustrated with delays and low offers from traditional
-                agents.
+                <span className="font-extrabold">
+                  {" "}
+                  Sellers frustrated with delays
+                </span>{" "}
+                and low offers from traditional agents.
               </p>
             </li>
           </ul>
