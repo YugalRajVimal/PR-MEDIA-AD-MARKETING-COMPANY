@@ -30,8 +30,8 @@ const AuditCallCard = () => {
               <p>
                 Real estate sellers who{" "}
                 <span className="font-extrabold">
-                  want faster deals, better offers,
-                </span>
+                  want faster deals, better offers ,
+                </span>{" "}
                 and real results.
               </p>
             </li>
@@ -48,8 +48,8 @@ const AuditCallCard = () => {
               </p> */}
               <p>
                 Businesses aiming to{" "}
-                <span className="font-extrabold">get more customers</span>
-                and increase their profits.
+                <span className="font-extrabold">get more customers</span> and{" "}
+                increase their profits.
               </p>
             </li>
 
