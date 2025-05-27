@@ -49,8 +49,6 @@ const App = () => {
         //     "Retargeting & Lead Nurturing – Recapture lost leads and increase conversions.",
         // },
       ],
-      management_fee:
-        "For our Rs. 99 Lakh package, we charge an 8% management fee.",
     },
     // {
     //   title:
