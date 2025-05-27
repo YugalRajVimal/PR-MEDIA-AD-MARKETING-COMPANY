@@ -2,36 +2,36 @@ import React from "react";
 
 const services = [
   {
-    title: "Selling Real Estate Made Easy",
+    title: "Online Earning Made Easy",
     items: [
       {
         image: "/four.png",
-        para: "Sell Your Property Faster and for More with High-Impact Ads",
+        para: "We simplify online earning—no confusion, just clear steps.",
       },
       {
         image: "/five.png",
-        para: "Expert Real Estate Ads That Help You Get the Best Price for Your Property",
+        para: "Learn real skills and start earning online, the easy way.",
       },
       {
         image: "/six.png",
-        para: "Boost Your Property Sale with Ads That Attract the Right Buyers",
+        para: "Online income doesn’t have to be complicated—we make it simple.",
       },
     ],
   },
   {
-    title: "Business Sales",
+    title: "Learn Real Sales",
     items: [
       {
         image: "/one.png",
-        para: "Expert in Scaling Businesses & Increasing Sales. Storytelling Ads That Capture Hearts and Make Your Brand Unforgettable",
+        para: "Master the art of selling—because every skill needs sales.",
       },
       {
         image: "/two.png",
-        para: "Driving Growth: Proven Strategies to Increase Sales",
+        para: "Learn sales, unlock income. It’s that powerful.",
       },
       {
         image: "/three.png",
-        para: "Sales Acceleration Experts: We Help Businesses Grow Fast and Reach the Right Target Audience",
+        para: "Sales isn’t pressure, it’s persuasion—learn how to do it right.",
       },
     ],
   },

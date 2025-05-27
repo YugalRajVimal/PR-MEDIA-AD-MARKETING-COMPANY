@@ -26,7 +26,9 @@ const Headline = () => {
         {/* Marquee Text - Ensuring it appears above the image */}
         <div ref={marqueeRef} className="relative text-[#3B2E22] w-full  ">
           <span className="text-2xl md:text-3xl lg:text-4xl font-bold">
-            PR <span className="font-serif font-light">&</span> Marketing
+            {/* PR <span className="font-serif font-light">&</span> Marketing
+             */}
+             Earn online, the right way
           </span>
         </div>
 

@@ -12,8 +12,8 @@ const Footer = () => {
           <h2 className="text-2xl font-bold mb-2">About Us</h2>
 
           <p className="text-sm">
-            We create innovative web solutions to help businesses grow and
-            thrive in the digital era.
+            We create innovative online earning systems to help individuals grow
+            and thrive in the digital world
           </p>
 
           <div>
@@ -33,10 +33,10 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="#company"
+                  href="#testimonials"
                   className="hover:text-gray-300 transition whitespace-nowrap"
                 >
-                  Company that Trust Us
+                  Testimonials
                 </a>
               </li>
 
@@ -55,10 +55,10 @@ const Footer = () => {
 
               <li>
                 <a href="/package1" className="hover:text-gray-300 transition">
-                  4.99 Crore
+                  Rs. 5790
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <a href="/package2" className="hover:text-gray-300 transition">
                   3.99 Crore
                 </a>
@@ -68,7 +68,7 @@ const Footer = () => {
                 <a href="/package3" className="hover:text-gray-300 transition">
                   99 Lakh
                 </a>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>
@@ -76,9 +76,8 @@ const Footer = () => {
         {/* End Section */}
         <div className="footer-section flex flex-col gap-4 items-center md:items-center">
           <p className="text-sm">
-            Office No-217, Second Floor, Krishna Apra Royal Plaza Tower,
-            Commercial Belt, Alfa-1, Near Pari Chowk, Greater Noida, India ( Pin
-            code - 201310 )
+            Office No-109, Second Floor, Om Tower, Commercial Belt, Alfa-1, Near
+            Pari Chowk, Greater Noida, India ( Pin code - 201310 )
           </p>
           <p className="text-sm text-left w-full">
             Contact No. 7500010933, 7500030415

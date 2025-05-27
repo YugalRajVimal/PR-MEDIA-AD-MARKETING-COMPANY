@@ -28,11 +28,8 @@ const AuditCallCard = () => {
                 funnel.
               </p> */}
               <p>
-                Real estate sellers who{" "}
-                <span className="font-extrabold">
-                  want faster deals, better offers ,
-                </span>{" "}
-                and real results.
+                Anyone serious about starting{" "}
+                <span className="font-extrabold">genuine online income.</span>
               </p>
             </li>
 
@@ -47,9 +44,9 @@ const AuditCallCard = () => {
                 .
               </p> */}
               <p>
-                Businesses aiming to{" "}
-                <span className="font-extrabold">get more customers</span> and{" "}
-                increase their profits.
+                Beginners confused by too many earning options Creators or
+                freelancers{" "}
+                <span className="font-extrabold">stuck without results.</span>
               </p>
             </li>
 
@@ -61,9 +58,9 @@ const AuditCallCard = () => {
                 better funnels and conversion strategies.
               </p> */}
               <p>
-                Property owners who want to{" "}
+                People tired of fake promises and{" "}
                 <span className="font-extrabold">
-                  sell fast without relying on slow brokers.{" "}
+                  looking for real strategy .
                 </span>
               </p>
             </li>
@@ -76,29 +73,14 @@ const AuditCallCard = () => {
                 increase their profits.
               </p> */}
               <p>
-                Companies that{" "}
+              Those who want clear,{" "}
                 <span className="font-extrabold">
-                  need a dedicated agency to help them succeed.{" "}
+                step-by-step online earning guidance.
                 </span>
               </p>
             </li>
 
-            <li className="flex items-start gap-3">
-              <FaCheckCircle className=" mt-1 shrink-0 " />
-              {/* <p>
-                Companies that{" "}
-                <span className="font-extrabold">
-                  need a dedicated agency to help them succeed.
-                </span>
-              </p> */}
-              <p>
-                <span className="font-extrabold">
-                  {" "}
-                  Sellers frustrated with delays
-                </span>{" "}
-                and low offers from traditional agents.
-              </p>
-            </li>
+          
           </ul>
         </div>
       </div>

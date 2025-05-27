@@ -186,22 +186,29 @@ const Packages = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="p-4 sm:p-10 md:p-20 flex justify-center items-center">
+    <section
+      ref={sectionRef}
+      className="p-4 sm:p-10 md:p-20 flex justify-center items-center"
+    >
       <div className="h-full w-full md:w-[600px] md:max-w-[600px] flex flex-col justify-evenly items-center gap-10 px-2 py-10 md:p-4 bg-[#3B2E22] text-[#fff2e1] rounded-xl">
         <h2 className="text-4xl font-semibold">Packages</h2>
 
         {/* Buttons Section */}
-        <div>
-
-        </div>
+        <div></div>
         <div className="w-full flex justify-evenly items-center gap-4 md:gap-6">
-          {["4.99 Crore", "3.99 Crore", "99 Lakh"].map((price, index) => (
+          {["Rs. 5790"].map((price, index) => (
             <a
               key={index}
               href={`/package${index + 1}`}
               className="text-center justify-center items-center"
             >
-              <button className={`price-button w-full ${index==0&&"text-left"} ${index==0&&"text-center"}  ${index==2&&"text-right"} md:px-2 py-1 md:py-3 my-auto text-[22px] text-[#fff2e1] rounded-full hover:bg-[#3B2E22] transition-transform transform whitespace-nowrap`}>
+              <button
+                className={`price-button w-full ${index == 0 && "text-left"} ${
+                  index == 0 && "text-center"
+                }  ${
+                  index == 2 && "text-right"
+                } md:px-2 py-1 md:py-3 my-auto text-[22px] text-[#fff2e1] rounded-full hover:bg-[#3B2E22] transition-transform transform whitespace-nowrap`}
+              >
                 {price}
               </button>
             </a>

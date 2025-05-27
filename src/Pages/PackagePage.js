@@ -84,6 +84,9 @@ const PackagePage = (props) => {
       <h2 className="text-2xl md:text-3xl font-bold text-center w-full px-4">
         {packageDetails.title}
       </h2>
+      <p className="text-lg md:text-xl text-center px-4">
+        {packageDetails.subTitle}
+      </p>
       <div className="w-[90%] md:w-[70%] lg:w-[60%] border border-black mx-auto my-4"></div>
 
       <p className="text-lg md:text-xl text-center px-4">

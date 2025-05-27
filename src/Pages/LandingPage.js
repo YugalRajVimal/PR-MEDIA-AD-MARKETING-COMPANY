@@ -33,7 +33,7 @@ const LandingPage = () => {
         <Packages />
         <Card3 />
 
-        <CompanyTrustUs />
+        {/* <CompanyTrustUs /> */}
         <Testimonials2 />
         <DemoCallCard />
         <Card2 />
