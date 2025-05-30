@@ -78,9 +78,9 @@ const Testimonials = () => {
 
   return (
     <div className="flex flex-col items-center justify-center p-8 relative text-center bg-[#dbc3ab] md:bg-[#f7dbb6]">
-      <h2 className="text-[130px] text-gray-200 font-serif italic opacity-70">
+      {/* <h2 className="text-[130px] text-gray-200 font-serif italic opacity-70">
         Testimonial
-      </h2>
+      </h2> */}
       <div className="h-[250px] flex items-center justify-evenly w-full">
         {/* Left Button */}
         <button

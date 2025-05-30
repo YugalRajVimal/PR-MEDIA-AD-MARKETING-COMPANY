@@ -14,6 +14,7 @@ import AuditCallCard from "../Components/LandingPageComponents/AuditCallCard";
 import CompanyTrustUs from "../Components/LandingPageComponents/CompanyTrustUs";
 import Card3 from "../Components/LandingPageComponents/Card3";
 import VideoCard1 from "../Components/LandingPageComponents/VideoCard1";
+import Testimonials3 from "../Components/LandingPageComponents/Testimonials3";
 
 const LandingPage = () => {
   return (
@@ -26,6 +27,7 @@ const LandingPage = () => {
         {/* <Carousel /> */}
         <Headline />
         <AboutUs />
+        <Testimonials3 />
         <Card3 />
         <VideoCard1 />
         <Card1 />
