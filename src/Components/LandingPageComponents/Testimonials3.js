@@ -9,16 +9,13 @@ const videos = [
   "/videos/Vdo7.mp4",
   "/videos/Vdo8.mp4",
   "/videos/Vdo9.mp4",
-  "/videos/Vdo10.mp4",
   "/videos/Vdo11.mp4",
   "/videos/Vdo12.mp4",
   "/videos/Vdo13.mp4",
   "/videos/Vdo14.mp4",
   "/videos/Vdo15.mp4",
-  "/videos/Vdo16.mp4",
   "/videos/Vdo17.mp4",
   "/videos/Vdo18.mp4",
-  "/videos/Vdo19.mp4",
   "/videos/Vdo20.mp4",
   "/videos/Vdo21.mp4",
   "/videos/Vdo22.mp4",
@@ -27,6 +24,10 @@ const videos = [
   "/videos/Vdo25.mp4",
   "/videos/Vdo26.mp4",
   "/videos/Vdo27.mp4",
+  "/videos/Vdo28.mp4",
+  "/videos/Vdo29.mp4",
+
+
 
 ];
 const Testimonials3 = () => {
