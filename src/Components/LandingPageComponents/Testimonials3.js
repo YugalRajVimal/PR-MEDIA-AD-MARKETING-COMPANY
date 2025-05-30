@@ -23,9 +23,11 @@ const videos = [
   "/videos/Vdo24.mp4",
   "/videos/Vdo25.mp4",
   "/videos/Vdo26.mp4",
-  "/videos/Vdo27.mp4",
-  "/videos/Vdo28.mp4",
-  "/videos/Vdo29.mp4",
+  // "/videos/Vdo27.mp4",
+  // "/videos/Vdo28.mp4",
+  // "/videos/Vdo29.mp4",
+  // "/videos/Vdo30.mp4",
+
 
 
 
