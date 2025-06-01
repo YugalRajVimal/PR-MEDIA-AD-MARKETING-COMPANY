@@ -74,7 +74,7 @@ const Card1 = () => {
 
       {/* Revenue Number */}
       <h1 className="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400 drop-shadow-lg shadow-yellow-400">
-        Rs. 472.6 Crore
+        Rs. 108 Crore
       </h1>
 
       {/* Cards Grid */}

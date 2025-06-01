@@ -118,6 +118,7 @@ const Testimonials3 = () => {
           muted // 🔥 this is mandatory for autoplay to work!
           playsInline
           controls
+          controlsList="nodownload"
           onEnded={handleVideoEnd}
           onLoadedData={() => {
             centerVideoRef.current?.play().catch((err) => {
