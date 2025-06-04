@@ -196,7 +196,7 @@ const Packages = () => {
         {/* Buttons Section */}
         <div></div>
         <div className="w-full flex justify-evenly items-center gap-4 md:gap-6">
-          {["Rs. 5790"].map((price, index) => (
+          {["Rs. 5,790"].map((price, index) => (
             <a
               key={index}
               href={`/package${index + 1}`}
@@ -217,7 +217,7 @@ const Packages = () => {
 
         <div className="text-center font-bold text-lg md:text-xl">
           <span className="text-[#FFC300]">
-            Click on any price to see the value in each package!
+          Click on this price to see the value in this package!
           </span>
         </div>
       </div>

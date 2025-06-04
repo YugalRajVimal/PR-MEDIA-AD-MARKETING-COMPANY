@@ -7,8 +7,8 @@ import PackagePage from "./Pages/PackagePage";
 const App = () => {
   const packages = [
     {
-      title: "Rs. 5790 Package",
-      subTitle:"Providing services to clients online and getting paid",
+      title: "Rs. 5,790 Package",
+      subTitle: "Providing services to clients online and getting paid",
       description:
         "For those who are looking for the best and most genuine ways to earn money online.",
       features: [

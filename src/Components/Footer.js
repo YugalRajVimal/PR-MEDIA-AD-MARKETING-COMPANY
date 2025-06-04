@@ -15,6 +15,7 @@ const Footer = () => {
             We create innovative online earning systems to help individuals grow
             and thrive in the digital world
           </p>
+          <p>Please note: it's non-refundable payment.</p>
 
           <div>
             <p className="text-sm">Open 10 Am to 6 Pm</p>
@@ -55,7 +56,7 @@ const Footer = () => {
 
               <li>
                 <a href="/package1" className="hover:text-gray-300 transition">
-                  Rs. 5790
+                  Rs. 5,790
                 </a>
               </li>
               {/* <li>
