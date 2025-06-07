@@ -10,13 +10,10 @@ const Footer = () => {
         {/* Left Section */}
         <div className="footer-section flex flex-col gap-4">
           <h2 className="text-2xl font-bold mb-2">About Us</h2>
-
           <p className="text-sm">
             We create innovative online earning systems to help individuals grow
-            and thrive in the digital world
+            and thrive in the digital world. Please note: it's non-refundable payment.
           </p>
-          <p>Please note: it's non-refundable payment.</p>
-
           <div>
             <p className="text-sm">Open 10 Am to 6 Pm</p>
             <p className="text-sm">Mon to Sat</p>
