@@ -81,14 +81,14 @@ const Testimonials3 = () => {
               className="flex justify-center items-center"
             >
               {({ isActive }) => (
-                <div className="flex justify-center items-center transition-all duration-500 h-full">
+                <div className="flex justify-center items-center transition-all duration-500 h-full py-10">
                   <video
                     ref={(el) => (videoRefs.current[index] = el)}
-                    className={`rounded-xl object-cover shadow-xl border-4 border-[#3B2E22] 
+                    className={`rounded-xl object-cover shadow-xl border-[1px] border-[#3B2E22] 
                       ${
                         isActive
-                          ? "w-[70%] md:w-[80%] scale-100"
-                          : "w-[50%] md:w-[60%]  opacity-50 scale-90"
+                          ? "z-10 min-w-[130px] w-[100%] md:w-[80%] scale-[1.1] "
+                          : "z-0 min-w-[110px] w-[95%] md:w-[60%]  opacity-50 scale-90 "
                       } 
                       transition-all duration-500 `}
                     src={video}
