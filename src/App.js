@@ -10,7 +10,7 @@ const App = () => {
       title: "Rs. 5,790 Package",
       subTitle: "Providing services to clients online and getting paid",
       description:
-        "For those who are looking for the best and most genuine ways to earn money online.",
+        "For those who are looking for the best and most genuine ways to earn through freelancing.",
       features: [
         {
           image: "/packages/13.png",
@@ -40,7 +40,7 @@ const App = () => {
         {
           image: "/packages/18.png",
           description:
-            "The exact mindset and habits needed to succeed in online earning.",
+            "The exact mindset and habits needed to succeed in freelancing.",
         },
         // {
         //   image: "/packages/19.png",

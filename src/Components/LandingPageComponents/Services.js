@@ -9,12 +9,11 @@ const services = [
         para: "We simplify freelancing—no confusion, just clear steps.",
       },
       {
-        image: "/five.png",
-        para: "Learn real skills and start earning online, the easy way.",
+        image: "Learn real skills and start freelancing, the easy way.",
       },
       {
         image: "/six.png",
-        para: "Online income doesn’t have to be complicated—we make it simple.",
+        para: "Freelancing doesn’t have to be complicated—we make it simple.",
       },
     ],
   },

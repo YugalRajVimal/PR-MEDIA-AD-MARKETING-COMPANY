@@ -11,7 +11,7 @@ const Footer = () => {
         <div className="footer-section flex flex-col gap-4">
           <h2 className="text-2xl font-bold mb-2">About Us</h2>
           <p className="text-sm">
-            We create innovative online earning systems to help individuals grow
+          We create innovative freelancing systems to help individuals grow
             and thrive in the digital world. Please note: it's non-refundable payment.
           </p>
           <div>
