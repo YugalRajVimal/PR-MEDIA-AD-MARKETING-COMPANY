@@ -2,11 +2,11 @@ import React from "react";
 
 const services = [
   {
-    title: "Online Earning Made Easy",
+    title: "Freelancing Made Easy",
     items: [
       {
         image: "/four.png",
-        para: "We simplify online earning—no confusion, just clear steps.",
+        para: "We simplify freelancing—no confusion, just clear steps.",
       },
       {
         image: "/five.png",

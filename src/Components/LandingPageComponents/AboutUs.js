@@ -24,7 +24,7 @@ const AboutUs = () => {
             {/* “Emotions sell, not just ads. AI ads and premium videos catch eyes,
             but storytelling captures hearts. Whether it’s your brand or an
             ultra-luxury property, We sell it fast and make it unforgettable.” */}
-            “Online earning works—but only for those who are serious”
+            “Freelancing works—but only for those who treat it like a real profession”
           </p>
 
           {/* <button className="mt-6 px-6 py-3 bg-[#4E3C2C] text-[#fff2e1] rounded-lg shadow-lg hover:bg-[#3B2E22] transition-transform transform hover:scale-105">

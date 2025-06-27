@@ -28,7 +28,7 @@ const Headline = () => {
           <span className="text-2xl md:text-3xl lg:text-4xl font-bold">
             {/* PR <span className="font-serif font-light">&</span> Marketing
              */}
-             Earn online, the right way
+            Become a Freelancer, the right way
           </span>
         </div>
 
