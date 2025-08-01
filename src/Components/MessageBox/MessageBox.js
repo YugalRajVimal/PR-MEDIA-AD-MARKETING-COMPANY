@@ -1,0 +1,210 @@
+import React, { useEffect, useRef, useState } from "react";
+import { FaPaperPlane, FaTimes } from "react-icons/fa";
+import { FaExpandAlt } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
+import { useCustomerAuth } from "../../context/CustomerAuthContext";
+import { toast } from "react-toastify";
+
+const MessageBox = () => {
+  const messagesContainerRef = useRef(null);
+  const messagesEndRef = useRef(null);
+  const [isUserScrolledUp, setIsUserScrolledUp] = useState(false);
+  const { isCustomerAuthenticated } = useCustomerAuth();
+
+  const [isMessageBoxOpen, setIsMessageBoxOpen] = useState(false);
+  const [visibleMessages, setVisibleMessages] = useState([]);
+
+  const comments = [
+    {
+      name: "Aarav Sharma",
+      comment: "Excellent service and really helpful staff. Highly recommend!",
+      image: "https://randomuser.me/api/portraits/men/32.jpg",
+    },
+    {
+      name: "Priya Mehta",
+      comment: "Loved the user interface. So clean and smooth!",
+    },
+    {
+      name: "Kabir Das",
+      comment: "Had a small issue but the support team resolved it quickly.",
+      image: "https://randomuser.me/api/portraits/men/45.jpg",
+    },
+    {
+      name: "Ananya Gupta",
+      comment: "Fast, responsive, and reliable. Great experience overall.",
+      image: "https://randomuser.me/api/portraits/women/68.jpg",
+    },
+    {
+      name: "Rohan Verma",
+      comment: "Appreciate the attention to detail. Keep it up!",
+    },
+    {
+      name: "Sanya Kapoor",
+      comment: "The best platform I've used in a long time.",
+      image: "https://randomuser.me/api/portraits/women/52.jpg",
+    },
+    {
+      name: "Manav Joshi",
+      comment: "Well-structured and efficient. Definitely recommend.",
+    },
+  ];
+
+  const [userMessage, setUserMessage] = useState("");
+
+  const shuffleArray = (arr) => {
+    return arr
+      .map((value) => ({ value, sort: Math.random() }))
+      .sort((a, b) => a.sort - b.sort)
+      .map(({ value }) => value);
+  };
+
+  const currentShuffledRef = useRef([]);
+  const indexRef = useRef(0);
+
+  useEffect(() => {
+    currentShuffledRef.current = shuffleArray(comments); // initial shuffle
+    indexRef.current = 0;
+
+    const interval = setInterval(() => {
+      const currentMessages = currentShuffledRef.current;
+      const currentIndex = indexRef.current;
+
+      if (currentIndex < currentMessages.length) {
+        setVisibleMessages((prev) => [...prev, currentMessages[currentIndex]]);
+        indexRef.current += 1;
+      } else {
+        // reshuffle and reset index
+        currentShuffledRef.current = shuffleArray(comments);
+        indexRef.current = 0;
+      }
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const handleUserMessage = () => {
+    if (!isCustomerAuthenticated) {
+      toast.error("Please Login before sending a message");
+      return;
+    }
+    setVisibleMessages((prev) => [
+      ...prev,
+      { name: "YRV", comment: userMessage },
+    ]);
+    setUserMessage("");
+  };
+
+  useEffect(() => {
+    if (!isUserScrolledUp) {
+      messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [visibleMessages]);
+
+  return (
+    <div
+      className={`absolute bottom-0 right-[20px] ${
+        isMessageBoxOpen
+          ? "h-[350px] bg-[#f7dbb6]/80"
+          : "h-[40px] bg-[#f7dbb6] border-b-0 border border-black"
+      } w-[280px] rounded-t-md  z-50`}
+    >
+      <div className=" relative h-full w-full font-mono flex justify-start items-center ">
+        {isMessageBoxOpen ? (
+          <div className="h-full w-full overflow-y-scroll   border border-black rounded-t-md flex flex-col justify-between">
+            <div
+              onClick={() => {
+                setIsMessageBoxOpen(false);
+              }}
+              className="px-3 py-3 flex justify-between items-center border-b border-black border-t-0 border-x-0"
+            >
+              <span className="">Active Peoples</span>
+              <FaTimes />
+            </div>
+
+            {/* Comming Comments  */}
+            <div
+              ref={messagesContainerRef}
+              onScroll={() => {
+                const container = messagesContainerRef.current;
+                if (!container) return;
+                const isAtBottom =
+                  container.scrollHeight - container.scrollTop <=
+                  container.clientHeight + 5;
+                setIsUserScrolledUp(!isAtBottom);
+              }}
+              className="p-3 flex flex-col overflow-y-auto space-y-2 h-[220px]"
+            >
+              <AnimatePresence>
+                {visibleMessages.map((msgObj, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 20 }}
+                    transition={{ duration: 0.4 }}
+                    className="bg-gray-100 px-3 py-2 rounded-md text-sm text-gray-800 w-fit"
+                  >
+                    <span className="text-xs font-bold underline">
+                      {msgObj?.name}
+                    </span>
+                    <br />
+                    <span>{msgObj?.comment}</span>
+                    {msgObj?.image && (
+                      <div className="w-full">
+                        <img
+                          src={msgObj.image}
+                          className="w-full mt-2"
+                          onLoad={() => {
+                            if (!isUserScrolledUp) {
+                              messagesEndRef.current?.scrollIntoView({
+                                behavior: "smooth",
+                              });
+                            }
+                          }}
+                        />
+                      </div>
+                    )}
+                  </motion.div>
+                ))}
+              </AnimatePresence>
+              <div ref={messagesEndRef} />
+            </div>
+
+            <div className="w-full h-[50px] border border-x-0 border-b-0 border-t-[1px] border-black  flex justify-end items-center p-1">
+              <input
+                type="text"
+                value={userMessage}
+                onChange={(e) => setUserMessage(e.target.value)}
+                className="bg-white w-full p-2 border-r-0 rounded-l-md border border-black"
+              />
+              <div className="h-full">
+                <div
+                  onClick={() => {
+                    handleUserMessage();
+                  }}
+                  className="aspect-[1/1] h-full flex justify-center items-center p-2 bg-black text-white text-xl rounded-sm"
+                >
+                  <FaPaperPlane />
+                </div>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <>
+            <span className="pl-4">Active Peoples</span>
+            <div
+              onClick={() => {
+                setIsMessageBoxOpen(true);
+              }}
+              className="absolute top-1/2 right-[5px] -translate-x-1/2 -translate-y-1/2"
+            >
+              <FaExpandAlt />
+            </div>
+          </>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default MessageBox;

@@ -323,8 +323,13 @@
 import { useState, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { useMediaQuery } from "react-responsive";
+import { useCustomerAuth } from "../context/CustomerAuthContext";
+import { useNavigate } from "react-router-dom";
 
-const Nav = () => {
+const Nav = ({ handlePageChange }) => {
+  const navigate = useNavigate();
+  const { isCustomerAuthenticated, setIsCustomerAuthenticated } =
+    useCustomerAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
   const [isAtBottom, setIsAtBottom] = useState(false);
@@ -373,13 +378,20 @@ const Nav = () => {
     }
   }, [isMenuOpen, isLargeScreen]);
 
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    setIsCustomerAuthenticated(false);
+    navigate("/");
+  };
+
   return (
     <nav
-      className="h-[70px] px-6 py-2 flex justify-center items-center gap-4 fixed top-0 left-0 w-full z-20 backdrop-blur-md transition-colors duration-300 overflow-hidden"
+      className="h-[70px] px-6 py-2 flex justify-between items-center gap-4 fixed top-0 left-0 w-full z-20 backdrop-blur-md transition-colors duration-300 overflow-hidden"
       style={{
         color: scrollPosition === 0 || isAtBottom ? "black" : "#FFD700",
       }}
     >
+      <div></div>
       <div
         ref={logoRef}
         className="flex flex-col justify-center items-center text-center"
@@ -387,6 +399,31 @@ const Nav = () => {
         <a href="/">
           <img src="logo1.svg" className="h-40 object-contain" alt="Logo" />
         </a>
+      </div>
+      <div className="flex items-center gap-4 ">
+        {isCustomerAuthenticated ? (
+          <button
+            onClick={handleLogout}
+            className="text-black font-bold hover:text-yellow-400 transition-colors duration-300"
+          >
+            Logout
+          </button>
+        ) : (
+          <>
+            <button
+              onClick={() => handlePageChange("login")}
+              className="text-black font-bold hover:text-yellow-400 transition-colors duration-300"
+            >
+              Login
+            </button>
+            <button
+              onClick={() => handlePageChange("signup")}
+              className="text-black font-bold hover:text-yellow-400 transition-colors duration-300"
+            >
+              Sign Up
+            </button>
+          </>
+        )}
       </div>
     </nav>
   );
