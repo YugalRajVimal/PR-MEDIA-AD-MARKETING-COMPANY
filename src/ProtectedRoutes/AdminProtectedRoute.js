@@ -9,9 +9,9 @@ const AdminProtectedRoute = ({ children }) => {
 
   useEffect(() => {
     const checkAuth = async () => {
-      await verifyAdminAuth();
+      const isValid = await verifyAdminAuth(); // use return value
+      setIsAdminAuthenticated(isValid); // set accordingly
       setIsAuthChecked(true);
-      setIsAdminAuthenticated(true);
     };
     checkAuth();
   }, [verifyAdminAuth]);
@@ -23,7 +23,7 @@ const AdminProtectedRoute = ({ children }) => {
   return isAdminAuthenticated ? (
     children
   ) : (
-    <Navigate to="/admin/signin" replace />
+    <Navigate to="/admin/panel/signin" replace />
   );
 };
 

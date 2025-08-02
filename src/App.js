@@ -8,6 +8,17 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import CustomerProtectedRoute from "./ProtectedRoutes/CustomerProtectedRoute";
 import { CustomerAuthProvider } from "./context/CustomerAuthContext";
+import { AdminAuthProvider } from "./context/AdminAuthContext";
+import AdminProtectedRoute from "./ProtectedRoutes/AdminProtectedRoute";
+import AdminLayout from "./Admin/AdminLayout";
+import AdminLogin from "./Admin/AdminAuthComponents/AdminLogin";
+import AdminResetPassword from "./Admin/AdminAuthComponents/AdminResetPassword";
+import AdminVerifyAccount from "./Admin/AdminAuthComponents/AdminVerifyAccount";
+import AdminSubLayout from "./Admin/AdminSubLayout";
+import AdminDashboard from "./Admin/AdminComponents/AdminDashboard";
+import AddNamesComments from "./Admin/AdminComponents/AddNamesComments";
+import UploadImages from "./Admin/AdminComponents/UploadImages";
+import { AdminProvider } from "./context/AdminContext";
 
 const App = () => {
   const packages = [
@@ -72,6 +83,65 @@ const App = () => {
             />
 
             <Route path="*" element={<Navigate to="/" replace />} />
+          </Route>
+          <Route
+            path="/admin"
+            element={
+              <AdminAuthProvider>
+                <AdminProvider>
+                  <AdminLayout />
+                </AdminProvider>
+              </AdminAuthProvider>
+            }
+          >
+            <Route
+              index
+              element={<Navigate to="/admin/panel/dashboard" replace />}
+            />
+
+            <Route path="panel" element={<AdminSubLayout />}>
+              <Route
+                index
+                element={<Navigate to="/admin/panel/dashboard" replace />}
+              />
+
+              <Route
+                path="dashboard"
+                element={
+                  <AdminProtectedRoute>
+                    <AdminDashboard />
+                  </AdminProtectedRoute>
+                }
+              />
+              <Route
+                path="add-names-comments"
+                element={
+                  <AdminProtectedRoute>
+                    <AddNamesComments />
+                  </AdminProtectedRoute>
+                }
+              />
+              <Route
+                path="upload-images"
+                element={
+                  <AdminProtectedRoute>
+                    <UploadImages />
+                  </AdminProtectedRoute>
+                }
+              />
+
+              <Route path="signin" element={<AdminLogin />} />
+              <Route path="verify-account" element={<AdminVerifyAccount />} />
+              <Route path="reset-password" element={<AdminResetPassword />} />
+              <Route
+                path="*"
+                element={<Navigate to="/admin/panel/dashboard" replace />}
+              />
+            </Route>
+            <Route
+              path="*"
+              element={<Navigate to="/admin/panel/dashboard" replace />}
+            />
           </Route>
         </Routes>
       </BrowserRouter>

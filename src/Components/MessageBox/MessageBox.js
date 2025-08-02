@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { FaPaperPlane, FaTimes } from "react-icons/fa";
-import { FaExpandAlt } from "react-icons/fa";
+import { FaPaperPlane, FaTimes, FaExpandAlt } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import { useCustomerAuth } from "../../context/CustomerAuthContext";
 import { toast } from "react-toastify";
@@ -9,47 +8,14 @@ const MessageBox = () => {
   const messagesContainerRef = useRef(null);
   const messagesEndRef = useRef(null);
   const [isUserScrolledUp, setIsUserScrolledUp] = useState(false);
-  const { isCustomerAuthenticated } = useCustomerAuth();
+  const { isCustomerAuthenticated, getAllNameCommentAndImagesCombined } =
+    useCustomerAuth();
 
   const [isMessageBoxOpen, setIsMessageBoxOpen] = useState(false);
   const [visibleMessages, setVisibleMessages] = useState([]);
-
-  const comments = [
-    {
-      name: "Aarav Sharma",
-      comment: "Excellent service and really helpful staff. Highly recommend!",
-      image: "https://randomuser.me/api/portraits/men/32.jpg",
-    },
-    {
-      name: "Priya Mehta",
-      comment: "Loved the user interface. So clean and smooth!",
-    },
-    {
-      name: "Kabir Das",
-      comment: "Had a small issue but the support team resolved it quickly.",
-      image: "https://randomuser.me/api/portraits/men/45.jpg",
-    },
-    {
-      name: "Ananya Gupta",
-      comment: "Fast, responsive, and reliable. Great experience overall.",
-      image: "https://randomuser.me/api/portraits/women/68.jpg",
-    },
-    {
-      name: "Rohan Verma",
-      comment: "Appreciate the attention to detail. Keep it up!",
-    },
-    {
-      name: "Sanya Kapoor",
-      comment: "The best platform I've used in a long time.",
-      image: "https://randomuser.me/api/portraits/women/52.jpg",
-    },
-    {
-      name: "Manav Joshi",
-      comment: "Well-structured and efficient. Definitely recommend.",
-    },
-  ];
-
-  const [userMessage, setUserMessage] = useState("");
+  const [userMessage, setUserMessage] = useState([]);
+  const [shuffledMessages, setShuffledMessages] = useState([]);
+  const indexRef = useRef(0);
 
   const shuffleArray = (arr) => {
     return arr
@@ -58,41 +24,38 @@ const MessageBox = () => {
       .map(({ value }) => value);
   };
 
-  const currentShuffledRef = useRef([]);
-  const indexRef = useRef(0);
+  useEffect(() => {
+    const fetchComments = async () => {
+      const res = await getAllNameCommentAndImagesCombined();
+      if (res && res.data) {
+        const shuffled = shuffleArray(res.data);
+        setShuffledMessages(shuffled);
+        indexRef.current = 0;
+      }
+    };
+
+    fetchComments();
+  }, []);
 
   useEffect(() => {
-    currentShuffledRef.current = shuffleArray(comments); // initial shuffle
-    indexRef.current = 0;
-
     const interval = setInterval(() => {
-      const currentMessages = currentShuffledRef.current;
-      const currentIndex = indexRef.current;
-
-      if (currentIndex < currentMessages.length) {
-        setVisibleMessages((prev) => [...prev, currentMessages[currentIndex]]);
+      if (indexRef.current < shuffledMessages.length) {
+        setVisibleMessages((prev) => [
+          ...prev,
+          shuffledMessages[indexRef.current],
+        ]);
         indexRef.current += 1;
       } else {
-        // reshuffle and reset index
-        currentShuffledRef.current = shuffleArray(comments);
+        // Reshuffle and restart
+        const reshuffled = shuffleArray(shuffledMessages);
+        setShuffledMessages(reshuffled);
+        setVisibleMessages([]);
         indexRef.current = 0;
       }
     }, 2000);
 
     return () => clearInterval(interval);
-  }, []);
-
-  const handleUserMessage = () => {
-    if (!isCustomerAuthenticated) {
-      toast.error("Please Login before sending a message");
-      return;
-    }
-    setVisibleMessages((prev) => [
-      ...prev,
-      { name: "YRV", comment: userMessage },
-    ]);
-    setUserMessage("");
-  };
+  }, [shuffledMessages]);
 
   useEffect(() => {
     if (!isUserScrolledUp) {
@@ -100,28 +63,40 @@ const MessageBox = () => {
     }
   }, [visibleMessages]);
 
+  const handleUserMessage = () => {
+    if (!isCustomerAuthenticated) {
+      toast.error("Please Login before sending a message");
+      return;
+    }
+    if (!userMessage.trim()) return;
+
+    setVisibleMessages((prev) => [
+      ...prev,
+      { name: "YRV", comment: userMessage },
+    ]);
+    setUserMessage("");
+  };
+
   return (
     <div
       className={`absolute bottom-0 right-[20px] ${
         isMessageBoxOpen
           ? "h-[350px] bg-[#f7dbb6]/80"
           : "h-[40px] bg-[#f7dbb6] border-b-0 border border-black"
-      } w-[280px] rounded-t-md  z-50`}
+      } w-[280px] rounded-t-md z-50`}
     >
-      <div className=" relative h-full w-full font-mono flex justify-start items-center ">
+      <div className="relative h-full w-full font-mono flex justify-start items-center">
         {isMessageBoxOpen ? (
-          <div className="h-full w-full overflow-y-scroll   border border-black rounded-t-md flex flex-col justify-between">
+          <div className="h-full w-full overflow-y-scroll border border-black rounded-t-md flex flex-col justify-between">
             <div
-              onClick={() => {
-                setIsMessageBoxOpen(false);
-              }}
-              className="px-3 py-3 flex justify-between items-center border-b border-black border-t-0 border-x-0"
+              onClick={() => setIsMessageBoxOpen(false)}
+              className="px-3 py-3 flex justify-between items-center border-b border-black"
             >
-              <span className="">Active Peoples</span>
+              <span>Active Peoples</span>
               <FaTimes />
             </div>
 
-            {/* Comming Comments  */}
+            {/* Messages */}
             <div
               ref={messagesContainerRef}
               onScroll={() => {
@@ -152,7 +127,8 @@ const MessageBox = () => {
                     {msgObj?.image && (
                       <div className="w-full">
                         <img
-                          src={msgObj.image}
+                          src={`${process.env.REACT_APP_API_URL}/${msgObj.image}`}
+                          alt="commented-img"
                           className="w-full mt-2"
                           onLoad={() => {
                             if (!isUserScrolledUp) {
@@ -170,7 +146,8 @@ const MessageBox = () => {
               <div ref={messagesEndRef} />
             </div>
 
-            <div className="w-full h-[50px] border border-x-0 border-b-0 border-t-[1px] border-black  flex justify-end items-center p-1">
+            {/* Input Box */}
+            <div className="w-full h-[50px] border-t border-black flex justify-end items-center p-1">
               <input
                 type="text"
                 value={userMessage}
@@ -179,10 +156,8 @@ const MessageBox = () => {
               />
               <div className="h-full">
                 <div
-                  onClick={() => {
-                    handleUserMessage();
-                  }}
-                  className="aspect-[1/1] h-full flex justify-center items-center p-2 bg-black text-white text-xl rounded-sm"
+                  onClick={handleUserMessage}
+                  className="aspect-[1/1] h-full flex justify-center items-center p-2 bg-black text-white text-xl rounded-sm cursor-pointer"
                 >
                   <FaPaperPlane />
                 </div>
@@ -193,9 +168,7 @@ const MessageBox = () => {
           <>
             <span className="pl-4">Active Peoples</span>
             <div
-              onClick={() => {
-                setIsMessageBoxOpen(true);
-              }}
+              onClick={() => setIsMessageBoxOpen(true)}
               className="absolute top-1/2 right-[5px] -translate-x-1/2 -translate-y-1/2"
             >
               <FaExpandAlt />

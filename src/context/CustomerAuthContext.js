@@ -123,6 +123,22 @@ export const CustomerAuthProvider = ({ children }) => {
     toast.error("Logout successfully");
   };
 
+  const getAllNameCommentAndImagesCombined = async () => {
+    try {
+      const response = await axios.get(
+        `${process.env.REACT_APP_API_URL}/api/customer/get-all-name-comment-and-images-combined`
+      );
+
+      if (response.status === 200) {
+        toast.success("Data fetched successfully");
+        return response.data;
+      }
+    } catch (error) {
+      toast.error("Failed to fetch data. Please try again.");
+      return false;
+    }
+  };
+
   return (
     <CustomerAuthContext.Provider
       value={{
@@ -134,6 +150,7 @@ export const CustomerAuthProvider = ({ children }) => {
         signup,
         otpVerification,
         forgetPassword,
+        getAllNameCommentAndImagesCombined,
       }}
     >
       {children}
