@@ -4,28 +4,27 @@ import axios from "axios";
 import { toast } from "react-toastify";
 export const CustomerAuthContext = createContext();
 
+axios.defaults.withCredentials = true;
+
+
 export const CustomerAuthProvider = ({ children }) => {
   const [isCustomerAuthenticated, setIsCustomerAuthenticated] = useState(false);
 
   // In CustomerAuthProvider:
   const verifyCustomerAuth = async () => {
-    const token = localStorage.getItem("token");
-
     try {
       const response = await axios.post(
         `${process.env.REACT_APP_API_URL}/api/customer/auth`,
-        {}, // empty body
+        {},
         {
-          headers: {
-            Authorization: `${token}`,
-          },
+          withCredentials: true, // <- MOST IMPORTANT: this sends cookies
         }
       );
-
+  
       if (response.status === 200) {
         setIsCustomerAuthenticated(true);
         return true;
-      } else if (response.status === 401) {
+      } else {
         setIsCustomerAuthenticated(false);
         return false;
       }
@@ -35,6 +34,7 @@ export const CustomerAuthProvider = ({ children }) => {
       return false;
     }
   };
+  
 
   const forgetPassword = async (credentials) => {
     try {

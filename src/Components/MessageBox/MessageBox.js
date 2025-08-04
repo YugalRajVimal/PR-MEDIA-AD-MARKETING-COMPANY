@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { FaPaperPlane, FaTimes, FaExpandAlt } from "react-icons/fa";
+import { FaPaperPlane, FaTimes, FaExpandAlt, FaEye } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import { useCustomerAuth } from "../../context/CustomerAuthContext";
 import { toast } from "react-toastify";
@@ -58,9 +58,7 @@ const MessageBox = ({ setIsCustomerLoginVisible }) => {
 
   useEffect(() => {
     const formatCount = (count) => {
-      if (count >= 100000) {
-        return (count / 100000).toFixed(1).replace(/\.0$/, "") + "L";
-      } else if (count >= 1000) {
+      if (count >= 1000) {
         return (count / 1000).toFixed(1).replace(/\.0$/, "") + "k";
       } else {
         return count.toString();
@@ -217,13 +215,13 @@ const MessageBox = ({ setIsCustomerLoginVisible }) => {
 
   return (
     <div
-      className={`fixed bottom-0  z-50 border border-black
+      className={`fixed   z-50 border border-black
     ${
       isExpandToFullScreen
-        ? "w-full h-full bg-black/80 right-0 pt-2"
+        ? "w-full h-full bottom-[22px] pt-[22px] bg-black/80 right-0 pt-2"
         : isMessageBoxOpen
-        ? "w-[280px] h-[350px] bg-black/80 right-[20px] rounded-t-xl rounded-b-sm border border-black"
-        : "w-[280px] h-[40px] bg-black/80 border-b-0 right-[20px] rounded-t-xl border border-black"
+        ? "w-[280px] h-[350px] bg-black/80 bottom-[22px] right-[20px] rounded-t-xl rounded-b-md border border-black"
+        : "w-[280px] h-[40px] bg-black/80 bottom-[22px] border-b-0 right-[20px] rounded-t-xl border border-black"
     }`}
     >
       <div className="relative h-full w-full font-mono flex justify-start items-center">
@@ -235,8 +233,12 @@ const MessageBox = ({ setIsCustomerLoginVisible }) => {
               </span>
               <div className="flex  justify-between w-full">
                 <span className="text-green-500 text-base font-serif flex items-center gap-2">
-                  Live People {livePeopleCountText}
-                  <span className="h-[6px] w-[6px] rounded-full bg-green-500 blink"></span>
+                  Live People
+                  <span className="h-[6px] w-[6px] rounded-full bg-green-500 blink mr-2"></span>
+                  <FaEye className="text-sm text-green-500" />
+                  <span className="text-sm font-aeris">
+                    {livePeopleCountText}
+                  </span>
                 </span>
 
                 <div className="flex gap-2 items-center">

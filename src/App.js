@@ -1,4 +1,6 @@
 import React from "react";
+import axios from "axios";
+
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import LandingPage from "./Pages/LandingPage";
 import Layout from "./Layout";
@@ -20,9 +22,10 @@ import AddNamesComments from "./Admin/AdminComponents/AddNamesComments";
 import UploadImages from "./Admin/AdminComponents/UploadImages";
 import { AdminProvider } from "./context/AdminContext";
 
+// axios.defaults.withCredentials = true;
+
+
 const App = () => {
-
-
   const packages = [
     {
       title: "Rs. 5,790 Package",

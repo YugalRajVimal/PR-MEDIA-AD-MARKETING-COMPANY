@@ -1,5 +1,4 @@
-import React, { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
 import { useCustomerAuth } from "../../context/CustomerAuthContext";
 
 const CustomerLogin = ({
@@ -7,7 +6,6 @@ const CustomerLogin = ({
   handlePageChange,
   setMainEmail,
 }) => {
-  const navigate = useNavigate();
   const { login } = useCustomerAuth();
 
   const [email, setEmail] = useState("");
@@ -36,13 +34,20 @@ const CustomerLogin = ({
     setIsCustomerLoginVisible(false);
   };
 
+  const handleGoogleLogin = () => {
+    window.location.href = `${process.env.REACT_APP_API_URL}/auth/google`;
+  };
+
   return (
-    <div className="absolute top-0 left-0 flex items-center justify-center h-full w-full bg-black/20">
-      <div className="w-full max-w-md p-8 space-y-8 bg-white rounded shadow-lg relative">
-        <button onClick={handleClose} className="absolute top-0 right-0 m-4">
+    <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-40 z-50">
+      <div className="relative bg-white p-8 rounded-xl shadow-xl w-full max-w-md">
+        <button
+          onClick={handleClose}
+          className="absolute top-4 right-4 text-gray-600 hover:text-black"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6"
+            className="h-5 w-5"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -55,13 +60,35 @@ const CustomerLogin = ({
             />
           </svg>
         </button>
-        <div className="flex justify-between items-center">
+
+        <h2 className="text-2xl font-semibold text-center mb-6">Welcome</h2>
+
+        <button
+          onClick={handleGoogleLogin}
+          className="flex items-center justify-center w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-100 transition"
+        >
+          <img src="/google.png" alt="Google" className="h-6 w-6 mr-2" />
+          Sign in with Google
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default CustomerLogin;
+
+{
+  /* <div className="flex justify-between items-center">
           <p>Sign In</p>
-        </div>
+        </div> */
+}
 
-        {error && <p className="text-red-500 text-center">{error}</p>}
+{
+  /* {error && <p className="text-red-500 text-center">{error}</p>} */
+}
 
-        <form className="space-y-6" onSubmit={onSubmit}>
+{
+  /* <form className="space-y-6" onSubmit={onSubmit}>
           <div className="flex flex-col gap-2">
             <input
               type="email"
@@ -102,10 +129,5 @@ const CustomerLogin = ({
           >
             Sign in
           </button>
-        </form>
-      </div>
-    </div>
-  );
-};
-
-export default CustomerLogin;
+        </form> */
+}
