@@ -21,6 +21,8 @@ import UploadImages from "./Admin/AdminComponents/UploadImages";
 import { AdminProvider } from "./context/AdminContext";
 
 const App = () => {
+
+
   const packages = [
     {
       title: "Rs. 5,790 Package",

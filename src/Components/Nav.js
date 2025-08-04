@@ -386,12 +386,12 @@ const Nav = ({ handlePageChange }) => {
 
   return (
     <nav
-      className="h-[70px] px-6 py-2 flex justify-between items-center gap-4 fixed top-0 left-0 w-full z-20 backdrop-blur-md transition-colors duration-300 overflow-hidden"
+      className="h-[70px] px-6 py-2 flex justify-center items-center gap-4 fixed top-0 left-0 w-full z-20 backdrop-blur-md transition-colors duration-300 overflow-hidden"
       style={{
         color: scrollPosition === 0 || isAtBottom ? "black" : "#FFD700",
       }}
     >
-      <div></div>
+      {/* <div></div> */}
       <div
         ref={logoRef}
         className="flex flex-col justify-center items-center text-center"
@@ -400,7 +400,7 @@ const Nav = ({ handlePageChange }) => {
           <img src="logo1.svg" className="h-40 object-contain" alt="Logo" />
         </a>
       </div>
-      <div className="flex items-center gap-4 ">
+      {/* <div className="flex items-center gap-4 ">
         {isCustomerAuthenticated ? (
           <button
             onClick={handleLogout}
@@ -424,7 +424,7 @@ const Nav = ({ handlePageChange }) => {
             </button>
           </>
         )}
-      </div>
+      </div> */}
     </nav>
   );
 };
