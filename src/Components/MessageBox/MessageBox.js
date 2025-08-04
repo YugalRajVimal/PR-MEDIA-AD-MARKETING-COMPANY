@@ -183,7 +183,7 @@ const MessageBox = ({ setIsCustomerLoginVisible }) => {
     if (!trimmedMessage) return;
 
     // Open in WhatsApp
-    const phone = "+919999999999";
+    const phone = "+917500010933";
     const whatsappURL = `https://wa.me/${phone}?text=${encodeURIComponent(
       trimmedMessage
     )}`;
