@@ -21,6 +21,7 @@ import AdminDashboard from "./Admin/AdminComponents/AdminDashboard";
 import AddNamesComments from "./Admin/AdminComponents/AddNamesComments";
 import UploadImages from "./Admin/AdminComponents/UploadImages";
 import { AdminProvider } from "./context/AdminContext";
+import OAuthSuccess from "./Components/OAuthSuccess";
 
 axios.defaults.withCredentials = true;
 
@@ -83,6 +84,8 @@ const App = () => {
             }
           >
             <Route index element={<LandingPage />} />
+
+            <Route path="/oauth-success" element={<OAuthSuccess />} />
             <Route
               path="/package1"
               element={<PackagePage packageDetails={packages[0]} />}
@@ -90,6 +93,7 @@ const App = () => {
 
             <Route path="*" element={<Navigate to="/" replace />} />
           </Route>
+
           <Route
             path="/admin"
             element={
