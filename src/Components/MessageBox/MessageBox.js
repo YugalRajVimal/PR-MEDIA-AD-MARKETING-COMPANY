@@ -215,7 +215,7 @@ const MessageBox = ({ setIsCustomerLoginVisible }) => {
 
   return (
     <div
-      className={`fixed   z-50 border border-black
+      className={`fixed  z-40 border border-black
     ${
       isExpandToFullScreen
         ? "w-full h-full bottom-[22px] pt-[22px] bg-black/80 right-0 pt-2"
