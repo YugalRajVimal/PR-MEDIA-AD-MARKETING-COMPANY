@@ -9,6 +9,7 @@ const services = [
         para: "We simplify freelancing—no confusion, just clear steps.",
       },
       {
+        image: "/five.png",
         image: "Learn real skills and start freelancing, the easy way.",
       },
       {
