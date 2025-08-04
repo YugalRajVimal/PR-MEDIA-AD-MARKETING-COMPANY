@@ -22,8 +22,9 @@ import AddNamesComments from "./Admin/AdminComponents/AddNamesComments";
 import UploadImages from "./Admin/AdminComponents/UploadImages";
 import { AdminProvider } from "./context/AdminContext";
 
-// axios.defaults.withCredentials = true;
+axios.defaults.withCredentials = true;
 
+// axios.defaults.withCredentials = true;
 
 const App = () => {
   const packages = [

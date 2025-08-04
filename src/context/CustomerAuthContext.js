@@ -4,7 +4,6 @@ import axios from "axios";
 import { toast } from "react-toastify";
 export const CustomerAuthContext = createContext();
 
-axios.defaults.withCredentials = true;
 
 
 export const CustomerAuthProvider = ({ children }) => {
