@@ -1,8 +1,14 @@
 import React from "react";
 import { Upload, Image } from "lucide-react"; // optional: lucide-react icons
+import { FaUsers } from "react-icons/fa";
 
 const AdminDashboard = () => {
   const cards = [
+    {
+      title: "Manage Users",
+      href: "/admin/panel/all-users",
+      icon: <FaUsers className="w-6 h-6 text-blue-500" />, // optional
+    },
     {
       title: "Upload Name-Comments",
       href: "/admin/panel/add-names-comments",

@@ -42,8 +42,14 @@ const MessageBox = ({ setIsCustomerLoginVisible }) => {
   const messagesContainerRef = useRef(null);
   const messagesEndRef = useRef(null);
   const [isUserScrolledUp, setIsUserScrolledUp] = useState(false);
-  const { isCustomerAuthenticated, getAllNameCommentAndImagesCombined } =
-    useCustomerAuth();
+  const {
+    name,
+    isCustomerAuthenticated,
+    getAllNameCommentAndImagesCombined,
+    isCustomerApproved,
+    setIsUserApproved,
+    isUserApproved,
+  } = useCustomerAuth();
 
   const [isMessageBoxOpen, setIsMessageBoxOpen] = useState(true);
   const [isExpandToFullScreen, setIsExpandToFullScreen] = useState(false);
@@ -81,14 +87,20 @@ const MessageBox = ({ setIsCustomerLoginVisible }) => {
     const fetchComments = async () => {
       const res = await getAllNameCommentAndImagesCombined();
       if (res && res.data) {
-        originalMessagesRef.current = res.data;
+        // originalMessagesRef.current = res.data;
+        // originalMessagesRef.current = res.data;
         const shuffled = shuffleArray(res.data);
         setShuffledMessages(shuffled);
         indexRef.current = 0;
       }
     };
 
+    const checkUserApproval = async () => {
+      await isUserApproved();
+    };
+
     fetchComments();
+    checkUserApproval();
   }, []);
 
   useEffect(() => {
@@ -177,21 +189,22 @@ const MessageBox = ({ setIsCustomerLoginVisible }) => {
       return;
     }
 
+    if (!isCustomerApproved) {
+      const phone = "+917500010933";
+      const whatsappURL = `https://wa.me/${phone}?text=Hi, I am ready for the paid training}`;
+      window.open(whatsappURL, "_blank");
+
+      return;
+    }
+
     const trimmedMessage = userMessage.trim();
     if (!trimmedMessage) return;
 
-    // Open in WhatsApp
-    const phone = "+917500010933";
-    const whatsappURL = `https://wa.me/${phone}?text=${encodeURIComponent(
-      trimmedMessage
-    )}`;
-    window.open(whatsappURL, "_blank");
-
     // Also show in chat UI if needed
-    // setVisibleMessages((prev) => [
-    //   ...prev,
-    //   { name: "YRV", comment: trimmedMessage },
-    // ]);
+    setVisibleMessages((prev) => [
+      ...prev,
+      { name: name, comment: trimmedMessage },
+    ]);
     setUserMessage("");
   };
 
@@ -324,6 +337,7 @@ const MessageBox = ({ setIsCustomerLoginVisible }) => {
                 value={userMessage}
                 onChange={(e) => setUserMessage(e.target.value)}
                 disabled={!isCustomerAuthenticated}
+                placeholder="Message..."
                 className="bg-white w-full p-2 border-r-0 rounded-l-2xl border border-black"
               />
               <div className="h-full">

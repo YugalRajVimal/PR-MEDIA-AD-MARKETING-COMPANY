@@ -22,6 +22,7 @@ import AddNamesComments from "./Admin/AdminComponents/AddNamesComments";
 import UploadImages from "./Admin/AdminComponents/UploadImages";
 import { AdminProvider } from "./context/AdminContext";
 import OAuthSuccess from "./Components/OAuthSuccess";
+import AllUsers from "./Admin/AdminComponents/AllUsers";
 
 axios.defaults.withCredentials = true;
 
@@ -120,6 +121,14 @@ const App = () => {
                 element={
                   <AdminProtectedRoute>
                     <AdminDashboard />
+                  </AdminProtectedRoute>
+                }
+              />
+              <Route
+                path="all-users"
+                element={
+                  <AdminProtectedRoute>
+                    <AllUsers />
                   </AdminProtectedRoute>
                 }
               />

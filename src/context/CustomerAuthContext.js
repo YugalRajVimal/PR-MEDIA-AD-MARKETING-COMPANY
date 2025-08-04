@@ -6,6 +6,8 @@ export const CustomerAuthContext = createContext();
 
 export const CustomerAuthProvider = ({ children }) => {
   const [isCustomerAuthenticated, setIsCustomerAuthenticated] = useState(false);
+  const [isCustomerApproved, setIsUserApproved] = useState(false);
+  const [name, setName] = useState("");
 
   // In CustomerAuthProvider:
   const verifyCustomerAuth = async () => {
@@ -138,6 +140,31 @@ export const CustomerAuthProvider = ({ children }) => {
     }
   };
 
+  const isUserApproved = async () => {
+    try {
+      const token = localStorage.getItem("token");
+      const response = await axios.get(
+        `${process.env.REACT_APP_API_URL}/api/customer/is-user-approved`,
+        {
+          headers: {
+            Authorization: `${token}`,
+          },
+        }
+      );
+
+      if (response.status === 200) {
+        // toast.success("User approval status fetched successfully");
+        setIsUserApproved(response.data.approved);
+        setName(response.data.name);
+        console.log(response);
+        return response.data.approved;
+      }
+    } catch (error) {
+      // toast.error("Failed to fetch user approval status. Please try again.");
+      return false;
+    }
+  };
+
   return (
     <CustomerAuthContext.Provider
       value={{
@@ -150,6 +177,10 @@ export const CustomerAuthProvider = ({ children }) => {
         otpVerification,
         forgetPassword,
         getAllNameCommentAndImagesCombined,
+        isCustomerApproved,
+        setIsUserApproved,
+        isUserApproved,
+        name
       }}
     >
       {children}

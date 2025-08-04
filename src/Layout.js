@@ -11,9 +11,12 @@ import { useEffect, useState } from "react";
 
 const Layout = () => {
   const [isCustomerLoginVisible, setIsCustomerLoginVisible] = useState(false);
+  
   const [isCustomerSignUpVisible, setIsCustomerSignUpVisible] = useState(false);
+
   const [isCustomerForgetPasswordVisible, setIsCustomerForgetPasswordVisible] =
     useState(false);
+
   const [isCustomerVerifyAccountVisible, setIsCustomerVerifyAccountVisible] =
     useState(false);
 

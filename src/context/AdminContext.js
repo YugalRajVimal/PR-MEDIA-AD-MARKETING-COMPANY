@@ -129,6 +129,47 @@ export const AdminProvider = ({ children }) => {
     }
   };
 
+  const getAllUsers = async () => {
+    const adminToken = localStorage.getItem("admin-token");
+    try {
+      const response = await axios.get(
+        `${process.env.REACT_APP_API_URL}/api/admin/get-all-users`,
+        {
+          headers: {
+            Authorization: `${adminToken}`,
+          },
+        }
+      );
+      toast.success("Users fetched successfully");
+      return response.data;
+    } catch (error) {
+      console.error("Failed to fetch users:", error);
+      toast.error("Failed to fetch users");
+      return false;
+    }
+  };
+
+  const approveUser = async (userId) => {
+    const adminToken = localStorage.getItem("admin-token");
+    try {
+      const response = await axios.put(
+        `${process.env.REACT_APP_API_URL}/api/admin/approve-user/${userId}`,
+        {},
+        {
+          headers: {
+            Authorization: `${adminToken}`,
+          },
+        }
+      );
+      toast.success("User approved successfully");
+      return response;
+    } catch (error) {
+      console.error("Failed to approve user:", error);
+      toast.error("Failed to approve user");
+      return false;
+    }
+  };
+
   return (
     <AdminContext.Provider
       value={{
@@ -137,7 +178,9 @@ export const AdminProvider = ({ children }) => {
         deleteAllNameComments,
         uploadImages,
         getUploadedImages,
-        deleteAllImages
+        deleteAllImages,
+        getAllUsers,
+        approveUser,
       }}
     >
       {children}

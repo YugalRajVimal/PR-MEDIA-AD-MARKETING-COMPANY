@@ -77,6 +77,12 @@ const AdminSidePanel = ({ setSelectedPage, selectedPage }) => {
           pageKey="Dashboard"
         />
         <MenuItem
+          icon={FaUsers}
+          label="All Users"
+          path="/admin/panel/all-users"
+          pageKey="AllUsers"
+        />
+        <MenuItem
           icon={FaEdit}
           label="Add Name & Comment"
           path="/admin/panel/add-names-comments"
