@@ -11,10 +11,13 @@ const MessageBox = () => {
   const { isCustomerAuthenticated, getAllNameCommentAndImagesCombined } =
     useCustomerAuth();
 
-  const [isMessageBoxOpen, setIsMessageBoxOpen] = useState(false);
+  const [isMessageBoxOpen, setIsMessageBoxOpen] = useState(true);
   const [visibleMessages, setVisibleMessages] = useState([]);
   const [userMessage, setUserMessage] = useState([]);
   const [shuffledMessages, setShuffledMessages] = useState([]);
+  const [needsReshuffle, setNeedsReshuffle] = useState(false);
+  const originalMessagesRef = useRef([]);
+
   const indexRef = useRef(0);
 
   const shuffleArray = (arr) => {
@@ -28,6 +31,7 @@ const MessageBox = () => {
     const fetchComments = async () => {
       const res = await getAllNameCommentAndImagesCombined();
       if (res && res.data) {
+        originalMessagesRef.current = res.data;
         const shuffled = shuffleArray(res.data);
         setShuffledMessages(shuffled);
         indexRef.current = 0;
@@ -38,24 +42,30 @@ const MessageBox = () => {
   }, []);
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    let timeoutId;
+
+    const showNextMessage = () => {
       if (indexRef.current < shuffledMessages.length) {
         setVisibleMessages((prev) => [
           ...prev,
           shuffledMessages[indexRef.current],
         ]);
         indexRef.current += 1;
-      } else {
-        // Reshuffle and restart
-        const reshuffled = shuffleArray(shuffledMessages);
-        setShuffledMessages(reshuffled);
-        setVisibleMessages([]);
-        indexRef.current = 0;
-      }
-    }, 2000);
 
-    return () => clearInterval(interval);
-  }, [shuffledMessages]);
+        const randomDelay = Math.floor(Math.random() * 3000) + 3000;
+        timeoutId = setTimeout(showNextMessage, randomDelay);
+      } else {
+        // Wait for reshuffle via useEffect
+        setNeedsReshuffle(true);
+      }
+    };
+
+    if (shuffledMessages.length > 0 && !needsReshuffle) {
+      showNextMessage();
+    }
+
+    return () => clearTimeout(timeoutId);
+  }, [shuffledMessages, needsReshuffle]);
 
   useEffect(() => {
     if (!isUserScrolledUp) {
@@ -77,23 +87,40 @@ const MessageBox = () => {
     setUserMessage("");
   };
 
+  useEffect(() => {
+    if (needsReshuffle) {
+      const reshuffled = shuffleArray(originalMessagesRef.current);
+      setShuffledMessages(reshuffled);
+      indexRef.current = 0;
+      setNeedsReshuffle(false);
+    }
+  }, [needsReshuffle]);
+
   return (
     <div
       className={`absolute bottom-0 right-[20px] ${
         isMessageBoxOpen
-          ? "h-[350px] bg-[#f7dbb6]/80"
+          ? "h-[350px] bg-black/80"
           : "h-[40px] bg-[#f7dbb6] border-b-0 border border-black"
-      } w-[280px] rounded-t-md z-50`}
+      } w-[280px] rounded-t-xl z-50`}
     >
       <div className="relative h-full w-full font-mono flex justify-start items-center">
         {isMessageBoxOpen ? (
-          <div className="h-full w-full overflow-y-scroll border border-black rounded-t-md flex flex-col justify-between">
+          <div className="h-full w-full overflow-y-scroll border border-black rounded-t-xl flex flex-col justify-between">
             <div
               onClick={() => setIsMessageBoxOpen(false)}
-              className="px-3 py-3 flex justify-between items-center border-b border-black"
+              className="px-3  py-1 flex flex-col  justify-between items-center text-white items-center border-b border-white "
             >
-              <span>Active Peoples</span>
-              <FaTimes />
+              <span className="text-white font-sans text-sm mb-4">
+                3L+ Students Joined{" "}
+              </span>
+              <div className="flex  justify-between w-full">
+                <span className="text-green-500 text-base font-serif">
+                  Live People
+                </span>
+                <span className="h-2 rounded-full bg-green"></span>
+                <FaTimes />
+              </div>
             </div>
 
             {/* Messages */}
@@ -107,7 +134,7 @@ const MessageBox = () => {
                   container.clientHeight + 5;
                 setIsUserScrolledUp(!isAtBottom);
               }}
-              className="p-3 flex flex-col overflow-y-auto space-y-2 h-[220px]"
+              className="p-3 flex flex-col overflow-y-auto space-y-2 h-[220px] font-serif"
             >
               <AnimatePresence>
                 {visibleMessages.map((msgObj, index) => (
@@ -117,13 +144,13 @@ const MessageBox = () => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 20 }}
                     transition={{ duration: 0.4 }}
-                    className="bg-gray-100 px-3 py-2 rounded-md text-sm text-gray-800 w-fit"
+                    className="bg-gray-100 px-3 py-2 rounded-2xl text-sm text-gray-800 w-fit"
                   >
-                    <span className="text-xs font-bold underline">
+                    <span className="text-xs font-bold underline font-sans">
                       {msgObj?.name}
                     </span>
                     <br />
-                    <span>{msgObj?.comment}</span>
+                    <span className="text-xs">{msgObj?.comment}</span>
                     {msgObj?.image && (
                       <div className="w-full">
                         <img
@@ -152,12 +179,12 @@ const MessageBox = () => {
                 type="text"
                 value={userMessage}
                 onChange={(e) => setUserMessage(e.target.value)}
-                className="bg-white w-full p-2 border-r-0 rounded-l-md border border-black"
+                className="bg-white w-full p-2 border-r-0 rounded-l-2xl border border-black"
               />
               <div className="h-full">
                 <div
                   onClick={handleUserMessage}
-                  className="aspect-[1/1] h-full flex justify-center items-center p-2 bg-black text-white text-xl rounded-sm cursor-pointer"
+                  className="aspect-[1/1] h-full flex justify-center items-center p-2 bg-black text-white text-xl rounded-sm rounded-r-lg cursor-pointer"
                 >
                   <FaPaperPlane />
                 </div>
@@ -166,7 +193,7 @@ const MessageBox = () => {
           </div>
         ) : (
           <>
-            <span className="pl-4">Active Peoples</span>
+            <span className="pl-4">Live Peoples</span>
             <div
               onClick={() => setIsMessageBoxOpen(true)}
               className="absolute top-1/2 right-[5px] -translate-x-1/2 -translate-y-1/2"
