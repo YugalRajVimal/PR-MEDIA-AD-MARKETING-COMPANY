@@ -156,15 +156,34 @@ const MessageBox = ({ setIsCustomerLoginVisible }) => {
     }
   }, [visibleMessages]);
 
+  // useEffect(() => {
+  //   const updateCount = () => {
+  //     const [min, max] = getRangeForCurrentTime();
+  //     const randomCount = getRandomInRange(min, max);
+  //     setLivePeopleCount(randomCount);
+  //   };
+
+  //   updateCount(); // Initial update
+  //   const interval = setInterval(updateCount, 10000); // Every 10 seconds
+
+  //   return () => clearInterval(interval);
+  // }, []);
+
   useEffect(() => {
-    const updateCount = () => {
-      const [min, max] = getRangeForCurrentTime();
-      const randomCount = getRandomInRange(min, max);
-      setLivePeopleCount(randomCount);
+    const fetchLiveCount = async () => {
+      try {
+        const res = await fetch(
+          `${process.env.REACT_APP_API_URL}/api/customer/live-count`
+        );
+        const data = await res.json();
+        setLivePeopleCount(data?.livePeopleCount);
+      } catch (err) {
+        console.error("Failed to fetch live count", err);
+      }
     };
 
-    updateCount(); // Initial update
-    const interval = setInterval(updateCount, 10000); // Every 10 seconds
+    fetchLiveCount(); // Initial fetch
+    const interval = setInterval(fetchLiveCount, 10000); // Repeat every 10s
 
     return () => clearInterval(interval);
   }, []);
