@@ -10,7 +10,7 @@ const services = [
       },
       {
         image: "/five.png",
-        image: "Learn real skills and start freelancing, the easy way.",
+        para: "Learn real skills and start freelancing, the easy way.",
       },
       {
         image: "/six.png",

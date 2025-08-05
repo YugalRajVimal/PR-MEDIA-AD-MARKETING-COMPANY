@@ -23,6 +23,8 @@ import UploadImages from "./Admin/AdminComponents/UploadImages";
 import { AdminProvider } from "./context/AdminContext";
 import OAuthSuccess from "./Components/OAuthSuccess";
 import AllUsers from "./Admin/AdminComponents/AllUsers";
+import TermsOfService from "./Pages/TermsOfServices";
+import PrivacyPolicy from "./Pages/PrivacyPolicy";
 
 axios.defaults.withCredentials = true;
 
@@ -85,6 +87,8 @@ const App = () => {
             }
           >
             <Route index element={<LandingPage />} />
+            <Route path="/terms-of-services" element={<TermsOfService />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
 
             <Route path="/oauth-success" element={<OAuthSuccess />} />
             <Route

@@ -43,6 +43,16 @@ const Footer = () => {
                   Demo Call
                 </a>
               </li>
+              <li>
+                <a href="/terms-of-services" className="hover:text-gray-300 transition">
+                  Terms of Services
+                </a>
+              </li>
+              <li>
+                <a href="/privacy-policy" className="hover:text-gray-300 transition">
+                  Privacy Policy
+                </a>
+              </li>
             </ul>
           </div>
 
