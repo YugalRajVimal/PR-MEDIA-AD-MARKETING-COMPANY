@@ -4,39 +4,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useCustomerAuth } from "../../context/CustomerAuthContext";
 import { toast } from "react-toastify";
 // Utility to get a random number in a given range
-const getRandomInRange = (min, max) =>
-  Math.floor(Math.random() * (max - min + 1)) + min;
-
-// Get the min/max based on India timezone
-const getRangeForCurrentTime = () => {
-  const now = new Date().toLocaleString("en-US", { timeZone: "Asia/Kolkata" });
-  const hour = new Date(now).getHours();
-
-  if (hour === 1) return [5000, 7000];
-  if (hour === 2) return [2000, 3000];
-  if (hour === 3) return [500, 1000];
-  if (hour === 4) return [500, 1000];
-  if (hour === 5) return [500, 1000];
-  if (hour === 6) return [1000, 2000];
-  if (hour === 7) return [4000, 6000];
-  if (hour === 8) return [8000, 12000];
-  if (hour === 9) return [30000, 50000];
-  if (hour === 10) return [50000, 70000];
-  if (hour === 11) return [70000, 90000];
-  if (hour === 12) return [90000, 110000];
-  if (hour === 13) return [110000, 130000];
-  if (hour === 14) return [130000, 150000];
-  if (hour === 15) return [150000, 165000];
-  if (hour === 16) return [165000, 180000];
-  if (hour === 17) return [180000, 200000];
-  if (hour === 18) return [200000, 220000];
-  if (hour === 19) return [200000, 220000];
-  if (hour === 20) return [180000, 200000];
-  if (hour === 21) return [70000, 80000];
-  if (hour === 22) return [50000, 60000];
-  if (hour === 23) return [20000, 10000];
-  return [10000, 12000];
-};
 
 const MessageBox = ({ setIsCustomerLoginVisible }) => {
   const messagesContainerRef = useRef(null);
@@ -50,6 +17,25 @@ const MessageBox = ({ setIsCustomerLoginVisible }) => {
     setIsUserApproved,
     isUserApproved,
   } = useCustomerAuth();
+
+  useEffect(() => {
+    const fetchLiveCount = async () => {
+      try {
+        const res = await fetch(
+          `${process.env.REACT_APP_API_URL}/api/customer/live-count`
+        );
+        const data = await res.json();
+        setLivePeopleCount(data?.livePeopleCount);
+      } catch (err) {
+        console.error("Failed to fetch live count", err);
+      }
+    };
+
+    fetchLiveCount(); // Initial fetch
+    const interval = setInterval(fetchLiveCount, 10000); // Repeat every 10s
+
+    return () => clearInterval(interval);
+  }, []);
 
   const [isMessageBoxOpen, setIsMessageBoxOpen] = useState(true);
   const [isExpandToFullScreen, setIsExpandToFullScreen] = useState(false);
@@ -87,8 +73,7 @@ const MessageBox = ({ setIsCustomerLoginVisible }) => {
     const fetchComments = async () => {
       const res = await getAllNameCommentAndImagesCombined();
       if (res && res.data) {
-        // originalMessagesRef.current = res.data;
-        // originalMessagesRef.current = res.data;
+        originalMessagesRef.current = res.data; // ✅ FIXED: Store original
         const shuffled = shuffleArray(res.data);
         setShuffledMessages(shuffled);
         indexRef.current = 0;
@@ -130,11 +115,37 @@ const MessageBox = ({ setIsCustomerLoginVisible }) => {
 
     const showNextMessage = () => {
       if (indexRef.current < shuffledMessages.length) {
-        setVisibleMessages((prev) => [
-          ...prev,
-          shuffledMessages[indexRef.current],
-        ]);
-        indexRef.current += 1;
+        const upcoming = shuffledMessages[indexRef.current];
+        const upcomingName = (upcoming?.name || "").trim();
+        const upcomingComment = (upcoming?.comment || "").trim();
+
+        // Skip invalid comment
+        if (!upcomingComment) {
+          indexRef.current += 1;
+          showNextMessage(); // Call again to fetch next valid message
+          return;
+        }
+
+        // CASE 1: When visibleMessages is empty
+        if (visibleMessages.length === 0) {
+          setVisibleMessages((prev) => [...prev, upcoming]);
+          indexRef.current += 1;
+        }
+
+        // CASE 2: When visibleMessages already has some messages
+        else {
+          const lastTwo = visibleMessages.slice(-2);
+          const isDuplicate = lastTwo.every((msg) => {
+            const prevName = (msg?.name || "").trim();
+            const prevComment = (msg?.comment || "").trim();
+            return prevName === upcomingName && prevComment === upcomingComment;
+          });
+
+          if (!isDuplicate) {
+            setVisibleMessages((prev) => [...prev, upcoming]);
+          }
+          indexRef.current += 1; // Always move to next
+        }
 
         const dynamicDelay = getDelayBasedOnTime();
         timeoutId = setTimeout(showNextMessage, dynamicDelay);
@@ -155,52 +166,6 @@ const MessageBox = ({ setIsCustomerLoginVisible }) => {
       messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
     }
   }, [visibleMessages]);
-
-  // useEffect(() => {
-  //   const updateCount = () => {
-  //     const [min, max] = getRangeForCurrentTime();
-  //     const randomCount = getRandomInRange(min, max);
-  //     setLivePeopleCount(randomCount);
-  //   };
-
-  //   updateCount(); // Initial update
-  //   const interval = setInterval(updateCount, 10000); // Every 10 seconds
-
-  //   return () => clearInterval(interval);
-  // }, []);
-
-  useEffect(() => {
-    const fetchLiveCount = async () => {
-      try {
-        const res = await fetch(
-          `${process.env.REACT_APP_API_URL}/api/customer/live-count`
-        );
-        const data = await res.json();
-        setLivePeopleCount(data?.livePeopleCount);
-      } catch (err) {
-        console.error("Failed to fetch live count", err);
-      }
-    };
-
-    fetchLiveCount(); // Initial fetch
-    const interval = setInterval(fetchLiveCount, 10000); // Repeat every 10s
-
-    return () => clearInterval(interval);
-  }, []);
-
-  // const handleUserMessage = () => {
-  //   if (!isCustomerAuthenticated) {
-  //     toast.error("Please Login before sending a message");
-  //     return;
-  //   }
-  //   if (!userMessage.trim()) return;
-
-  //   setVisibleMessages((prev) => [
-  //     ...prev,
-  //     { name: "YRV", comment: userMessage },
-  //   ]);
-  //   setUserMessage("");
-  // };
 
   const handleUserMessage = () => {
     if (!isCustomerAuthenticated) {
@@ -228,7 +193,7 @@ const MessageBox = ({ setIsCustomerLoginVisible }) => {
   };
 
   useEffect(() => {
-    if (needsReshuffle) {
+    if (needsReshuffle && originalMessagesRef.current.length > 0) {
       const reshuffled = shuffleArray(originalMessagesRef.current);
       setShuffledMessages(reshuffled);
       indexRef.current = 0;
@@ -238,11 +203,6 @@ const MessageBox = ({ setIsCustomerLoginVisible }) => {
 
   const handleToggleFullScreen = () => {
     setIsExpandToFullScreen((prevState) => !prevState);
-  };
-
-  const handleToggleBoxScreen = () => {
-    setIsMessageBoxOpen((prevState) => !prevState);
-    setIsExpandToFullScreen(false);
   };
 
   return (
