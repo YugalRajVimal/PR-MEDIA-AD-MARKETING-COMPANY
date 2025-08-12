@@ -86,25 +86,21 @@ const MessageBox2 = ({ setIsCustomerLoginVisible }) => {
   const socketRef = useRef(null);
 
   useEffect(() => {
-    socketRef.current = new WebSocket("ws://localhost:8090");
+    socketRef.current = new WebSocket("wss://theprmedia.com");
 
     socketRef.current.addEventListener("open", () => {
-
       socketRef.current.send("Hello from client!");
     });
 
     socketRef.current.addEventListener("message", (event) => {
       const data = JSON.parse(event.data);
       setVisibleMessages((prev) => [...prev, data]);
-
     });
 
     return () => {
       socketRef.current.close();
     };
   }, []);
-
-
 
   useEffect(() => {
     if (!isUserScrolledUp) {
@@ -143,7 +139,7 @@ const MessageBox2 = ({ setIsCustomerLoginVisible }) => {
 
   return (
     <div
-    className={`fixed  z-40 border border-black
+      className={`fixed  z-40 border border-black
   ${
     isExpandToFullScreen
       ? "w-full h-full bottom-[22px] pt-[22px] bg-black/80 right-0 pt-2"
@@ -151,7 +147,7 @@ const MessageBox2 = ({ setIsCustomerLoginVisible }) => {
       ? "w-[280px] h-[350px] bg-black/80 bottom-[22px] right-[20px] rounded-t-xl rounded-b-md border border-black"
       : "w-[280px] h-[40px] bg-black/80 bottom-[22px] border-b-0 right-[20px] rounded-t-xl border border-black"
   }`}
-  >
+    >
       <div className="relative h-full w-full font-mono flex justify-start items-center">
         {isMessageBoxOpen ? (
           <div className="h-full w-full overflow-y-scroll   flex flex-col justify-between">
