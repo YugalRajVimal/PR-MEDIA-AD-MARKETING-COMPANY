@@ -94,8 +94,8 @@ const Layout = () => {
           mainEmail={mainEmail}
         />
       )}
-      {/* <MessageBox setIsCustomerLoginVisible={setIsCustomerLoginVisible} /> */}
-      <MessageBox2 setIsCustomerLoginVisible={setIsCustomerLoginVisible} />
+      <MessageBox setIsCustomerLoginVisible={setIsCustomerLoginVisible} />
+      {/* <MessageBox2 setIsCustomerLoginVisible={setIsCustomerLoginVisible} /> */}
     </div>
   );
 };
