@@ -8,10 +8,11 @@ import CustomerResetPassword from "./Components/AuthComponents/CustomerResetPass
 import CustomerVerifyAccount from "./Components/AuthComponents/CustomerVerifyAccount";
 import MessageBox from "./Components/MessageBox/MessageBox";
 import { useEffect, useState } from "react";
+import MessageBox2 from "./Components/MessageBox2/MessageBox2";
 
 const Layout = () => {
   const [isCustomerLoginVisible, setIsCustomerLoginVisible] = useState(false);
-  
+
   const [isCustomerSignUpVisible, setIsCustomerSignUpVisible] = useState(false);
 
   const [isCustomerForgetPasswordVisible, setIsCustomerForgetPasswordVisible] =
@@ -93,7 +94,8 @@ const Layout = () => {
           mainEmail={mainEmail}
         />
       )}
-      <MessageBox setIsCustomerLoginVisible={setIsCustomerLoginVisible} />
+      {/* <MessageBox setIsCustomerLoginVisible={setIsCustomerLoginVisible} /> */}
+      <MessageBox2 setIsCustomerLoginVisible={setIsCustomerLoginVisible} />
     </div>
   );
 };

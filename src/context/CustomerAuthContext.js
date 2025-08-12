@@ -156,7 +156,7 @@ export const CustomerAuthProvider = ({ children }) => {
         // toast.success("User approval status fetched successfully");
         setIsUserApproved(response.data.approved);
         setName(response.data.name);
-        console.log(response);
+
         return response.data.approved;
       }
     } catch (error) {

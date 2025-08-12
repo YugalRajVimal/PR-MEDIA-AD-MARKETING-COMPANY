@@ -53,22 +53,13 @@ const AddNamesComments = () => {
   const handleSave = async () => {
     // Upload the name and comments to the server
     const uploadResult = await uploadNameComments(nameCommentList);
-    if (uploadResult) {
-      console.log("Name and comments uploaded successfully");
-    } else {
-      console.error("Failed to upload name and comments");
-    }
+   
   };
 
   const handleDeleteAll = async () => {
     // Delete all name and comments from the server
     const deleteResult = await deleteAllNameComments();
-    if (deleteResult) {
-      console.log("All name and comments deleted successfully");
-      setOldUploads([]); // Clear old uploads after deletion
-    } else {
-      console.error("Failed to delete all name and comments");
-    }
+  
   };
 
   return (

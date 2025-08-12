@@ -35,17 +35,17 @@ export const AdminAuthProvider = ({ children }) => {
   };
 
   const forgetPassword = async (credentials) => {
-    console.log(credentials);
+
     try {
       const response = await axios.post(
         `${process.env.REACT_APP_API_URL}/api/admin/reset-password`,
         credentials
       );
-      console.log(response);
+
       toast.success(response?.data?.message);
       return response;
     } catch (err) {
-      console.log(err);
+
       toast.error(err?.response?.data?.message);
       return false;
     }
@@ -57,7 +57,7 @@ export const AdminAuthProvider = ({ children }) => {
         `${process.env.REACT_APP_API_URL}/api/admin/verify-account`,
         credentials
       );
-      console.log(response);
+
       toast.success(response?.data?.message);
       localStorage.setItem("admin-token", response?.data?.token);
       setIsAdminAuthenticated(true);
@@ -77,7 +77,7 @@ export const AdminAuthProvider = ({ children }) => {
           password: credentials?.password,
         }
       );
-      console.log(response);
+
       if (response?.status === 200) {
         toast.success("Login successfully");
         setIsAdminAuthenticated(true);
@@ -92,7 +92,7 @@ export const AdminAuthProvider = ({ children }) => {
       }
     } catch (err) {
       toast.error(err?.response?.data?.message);
-      console.log(err);
+
       return false;
     }
   };

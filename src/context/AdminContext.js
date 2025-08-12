@@ -78,7 +78,7 @@ export const AdminProvider = ({ children }) => {
           },
         }
       );
-      console.log("Upload Success:", response.data);
+
       toast.success("Images uploaded successfully");
       return response;
     } catch (error) {
@@ -119,7 +119,7 @@ export const AdminProvider = ({ children }) => {
           },
         }
       );
-      console.log("All images deleted successfully:", response.data);
+
       toast.success("All images deleted successfully");
       return response;
     } catch (error) {
