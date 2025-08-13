@@ -87,6 +87,7 @@ const MessageBox2 = ({ setIsCustomerLoginVisible }) => {
 
   useEffect(() => {
     socketRef.current = new WebSocket("wss://api.theprmedia.com");
+    // socketRef.current = new WebSocket("ws://localhost:8080");
 
     socketRef.current.addEventListener("open", () => {
       socketRef.current.send("Hello from client!");
