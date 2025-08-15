@@ -25,21 +25,41 @@ export const AdminProvider = ({ children }) => {
     }
   };
 
-  const getAllNameComments = async () => {
+  // AdminContext
+  const getAllNameComments = async ({ page = 1, limit = 50 } = {}) => {
     const adminToken = localStorage.getItem("admin-token");
     try {
       const response = await axios.get(
         `${process.env.REACT_APP_API_URL}/api/admin/get-all-name-comments`,
+        {
+          headers: { Authorization: `${adminToken}` }, // or `Bearer ${adminToken}`
+          params: { page, limit },
+        }
+      );
+      return response.data;
+    } catch (error) {
+      toast.error(error?.response?.data?.message || "Error fetching comments");
+      return { total: 0, nameComments: [], page: 1, totalPages: 1 };
+    }
+  };
+
+  const deleteDuplicateComments = async () => {
+    const adminToken = localStorage.getItem("admin-token");
+    try {
+      const response = await axios.post(
+        `${process.env.REACT_APP_API_URL}/api/admin/delete-duplicate-comments`,
+        {},
         {
           headers: {
             Authorization: `${adminToken}`,
           },
         }
       );
-      return response.data.nameComments;
+      toast.success(response.data.message);
+      return response;
     } catch (error) {
       toast.error(error.response.data.message);
-      return [];
+      return false;
     }
   };
 
@@ -181,6 +201,7 @@ export const AdminProvider = ({ children }) => {
         deleteAllImages,
         getAllUsers,
         approveUser,
+        deleteDuplicateComments,
       }}
     >
       {children}
