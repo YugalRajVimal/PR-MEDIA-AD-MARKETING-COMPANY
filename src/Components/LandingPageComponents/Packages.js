@@ -192,7 +192,7 @@ const Packages = () => {
     >
       <div className="h-full w-full md:w-[600px] md:max-w-[600px] flex flex-col justify-evenly items-center gap-10 px-2 py-10 md:p-4 bg-[#3B2E22] text-[#fff2e1] rounded-xl">
         <h2 className="text-4xl font-semibold">Packages</h2>
-        <div className="text-center font-bold text-lg md:text-xl">
+        {/* <div className="text-center font-bold text-lg md:text-xl">
           <span className="text-[#FFC300]">
             💥 Limited Time Offer – 53% OFF!
           </span>
@@ -201,10 +201,10 @@ const Packages = () => {
             Original Fee: ₹12,350 → Now Only: ₹5,790 Save ₹6,560 today – Act
             Fast!
           </span>
-        </div>
+        </div> */}
 
         <div className="w-full flex justify-evenly items-center gap-4 md:gap-6">
-          {["Rs. 5,790"].map((price, index) => (
+          {["Rs. 12,350"].map((price, index) => (
             <a
               key={index}
               href={`/package${index + 1}`}

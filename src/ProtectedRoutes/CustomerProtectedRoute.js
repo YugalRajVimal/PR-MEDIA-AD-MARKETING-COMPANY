@@ -22,9 +22,9 @@ const CustomerProtectedRoute = ({ children }) => {
     checkAuth();
   }, [verifyCustomerAuth]);
 
-  if (!isAuthChecked) {
-    return <div>Loading....</div>; // or show a loader component if you have one
-  }
+  // if (!isAuthChecked) {
+  //   return <div>Loading....</div>; // or show a loader component if you have one
+  // }
 
   return children;
 };

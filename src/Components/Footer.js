@@ -63,7 +63,7 @@ const Footer = () => {
 
               <li>
                 <a href="/package1" className="hover:text-gray-300 transition">
-                  Rs. 5,790
+                  Rs. 12,350
                 </a>
               </li>
               {/* <li>

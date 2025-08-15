@@ -32,7 +32,7 @@ const MessageBox2 = ({ setIsCustomerLoginVisible }) => {
     };
 
     fetchLiveCount(); // Initial fetch
-    const interval = setInterval(fetchLiveCount, 10000); // Repeat every 10s
+    const interval = setInterval(fetchLiveCount, 3000); // Repeat every 10s
 
     return () => clearInterval(interval);
   }, []);
