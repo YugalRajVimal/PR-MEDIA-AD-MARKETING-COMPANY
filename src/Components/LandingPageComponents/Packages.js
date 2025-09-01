@@ -198,13 +198,13 @@ const Packages = () => {
           </span>
           <br />
           <span className="text-[#FFC300]">
-            Original Fee: ₹12,350 → Now Only: ₹5,790 Save ₹6,560 today – Act
+            Original Fee: ₹3,850 → Now Only: ₹5,790 Save ₹6,560 today – Act
             Fast!
           </span>
         </div> */}
 
         <div className="w-full flex justify-evenly items-center gap-4 md:gap-6">
-          {["Rs. 12,350"].map((price, index) => (
+          {["Rs. 3,850"].map((price, index) => (
             <a
               key={index}
               href={`/package${index + 1}`}

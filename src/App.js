@@ -33,7 +33,7 @@ axios.defaults.withCredentials = true;
 const App = () => {
   const packages = [
     {
-      title: "Rs. 12,350 Package",
+      title: "Rs. 3,850 Package",
       subTitle: "Providing services to clients online and getting paid",
       description:
         "For those who are looking for the best and most genuine ways to earn through freelancing.",

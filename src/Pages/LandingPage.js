@@ -27,7 +27,7 @@ const LandingPage = () => {
         {/* <Carousel /> */}
         <Headline />
         <AboutUs />
-        <Testimonials3 />
+        {/* <Testimonials3 /> */}
         <Card3 />
         <VideoCard1 />
         <Card1 />

@@ -11,8 +11,9 @@ const Footer = () => {
         <div className="footer-section flex flex-col gap-4">
           <h2 className="text-2xl font-bold mb-2">About Us</h2>
           <p className="text-sm">
-          We create innovative freelancing systems to help individuals grow
-            and thrive in the digital world. Please note: it's non-refundable payment.
+            We create innovative freelancing systems to help individuals grow
+            and thrive in the digital world. Please note: it's non-refundable
+            payment.
           </p>
           <div>
             <p className="text-sm">Open 10 Am to 6 Pm</p>
@@ -44,12 +45,18 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="/terms-of-services" className="hover:text-gray-300 transition">
+                <a
+                  href="/terms-of-services"
+                  className="hover:text-gray-300 transition"
+                >
                   Terms of Services
                 </a>
               </li>
               <li>
-                <a href="/privacy-policy" className="hover:text-gray-300 transition">
+                <a
+                  href="/privacy-policy"
+                  className="hover:text-gray-300 transition"
+                >
                   Privacy Policy
                 </a>
               </li>
@@ -63,7 +70,7 @@ const Footer = () => {
 
               <li>
                 <a href="/package1" className="hover:text-gray-300 transition">
-                  Rs. 12,350
+                  Rs. 3,850
                 </a>
               </li>
               {/* <li>
