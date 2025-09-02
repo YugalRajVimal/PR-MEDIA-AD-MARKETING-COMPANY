@@ -91,8 +91,9 @@ const Footer = () => {
         {/* End Section */}
         <div className="footer-section flex flex-col gap-4 items-center md:items-center">
           <p className="text-sm">
-            Office No-109, Second Floor, Om Tower, Commercial Belt, Alfa-1, Near
-            Pari Chowk, Greater Noida, India ( Pin code - 201310 )
+            KHET NO - 404, ASIAN PAINT COLONY, KHERLI HAFIZPUR, Yamuna
+            Expressway Industrial Development Area, Gautambuddha Nagar, Uttar
+            Pradesh, 203201
           </p>
           <p className="text-sm text-left w-full">
             Contact No. 7500010933, 7500030415
