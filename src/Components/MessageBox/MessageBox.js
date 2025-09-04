@@ -174,7 +174,7 @@ const MessageBox = ({ setIsCustomerLoginVisible }) => {
     }
 
     if (!isCustomerApproved) {
-      const phone = "+917500010933";
+      const phone = "+917500030415";
       const whatsappURL = `https://wa.me/${phone}?text=Hi, I am ready for the paid training}`;
       window.open(whatsappURL, "_blank");
 

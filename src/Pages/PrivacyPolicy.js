@@ -63,7 +63,7 @@ const PrivacyPolicy = () => {
         <p>
           📧 support@theprmedia.in
           <br />
-          📞 7500010933, 7500030415
+          📞 +917500030415
         </p>
       </section>
     </div>

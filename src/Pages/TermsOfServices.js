@@ -63,7 +63,7 @@ const TermsOfService = () => {
           📍 Office No-109, Second Floor, Om Tower, Commercial Belt, Alfa-1,
           Near Pari Chowk, Greater Noida, 201310
           <br />
-          📞 7500010933, 7500030415
+          📞 +917500030415
         </p>
       </section>
     </div>

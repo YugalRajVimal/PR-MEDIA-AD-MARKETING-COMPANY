@@ -28,7 +28,7 @@ const Card3 = () => {
             </a>
           </span>
           <span className="absolute top-1/2 -translate-y-1/2 right-0 text-black inline-block">
-            <a href="https://wa.me/+917500010933">
+            <a href="https://wa.me/+917500030415">
               <FaWhatsapp />
             </a>
           </span>

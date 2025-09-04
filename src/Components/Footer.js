@@ -91,12 +91,16 @@ const Footer = () => {
         {/* End Section */}
         <div className="footer-section flex flex-col gap-4 items-center md:items-center">
           <p className="text-sm">
-            KHET NO - 404, ASIAN PAINT COLONY, KHERLI HAFIZPUR, Yamuna
-            Expressway Industrial Development Area, Gautambuddha Nagar, Uttar
-            Pradesh, 203201
+            Office No-109, Second Floor, Om Tower, Commercial Belt, Alfa-1, Near
+            Pari Chowk, Greater Noida, India ( Pin code - 201310 )
           </p>
           <p className="text-sm text-left w-full">
-            Contact No. 7500010933, 7500030415
+            <a
+              href="tel:+917500030415"
+              className="hover:text-gray-300 transition"
+            >
+              Contact No. +91 75000 30415
+            </a>
           </p>
           <p className="text-base text-left w-full h-[30px] ">
             <a
