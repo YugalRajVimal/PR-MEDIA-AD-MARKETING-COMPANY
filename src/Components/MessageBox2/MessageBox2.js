@@ -159,7 +159,7 @@ const MessageBox2 = ({ setIsCustomerLoginVisible }) => {
               animate={{ y: 0, opacity: 1 }} // slide into view
               exit={{ y: -100, opacity: 0 }} // slide back up when removed
               transition={{ delay: 3, duration: 0.5, ease: "easeOut" }}
-              className="absolute top-[20px] mx-auto w-screen flex items-center justify-center z-50"
+              className="absolute top-0 py-[20px]  mx-auto w-screen flex items-center justify-center z-50 "
             >
               <div className="rounded-2xl shadow-4xl w-full max-w-sm flex flex-col items-center">
                 <button
