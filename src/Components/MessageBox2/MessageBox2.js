@@ -10,9 +10,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useCustomerAuth } from "../../context/CustomerAuthContext";
 import { toast } from "react-toastify";
 import { IoLogoWhatsapp } from "react-icons/io";
+import { X } from "lucide-react";
 // Utility to get a random number in a given range
 
 const MessageBox2 = ({ setIsCustomerLoginVisible }) => {
+  const [isSignInOpen, setIsSignInOpen] = useState(true);
   const messagesContainerRef = useRef(null);
   const messagesEndRef = useRef(null);
   const [isUserScrolledUp, setIsUserScrolledUp] = useState(false);
@@ -153,15 +155,22 @@ const MessageBox2 = ({ setIsCustomerLoginVisible }) => {
     <>
       {!isCustomerAuthenticated && (
         <AnimatePresence>
-          {!isCustomerAuthenticated && (
+          {!isCustomerAuthenticated && isSignInOpen && (
+
             <motion.div
               initial={{ y: -100, opacity: 0 }} // start above
               animate={{ y: 0, opacity: 1 }} // slide into view
               exit={{ y: -100, opacity: 0 }} // slide back up when removed
               transition={{ delay: 3, duration: 0.5, ease: "easeOut" }}
-              className="absolute top-0 py-[20px]  mx-auto w-screen flex items-center justify-center z-50 "
+              className="absolute top-0 py-[20px] h-screen bg-black/50  w-screen flex items-center justify-center z-50 "
             >
-              <div className="rounded-2xl shadow-4xl w-full max-w-sm flex flex-col items-center">
+              <div className="relative rounded-2xl flex justify-center  items-center shadow-4xl h-full w-screen  flex flex-col items-center">
+                <div
+                  onClick={() => setIsSignInOpen(false)}
+                  className="absolute top-[10px] right-[20px] text-white"
+                >
+                  <X />
+                </div>
                 <button
                   onClick={handleGoogleLogin}
                   className="flex items-center justify-center w-fit px-10 py-4 border border-gray-300 rounded-md shadow-md bg-white text-sm font-medium text-gray-700 hover:bg-gray-100 transition"

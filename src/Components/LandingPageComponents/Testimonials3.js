@@ -66,7 +66,7 @@ const Testimonials3 = () => {
         </span>
       </div>
       {name && (
-        <div className="max-w-3xl mx-auto my-6 p-6 rounded-2xl shadow-xl bg-gradient-to-r from-orange-100 via-white to-yellow-100 border border-orange-300">
+        <div className="max-w-2xl mx-auto my-6 p-6 rounded-2xl shadow-xl bg-gradient-to-r from-orange-100 via-white to-yellow-100 border border-orange-300">
           <h1 className="text-2xl md:text-3xl font-extrabold text-gray-900 text-center mb-4">
             {name}
           </h1>
