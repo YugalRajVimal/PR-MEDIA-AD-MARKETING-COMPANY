@@ -1,8 +1,15 @@
 import React, { useEffect, useRef, useState } from "react";
-import { FaPaperPlane, FaTimes, FaExpandAlt, FaEye } from "react-icons/fa";
+import {
+  FaPaperPlane,
+  FaTimes,
+  FaExpandAlt,
+  FaEye,
+  FaCheckCircle,
+} from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import { useCustomerAuth } from "../../context/CustomerAuthContext";
 import { toast } from "react-toastify";
+import { IoLogoWhatsapp } from "react-icons/io";
 // Utility to get a random number in a given range
 
 const MessageBox2 = ({ setIsCustomerLoginVisible }) => {
@@ -138,146 +145,199 @@ const MessageBox2 = ({ setIsCustomerLoginVisible }) => {
     setIsExpandToFullScreen((prevState) => !prevState);
   };
 
+  const handleGoogleLogin = () => {
+    window.location.href = `${process.env.REACT_APP_API_URL}/auth/google`;
+  };
+
   return (
-    <div
-      className={`fixed  z-40 border border-black
+    <>
+      {!isCustomerAuthenticated && (
+        <AnimatePresence>
+          {!isCustomerAuthenticated && (
+            <motion.div
+              initial={{ y: -100, opacity: 0 }} // start above
+              animate={{ y: 0, opacity: 1 }} // slide into view
+              exit={{ y: -100, opacity: 0 }} // slide back up when removed
+              transition={{ delay: 3, duration: 0.5, ease: "easeOut" }}
+              className="absolute top-[20px] mx-auto w-screen flex items-center justify-center z-50"
+            >
+              <div className="rounded-2xl shadow-4xl w-full max-w-sm flex flex-col items-center">
+                <button
+                  onClick={handleGoogleLogin}
+                  className="flex items-center justify-center w-fit px-10 py-4 border border-gray-300 rounded-md shadow-md bg-white text-sm font-medium text-gray-700 hover:bg-gray-100 transition"
+                >
+                  <img
+                    src="/google.png"
+                    alt="Google"
+                    className="h-6 w-6 mr-2"
+                  />
+                  Sign in with Google
+                </button>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      )}
+      <div
+        className={`fixed  z-40 border border-black
   ${
     isExpandToFullScreen
       ? "w-full h-full bottom-[22px] pt-[22px] bg-black/80 right-0 pt-2"
       : isMessageBoxOpen
-      ? "w-[280px] h-[350px] bg-black/80 bottom-[22px] right-[20px] rounded-t-xl rounded-b-md border border-black"
+      ? "w-[280px] h-[360px] bg-black/80 bottom-[22px] right-[20px] rounded-t-xl rounded-b-md border border-black"
       : "w-[280px] h-[40px] bg-black/80 bottom-[22px] border-b-0 right-[20px] rounded-t-xl border border-black"
   }`}
-    >
-      <div className="relative h-full w-full font-mono flex justify-start items-center">
-        {isMessageBoxOpen ? (
-          <div className="h-full w-full overflow-y-scroll   flex flex-col justify-between">
-            <div className="px-3  py-1 flex flex-col  justify-between items-center text-white items-center border-b border-white ">
-              <span className="text-white text-sm mb-4 font-aeris">
-                3L+ Students Joined{" "}
-              </span>
-              <div className="flex  justify-between w-full">
-                <span className="text-green-500 text-base font-serif flex items-center gap-2">
-                  Live People
-                  <span className="h-[6px] w-[6px] rounded-full bg-green-500 blink mr-2"></span>
-                  <FaEye className="text-sm text-green-500" />
-                  <span className="text-sm font-aeris">
-                    {livePeopleCountText}
+      >
+        <div className="relative h-full w-full font-mono flex justify-start items-center">
+          {isMessageBoxOpen ? (
+            <div className="h-full w-full overflow-y-scroll   flex flex-col justify-between">
+              <div className="px-3  py-1 flex flex-col  justify-between items-center text-white items-center border-b border-white ">
+                <div className="flex justify-between w-full  mt-1 items-center">
+                  <span className="text-white text-sm  font-aeris">
+                    3Lakh+ Students Joined{" "}
                   </span>
-                </span>
-
-                <div className="flex gap-2 items-center">
-                  {isExpandToFullScreen && (
-                    <button onClick={() => setIsExpandToFullScreen(false)}>
-                      <FaTimes className="text-white" />
-                    </button>
-                  )}
-                  {isMessageBoxOpen && !isExpandToFullScreen && (
-                    <FaTimes onClick={() => setIsMessageBoxOpen(false)} />
-                  )}
-                  <FaExpandAlt onClick={handleToggleFullScreen} />
-                </div>
-              </div>
-            </div>
-
-            {/* Messages */}
-            <div
-              ref={messagesContainerRef}
-              onScroll={() => {
-                const container = messagesContainerRef.current;
-                if (!container) return;
-                const isAtBottom =
-                  container.scrollHeight - container.scrollTop <=
-                  container.clientHeight + 5;
-                setIsUserScrolledUp(!isAtBottom);
-              }}
-              className="p-3 flex flex-col overflow-y-auto space-y-2 min-h-[220px] font-serif"
-            >
-              <AnimatePresence>
-                {visibleMessages.map((msgObj, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 20 }}
-                    transition={{ duration: 0.4 }}
-                    className="relative bg-gray-100 px-3 py-2 rounded-t-2xl rounded-br-2xl text-sm text-gray-800 w-fit"
+                  <a
+                    href={`http://wa.me/+917500030415`}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
-                    <div className="absolute bottom-0 -left-[8px] w-0 h-0 border-t-[12px] border-l-[12px] border-t-gray-100 border-l-transparent rounded-sm rotate-[90deg]"></div>
+                    <IoLogoWhatsapp className="text-2xl text-[#08c241] drop-shadow-[0_0_10px_#08c241] animate-pulse" />
+                  </a>
+                </div>
+                <p className="text-xs mb-1">Message! Start Now!</p>
 
-                    <span className="text-xs font-bold underline font-sans">
-                      {msgObj?.name}
+                <div className="flex  justify-between w-full">
+                  <span className="text-green-500 text-base font-serif flex items-center gap-2">
+                    Live People
+                    <span className="h-[6px] w-[6px] rounded-full bg-green-500 blink mr-2"></span>
+                    <FaEye className="text-sm text-green-500" />
+                    <span className="text-sm font-aeris">
+                      {livePeopleCountText}
                     </span>
-                    <br />
-                    <span className="text-xs">{msgObj?.comment}</span>
-                    {msgObj?.image && (
-                      <div className="w-full">
-                        <img
-                          src={`${process.env.REACT_APP_API_URL}/${msgObj.image}`}
-                          alt="commented-img"
-                          className="w-full mt-2"
-                          onLoad={() => {
-                            if (!isUserScrolledUp) {
-                              messagesEndRef.current?.scrollIntoView({
-                                behavior: "smooth",
-                              });
-                            }
-                          }}
-                        />
-                      </div>
-                    )}
-                  </motion.div>
-                ))}
-              </AnimatePresence>
-              <div ref={messagesEndRef} />
-            </div>
+                  </span>
 
-            {/* Input Box */}
-            <div className="relative w-full h-[50px] border-t border-black flex justify-end items-center p-1">
-              {!isCustomerAuthenticated && (
-                <div
-                  onClick={() => {
-                    if (!isCustomerAuthenticated) {
-                      setIsCustomerLoginVisible(true);
-                    }
-                  }}
-                  className="absolute h-full w-full z-50"
-                ></div>
-              )}
-              <input
-                type="text"
-                value={userMessage}
-                onChange={(e) => setUserMessage(e.target.value)}
-                disabled={!isCustomerAuthenticated}
-                placeholder="Message..."
-                className="bg-white w-full p-2 border-r-0 rounded-l-2xl border border-black"
-              />
-              <div className="h-full">
-                <div
-                  onClick={handleUserMessage}
-                  className="aspect-[1/1] h-full flex justify-center items-center p-2 bg-black text-white text-xl rounded-sm rounded-r-lg cursor-pointer"
-                >
-                  <FaPaperPlane />
+                  <div className="flex gap-2 items-center">
+                    {isExpandToFullScreen && (
+                      <button onClick={() => setIsExpandToFullScreen(false)}>
+                        <FaTimes className="text-white" />
+                      </button>
+                    )}
+                    {isMessageBoxOpen && !isExpandToFullScreen && (
+                      <FaTimes onClick={() => setIsMessageBoxOpen(false)} />
+                    )}
+                    <FaExpandAlt onClick={handleToggleFullScreen} />
+                  </div>
+                </div>
+              </div>
+
+              {/* Messages */}
+              <div
+                ref={messagesContainerRef}
+                onScroll={() => {
+                  const container = messagesContainerRef.current;
+                  if (!container) return;
+                  const isAtBottom =
+                    container.scrollHeight - container.scrollTop <=
+                    container.clientHeight + 5;
+                  setIsUserScrolledUp(!isAtBottom);
+                }}
+                className="p-3 flex flex-col overflow-y-auto space-y-2 min-h-[220px] font-serif"
+              >
+                <AnimatePresence>
+                  {visibleMessages.map((msgObj, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 50 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 20 }}
+                      transition={{ duration: 0.4 }}
+                      className="relative text-sm text-gray-800 w-fit"
+                    >
+                      <div className=" relative bg-gray-100 px-3 py-2 rounded-t-2xl rounded-br-2xl ">
+                        <div className="absolute bottom-0 -left-[8px] w-0 h-0 border-t-[12px] border-l-[12px] border-t-gray-100 border-l-transparent rounded-sm rotate-[90deg]"></div>
+
+                        <span className="text-xs font-bold underline font-sans">
+                          {msgObj?.name}
+                        </span>
+                        <br />
+                        <span className="text-xs">{msgObj?.comment}</span>
+                        {msgObj?.image && (
+                          <div className="w-full">
+                            <img
+                              src={`${process.env.REACT_APP_API_URL}/${msgObj.image}`}
+                              alt="commented-img"
+                              className="w-full mt-2"
+                              onLoad={() => {
+                                if (!isUserScrolledUp) {
+                                  messagesEndRef.current?.scrollIntoView({
+                                    behavior: "smooth",
+                                  });
+                                }
+                              }}
+                            />
+                          </div>
+                        )}
+                      </div>
+
+                      <div className="pr-2 mt-2 mb-2 flex w-full text-xs text-white justify-end items-center gap-1">
+                        <p>Verified by The PR Media</p>
+                        <span>
+                          <FaCheckCircle className="text-blue-500 text-xs" />
+                        </span>
+                      </div>
+                    </motion.div>
+                  ))}
+                </AnimatePresence>
+                <div ref={messagesEndRef} />
+              </div>
+
+              {/* Input Box */}
+              <div className="relative w-full h-[50px] border-t border-black flex justify-end items-center p-1">
+                {!isCustomerAuthenticated && (
+                  <div
+                    onClick={() => {
+                      if (!isCustomerAuthenticated) {
+                        setIsCustomerLoginVisible(true);
+                      }
+                    }}
+                    className="absolute h-full w-full z-50"
+                  ></div>
+                )}
+                <input
+                  type="text"
+                  value={userMessage}
+                  onChange={(e) => setUserMessage(e.target.value)}
+                  disabled={!isCustomerAuthenticated}
+                  placeholder="Chat with students..."
+                  className="bg-white text-sm w-full p-2 border-r-0 rounded-l-2xl border border-black"
+                />
+                <div className="h-full">
+                  <div
+                    onClick={handleUserMessage}
+                    className="aspect-[1/1] h-full flex justify-center items-center p-2 bg-black text-white text-xl rounded-sm rounded-r-lg cursor-pointer"
+                  >
+                    <FaPaperPlane />
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        ) : (
-          <div className="px-3  py-1 flex flex-col  justify-between items-center text-white items-center">
-            <span className="text-green-500 text-base font-serif flex items-center gap-2">
-              Live People
-              <span className="h-[6px] w-[6px] rounded-full bg-green-500 blink"></span>
-            </span>
-            <div
-              onClick={() => setIsMessageBoxOpen(true)}
-              className="absolute top-1/2 right-[5px] -translate-x-1/2 -translate-y-1/2"
-            >
-              <FaExpandAlt />
+          ) : (
+            <div className="px-3  py-1 flex flex-col  justify-between items-center text-white items-center">
+              <span className="text-green-500 text-base font-serif flex items-center gap-2">
+                Live People
+                <span className="h-[6px] w-[6px] rounded-full bg-green-500 blink"></span>
+              </span>
+              <div
+                onClick={() => setIsMessageBoxOpen(true)}
+                className="absolute top-1/2 right-[5px] -translate-x-1/2 -translate-y-1/2"
+              >
+                <FaExpandAlt />
+              </div>
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

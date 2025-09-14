@@ -4,9 +4,12 @@ const OAuthSuccess = () => {
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const token = urlParams.get("token");
+    const name = urlParams.get("name");
 
     if (token) {
       localStorage.setItem("token", token);
+      localStorage.setItem("lastLoginTime", Date.now());
+      localStorage.setItem("name", "");
       window.location.href = "/"; // or wherever you want to redirect
     } else {
       // Handle token not found
