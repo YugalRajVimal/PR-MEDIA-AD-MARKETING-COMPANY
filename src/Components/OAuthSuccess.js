@@ -7,8 +7,11 @@ const OAuthSuccess = () => {
     const name = urlParams.get("name");
 
     if (token) {
+      console.log(name);
       localStorage.setItem("token", token);
-      localStorage.setItem("lastLoginTime", Date.now());
+      localStorage.setItem("lastLoginTime", new Date());
+      console.log(new Date());
+
       localStorage.setItem("name", "");
       window.location.href = "/"; // or wherever you want to redirect
     } else {
