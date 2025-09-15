@@ -58,9 +58,12 @@ const LandingPage = () => {
   return (
     <div className="pt-[70px] text-[#3B2E22] bg-[#dbc3ab] md:bg-[#f7dbb6]">
       <div className="z-[10] bg-[#dbc3ab] md:bg-[#f7dbb6] backdrop-blur-md">
-        
+        <Testimonials3
+          timer={formatTime(remainingSeconds)}
+          remainingSeconds={remainingSeconds}
+          FULL_TIME={FULL_TIME}
+        />
 
-        <Testimonials3 timer={formatTime(remainingSeconds)}/>
         <Headline />
         <AboutUs />
         <Card3 />

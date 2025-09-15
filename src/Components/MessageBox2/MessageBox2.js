@@ -5,6 +5,8 @@ import {
   FaExpandAlt,
   FaEye,
   FaCheckCircle,
+  FaWhatsapp,
+  FaWhatsappSquare,
 } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import { useCustomerAuth } from "../../context/CustomerAuthContext";
@@ -95,20 +97,17 @@ const MessageBox2 = ({ setIsCustomerLoginVisible }) => {
   useEffect(() => {
     const showPopup = () => {
       const students = Math.floor(Math.random() * 5) + 1; // 1 to 5
-      setPopup(`${students} student${students > 1 ? "s" : ""} joined`);
+      setPopup(`${students} student${students > 1 ? "s" : ""} joined now!`);
 
-      // hide after 3 seconds
+      // hide after 2 seconds (keeps 1s gap before next one)
       setTimeout(() => setPopup(null), 3000);
     };
 
-    // show every 3 seconds
-    const interval = setInterval(showPopup, 3000);
-    const initial = setTimeout(showPopup, 3000); // First show after 3 seconds
+    // run every 3 seconds
+    const interval = setInterval(showPopup, 4000);
+    showPopup(); // show immediately on mount
 
-    return () => {
-      clearInterval(interval);
-      clearTimeout(initial);
-    };
+    return () => clearInterval(interval);
   }, []);
 
   // const socket = new WebSocket("ws://localhost:8090");
@@ -213,20 +212,20 @@ const MessageBox2 = ({ setIsCustomerLoginVisible }) => {
     isExpandToFullScreen
       ? "w-full h-full bottom-[22px] pt-[22px] bg-black/80 right-0 pt-2"
       : isMessageBoxOpen
-      ? "w-[280px] h-[360px] bg-black/80 bottom-[22px] right-[20px] rounded-t-xl rounded-b-md border border-black"
-      : "w-[280px] h-[40px] bg-black/80 bottom-[22px] border-b-0 right-[20px] rounded-t-xl border border-black"
+      ? "w-[300px] h-[415px] bg-black/80 bottom-[5px] right-[5px]  rounded-t-xl rounded-b-md border border-black"
+      : "w-[280px] h-[40px] bg-black/80 bottom-[5px] border-b-0 right-[20px] rounded-t-xl border border-black"
   }`}
       >
         <div className="relative h-full w-full font-mono flex justify-start items-center">
           {isMessageBoxOpen ? (
-            <div className="h-full w-full    flex flex-col justify-between">
+            <div className="h-full w-full flex flex-col justify-between">
               <div className="px-3  py-1 flex flex-col  justify-between items-center text-white items-center border-b border-white ">
                 <div className="flex justify-between w-full  mt-1 items-center">
-                  <span className="text-white text-sm  font-aeris">
+                  <span className="text-white text-sm  font-aeris pb-4">
                     3Lakh+ Students Joined{" "}
                   </span>
                   <div className="relative flex flex-col items-center">
-                    <a
+                    {/* <a
                       href={`http://wa.me/+917500030415?text=Hi%2C%20I%20am%20ready%20for%20the%20paid%20training`}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -237,14 +236,14 @@ const MessageBox2 = ({ setIsCustomerLoginVisible }) => {
                         <span>Message!</span>
                         <span>Start Now!</span>
                       </p>
-                    </a>
+                    </a> */}
 
                     {/* Popup */}
-                    {popup && (
+                    {/* {popup && (
                       <div className="absolute z-50 -top-[20%] right-0 bg-white text-black whitespace-nowrap text-[10px] px-3 py-1 rounded-xl shadow-lg animate-bounce">
                         {popup}
                       </div>
-                    )}
+                    )} */}
                   </div>
                 </div>
 
@@ -361,6 +360,25 @@ const MessageBox2 = ({ setIsCustomerLoginVisible }) => {
                     <FaPaperPlane />
                   </div>
                 </div>
+              </div>
+              <div className="relative w-full h-[50px] border-t border-black flex justify-end items-center p-1">
+                <a
+                  href={`http://wa.me/+917500030415?text=Hi%2C%20I%20am%20ready%20for%20the%20paid%20training`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 bg-[#25D366] text-white py-1 px-4 rounded-full font-semibold hover:bg-[#1DA851] transition-colors duration-200 w-full cursor-pointer"
+                >
+                  <FaWhatsapp className="text-2xl" />
+                  <span className="text-xs text-center">
+                    Secure Your Seat on WhatsApp (Fast!)
+                  </span>
+                </a>
+                {/* Popup */}
+                {popup && (
+                  <div className="absolute z-50 -top-[20%] right-0 bg-white text-black whitespace-nowrap text-[10px] px-3 py-1 rounded-xl shadow-lg animate-bounce">
+                    {popup}
+                  </div>
+                )}
               </div>
             </div>
           ) : (
