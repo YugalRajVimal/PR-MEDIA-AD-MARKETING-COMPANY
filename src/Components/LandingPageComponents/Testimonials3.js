@@ -61,7 +61,7 @@ const Testimonials3 = ({ timer, remainingSeconds, FULL_TIME, hideTimer }) => {
         ref={marqueeRef}
         className="relative text-[#3B2E22] w-fit pt-4 flex justify-center "
       >
-        <span className="text-2xl md:text-3xl lg:text-4xl flex flex-col md:flex-row justify-center w-screen text-center font-bold inline-block whitespace-nowrap">
+        <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl flex flex-col md:flex-row justify-center w-screen text-center font-bold inline-block whitespace-nowrap">
           <span>Become a Freelancer,</span>
           <span> One life, One chance, Take the risk!</span>
         </span>
