@@ -35,40 +35,22 @@ const LandingPage = () => {
 
   useEffect(() => {
     const loggedInTime = localStorage.getItem("lastLoginTime");
-    if (!lastLogInTimePresent) {
-      setLastLogInTimePresent(false);
-    } else {
-      setLastLogInTimePresent(true);
-    }
-
     if (!loggedInTime) return;
 
-    const loginTime = new Date(loggedInTime).getTime();
-    const now = Date.now();
-    const elapsedSeconds = Math.floor((now - loginTime) / 1000);
+    const loginTime = parseInt(loggedInTime, 10); // epoch ms
 
-    // how many 2-hour cycles have passed since login
-    const cyclesPassed = Math.floor(elapsedSeconds / RESET_INTERVAL);
+    const updateTimer = () => {
+      const now = Date.now();
+      const elapsedSeconds = Math.floor((now - loginTime) / 1000);
 
-    // start of current cycle
-    const cycleStart = loginTime + cyclesPassed * RESET_INTERVAL * 1000;
+      // modulo 48h to restart correctly
+      const remaining = FULL_TIME - (elapsedSeconds % FULL_TIME);
 
-    // elapsed seconds in current cycle
-    const elapsedInCycle = Math.floor((now - cycleStart) / 1000);
+      setRemainingSeconds(remaining);
+    };
 
-    // remaining = 48hr - elapsedInCycle
-    setRemainingSeconds(Math.max(FULL_TIME - elapsedInCycle, 0));
-
-    // update every second
-    const timerId = setInterval(() => {
-      const currentNow = Date.now();
-      const elapsedSinceLogin = Math.floor((currentNow - loginTime) / 1000);
-      const cyclesPassedNow = Math.floor(elapsedSinceLogin / RESET_INTERVAL);
-      const cycleStartNow = loginTime + cyclesPassedNow * RESET_INTERVAL * 1000;
-      const elapsedInCycleNow = Math.floor((currentNow - cycleStartNow) / 1000);
-
-      setRemainingSeconds(Math.max(FULL_TIME - elapsedInCycleNow, 0));
-    }, 1000);
+    updateTimer(); // run once immediately
+    const timerId = setInterval(updateTimer, 1000);
 
     return () => clearInterval(timerId);
   }, []);
@@ -78,7 +60,7 @@ const LandingPage = () => {
       <div className="z-[10] bg-[#dbc3ab] md:bg-[#f7dbb6] backdrop-blur-md">
         {localStorage.getItem("token") && (
           <div className="text-black font-semibold text-base sm:text-lg my-4 text-center">
-            <span className="text-black">{formatTime(remainingSeconds)}</span>
+            <span className="text-red-500">{formatTime(remainingSeconds)}</span>
             <p></p>
           </div>
         )}

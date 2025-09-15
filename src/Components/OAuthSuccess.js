@@ -8,7 +8,8 @@ const OAuthSuccess = () => {
 
     if (token) {
       localStorage.setItem("token", token);
-      localStorage.setItem("lastLoginTime", new Date());
+      localStorage.setItem("lastLoginTime", Date.now());
+      // or new Date().getTime()
       localStorage.setItem("name", name);
       console.log(name);
 

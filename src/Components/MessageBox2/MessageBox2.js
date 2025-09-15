@@ -90,6 +90,27 @@ const MessageBox2 = ({ setIsCustomerLoginVisible }) => {
     checkUserApproval();
   }, []);
 
+  const [popup, setPopup] = useState(null);
+
+  useEffect(() => {
+    const showPopup = () => {
+      const students = Math.floor(Math.random() * 5) + 1; // 1 to 5
+      setPopup(`${students} student${students > 1 ? "s" : ""} joined`);
+
+      // hide after 3 seconds
+      setTimeout(() => setPopup(null), 3000);
+    };
+
+    // show every 3 seconds
+    const interval = setInterval(showPopup, 3000);
+    const initial = setTimeout(showPopup, 3000); // First show after 3 seconds
+
+    return () => {
+      clearInterval(interval);
+      clearTimeout(initial);
+    };
+  }, []);
+
   // const socket = new WebSocket("ws://localhost:8090");
 
   const socketRef = useRef(null);
@@ -124,13 +145,13 @@ const MessageBox2 = ({ setIsCustomerLoginVisible }) => {
       return;
     }
 
-    if (!isCustomerApproved) {
-      const phone = "+917500030415";
-      const whatsappURL = `https://wa.me/${phone}?text=Hi, I am ready for the paid training}`;
-      window.open(whatsappURL, "_blank");
+    // if (!isCustomerApproved) {
+    //   const phone = "+917500030415";
+    //   const whatsappURL = `https://wa.me/${phone}?text=Hi, I am ready for the paid training}`;
+    //   window.open(whatsappURL, "_blank");
 
-      return;
-    }
+    //   return;
+    // }
 
     const trimmedMessage = userMessage.trim();
     if (!trimmedMessage) return;
@@ -156,7 +177,6 @@ const MessageBox2 = ({ setIsCustomerLoginVisible }) => {
       {!isCustomerAuthenticated && (
         <AnimatePresence>
           {!isCustomerAuthenticated && isSignInOpen && (
-
             <motion.div
               initial={{ y: -100, opacity: 0 }} // start above
               animate={{ y: 0, opacity: 1 }} // slide into view
@@ -199,21 +219,34 @@ const MessageBox2 = ({ setIsCustomerLoginVisible }) => {
       >
         <div className="relative h-full w-full font-mono flex justify-start items-center">
           {isMessageBoxOpen ? (
-            <div className="h-full w-full overflow-y-scroll   flex flex-col justify-between">
+            <div className="h-full w-full    flex flex-col justify-between">
               <div className="px-3  py-1 flex flex-col  justify-between items-center text-white items-center border-b border-white ">
                 <div className="flex justify-between w-full  mt-1 items-center">
                   <span className="text-white text-sm  font-aeris">
                     3Lakh+ Students Joined{" "}
                   </span>
-                  <a
-                    href={`http://wa.me/+917500030415`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <IoLogoWhatsapp className="text-2xl text-[#08c241] drop-shadow-[0_0_10px_#08c241] animate-pulse" />
-                  </a>
+                  <div className="relative flex flex-col items-center">
+                    <a
+                      href={`http://wa.me/+917500030415?text=Hi%2C%20I%20am%20ready%20for%20the%20paid%20training`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex justify-center flex-col items-center"
+                    >
+                      <IoLogoWhatsapp className="text-2xl text-[#08c241] drop-shadow-[0_0_10px_#08c241] animate-pulse" />
+                      <p className="text-[8px] mb-1 w-full text-right flex justify-center flex-col items-center">
+                        <span>Message!</span>
+                        <span>Start Now!</span>
+                      </p>
+                    </a>
+
+                    {/* Popup */}
+                    {popup && (
+                      <div className="absolute z-50 -top-[20%] right-0 bg-white text-black whitespace-nowrap text-[10px] px-3 py-1 rounded-xl shadow-lg animate-bounce">
+                        {popup}
+                      </div>
+                    )}
+                  </div>
                 </div>
-                <p className="text-xs mb-1">Message! Start Now!</p>
 
                 <div className="flex  justify-between w-full">
                   <span className="text-green-500 text-base font-serif flex items-center gap-2">
