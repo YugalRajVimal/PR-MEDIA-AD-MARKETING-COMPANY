@@ -248,8 +248,8 @@ const MessageBox2 = ({ setIsCustomerLoginVisible }) => {
     isExpandToFullScreen
       ? "w-full h-full bottom-[22px] pt-[22px] bg-black/80 right-0 pt-2"
       : isMessageBoxOpen
-      ? "w-full sm:w-[300px] h-[415px] bg-black/80 ml-[5px] bottom-0 md:bottom-[5px] right-0 sm:right-[5px]  rounded-t-xl rounded-b-md border border-black"
-      : "w-[280px] h-[40px] bg-black/80 bottom-[5px] border-b-0 right-[20px] rounded-t-xl border border-black"
+      ? "w-[300px] h-[415px] bg-black/80 ml-[5px] bottom-[20px] right-[20px]  rounded-t-xl rounded-b-md border border-black"
+      : "w-[300px] h-[40px] bg-black/80 bottom-[20px] border-b-0 right-[20px] rounded-t-xl border border-black"
   }`}
       >
         <div className="relative h-full w-full font-mono flex justify-start items-center">
