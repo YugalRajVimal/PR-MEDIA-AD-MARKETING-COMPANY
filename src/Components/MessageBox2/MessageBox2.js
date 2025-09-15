@@ -95,19 +95,55 @@ const MessageBox2 = ({ setIsCustomerLoginVisible }) => {
   const [popup, setPopup] = useState(null);
 
   useEffect(() => {
-    const showPopup = () => {
-      const students = Math.floor(Math.random() * 5) + 1; // 1 to 5
-      setPopup(`${students} student${students > 1 ? "s" : ""} joined now!`);
+    let hidePopupTimeoutId;
+    let scheduleNextPopupTimeoutId;
 
-      // hide after 2 seconds (keeps 1s gap before next one)
-      setTimeout(() => setPopup(null), 3000);
+    const isWithinActiveHours = () => {
+      // Get current time in India IST
+      const now = new Date();
+      const istTime = new Date(
+        now.toLocaleString("en-US", { timeZone: "Asia/Kolkata" })
+      );
+      const hours = istTime.getHours(); // 0 - 23
+
+      // Only allow popups between 9:00 AM and 7:00 PM
+      return hours >= 9 && hours < 19;
     };
 
-    // run every 3 seconds
-    const interval = setInterval(showPopup, 4000);
-    showPopup(); // show immediately on mount
+    const schedulePopupCycle = () => {
+      if (!isWithinActiveHours()) {
+        // If outside active hours, check again in 1 minute
+        scheduleNextPopupTimeoutId = setTimeout(schedulePopupCycle, 60000);
+        return;
+      }
 
-    return () => clearInterval(interval);
+      // Random gap delay between popups (4 - 10 seconds)
+      const randomGapDelay =
+        Math.floor(Math.random() * (10000 - 4000 + 1)) + 4000;
+
+      // Show popup
+      setPopup("1 more student joined now!");
+
+      // Hide popup after 3 seconds
+      hidePopupTimeoutId = setTimeout(() => {
+        setPopup(null);
+
+        // Schedule next popup after random gap
+        scheduleNextPopupTimeoutId = setTimeout(
+          schedulePopupCycle,
+          randomGapDelay
+        );
+      }, 3000);
+    };
+
+    // Start first cycle
+    schedulePopupCycle();
+
+    // Cleanup
+    return () => {
+      clearTimeout(hidePopupTimeoutId);
+      clearTimeout(scheduleNextPopupTimeoutId);
+    };
   }, []);
 
   // const socket = new WebSocket("ws://localhost:8090");
@@ -212,7 +248,7 @@ const MessageBox2 = ({ setIsCustomerLoginVisible }) => {
     isExpandToFullScreen
       ? "w-full h-full bottom-[22px] pt-[22px] bg-black/80 right-0 pt-2"
       : isMessageBoxOpen
-      ? "w-[300px] h-[415px] bg-black/80 bottom-[5px] right-[5px]  rounded-t-xl rounded-b-md border border-black"
+      ? "w-full sm:w-[300px] h-[415px] bg-black/80 ml-[5px] bottom-0 md:bottom-[5px] right-0 sm:right-[5px]  rounded-t-xl rounded-b-md border border-black"
       : "w-[280px] h-[40px] bg-black/80 bottom-[5px] border-b-0 right-[20px] rounded-t-xl border border-black"
   }`}
       >
@@ -375,8 +411,11 @@ const MessageBox2 = ({ setIsCustomerLoginVisible }) => {
                 </a>
                 {/* Popup */}
                 {popup && (
-                  <div className="absolute z-50 -top-[20%] right-0 bg-white text-black whitespace-nowrap text-[10px] px-3 py-1 rounded-xl shadow-lg animate-bounce">
-                    {popup}
+                  <div className="absolute z-50 -top-[20%] right-0 bg-[#f8dbb7] text-black whitespace-nowrap text-[10px] px-3 rounded-xl shadow-lg animate-bounce">
+                    <div className="relative h-full w-full py-1">
+                      <div className="absolute -bottom-[5px] left-1/2 -translate-x-1/2 w-0 h-0 border-t-[12px] border-l-[12px] border-t-[#f8dbb7] border-l-transparent rounded-sm rotate-[135deg]"></div>
+                      {popup}
+                    </div>
                   </div>
                 )}
               </div>

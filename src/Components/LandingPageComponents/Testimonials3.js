@@ -31,7 +31,7 @@ const videos = [
   // { src: "/videos/Vdo26.mp4", text: "This is sample text for video 26" },
 ];
 
-const Testimonials3 = ({ timer, remainingSeconds, FULL_TIME }) => {
+const Testimonials3 = ({ timer, remainingSeconds, FULL_TIME, hideTimer }) => {
   const videoRefs = useRef([]);
 
   const marqueeRef = useRef(null);
@@ -68,13 +68,13 @@ const Testimonials3 = ({ timer, remainingSeconds, FULL_TIME }) => {
       </div>
       {name && (
         <div className="max-w-xl mx-auto w-[95vw] my-6 p-6 rounded-2xl shadow-xl bg-gradient-to-r from-orange-100 via-white to-yellow-100 border border-orange-300">
-          {localStorage.getItem("token") && (
+          {!hideTimer && localStorage.getItem("token") && (
             <div className="text-black font-semibold text-base sm:text-lg mb-4 text-center">
               {/* Timer */}
               <span className="text-red-500 tracking-widest">{timer}</span>
 
               {/* Progress Bar */}
-              <div className="w-2/3 max-w-xs mx-auto mt-3">
+              <div className="w-2/3 max-w-xs mx-auto my-3 ">
                 <div className="relative w-full bg-gray-300 rounded-full h-5 overflow-hidden">
                   {/* Background separators */}
                   <div className="absolute inset-0 flex justify-between">
@@ -97,13 +97,15 @@ const Testimonials3 = ({ timer, remainingSeconds, FULL_TIME }) => {
                   </div>
                 </div>
               </div>
+              <span className="w-fit text-center mx-auto ">
+                👆 Only Few Seats Left – Hurry Up!
+              </span>
             </div>
           )}
 
           <h1 className="text-2xl md:text-3xl font-extrabold text-gray-900 text-center mb-4">
             {name}
           </h1>
-
           <p className="text-base md:text-lg text-gray-800 leading-relaxed text-center">
             🚀{" "}
             <span className="font-semibold text-orange-600">
@@ -114,7 +116,6 @@ const Testimonials3 = ({ timer, remainingSeconds, FULL_TIME }) => {
             <br />
             🔥 One step today can change everything. ✨
           </p>
-
           <p className=" text-base md:text-lg text-gray-800 leading-relaxed text-center">
             👉 Don’t wait, your moment is NOW! 💯
           </p>

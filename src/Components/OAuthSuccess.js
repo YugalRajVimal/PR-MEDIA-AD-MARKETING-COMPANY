@@ -8,8 +8,14 @@ const OAuthSuccess = () => {
 
     if (token) {
       localStorage.setItem("token", token);
-      localStorage.setItem("lastLoginTime", Date.now());
-      // or new Date().getTime()
+      // Get current IST timestamp in ms
+      const loginTime = Date.now();
+      localStorage.setItem("lastLoginTime", loginTime);
+
+      // Save IST epoch instead of raw Date.now()
+      // localStorage.setItem("lastLoginTime", istEpoch);
+
+      // localStorage.setItem("lastLoginTime", Date.now());
       localStorage.setItem("name", name);
       console.log(name);
 
