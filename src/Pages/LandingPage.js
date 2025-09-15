@@ -58,14 +58,9 @@ const LandingPage = () => {
   return (
     <div className="pt-[70px] text-[#3B2E22] bg-[#dbc3ab] md:bg-[#f7dbb6]">
       <div className="z-[10] bg-[#dbc3ab] md:bg-[#f7dbb6] backdrop-blur-md">
-        {localStorage.getItem("token") && (
-          <div className="text-black font-semibold text-base sm:text-lg my-4 text-center">
-            <span className="text-red-500">{formatTime(remainingSeconds)}</span>
-            <p></p>
-          </div>
-        )}
+        
 
-        <Testimonials3 />
+        <Testimonials3 timer={formatTime(remainingSeconds)}/>
         <Headline />
         <AboutUs />
         <Card3 />

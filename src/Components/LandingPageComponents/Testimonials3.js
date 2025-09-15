@@ -31,7 +31,7 @@ const videos = [
   // { src: "/videos/Vdo26.mp4", text: "This is sample text for video 26" },
 ];
 
-const Testimonials3 = () => {
+const Testimonials3 = ({ timer }) => {
   const videoRefs = useRef([]);
 
   const marqueeRef = useRef(null);
@@ -68,6 +68,12 @@ const Testimonials3 = () => {
       </div>
       {name && (
         <div className="max-w-xl mx-auto w-[95vw] my-6 p-6 rounded-2xl shadow-xl bg-gradient-to-r from-orange-100 via-white to-yellow-100 border border-orange-300">
+          {localStorage.getItem("token") && (
+            <div className="text-black font-semibold text-base sm:text-lg mb-4 text-center">
+              <span className="text-red-500">{timer}</span>
+              <p></p>
+            </div>
+          )}
           <h1 className="text-2xl md:text-3xl font-extrabold text-gray-900 text-center mb-4">
             {name}
           </h1>
