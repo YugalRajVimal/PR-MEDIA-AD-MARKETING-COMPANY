@@ -221,6 +221,14 @@ const MessageBox2 = ({ setIsCustomerLoginVisible }) => {
     isUserApproved,
   } = useCustomerAuth();
 
+  const togglePrivateChatBox = (val) => {
+    if (!isCustomerAuthenticated) {
+      toast.error("Please log in to chat with the admin.");
+      return;
+    }
+    setIsPrivateChatOpen(val);
+  };
+
   useEffect(() => {
     const fetchLiveCount = async () => {
       try {
@@ -562,21 +570,21 @@ const MessageBox2 = ({ setIsCustomerLoginVisible }) => {
               {/* Private Chat */}
               <div className="absolute flex flex-col gap-2 right-[105%] bottom-4 z-50">
                 <button
-                  onClick={() => setIsPrivateChatOpen(true)}
+                  onClick={() => togglePrivateChatBox(true)}
                   className="relative rounded-t-2xl rounded-bl-2xl bg-indigo-600 px-6 py-2 text-white shadow-lg hover:bg-indigo-700 transition-colors duration-200 text-sm font-medium whitespace-nowrap"
                 >
                   Chat with Admin
                   <div className="absolute bottom-0 -right-[8px] w-0 h-0 border-t-[12px] border-l-[12px] border-t-indigo-600 border-l-transparent rounded-sm rotate-[180deg]"></div>
                 </button>
                 <button
-                  onClick={() => setIsPrivateChatOpen(true)}
+                  onClick={() => togglePrivateChatBox(true)}
                   className="relative rounded-t-2xl rounded-bl-2xl bg-indigo-600 px-6 py-2 text-white shadow-lg hover:bg-indigo-700 transition-colors duration-200 text-sm font-medium whitespace-nowrap"
                 >
                   Chat with Admin
                   <div className="absolute bottom-0 -right-[8px] w-0 h-0 border-t-[12px] border-l-[12px] border-t-indigo-600 border-l-transparent rounded-sm rotate-[180deg]"></div>
                 </button>
                 <button
-                  onClick={() => setIsPrivateChatOpen(true)}
+                  onClick={() => togglePrivateChatBox(true)}
                   className="relative rounded-t-2xl rounded-bl-2xl bg-indigo-600 px-6 py-2 text-white shadow-lg hover:bg-indigo-700 transition-colors duration-200 text-sm font-medium whitespace-nowrap"
                 >
                   Chat with Admin
