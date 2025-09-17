@@ -7,6 +7,7 @@ import {
   FaCheckCircle,
   FaWhatsapp,
   FaWhatsappSquare,
+  FaUserCircle,
 } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import { useCustomerAuth } from "../../context/CustomerAuthContext";
@@ -15,7 +16,198 @@ import { IoLogoWhatsapp } from "react-icons/io";
 import { X } from "lucide-react";
 // Utility to get a random number in a given range
 
+const PrivateChatBox = ({ onClose }) => {
+  const [privateMessages, setPrivateMessages] = useState([]);
+  const [privateInput, setPrivateInput] = useState("");
+  const privateSocketRef = useRef(null);
+  const scrollRef = useRef(null);
+
+  const customerId = localStorage.getItem("userId");
+
+  useEffect(() => {
+    // ✅ Connect WebSocket
+    // privateSocketRef.current = new WebSocket("ws://localhost:8080");
+    privateSocketRef.current = new WebSocket("wss://api.theprmedia.com");
+
+    privateSocketRef.current.onopen = () => {
+      privateSocketRef.current.send(
+        JSON.stringify({
+          type: "register",
+          role: "customer",
+          id: customerId,
+        })
+      );
+
+      // ✅ Fetch old chat messages
+      fetch(`${process.env.REACT_APP_API_URL}/api/chat/${customerId}`)
+        .then((res) => res.json())
+        .then((data) => {
+          setPrivateMessages(data.privateChats || []);
+        })
+        .catch((err) => console.error("Failed to load chat:", err));
+    };
+
+    privateSocketRef.current.onmessage = (event) => {
+      const data = JSON.parse(event.data);
+      if (data.type === "new_message") {
+        setPrivateMessages((prev) => [...prev, data.message]);
+      }
+    };
+
+    return () => {
+      privateSocketRef.current.close();
+    };
+  }, [customerId]);
+
+  useEffect(() => {
+    // ✅ Auto scroll to bottom on new messages
+    if (scrollRef.current) {
+      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+    }
+  }, [privateMessages]);
+
+  const sendPrivateMessage = () => {
+    if (!privateInput.trim()) return;
+
+    const msg = {
+      sender: "customer",
+      text: privateInput,
+      timestamp: new Date(),
+    };
+
+    // ✅ Send to backend
+    privateSocketRef.current.send(
+      JSON.stringify({ type: "private_message", message: msg })
+    );
+
+    // ✅ Optimistic UI update
+    setPrivateMessages((prev) => [...prev, msg]);
+    setPrivateInput("");
+  };
+
+  return (
+    // <div className="fixed top-0 left-0  w-screen h-screen bg-white shadow-2xl flex flex-col z-50 overflow-hidden">
+    //   {/* Header */}
+    //   <div className="flex justify-between items-center px-3 py-2 bg-indigo-600 text-white font-medium">
+    //     <span>Chat with Admin</span>
+    //     <button onClick={onClose} className="hover:text-slate-200">
+    //       <FaTimes />
+    //     </button>
+    //   </div>
+
+    //   {/* Messages */}
+    //   <div
+    //     ref={scrollRef}
+    //     className="flex-1 overflow-y-auto px-3 py-2 space-y-2 text-sm bg-slate-50"
+    //   >
+    //     {privateMessages.map((m, idx) => (
+    //       <div
+    //         key={idx}
+    //         className={`max-w-[75%] px-3 py-2 rounded-lg ${
+    //           m.sender === "customer"
+    //             ? "bg-indigo-600 text-white ml-auto"
+    //             : "bg-white border text-slate-700 mr-auto"
+    //         }`}
+    //       >
+    //         <p>{m.text}</p>
+    //         <div className="text-[10px] text-slate-400 mt-1 text-right">
+    //           {new Date(m.timestamp).toLocaleTimeString([], {
+    //             hour: "2-digit",
+    //             minute: "2-digit",
+    //           })}
+    //         </div>
+    //       </div>
+    //     ))}
+    //   </div>
+
+    //   {/* Input */}
+    //   <div className="flex items-center gap-2 border-t px-2 py-2 bg-white">
+    //     <input
+    //       type="text"
+    //       className="flex-1 rounded-full border border-slate-200 py-2 px-3 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-200"
+    //       value={privateInput}
+    //       onChange={(e) => setPrivateInput(e.target.value)}
+    //       onKeyDown={(e) => e.key === "Enter" && sendPrivateMessage()}
+    //       placeholder="Type a message..."
+    //     />
+    //     <button
+    //       onClick={sendPrivateMessage}
+    //       className="p-2 rounded-full bg-indigo-600 text-white hover:bg-indigo-700"
+    //     >
+    //       <FaPaperPlane size={14} />
+    //     </button>
+    //   </div>
+    // </div>
+    <div className="fixed top-0 left-0 w-screen h-screen bg-white shadow-2xl flex flex-col z-50 overflow-hidden">
+      {/* Header */}
+      <div className="flex items-center justify-between px-4 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-md">
+        <div className="flex items-center gap-3">
+          <FaUserCircle className="w-8 h-8" />
+          <div>
+            <p className="font-semibold">Admin</p>
+            <span className="text-xs text-emerald-300">● Online</span>
+          </div>
+        </div>
+        <button
+          onClick={onClose}
+          className="p-2 rounded-full hover:bg-white/10 transition"
+        >
+          <FaTimes size={18} />
+        </button>
+      </div>
+
+      {/* Messages */}
+      <div
+        ref={scrollRef}
+        className="flex-1 overflow-y-auto px-4 py-3 space-y-3 bg-gradient-to-b from-slate-50 to-slate-100"
+      >
+        {privateMessages.map((m, idx) => (
+          <motion.div
+            key={idx}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.2 }}
+            className={`max-w-[75%] px-4 py-2 rounded-2xl shadow-sm text-sm ${
+              m.sender === "customer"
+                ? "bg-indigo-600 text-white ml-auto rounded-br-none"
+                : "bg-white border text-slate-700 mr-auto rounded-bl-none"
+            }`}
+          >
+            <p className="md:text-[16px]">{m.text}</p>
+            <div className="text-[10px] md:text-[14px] text-slate-400 mt-1 text-right">
+              {new Date(m.timestamp).toLocaleTimeString([], {
+                hour: "2-digit",
+                minute: "2-digit",
+              })}
+            </div>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* Input */}
+      <div className="flex items-center gap-2 border-t px-3 py-3 bg-white shadow-inner">
+        <input
+          type="text"
+          className="flex-1 rounded-full border border-slate-300 py-2 px-4 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-200"
+          value={privateInput}
+          onChange={(e) => setPrivateInput(e.target.value)}
+          onKeyDown={(e) => e.key === "Enter" && sendPrivateMessage()}
+          placeholder="Type a message..."
+        />
+        <button
+          onClick={sendPrivateMessage}
+          className="p-3 rounded-full bg-indigo-600 text-white hover:bg-indigo-700 shadow-md transition"
+        >
+          <FaPaperPlane size={16} />
+        </button>
+      </div>
+    </div>
+  );
+};
+
 const MessageBox2 = ({ setIsCustomerLoginVisible }) => {
+  const [isPrivateChatOpen, setIsPrivateChatOpen] = useState(false);
+
   const [isSignInOpen, setIsSignInOpen] = useState(true);
   const messagesContainerRef = useRef(null);
   const messagesEndRef = useRef(null);
@@ -367,7 +559,30 @@ const MessageBox2 = ({ setIsCustomerLoginVisible }) => {
                 </AnimatePresence>
                 <div ref={messagesEndRef} />
               </div>
-
+              {/* Private Chat */}
+              <div className="absolute flex flex-col gap-2 right-[105%] bottom-4 z-50">
+                <button
+                  onClick={() => setIsPrivateChatOpen(true)}
+                  className="relative rounded-t-2xl rounded-bl-2xl bg-indigo-600 px-6 py-2 text-white shadow-lg hover:bg-indigo-700 transition-colors duration-200 text-sm font-medium whitespace-nowrap"
+                >
+                  Chat with Admin
+                  <div className="absolute bottom-0 -right-[8px] w-0 h-0 border-t-[12px] border-l-[12px] border-t-indigo-600 border-l-transparent rounded-sm rotate-[180deg]"></div>
+                </button>
+                <button
+                  onClick={() => setIsPrivateChatOpen(true)}
+                  className="relative rounded-t-2xl rounded-bl-2xl bg-indigo-600 px-6 py-2 text-white shadow-lg hover:bg-indigo-700 transition-colors duration-200 text-sm font-medium whitespace-nowrap"
+                >
+                  Chat with Admin
+                  <div className="absolute bottom-0 -right-[8px] w-0 h-0 border-t-[12px] border-l-[12px] border-t-indigo-600 border-l-transparent rounded-sm rotate-[180deg]"></div>
+                </button>
+                <button
+                  onClick={() => setIsPrivateChatOpen(true)}
+                  className="relative rounded-t-2xl rounded-bl-2xl bg-indigo-600 px-6 py-2 text-white shadow-lg hover:bg-indigo-700 transition-colors duration-200 text-sm font-medium whitespace-nowrap"
+                >
+                  Chat with Admin
+                  <div className="absolute bottom-0 -right-[8px] w-0 h-0 border-t-[12px] border-l-[12px] border-t-indigo-600 border-l-transparent rounded-sm rotate-[180deg]"></div>
+                </button>
+              </div>
               {/* Input Box */}
               <div className="relative w-full h-[50px] border-t border-black flex justify-end items-center p-1">
                 {!isCustomerAuthenticated && (
@@ -380,6 +595,7 @@ const MessageBox2 = ({ setIsCustomerLoginVisible }) => {
                     className="absolute h-full w-full z-50"
                   ></div>
                 )}
+
                 <input
                   type="text"
                   value={userMessage}
@@ -436,6 +652,11 @@ const MessageBox2 = ({ setIsCustomerLoginVisible }) => {
           )}
         </div>
       </div>
+
+      {/* Render Private Chat if open */}
+      {isPrivateChatOpen && (
+        <PrivateChatBox onClose={() => setIsPrivateChatOpen(false)} />
+      )}
     </>
   );
 };

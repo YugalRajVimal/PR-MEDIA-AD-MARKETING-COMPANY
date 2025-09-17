@@ -25,6 +25,8 @@ import OAuthSuccess from "./Components/OAuthSuccess";
 import AllUsers from "./Admin/AdminComponents/AllUsers";
 import TermsOfService from "./Pages/TermsOfServices";
 import PrivacyPolicy from "./Pages/PrivacyPolicy";
+import ChatRooms from "./Admin/AdminComponents/ChatRooms";
+import UploadVideo from "./Admin/AdminComponents/UploadVideo";
 
 axios.defaults.withCredentials = true;
 
@@ -149,6 +151,22 @@ const App = () => {
                 element={
                   <AdminProtectedRoute>
                     <UploadImages />
+                  </AdminProtectedRoute>
+                }
+              />
+              <Route
+                path="upload-videos"
+                element={
+                  <AdminProtectedRoute>
+                    <UploadVideo />
+                  </AdminProtectedRoute>
+                }
+              />
+              <Route
+                path="chat-rooms"
+                element={
+                  <AdminProtectedRoute>
+                    <ChatRooms />
                   </AdminProtectedRoute>
                 }
               />

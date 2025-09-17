@@ -14,6 +14,8 @@ import {
   FaWarehouse,
   FaEdit,
   FaUpload,
+  FaComments,
+  FaVideo,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { AdminAuthContext } from "../../../context/AdminAuthContext";
@@ -93,6 +95,18 @@ const AdminSidePanel = ({ setSelectedPage, selectedPage }) => {
           label="Upload Images"
           path="/admin/panel/upload-images"
           pageKey="UploadImages"
+        />
+        <MenuItem
+          icon={FaVideo}
+          label="Upload Videos"
+          path="/admin/panel/upload-videos"
+          pageKey="UploadVideos"
+        />
+        <MenuItem
+          icon={FaComments}
+          label="Chat Rooms"
+          path="/admin/panel/chat-rooms"
+          pageKey="ChatRooms"
         />
 
         {/* Logout */}

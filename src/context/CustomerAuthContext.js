@@ -24,6 +24,7 @@ export const CustomerAuthProvider = ({ children }) => {
       );
 
       if (response.status === 200) {
+        localStorage.setItem("userId", response.data.userId);
         setIsCustomerAuthenticated(true);
         return true;
       } else {
@@ -180,7 +181,7 @@ export const CustomerAuthProvider = ({ children }) => {
         isCustomerApproved,
         setIsUserApproved,
         isUserApproved,
-        name
+        name,
       }}
     >
       {children}

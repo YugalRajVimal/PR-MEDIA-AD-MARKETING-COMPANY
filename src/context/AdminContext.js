@@ -101,6 +101,9 @@ export const AdminProvider = ({ children }) => {
 
       toast.success("Images uploaded successfully");
       return response;
+
+      toast.success("Images uploaded successfully");
+      return response.data; // ✅ return only data
     } catch (error) {
       console.error("Upload Failed:", error);
       toast.error("Failed to upload images");
@@ -124,6 +127,53 @@ export const AdminProvider = ({ children }) => {
     } catch (error) {
       console.error("Failed to fetch images:", error);
       toast.error("Failed to fetch images");
+      return false;
+    }
+  };
+
+  const uploadVideo = async (file, text) => {
+    const formData = new FormData();
+    formData.append("video", file);
+    formData.append("text", text);
+  
+    const adminToken = localStorage.getItem("admin-token");
+    try {
+      const response = await axios.post(
+        `${process.env.REACT_APP_API_URL}/api/admin/upload-video`,
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            Authorization: `${adminToken}`,
+          },
+        }
+      );
+      return response.data;
+    } catch (error) {
+      console.error("Upload Failed:", error);
+      toast.error("Failed to upload video");
+      return false;
+    }
+  };
+  
+
+  const getUploadedVideos = async () => {
+    const adminToken = localStorage.getItem("admin-token");
+    try {
+      const response = await axios.get(
+        `${process.env.REACT_APP_API_URL}/api/admin/get-uploaded-videos`,
+        {
+          headers: {
+            Authorization: `${adminToken}`,
+          },
+        }
+      );
+
+      toast.success("Videos fetched successfully");
+      return response.data;
+    } catch (error) {
+      console.error("Failed to fetch images:", error);
+      toast.error("Failed to fetch videos");
       return false;
     }
   };
@@ -202,6 +252,8 @@ export const AdminProvider = ({ children }) => {
         getAllUsers,
         approveUser,
         deleteDuplicateComments,
+        getUploadedVideos,
+        uploadVideo,
       }}
     >
       {children}
