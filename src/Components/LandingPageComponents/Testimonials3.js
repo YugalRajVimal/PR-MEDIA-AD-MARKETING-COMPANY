@@ -377,7 +377,7 @@ const Testimonials3 = ({ timer, remainingSeconds, FULL_TIME, hideTimer }) => {
                         className={`rounded-xl object-cover shadow-xl border-[1px] border-[#3B2E22] 
                         ${
                           isActive
-                            ? "z-10 min-w-[130px] w-[100%] md:w-[100%] aspect-[19/10] scale-[1.4] "
+                            ? "z-10 min-w-[130px] w-[100%] md:w-[100%] aspect-[19/10] scale-[2] md:scale-[1.4] "
                             : "z-0 min-w-[110px] w-[95%] md:w-[60%] aspect-[19/10]  opacity-50 scale-90 "
                         } 
                         transition-all duration-500 `}
