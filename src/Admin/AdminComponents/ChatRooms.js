@@ -102,7 +102,7 @@ export default function ChatRooms() {
       );
       const msg = await res.json();
 
-      setMessages((m) => [...m, msg]);
+    //   setMessages((m) => [...m, msg]);
       setRooms((prev) =>
         prev.map((r) =>
           r.customerId === selectedId

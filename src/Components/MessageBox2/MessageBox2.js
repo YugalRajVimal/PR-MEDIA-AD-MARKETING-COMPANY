@@ -81,7 +81,7 @@ const PrivateChatBox = ({ onClose }) => {
     );
 
     // ✅ Optimistic UI update
-    setPrivateMessages((prev) => [...prev, msg]);
+    // setPrivateMessages((prev) => [...prev, msg]);
     setPrivateInput("");
   };
 
@@ -138,14 +138,16 @@ const PrivateChatBox = ({ onClose }) => {
     //     </button>
     //   </div>
     // </div>
-    <div className="fixed top-0 left-0 w-screen h-screen bg-white shadow-2xl flex flex-col z-50 overflow-hidden">
+    <div className="fixed bottom-0 left-0 w-screen h-[50vh] bg-white shadow-2xl flex flex-col z-50 overflow-hidden">
       {/* Header */}
       <div className="flex items-center justify-between px-4 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-md">
         <div className="flex items-center gap-3">
           <FaUserCircle className="w-8 h-8" />
           <div>
-            <p className="font-semibold">Admin</p>
-            <span className="text-xs text-emerald-300">● Online</span>
+            <p className="font-semibold text-lg">Private Chat</p>
+            <span className="text-sm text-emerald-300">
+              Get reply under 12hr
+            </span>
           </div>
         </div>
         <button
@@ -250,6 +252,7 @@ const MessageBox2 = ({ setIsCustomerLoginVisible }) => {
 
   const [isMessageBoxOpen, setIsMessageBoxOpen] = useState(true);
   const [isExpandToFullScreen, setIsExpandToFullScreen] = useState(false);
+  const [isExpandToHalfScreen, setIsExpandToHalfScreen] = useState(false);
   const [visibleMessages, setVisibleMessages] = useState([]);
   const [userMessage, setUserMessage] = useState([]);
   const [shuffledMessages, setShuffledMessages] = useState([]);
@@ -407,6 +410,12 @@ const MessageBox2 = ({ setIsCustomerLoginVisible }) => {
     window.location.href = `${process.env.REACT_APP_API_URL}/auth/google`;
   };
 
+  const handleUserMessageChange = (e) => {
+    togglePrivateChatBox(true);
+    setIsExpandToHalfScreen(true);
+    setUserMessage(e.target.value);
+  };
+
   return (
     <>
       {!isCustomerAuthenticated && (
@@ -445,19 +454,21 @@ const MessageBox2 = ({ setIsCustomerLoginVisible }) => {
       <div
         className={`fixed  z-40 border border-black
   ${
-    isExpandToFullScreen
-      ? "w-full h-full bottom-[22px] pt-[22px] bg-black/80 right-0 pt-2"
+    isExpandToHalfScreen
+      ? "w-full h-1/2 top-0 pt-[22px] bg-black/80 right-0 pt-2"
       : isMessageBoxOpen
       ? "w-[300px] h-[415px] bg-black/80 ml-[5px] bottom-[20px] right-[20px]  rounded-t-xl rounded-b-md border border-black"
+      : isExpandToHalfScreen
+      ? "w-full h-1/2 top-0  md:pt-[22px] bg-black/80 right-0"
       : "w-[300px] h-[40px] bg-black/80 bottom-[20px] border-b-0 right-[20px] rounded-t-xl border border-black"
   }`}
       >
         <div className="relative h-full w-full font-mono flex justify-start items-center">
           {isMessageBoxOpen ? (
             <div className="h-full w-full flex flex-col justify-between">
-              <div className="px-3  py-1 flex flex-col  justify-between items-center text-white items-center border-b border-white ">
-                <div className="flex justify-between w-full  mt-1 items-center">
-                  <span className="text-white text-sm  font-aeris pb-4">
+              <div className="px-3  pb-1 flex flex-col  justify-between items-center text-white items-center border-b border-white ">
+                <div className="flex justify-between w-full   items-center">
+                  <span className="text-white text-sm  font-aeris pb-2">
                     3Lakh+ Students Joined{" "}
                   </span>
                   <div className="relative flex flex-col items-center">
@@ -494,15 +505,36 @@ const MessageBox2 = ({ setIsCustomerLoginVisible }) => {
                   </span>
 
                   <div className="flex gap-2 items-center">
-                    {isExpandToFullScreen && (
-                      <button onClick={() => setIsExpandToFullScreen(false)}>
+                    {isExpandToHalfScreen && (
+                      <button
+                        onClick={() => {
+                          setIsMessageBoxOpen(true);
+
+                          setIsExpandToHalfScreen(false);
+                          togglePrivateChatBox(false);
+                        }}
+                      >
                         <FaTimes className="text-white" />
                       </button>
                     )}
-                    {isMessageBoxOpen && !isExpandToFullScreen && (
-                      <FaTimes onClick={() => setIsMessageBoxOpen(false)} />
+                    {isMessageBoxOpen && !isExpandToHalfScreen && (
+                      <FaTimes
+                        onClick={() => {
+                          setIsMessageBoxOpen(false);
+                          // setIsExpandToHalfScreen(false);
+                          // togglePrivateChatBox(false);
+                        }}
+                      />
                     )}
-                    <FaExpandAlt onClick={handleToggleFullScreen} />
+                    {!isExpandToHalfScreen && (
+                      <FaExpandAlt
+                        onClick={() => {
+                          // setIsMessageBoxOpen(false);
+                          setIsExpandToHalfScreen(true);
+                          togglePrivateChatBox(true);
+                        }}
+                      />
+                    )}
                   </div>
                 </div>
               </div>
@@ -568,7 +600,7 @@ const MessageBox2 = ({ setIsCustomerLoginVisible }) => {
                 <div ref={messagesEndRef} />
               </div>
               {/* Private Chat */}
-              <div className="absolute flex flex-col gap-2 right-[105%] bottom-4 z-50">
+              {/* <div className="absolute flex flex-col gap-2 right-[105%] bottom-4 z-50">
                 <button
                   onClick={() => togglePrivateChatBox(true)}
                   className="relative rounded-t-2xl rounded-bl-2xl bg-indigo-600 px-6 py-2 text-white shadow-lg hover:bg-indigo-700 transition-colors duration-200 text-sm font-medium whitespace-nowrap"
@@ -590,7 +622,7 @@ const MessageBox2 = ({ setIsCustomerLoginVisible }) => {
                   Chat with Admin
                   <div className="absolute bottom-0 -right-[8px] w-0 h-0 border-t-[12px] border-l-[12px] border-t-indigo-600 border-l-transparent rounded-sm rotate-[180deg]"></div>
                 </button>
-              </div>
+              </div> */}
               {/* Input Box */}
               <div className="relative w-full h-[50px] border-t border-black flex justify-end items-center p-1">
                 {!isCustomerAuthenticated && (
@@ -607,7 +639,7 @@ const MessageBox2 = ({ setIsCustomerLoginVisible }) => {
                 <input
                   type="text"
                   value={userMessage}
-                  onChange={(e) => setUserMessage(e.target.value)}
+                  onChange={(e) => handleUserMessageChange(e)}
                   disabled={!isCustomerAuthenticated}
                   placeholder="Chat with students..."
                   className="bg-white text-sm w-full p-2 border-r-0 rounded-l-2xl border border-black"
@@ -663,7 +695,12 @@ const MessageBox2 = ({ setIsCustomerLoginVisible }) => {
 
       {/* Render Private Chat if open */}
       {isPrivateChatOpen && (
-        <PrivateChatBox onClose={() => setIsPrivateChatOpen(false)} />
+        <PrivateChatBox
+          onClose={() => {
+            setIsPrivateChatOpen(false);
+            setIsExpandToHalfScreen(false);
+          }}
+        />
       )}
     </>
   );
