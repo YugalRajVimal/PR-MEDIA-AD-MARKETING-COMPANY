@@ -16,7 +16,7 @@ import { IoLogoWhatsapp } from "react-icons/io";
 import { X } from "lucide-react";
 // Utility to get a random number in a given range
 
-const PrivateChatBox = ({ onClose,popup }) => {
+const PrivateChatBox = ({ onClose, popup }) => {
   const [privateMessages, setPrivateMessages] = useState([]);
   const [privateInput, setPrivateInput] = useState("");
   const privateSocketRef = useRef(null);
@@ -451,6 +451,24 @@ const MessageBox2 = ({ setIsCustomerLoginVisible }) => {
     setUserMessage(e.target.value);
   };
 
+  const handleDefualtMessageSend = (e) => {
+    if (!isCustomerAuthenticated) {
+      toast.error("Please Login before sending a message");
+      return;
+    }
+
+    // Also show in chat UI if needed
+    setVisibleMessages((prev) => [
+      ...prev,
+      {
+        name: name,
+        comment:
+          "Kya koi student please mujhse baat karega?  Mujhe kuch puchhna hai aapse",
+      },
+    ]);
+    setUserMessage("");
+  };
+
   return (
     <>
       {!isCustomerAuthenticated && (
@@ -492,10 +510,8 @@ const MessageBox2 = ({ setIsCustomerLoginVisible }) => {
     isExpandToHalfScreen
       ? "w-full h-1/2 top-0 pt-[22px] bg-black/80 right-0 pt-2"
       : isMessageBoxOpen
-      ? "w-[300px] h-[415px] bg-black/80 ml-[5px] bottom-[20px] right-[20px]  rounded-t-xl rounded-b-md border border-black"
-      : isExpandToHalfScreen
-      ? "w-full h-1/2 top-0  md:pt-[22px] bg-black/80 right-0"
-      : "w-[300px] h-[40px] bg-black/80 bottom-[20px] border-b-0 right-[20px] rounded-t-xl border border-black"
+      ? "w-[300px] h-[415px] bg-black/80 ml-[5px] bottom-[20px]  right-[20px]  rounded-t-xl rounded-b-md border border-black"
+      : "w-[300px] h-[40px] bg-black/80 bottom-[20px] border-b-0 right-[20px]  rounded-t-xl border border-black"
   }`}
       >
         <div className="relative h-full w-full font-mono flex justify-start items-center">
@@ -584,7 +600,7 @@ const MessageBox2 = ({ setIsCustomerLoginVisible }) => {
                     container.clientHeight + 5;
                   setIsUserScrolledUp(!isAtBottom);
                 }}
-                className="p-3 flex flex-col overflow-y-auto space-y-2 min-h-[220px] font-serif"
+                className="p-3 flex flex-col overflow-y-auto h-full space-y-2 font-serif"
               >
                 <AnimatePresence>
                   {visibleMessages.map((msgObj, index) => (
@@ -668,7 +684,20 @@ const MessageBox2 = ({ setIsCustomerLoginVisible }) => {
                     className="absolute h-full w-full z-50"
                   ></div>
                 )}
-
+                {userMessage != "" && (
+                  <div
+                    onClick={() => {
+                      handleDefualtMessageSend();
+                    }}
+                    className="absolute z-50 bottom-[100%] left-0 bg-[#f8dbb7] text-black text-[10px] px-4 py-2 rounded-xl shadow-lg hover:bg-indigo-700 transition-colors duration-200"
+                  >
+                    <div className="relative">
+                      <div className="absolute -bottom-[12px] left-1/2 -translate-x-1/2 w-0 h-0 border-t-[12px] border-l-[12px] border-t-[#f8dbb7] border-l-transparent rounded-sm rotate-[135deg]"></div>
+                      Kya koi student please mujhse baat karega? <br /> Mujhe
+                      kuch puchhna hai aapse
+                    </div>
+                  </div>
+                )}
                 <input
                   type="text"
                   value={userMessage}
@@ -729,7 +758,7 @@ const MessageBox2 = ({ setIsCustomerLoginVisible }) => {
       {/* Render Private Chat if open */}
       {isPrivateChatOpen && (
         <PrivateChatBox
-        popup={popup}
+          popup={popup}
           onClose={() => {
             setIsPrivateChatOpen(false);
             setIsExpandToHalfScreen(false);

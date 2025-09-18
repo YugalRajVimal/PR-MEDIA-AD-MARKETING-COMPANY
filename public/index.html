@@ -35,12 +35,19 @@
           safari_web_id:
             "web.onesignal.auto.30826c80-9a56-405a-b53d-a917475ecc5b",
           notifyButton: {
-            enable: true, // Enable notification button functionality
-            showPopup: false, // Prevent showing the red bell icon
+            enable: true, 
           },
         });
       });
     </script>
+
+    <script src="%PUBLIC_URL%/clickAndHideBellIcon.js" defer></script>
+    <!-- Custom CSS to hide the OneSignal bell launcher button -->
+    <style>
+      .onesignal-bell-launcher-button {
+        display: none !important;
+      }
+    </style>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
