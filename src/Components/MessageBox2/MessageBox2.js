@@ -16,7 +16,7 @@ import { IoLogoWhatsapp } from "react-icons/io";
 import { X } from "lucide-react";
 // Utility to get a random number in a given range
 
-const PrivateChatBox = ({ onClose }) => {
+const PrivateChatBox = ({ onClose,popup }) => {
   const [privateMessages, setPrivateMessages] = useState([]);
   const [privateInput, setPrivateInput] = useState("");
   const privateSocketRef = useRef(null);
@@ -138,16 +138,13 @@ const PrivateChatBox = ({ onClose }) => {
     //     </button>
     //   </div>
     // </div>
-    <div className="fixed bottom-0 left-0 w-screen h-[50vh] bg-white shadow-2xl flex flex-col z-50 overflow-hidden">
+    <div className="fixed bottom-0 left-0 w-screen h-[50vh] bg-black/50 shadow-2xl flex flex-col z-50 overflow-hidden">
       {/* Header */}
-      <div className="flex items-center justify-between px-4 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-md">
+      <div className="flex items-center justify-between px-4 py-3 bg-black/50 text-white shadow-md">
         <div className="flex items-center gap-3">
-          <FaUserCircle className="w-8 h-8" />
+          {/* <FaUserCircle className="w-8 h-8" /> */}
           <div>
             <p className="font-semibold text-lg">Private Chat</p>
-            <span className="text-sm text-emerald-300">
-              Get reply under 12hr
-            </span>
           </div>
         </div>
         <button
@@ -161,7 +158,7 @@ const PrivateChatBox = ({ onClose }) => {
       {/* Messages */}
       <div
         ref={scrollRef}
-        className="flex-1 overflow-y-auto px-4 py-3 space-y-3 bg-gradient-to-b from-slate-50 to-slate-100"
+        className="flex-1 overflow-y-auto px-4 py-3 space-y-3 bg-black/50"
       >
         {privateMessages.map((m, idx) => (
           <motion.div
@@ -169,13 +166,29 @@ const PrivateChatBox = ({ onClose }) => {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.2 }}
-            className={`max-w-[75%] px-4 py-2 rounded-2xl shadow-sm text-sm ${
-              m.sender === "customer"
-                ? "bg-indigo-600 text-white ml-auto rounded-br-none"
-                : "bg-white border text-slate-700 mr-auto rounded-bl-none"
-            }`}
+            className={`max-w-[75%]  shadow-sm text-sm
+              relative  px-3 py-2   ${
+                m.sender === "customer"
+                  ? "bg-black/90 text-white ml-auto  rounded-t-2xl rounded-bl-2xl"
+                  : "bg-gray-100 border text-slate-700 mr-auto  rounded-t-2xl rounded-br-2xl"
+              }`}
           >
-            <p className="md:text-[16px]">{m.text}</p>
+            {m.sender === "admin" ? (
+              <div className="absolute -bottom-[1px] -left-[8px] w-0 h-0 border-t-[12px] border-l-[12px] border-t-gray-100 border-l-transparent rounded-sm rotate-[90deg]"></div>
+            ) : (
+              <div className="absolute bottom-0 -right-[8px] w-0 h-0 border-t-[12px] border-l-[12px] border-t-black border-l-transparent rounded-sm rotate-[180deg]"></div>
+            )}
+            {m.sender === "admin" && (
+              <>
+                <span className="text-xs font-bold underline font-sans">
+                  Admin
+                </span>
+                <br />
+              </>
+            )}
+
+            <span className="text-xsmd:text-[16px]">{m.text}</span>
+
             <div className="text-[10px] md:text-[14px] text-slate-400 mt-1 text-right">
               {new Date(m.timestamp).toLocaleTimeString([], {
                 hour: "2-digit",
@@ -187,7 +200,7 @@ const PrivateChatBox = ({ onClose }) => {
       </div>
 
       {/* Input */}
-      <div className="flex items-center gap-2 border-t px-3 py-3 bg-white shadow-inner">
+      <div className="flex items-center gap-2 border-t border-black px-3 py-1 bg-black/50 shadow-inner">
         <input
           type="text"
           className="flex-1 rounded-full border border-slate-300 py-2 px-4 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-200"
@@ -202,6 +215,28 @@ const PrivateChatBox = ({ onClose }) => {
         >
           <FaPaperPlane size={16} />
         </button>
+      </div>
+      <div className="relative w-full h-[50px] bg-black/50 border-t border-black flex justify-end items-center p-1">
+        <a
+          href={`http://wa.me/+917500030415?text=Hi%2C%20I%20am%20ready%20for%20the%20paid%20training`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center gap-2 bg-[#25D366] text-white py-1 px-4 rounded-full font-semibold hover:bg-[#1DA851] transition-colors duration-200 w-full cursor-pointer"
+        >
+          <FaWhatsapp className="text-2xl" />
+          <span className="text-xs font-mono text-center">
+            Secure Your Seat on WhatsApp (Fast!)
+          </span>
+        </a>
+        {/* Popup */}
+        {popup && (
+          <div className="absolute z-50 font-mono -top-[20%] right-0 bg-[#f8dbb7] text-black whitespace-nowrap text-[10px] px-3 rounded-xl shadow-lg animate-bounce">
+            <div className="relative h-full w-full py-1">
+              <div className="absolute -bottom-[5px]  left-1/2 -translate-x-1/2 w-0 h-0 border-t-[12px] border-l-[12px] border-t-[#f8dbb7] border-l-transparent rounded-sm rotate-[135deg]"></div>
+              {popup}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
@@ -509,7 +544,6 @@ const MessageBox2 = ({ setIsCustomerLoginVisible }) => {
                       <button
                         onClick={() => {
                           setIsMessageBoxOpen(true);
-
                           setIsExpandToHalfScreen(false);
                           togglePrivateChatBox(false);
                         }}
@@ -564,7 +598,6 @@ const MessageBox2 = ({ setIsCustomerLoginVisible }) => {
                     >
                       <div className=" relative bg-gray-100 px-3 py-2 rounded-t-2xl rounded-br-2xl ">
                         <div className="absolute bottom-0 -left-[8px] w-0 h-0 border-t-[12px] border-l-[12px] border-t-gray-100 border-l-transparent rounded-sm rotate-[90deg]"></div>
-
                         <span className="text-xs font-bold underline font-sans">
                           {msgObj?.name}
                         </span>
@@ -696,6 +729,7 @@ const MessageBox2 = ({ setIsCustomerLoginVisible }) => {
       {/* Render Private Chat if open */}
       {isPrivateChatOpen && (
         <PrivateChatBox
+        popup={popup}
           onClose={() => {
             setIsPrivateChatOpen(false);
             setIsExpandToHalfScreen(false);

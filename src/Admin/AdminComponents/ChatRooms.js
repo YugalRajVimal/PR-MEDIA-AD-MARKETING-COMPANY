@@ -102,7 +102,7 @@ export default function ChatRooms() {
       );
       const msg = await res.json();
 
-    //   setMessages((m) => [...m, msg]);
+      //   setMessages((m) => [...m, msg]);
       setRooms((prev) =>
         prev.map((r) =>
           r.customerId === selectedId
@@ -130,13 +130,13 @@ export default function ChatRooms() {
             <h3 className="text-lg font-semibold">Private Chats</h3>
             <span className="text-sm text-slate-400">({rooms.length})</span>
           </div>
-          <button
+          {/* <button
             onClick={() => alert("New chat via API TBD")}
             className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-sm"
           >
             <Plus size={14} />
             New
-          </button>
+          </button> */}
         </div>
 
         <div className="mb-4">
@@ -154,7 +154,7 @@ export default function ChatRooms() {
           </label>
         </div>
 
-        <div className="space-y-2 max-h-[70vh] overflow-auto pr-2">
+        <div className="space-y-2 max-h-full overflow-auto pr-2">
           <AnimatePresence initial={false}>
             {filtered.map((room) => (
               <motion.button
@@ -177,7 +177,7 @@ export default function ChatRooms() {
                   <div className="flex items-center justify-between">
                     <p className="text-sm font-medium truncate">{room.name}</p>
                     <p className="text-xs text-slate-400 ml-2">
-                      {room.lastMessage ? room.time || "" : ""}
+                      {room.lastMessage && room.time ? new Date(room.time).toLocaleString('en-US', { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' }) : ""}
                     </p>
                   </div>
                   <p className="text-xs text-slate-500 truncate">
@@ -204,7 +204,7 @@ export default function ChatRooms() {
         } col-span-2 flex-col p-6 min-h-[320px]`}
       >
         {selected ? (
-          <>
+          < >
             {/* Header */}
             <div className="flex items-center gap-4 mb-4">
               {/* Back button (mobile only) */}
@@ -218,14 +218,22 @@ export default function ChatRooms() {
               <div className="w-14 h-14 rounded-full bg-indigo-100 flex items-center justify-center text-xl font-semibold text-indigo-700">
                 {selected.name[0]}
               </div>
+              {/* <div className="w-14 h-14 rounded-full bg-indigo-100 flex items-center justify-center text-xl font-semibold text-indigo-700">
+                {selected.email[0]}
+              </div> */}
               <div className="flex-1">
                 <h4 className="font-semibold text-lg">{selected.name}</h4>
-                <div className="text-sm text-slate-500">Private conversation</div>
+                <div className="">
+                  {selected.email}
+                </div>
+                <div className="text-sm text-slate-500">
+                  Private conversation
+                </div>
               </div>
             </div>
 
             {/* Messages */}
-            <div className="flex-1 bg-slate-50 rounded-lg p-4 border border-slate-100 overflow-auto space-y-3">
+            <div className="flex-1 h-full bg-slate-50 rounded-lg p-4 border border-slate-100 overflow-auto space-y-3">
               {messages.map((msg, idx) => (
                 <div
                   key={idx}
