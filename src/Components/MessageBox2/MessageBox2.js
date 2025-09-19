@@ -16,12 +16,15 @@ import { IoLogoWhatsapp } from "react-icons/io";
 import { X } from "lucide-react";
 // Utility to get a random number in a given range
 
-const PrivateChatBox = ({ onClose, popup }) => {
+const PrivateChatBox = ({
+  onClose,
+  popup,
+  privateInput,
+  setPrivateInput,
+  privateSocketRef,
+}) => {
   const [privateMessages, setPrivateMessages] = useState([]);
-  const [privateInput, setPrivateInput] = useState("");
-  const privateSocketRef = useRef(null);
   const scrollRef = useRef(null);
-
   const customerId = localStorage.getItem("userId");
 
   useEffect(() => {
@@ -168,20 +171,20 @@ const PrivateChatBox = ({ onClose, popup }) => {
             transition={{ duration: 0.2 }}
             className={`max-w-[75%]  shadow-sm text-sm
               relative  px-3 py-2   ${
-                m.sender === "customer"
+                m?.sender === "customer"
                   ? "bg-black/90 text-white ml-auto  rounded-t-2xl rounded-bl-2xl"
                   : "bg-gray-100 border text-slate-700 mr-auto  rounded-t-2xl rounded-br-2xl"
               }`}
           >
-            {m.sender === "admin" ? (
+            {m?.sender === "admin" ? (
               <div className="absolute -bottom-[1px] -left-[8px] w-0 h-0 border-t-[12px] border-l-[12px] border-t-gray-100 border-l-transparent rounded-sm rotate-[90deg]"></div>
             ) : (
               <div className="absolute bottom-0 -right-[8px] w-0 h-0 border-t-[12px] border-l-[12px] border-t-black border-l-transparent rounded-sm rotate-[180deg]"></div>
             )}
-            {m.sender === "admin" && (
+            {m?.sender === "admin" && (
               <>
                 <span className="text-xs font-bold underline font-sans">
-                  Admin
+                  {m?.name ? m.name : "Admin"}
                 </span>
                 <br />
               </>
@@ -190,7 +193,7 @@ const PrivateChatBox = ({ onClose, popup }) => {
             <span className="text-xsmd:text-[16px]">{m.text}</span>
 
             <div className="text-[10px] md:text-[14px] text-slate-400 mt-1 text-right">
-              {new Date(m.timestamp).toLocaleTimeString([], {
+              {new Date(m?.timestamp).toLocaleTimeString([], {
                 hour: "2-digit",
                 minute: "2-digit",
               })}
@@ -203,7 +206,7 @@ const PrivateChatBox = ({ onClose, popup }) => {
       <div className="flex items-center gap-2 border-t border-black px-3 py-1 bg-black/50 shadow-inner">
         <input
           type="text"
-          className="flex-1 rounded-full border border-slate-300 py-2 px-4 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-200"
+          className="bg-white text-sm w-full font-mono p-2 border-r-0 rounded-full border border-black"
           value={privateInput}
           onChange={(e) => setPrivateInput(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && sendPrivateMessage()}
@@ -258,6 +261,9 @@ const MessageBox2 = ({ setIsCustomerLoginVisible }) => {
     isUserApproved,
   } = useCustomerAuth();
 
+  const [privateInput, setPrivateInput] = useState("");
+  const privateSocketRef = useRef(null);
+
   const togglePrivateChatBox = (val) => {
     if (!isCustomerAuthenticated) {
       toast.error("Please log in to chat with the admin.");
@@ -296,6 +302,8 @@ const MessageBox2 = ({ setIsCustomerLoginVisible }) => {
 
   const [livePeopleCount, setLivePeopleCount] = useState(70000);
   const [livePeopleCountText, setLivePeopleCountText] = useState("70k");
+
+  const [popUpTextVisible, setPopUpTextVisible] = useState(true);
 
   useEffect(() => {
     const formatCount = (count) => {
@@ -457,16 +465,34 @@ const MessageBox2 = ({ setIsCustomerLoginVisible }) => {
       return;
     }
 
-    // Also show in chat UI if needed
+    const defaultMessage =
+      "Kya koi student please mujhse baat karega? Mujhe kuch puchhna hai aapse";
+
+    // Send to Public Chat (students)
     setVisibleMessages((prev) => [
       ...prev,
       {
         name: name,
-        comment:
-          "Kya koi student please mujhse baat karega?  Mujhe kuch puchhna hai aapse",
+        comment: defaultMessage,
       },
     ]);
+
+    // Send to Private Chat (admin)
+    const privateMsg = {
+      sender: "customer",
+      text: defaultMessage,
+      timestamp: new Date(),
+    };
+
+    if (privateSocketRef.current && privateSocketRef.current.readyState === 1) {
+      privateSocketRef.current.send(
+        JSON.stringify({ type: "private_message", message: privateMsg })
+      );
+    }
+
+    // Clear input (optional, depending on UX)
     setUserMessage("");
+    setPrivateInput(""); // optional, if you're syncing it with input
   };
 
   return (
@@ -684,9 +710,10 @@ const MessageBox2 = ({ setIsCustomerLoginVisible }) => {
                     className="absolute h-full w-full z-50"
                   ></div>
                 )}
-                {userMessage != "" && (
+                {popUpTextVisible && (
                   <div
                     onClick={() => {
+                      setPopUpTextVisible(false);
                       handleDefualtMessageSend();
                     }}
                     className="absolute z-50 bottom-[100%] left-0 bg-[#f8dbb7] text-black text-[10px] px-4 py-2 rounded-xl shadow-lg hover:bg-indigo-700 transition-colors duration-200"
@@ -759,6 +786,9 @@ const MessageBox2 = ({ setIsCustomerLoginVisible }) => {
       {isPrivateChatOpen && (
         <PrivateChatBox
           popup={popup}
+          privateInput={privateInput}
+          setPrivateInput={setPrivateInput}
+          privateSocketRef={privateSocketRef}
           onClose={() => {
             setIsPrivateChatOpen(false);
             setIsExpandToHalfScreen(false);

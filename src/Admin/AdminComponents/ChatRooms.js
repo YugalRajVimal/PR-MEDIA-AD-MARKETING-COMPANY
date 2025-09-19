@@ -7,6 +7,7 @@ export default function ChatRooms() {
   const [query, setQuery] = useState("");
   const [selectedId, setSelectedId] = useState(null);
   const [messages, setMessages] = useState([]);
+  const [name, setName] = useState("Admin");
   const [input, setInput] = useState("");
   const wsRef = useRef(null);
 
@@ -87,7 +88,7 @@ export default function ChatRooms() {
 
   // ✅ Send message
   async function sendMessage() {
-    if (!input.trim() || !selectedId) return;
+    if (!input.trim() || !selectedId || !name) return;
     const text = input.trim();
     setInput("");
 
@@ -97,16 +98,16 @@ export default function ChatRooms() {
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ sender: "admin", text }),
+          body: JSON.stringify({ sender: "admin", text, name }),
         }
       );
       const msg = await res.json();
 
-      //   setMessages((m) => [...m, msg]);
+        // setMessages((m) => [...m, msg]);
       setRooms((prev) =>
         prev.map((r) =>
           r.customerId === selectedId
-            ? { ...r, lastMessage: msg.text, unread: 0 }
+            ? { ...r, lastMessage: msg.text, unread: 0, name: msg.name }
             : r
         )
       );
@@ -177,7 +178,15 @@ export default function ChatRooms() {
                   <div className="flex items-center justify-between">
                     <p className="text-sm font-medium truncate">{room.name}</p>
                     <p className="text-xs text-slate-400 ml-2">
-                      {room.lastMessage && room.time ? new Date(room.time).toLocaleString('en-US', { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' }) : ""}
+                      {room.lastMessage && room.time
+                        ? new Date(room.time).toLocaleString("en-US", {
+                            year: "numeric",
+                            month: "short",
+                            day: "numeric",
+                            hour: "2-digit",
+                            minute: "2-digit",
+                          })
+                        : ""}
                     </p>
                   </div>
                   <p className="text-xs text-slate-500 truncate">
@@ -204,7 +213,7 @@ export default function ChatRooms() {
         } col-span-2 flex-col p-6 min-h-[320px]`}
       >
         {selected ? (
-          < >
+          <>
             {/* Header */}
             <div className="flex items-center gap-4 mb-4">
               {/* Back button (mobile only) */}
@@ -223,9 +232,7 @@ export default function ChatRooms() {
               </div> */}
               <div className="flex-1">
                 <h4 className="font-semibold text-lg">{selected.name}</h4>
-                <div className="">
-                  {selected.email}
-                </div>
+                <div className="">{selected.email}</div>
                 <div className="text-sm text-slate-500">
                   Private conversation
                 </div>
@@ -243,7 +250,15 @@ export default function ChatRooms() {
                       : "bg-white border text-slate-700"
                   }`}
                 >
-                  {msg.text}
+                  {msg.sender === "admin" && (
+                    <>
+                      <span className="text-sm font-bold underline font-sans">
+                        {msg.name}
+                      </span>
+                    </>
+                  )}
+                  <br />
+                  <span className="text-base">{msg.text}</span>
                   <div className="text-[10px] text-slate-400 mt-1 text-right">
                     {new Date(msg.timestamp).toLocaleTimeString([], {
                       hour: "2-digit",
@@ -255,20 +270,36 @@ export default function ChatRooms() {
             </div>
 
             {/* Input */}
-            <div className="pt-3 border-t flex items-center gap-3">
-              <input
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                onKeyDown={(e) => e.key === "Enter" && sendMessage()}
-                className="flex-1 rounded-full border border-slate-200 py-2 px-4 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-200"
-                placeholder={`Message ${selected.name}...`}
-              />
-              <button
-                onClick={sendMessage}
-                className="px-4 py-2 rounded-full bg-indigo-600 text-white text-sm"
-              >
-                Send
-              </button>
+            <div className="pt-4 border-t w-full flex flex-col gap-4 bg-white">
+              {/* Admin Name Field */}
+              <div className="flex flex-col w-full">
+                <label className="text-sm font-medium text-gray-700 mb-1">
+                  Admin Name
+                </label>
+                <input
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  className="rounded-lg border border-gray-300 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  placeholder="Enter admin name"
+                />
+              </div>
+
+              {/* Message Input */}
+              <div className="flex w-full gap-2 items-center">
+                <input
+                  value={input}
+                  onChange={(e) => setInput(e.target.value)}
+                  onKeyDown={(e) => e.key === "Enter" && sendMessage()}
+                  className="flex-1 rounded-lg border border-gray-300 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  placeholder={`Message ${selected?.name || "recipient"}...`}
+                />
+                <button
+                  onClick={sendMessage}
+                  className="px-5 py-2 rounded-lg bg-indigo-600 text-white text-sm hover:bg-indigo-700 transition"
+                >
+                  Send
+                </button>
+              </div>
             </div>
           </>
         ) : (
