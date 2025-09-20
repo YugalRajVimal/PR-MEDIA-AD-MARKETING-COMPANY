@@ -172,14 +172,14 @@ const PrivateChatBox = ({
             className={`max-w-[75%]  shadow-sm text-sm
               relative  px-3 py-2   ${
                 m?.sender === "customer"
-                  ? "bg-black/90 text-white ml-auto  rounded-t-2xl rounded-bl-2xl"
+                  ? "bg-gray-100 border text-slate-700 ml-auto  rounded-t-2xl rounded-bl-2xl"
                   : "bg-gray-100 border text-slate-700 mr-auto  rounded-t-2xl rounded-br-2xl"
               }`}
           >
             {m?.sender === "admin" ? (
               <div className="absolute -bottom-[1px] -left-[8px] w-0 h-0 border-t-[12px] border-l-[12px] border-t-gray-100 border-l-transparent rounded-sm rotate-[90deg]"></div>
             ) : (
-              <div className="absolute bottom-0 -right-[8px] w-0 h-0 border-t-[12px] border-l-[12px] border-t-black border-l-transparent rounded-sm rotate-[180deg]"></div>
+              <div className="absolute -bottom-[1px] -right-[8px] w-0 h-0 border-t-[12px] border-l-[12px] border-t-gray-100  border-l-transparent rounded-sm rotate-[180deg]"></div>
             )}
             {m?.sender === "admin" && (
               <>
@@ -203,7 +203,7 @@ const PrivateChatBox = ({
       </div>
 
       {/* Input */}
-      <div className="flex items-center gap-2 border-t border-black px-3 py-1 bg-black/50 shadow-inner">
+      {/* <div className="flex items-center gap-2 border-t border-black px-3 py-1 bg-black/50 shadow-inner">
         <input
           type="text"
           className="bg-white text-sm w-full font-mono p-2 border-r-0 rounded-full border border-black"
@@ -218,7 +218,26 @@ const PrivateChatBox = ({
         >
           <FaPaperPlane size={16} />
         </button>
+      </div> */}
+      <div className="relative w-full h-[50px] border-t bg-black/50 border-black flex justify-end items-center p-1">
+        <input
+          type="text"
+          value={privateInput}
+          onChange={(e) => setPrivateInput(e.target.value)}
+          onKeyDown={(e) => e.key === "Enter" && sendPrivateMessage()}
+          placeholder="Type a message..."
+          className="bg-white text-sm w-full p-2 font-mono border-r-0 rounded-l-2xl border border-black"
+        />
+        <div className="h-full">
+          <div
+            onClick={sendPrivateMessage}
+            className="aspect-[1/1] h-full flex justify-center items-center p-2 bg-black text-white text-xl rounded-sm rounded-r-lg cursor-pointer"
+          >
+            <FaPaperPlane />
+          </div>
+        </div>
       </div>
+
       <div className="relative w-full h-[50px] bg-black/50 border-t border-black flex justify-end items-center p-1">
         <a
           href={`http://wa.me/+917500030415?text=Hi%2C%20I%20am%20ready%20for%20the%20paid%20training`}
