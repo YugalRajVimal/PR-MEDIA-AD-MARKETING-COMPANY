@@ -63,6 +63,7 @@ export default function ChatRooms() {
               ? {
                   ...r,
                   lastMessage: data.message.text,
+                  time: data.message.timestamp, // <-- add/update timestamp
                   unread:
                     data.customerId === selectedId ? 0 : (r.unread || 0) + 1,
                 }
@@ -76,14 +77,21 @@ export default function ChatRooms() {
   }, [selectedId]);
 
   // ✅ Search filter
+  // ✅ Search filter + sort by latest
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
-    if (!q) return rooms;
-    return rooms.filter(
-      (r) =>
-        r.name.toLowerCase().includes(q) ||
-        r.lastMessage?.toLowerCase().includes(q)
-    );
+    let list = [...rooms];
+
+    if (q) {
+      list = list.filter(
+        (r) =>
+          r.name.toLowerCase().includes(q) ||
+          r.lastMessage?.toLowerCase().includes(q)
+      );
+    }
+
+    // Sort by time (latest on top)
+    return list.sort((a, b) => new Date(b.time) - new Date(a.time));
   }, [query, rooms]);
 
   // ✅ Send message
@@ -103,11 +111,17 @@ export default function ChatRooms() {
       );
       const msg = await res.json();
 
-        // setMessages((m) => [...m, msg]);
+      // setMessages((m) => [...m, msg]);
       setRooms((prev) =>
         prev.map((r) =>
           r.customerId === selectedId
-            ? { ...r, lastMessage: msg.text, unread: 0, name: msg.name }
+            ? {
+                ...r,
+                lastMessage: msg.text,
+                time: msg.timestamp,
+                unread: 0,
+                // name: msg.name,
+              }
             : r
         )
       );
@@ -119,12 +133,12 @@ export default function ChatRooms() {
   const selected = rooms.find((r) => r.customerId === selectedId) || null;
 
   return (
-    <div className="w-full h-full bg-white rounded-2xl shadow-md overflow-hidden flex flex-col lg:grid lg:grid-cols-3">
+    <div className="w-full h-screen bg-white rounded-2xl shadow-md overflow-hidden flex flex-col lg:grid lg:grid-cols-3">
       {/* Sidebar (chat list) */}
       <div
         className={`${
           selectedId ? "hidden lg:block" : "block"
-        } col-span-1 border-r px-4 py-4`}
+        } col-span-1 border-r px-4 py-4 h-screen overflow-y-auto`}
       >
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-3">
@@ -210,7 +224,7 @@ export default function ChatRooms() {
       <div
         className={`${
           selectedId ? "flex" : "hidden lg:flex"
-        } col-span-2 flex-col p-6 min-h-[320px]`}
+        } col-span-2 flex-col p-6  h-screen overflow-y-auto`}
       >
         {selected ? (
           <>
