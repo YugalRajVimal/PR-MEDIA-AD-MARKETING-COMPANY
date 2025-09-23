@@ -9,6 +9,7 @@ import CustomerVerifyAccount from "./Components/AuthComponents/CustomerVerifyAcc
 import MessageBox from "./Components/MessageBox/MessageBox";
 import { useEffect, useState } from "react";
 import MessageBox2 from "./Components/MessageBox2/MessageBox2";
+import SubscribeButton from "./SubscribeButton";
 
 const Layout = () => {
   const [isCustomerLoginVisible, setIsCustomerLoginVisible] = useState(false);
@@ -56,8 +57,32 @@ const Layout = () => {
         setIsCustomerVerifyAccountVisible(false);
     }
   };
+
+  useEffect(() => {
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
+    window.OneSignalDeferred.push(async function (OneSignal) {
+      await OneSignal.init({
+        appId: "718983a2-79ca-42de-8aec-a940452f08f9",
+        autoRegister: false,
+        promptOptions: {
+          slidedown: {
+            enabled: false,
+          },
+        },
+        notifyButton: {
+          enable: false, // disables the bell widget
+        },
+      });
+    });
+  }, []);
+
   return (
     <div className="w-screen h-screen font-medio">
+      {/* <button id="subscribe-btn">Subscribe to Notifications</button>
+      <SubscribeButton /> */}
+
+      <SubscribeButton />
+
       <div className="">
         <Nav handlePageChange={handlePageChange} />
         {/* <LandingPageBackground /> */}
