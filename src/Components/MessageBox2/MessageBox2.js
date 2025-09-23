@@ -22,125 +22,13 @@ const PrivateChatBox = ({
   privateInput,
   setPrivateInput,
   privateSocketRef,
+  privateMessages,
+  setPrivateMessages,
+  scrollRef,
+  customerId,
+  sendPrivateMessage,
 }) => {
-  const [privateMessages, setPrivateMessages] = useState([]);
-  const scrollRef = useRef(null);
-  const customerId = localStorage.getItem("userId");
-
-  useEffect(() => {
-    // ✅ Connect WebSocket
-    // privateSocketRef.current = new WebSocket("ws://localhost:8080");
-    privateSocketRef.current = new WebSocket("wss://api.theprmedia.com");
-
-    privateSocketRef.current.onopen = () => {
-      privateSocketRef.current.send(
-        JSON.stringify({
-          type: "register",
-          role: "customer",
-          id: customerId,
-        })
-      );
-
-      // ✅ Fetch old chat messages
-      fetch(`${process.env.REACT_APP_API_URL}/api/chat/${customerId}`)
-        .then((res) => res.json())
-        .then((data) => {
-          setPrivateMessages(data.privateChats || []);
-        })
-        .catch((err) => console.error("Failed to load chat:", err));
-    };
-
-    privateSocketRef.current.onmessage = (event) => {
-      const data = JSON.parse(event.data);
-      if (data.type === "new_message") {
-        setPrivateMessages((prev) => [...prev, data.message]);
-      }
-    };
-
-    return () => {
-      privateSocketRef.current.close();
-    };
-  }, [customerId]);
-
-  useEffect(() => {
-    // ✅ Auto scroll to bottom on new messages
-    if (scrollRef.current) {
-      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
-    }
-  }, [privateMessages]);
-
-  const sendPrivateMessage = () => {
-    if (!privateInput.trim()) return;
-
-    const msg = {
-      sender: "customer",
-      text: privateInput,
-      timestamp: new Date(),
-    };
-
-    // ✅ Send to backend
-    privateSocketRef.current.send(
-      JSON.stringify({ type: "private_message", message: msg })
-    );
-
-    // ✅ Optimistic UI update
-    // setPrivateMessages((prev) => [...prev, msg]);
-    setPrivateInput("");
-  };
-
   return (
-    // <div className="fixed top-0 left-0  w-screen h-screen bg-white shadow-2xl flex flex-col z-50 overflow-hidden">
-    //   {/* Header */}
-    //   <div className="flex justify-between items-center px-3 py-2 bg-indigo-600 text-white font-medium">
-    //     <span>Chat with Admin</span>
-    //     <button onClick={onClose} className="hover:text-slate-200">
-    //       <FaTimes />
-    //     </button>
-    //   </div>
-
-    //   {/* Messages */}
-    //   <div
-    //     ref={scrollRef}
-    //     className="flex-1 overflow-y-auto px-3 py-2 space-y-2 text-sm bg-slate-50"
-    //   >
-    //     {privateMessages.map((m, idx) => (
-    //       <div
-    //         key={idx}
-    //         className={`max-w-[75%] px-3 py-2 rounded-lg ${
-    //           m.sender === "customer"
-    //             ? "bg-indigo-600 text-white ml-auto"
-    //             : "bg-white border text-slate-700 mr-auto"
-    //         }`}
-    //       >
-    //         <p>{m.text}</p>
-    //         <div className="text-[10px] text-slate-400 mt-1 text-right">
-    //           {new Date(m.timestamp).toLocaleTimeString([], {
-    //             hour: "2-digit",
-    //             minute: "2-digit",
-    //           })}
-    //         </div>
-    //       </div>
-    //     ))}
-    //   </div>
-
-    //   {/* Input */}
-    //   <div className="flex items-center gap-2 border-t px-2 py-2 bg-white">
-    //     <input
-    //       type="text"
-    //       className="flex-1 rounded-full border border-slate-200 py-2 px-3 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-200"
-    //       value={privateInput}
-    //       onChange={(e) => setPrivateInput(e.target.value)}
-    //       onKeyDown={(e) => e.key === "Enter" && sendPrivateMessage()}
-    //       placeholder="Type a message..."
-    //     />
-    //     <button
-    //       onClick={sendPrivateMessage}
-    //       className="p-2 rounded-full bg-indigo-600 text-white hover:bg-indigo-700"
-    //     >
-    //       <FaPaperPlane size={14} />
-    //     </button>
-    //   </div>
-    // </div>
     <div className="fixed bottom-0 left-0 w-screen h-[50vh] bg-black/50 shadow-2xl flex flex-col z-50 overflow-hidden">
       {/* Header */}
       <div className="flex items-center justify-between px-4 py-3 bg-black/50 text-white shadow-md">
@@ -339,16 +227,6 @@ const MessageBox2 = ({ setIsCustomerLoginVisible }) => {
   const indexRef = useRef(0);
 
   useEffect(() => {
-    // const fetchComments = async () => {
-    //   const res = await getAllNameCommentAndImagesCombined();
-    //   if (res && res.data) {
-    //     originalMessagesRef.current = res.data; // ✅ FIXED: Store original
-    //     const shuffled = shuffleArray(res.data);
-    //     setShuffledMessages(shuffled);
-    //     indexRef.current = 0;
-    //   }
-    // };
-
     const checkUserApproval = async () => {
       await isUserApproved();
     };
@@ -484,6 +362,9 @@ const MessageBox2 = ({ setIsCustomerLoginVisible }) => {
       return;
     }
 
+    togglePrivateChatBox(true);
+    setIsExpandToHalfScreen(true);
+
     const defaultMessage =
       "Kya koi student please mujhse baat karega? Mujhe kuch puchhna hai aapse";
 
@@ -503,8 +384,11 @@ const MessageBox2 = ({ setIsCustomerLoginVisible }) => {
       timestamp: new Date(),
     };
 
-    if (privateSocketRef.current && privateSocketRef.current.readyState === 1) {
-      privateSocketRef.current.send(
+    if (
+      privateSocketRef?.current &&
+      privateSocketRef?.current.readyState === 1
+    ) {
+      privateSocketRef?.current?.send(
         JSON.stringify({ type: "private_message", message: privateMsg })
       );
     }
@@ -512,6 +396,72 @@ const MessageBox2 = ({ setIsCustomerLoginVisible }) => {
     // Clear input (optional, depending on UX)
     setUserMessage("");
     setPrivateInput(""); // optional, if you're syncing it with input
+  };
+
+  //Private Chat
+  const [privateMessages, setPrivateMessages] = useState([]);
+  const scrollRef = useRef(null);
+  const customerId = localStorage.getItem("userId");
+
+  useEffect(() => {
+    // ✅ Connect WebSocket
+    // privateSocketRef.current = new WebSocket("ws://localhost:8080");
+    privateSocketRef.current = new WebSocket("wss://api.theprmedia.com");
+
+    privateSocketRef.current.onopen = () => {
+      privateSocketRef.current.send(
+        JSON.stringify({
+          type: "register",
+          role: "customer",
+          id: customerId,
+        })
+      );
+
+      // ✅ Fetch old chat messages
+      fetch(`${process.env.REACT_APP_API_URL}/api/chat/${customerId}`)
+        .then((res) => res.json())
+        .then((data) => {
+          setPrivateMessages(data.privateChats || []);
+        })
+        .catch((err) => console.error("Failed to load chat:", err));
+    };
+
+    privateSocketRef.current.onmessage = (event) => {
+      const data = JSON.parse(event.data);
+      if (data.type === "new_message") {
+        setPrivateMessages((prev) => [...prev, data.message]);
+      }
+    };
+
+    return () => {
+      privateSocketRef.current.close();
+    };
+  }, [customerId]);
+
+  useEffect(() => {
+    // ✅ Auto scroll to bottom on new messages
+    if (scrollRef.current) {
+      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+    }
+  }, [privateMessages]);
+
+  const sendPrivateMessage = () => {
+    if (!privateInput.trim()) return;
+
+    const msg = {
+      sender: "customer",
+      text: privateInput,
+      timestamp: new Date(),
+    };
+
+    // ✅ Send to backend
+    privateSocketRef.current.send(
+      JSON.stringify({ type: "private_message", message: msg })
+    );
+
+    // ✅ Optimistic UI update
+    // setPrivateMessages((prev) => [...prev, msg]);
+    setPrivateInput("");
   };
 
   return (
@@ -808,6 +758,11 @@ const MessageBox2 = ({ setIsCustomerLoginVisible }) => {
           privateInput={privateInput}
           setPrivateInput={setPrivateInput}
           privateSocketRef={privateSocketRef}
+          privateMessages={privateMessages}
+          setPrivateMessages={setPrivateMessages}
+          scrollRef={scrollRef}
+          customerId={customerId}
+          sendPrivateMessage={sendPrivateMessage}
           onClose={() => {
             setIsPrivateChatOpen(false);
             setIsExpandToHalfScreen(false);

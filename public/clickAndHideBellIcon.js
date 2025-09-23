@@ -11,14 +11,14 @@ document.addEventListener("DOMContentLoaded", () => {
     // onesignal-bell-launcher-button
     if (bellButton) {
       // Delay the click and hide by 2.5 seconds
-      setTimeout(() => {
-        bellButton.click();
-        bellButton.style.display = "none";
-        bellContainer.style.display = "none";
-        console.log(
-          "OneSignal bell launcher button clicked and hidden after delay."
-        );
-      }, 2500); // 2.5 seconds delay
+
+      bellButton.click();
+      bellButton.style.display = "none";
+      bellContainer.style.display = "none";
+      console.log(
+        "OneSignal bell launcher button clicked and hidden after delay."
+      );
+
       return true;
     }
     return false;
