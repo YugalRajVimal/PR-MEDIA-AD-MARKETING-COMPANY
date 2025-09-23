@@ -1,13 +1,18 @@
-// src/components/SubscribeButton.js
 import { useEffect, useState } from "react";
+import { FaBell } from "react-icons/fa";
 
 const SubscribeButton = () => {
   const [isOneSignalReady, setIsOneSignalReady] = useState(false);
 
+  const [showButton, setShowButton] = useState(true);
+
   useEffect(() => {
-    // Wait for OneSignal to be available
     const checkReady = setInterval(() => {
-      if (window.OneSignal) {
+      if (
+        window.OneSignal &&
+        window.OneSignal.User &&
+        window.OneSignal.User.PushSubscription
+      ) {
         setIsOneSignalReady(true);
         clearInterval(checkReady);
       }
@@ -16,20 +21,60 @@ const SubscribeButton = () => {
   }, []);
 
   const handleSubscribe = () => {
-    if (window.OneSignal && isOneSignalReady) {
-      console.log("Attempting to show native prompt...");
-      window.OneSignalDeferred.push(function (OneSignal) {
-        OneSignal.showNativePrompt();
+    if (isOneSignalReady) {
+      console.log("Triggering push subscription...");
+      window.OneSignalDeferred.push(async function (OneSignal) {
+        try {
+          const res = await OneSignal.User.PushSubscription.optIn();
+          console.log("User prompted!", res);
+        } catch (error) {
+          console.error("Error during subscription prompt:", error);
+        }
       });
-    } else {
-      console.warn("OneSignal not ready");
     }
+    setShowButton(false);
   };
 
+  useEffect(() => {
+    if ("Notification" in window) {
+      console.log("Notification permission:", Notification.permission);
+
+      switch (Notification.permission) {
+        case "granted":
+          setShowButton(false);
+          break;
+        case "denied":
+          setShowButton(true);
+          break;
+        case "default":
+          setShowButton(true);
+
+          break;
+      }
+    } else {
+      console.error("🚫 This browser does not support notifications.");
+    }
+  }, []);
+
   return (
-    <button onClick={handleSubscribe} disabled={!isOneSignalReady}>
-      Subscribe to Notifications
-    </button>
+    showButton && (
+      <button
+        onClick={handleSubscribe}
+        disabled={!isOneSignalReady}
+        className={`absolute top-[10vh] left-1/2 -translate-x-1/2 z-50 
+          px-6 py-3 rounded-full text-white font-semibold shadow-lg 
+          transition-all duration-300 ease-in-out  flex  items-center
+          ${
+            isOneSignalReady
+              ? "bg-gradient-to-r from-black  to-black hover:scale-105 hover:bg-black animate-pulse"
+              : "bg-gray-400 cursor-not-allowed"
+          }
+        `}
+      >
+        <FaBell className="inline-block mr-2 text-xl" />
+        {isOneSignalReady ? "Subscribe to Notifications" : "Loading..."}
+      </button>
+    )
   );
 };
 

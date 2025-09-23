@@ -63,7 +63,8 @@ const Layout = () => {
     window.OneSignalDeferred = window.OneSignalDeferred || [];
     window.OneSignalDeferred.push(async function (OneSignal) {
       await OneSignal.init({
-        appId: "718983a2-79ca-42de-8aec-a940452f08f9",
+        // appId: "718983a2-79ca-42de-8aec-a940452f08f9",
+        appId: "cae638b9-f4d8-4969-b0fe-9c08ca597cb2",
         autoRegister: false,
         promptOptions: {
           slidedown: {
