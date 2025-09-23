@@ -11,6 +11,8 @@ export default function ChatRooms() {
   const [input, setInput] = useState("");
   const wsRef = useRef(null);
 
+  const [showCopiedPopup,setShowCopiedPopup] = useState(false);
+
   // ✅ Fetch chat rooms
   useEffect(() => {
     async function fetchRooms() {
@@ -247,6 +249,26 @@ export default function ChatRooms() {
               <div className="flex-1">
                 <h4 className="font-semibold text-lg">{selected.name}</h4>
                 <div className="">{selected.email}</div>
+                <div
+                  className="cursor-pointer relative"
+                  onClick={() => {
+                    if (selected.oneSignalId) {
+                      navigator.clipboard.writeText(selected.oneSignalId);
+                      setShowCopiedPopup(true);
+                      setTimeout(() => {
+                        setShowCopiedPopup(false);
+                      }, 2000); // Hide after 2 seconds
+                    }
+                  }}
+                >
+                  {selected.oneSignalId}
+                  {showCopiedPopup && (
+                    <span className="absolute -top-6 left-1/2 -translate-x-1/2 bg-green-500 text-white text-xs px-2 py-1 rounded shadow-md whitespace-nowrap z-10">
+                      OneSignal Id Copied!
+                    </span>
+                  )}
+                </div>
+
                 <div className="text-sm text-slate-500">
                   Private conversation
                 </div>

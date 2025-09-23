@@ -10,6 +10,7 @@ import MessageBox from "./Components/MessageBox/MessageBox";
 import { useEffect, useState } from "react";
 import MessageBox2 from "./Components/MessageBox2/MessageBox2";
 import SubscribeButton from "./SubscribeButton";
+import axios from "axios";
 
 const Layout = () => {
   const [isCustomerLoginVisible, setIsCustomerLoginVisible] = useState(false);
@@ -58,25 +59,88 @@ const Layout = () => {
     }
   };
 
+  // useEffect(() => {
+  //   window.OneSignal = window.OneSignal || [];
+  //   window.OneSignalDeferred = window.OneSignalDeferred || [];
+  //   window.OneSignalDeferred.push(async function (OneSignal) {
+  //     try {
+  //       await OneSignal.init({
+  //         appId: "718983a2-79ca-42de-8aec-a940452f08f9",
+  //         // appId: "cae638b9-f4d8-4969-b0fe-9c08ca597cb2",
+  //         autoRegister: false,
+  //         promptOptions: {
+  //           slidedown: {
+  //             enabled: false,
+  //           },
+  //         },
+  //         notifyButton: {
+  //           enable: false, // disables the bell widget
+  //         },
+  //       });
+  //     } catch (e) {
+  //       console.error("OneSignal init failed", e);
+  //       // Optional: show fallback message to user
+  //     }
+  //   });
+
+  //   // rest of init code
+  // }, []);
+
   useEffect(() => {
     window.OneSignal = window.OneSignal || [];
     window.OneSignalDeferred = window.OneSignalDeferred || [];
     window.OneSignalDeferred.push(async function (OneSignal) {
-      await OneSignal.init({
-        appId: "718983a2-79ca-42de-8aec-a940452f08f9",
-        // appId: "cae638b9-f4d8-4969-b0fe-9c08ca597cb2",
-        autoRegister: false,
-        promptOptions: {
-          slidedown: {
-            enabled: false,
+      try {
+        await OneSignal.init({
+          appId: "718983a2-79ca-42de-8aec-a940452f08f9",
+          // appId: "cae638b9-f4d8-4969-b0fe-9c08ca597cb2",
+          autoRegister: false,
+          promptOptions: {
+            slidedown: {
+              enabled: false,
+            },
           },
-        },
-        notifyButton: {
-          enable: false, // disables the bell widget
-        },
-      });
+          notifyButton: {
+            enable: false,
+          },
+        });
+
+        // v16 SDK → OneSignal.User.onesignalId
+        const oneSignalId = OneSignal?.User?.onesignalId;
+
+        // Get token from localStorage
+        const token = localStorage.getItem("token");
+
+        if (oneSignalId && token) {
+          console.log("Sending OneSignal ID:", oneSignalId);
+          try {
+            await axios.post(
+              `${process.env.REACT_APP_API_URL}/api/customer/save-onesignal-id`,
+              { oneSignalId },
+              {
+                headers: {
+                  Authorization: `${token}`,
+                },
+              }
+            );
+            console.log("OneSignal ID saved successfully.");
+          } catch (error) {
+            console.error("Failed to save OneSignal ID:", error);
+            // Optionally, handle specific error types or show a user-friendly message
+          }
+        }
+
+        // 👉 Add user tags here
+        await OneSignal?.User?.addTags({
+          name: localStorage.getItem("name") || "User Not Logged In",
+          email: localStorage.getItem("email") || "User Not Logged In",
+        });
+
+        console.log("Tags added to OneSignal user.");
+      } catch (e) {
+        console.error("OneSignal init failed", e);
+      }
     });
-    // rest of init code
   }, []);
 
   // useEffect(() => {

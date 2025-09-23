@@ -5,6 +5,8 @@ const OAuthSuccess = () => {
     const urlParams = new URLSearchParams(window.location.search);
     const token = urlParams.get("token");
     const name = urlParams.get("name");
+    const email = urlParams.get("email");
+
 
     if (token) {
       localStorage.setItem("token", token);
