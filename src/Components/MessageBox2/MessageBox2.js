@@ -60,8 +60,8 @@ const PrivateChatBox = ({
             className={`max-w-[75%]  shadow-sm text-sm
               relative  px-3 py-2   ${
                 m?.sender === "customer"
-                  ? "bg-gray-100 border text-slate-700 ml-auto  rounded-t-2xl rounded-bl-2xl"
-                  : "bg-gray-100 border text-slate-700 mr-auto  rounded-t-2xl rounded-br-2xl"
+                  ? "bg-gray-100 border text-black ml-auto  rounded-t-2xl rounded-bl-2xl"
+                  : "bg-gray-100 border text-black mr-auto  rounded-t-2xl rounded-br-2xl"
               }`}
           >
             {m?.sender === "admin" ? (
@@ -78,9 +78,9 @@ const PrivateChatBox = ({
               </>
             )}
 
-            <span className="text-xsmd:text-[16px]">{m.text}</span>
+            <span className="text-xs md:text-[16px]">{m.text}</span>
 
-            <div className="text-[10px] md:text-[14px] text-slate-400 mt-1 text-right">
+            <div className="text-[10px] md:text-[14px] text-slate-700 mt-1 text-right">
               {new Date(m?.timestamp).toLocaleTimeString([], {
                 hour: "2-digit",
                 minute: "2-digit",
@@ -605,7 +605,7 @@ const MessageBox2 = ({ setIsCustomerLoginVisible }) => {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 20 }}
                       transition={{ duration: 0.4 }}
-                      className="relative text-sm text-gray-800 w-fit"
+                      className="relative text-sm text-black w-fit"
                     >
                       <div className=" relative bg-gray-100 px-3 py-2 rounded-t-2xl rounded-br-2xl ">
                         <div className="absolute bottom-0 -left-[8px] w-0 h-0 border-t-[12px] border-l-[12px] border-t-gray-100 border-l-transparent rounded-sm rotate-[90deg]"></div>
