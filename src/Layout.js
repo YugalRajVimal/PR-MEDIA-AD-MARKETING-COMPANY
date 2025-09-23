@@ -130,13 +130,31 @@ const Layout = () => {
           }
         }
 
+        try {
+          const isSubscribed = await OneSignal.User.Push.isSubscribed();
+
+          if (isSubscribed) {
+            await OneSignal.User.addTags({
+              name: localStorage.getItem("name") || "User Not Logged In",
+              email: localStorage.getItem("email") || "User Not Logged In",
+            });
+            console.log("Tags added/updated on OneSignal user.");
+          } else {
+            console.warn(
+              "User is not subscribed to push notifications. Tags not added."
+            );
+          }
+        } catch (err) {
+          console.error("Failed to add tags:", err);
+        }
+
         // 👉 Add user tags here
         await OneSignal?.User?.addTags({
           name: localStorage.getItem("name") || "User Not Logged In",
           email: localStorage.getItem("email") || "User Not Logged In",
         });
 
-        console.log("Tags added to OneSignal user.");
+        // console.log("Tags added to OneSignal user.");
       } catch (e) {
         console.error("OneSignal init failed", e);
       }
