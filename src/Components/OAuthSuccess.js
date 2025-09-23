@@ -7,7 +7,6 @@ const OAuthSuccess = () => {
     const name = urlParams.get("name");
     const email = urlParams.get("email");
 
-
     if (token) {
       localStorage.setItem("token", token);
       // Get current IST timestamp in ms
@@ -19,7 +18,7 @@ const OAuthSuccess = () => {
 
       // localStorage.setItem("lastLoginTime", Date.now());
       localStorage.setItem("name", name);
-      console.log(name);
+      localStorage.setItem("email", email);
 
       console.log(new Date());
       window.location.href = "/"; // or wherever you want to redirect
