@@ -59,6 +59,7 @@ const Layout = () => {
   };
 
   useEffect(() => {
+    window.OneSignal = window.OneSignal || [];
     window.OneSignalDeferred = window.OneSignalDeferred || [];
     window.OneSignalDeferred.push(async function (OneSignal) {
       await OneSignal.init({
@@ -74,7 +75,26 @@ const Layout = () => {
         },
       });
     });
+    // rest of init code
   }, []);
+
+  // useEffect(() => {
+  //   window.OneSignalDeferred = window.OneSignalDeferred || [];
+  //   window.OneSignalDeferred.push(async function (OneSignal) {
+  //     await OneSignal.init({
+  //       appId: "718983a2-79ca-42de-8aec-a940452f08f9",
+  //       autoRegister: false,
+  //       promptOptions: {
+  //         slidedown: {
+  //           enabled: false,
+  //         },
+  //       },
+  //       notifyButton: {
+  //         enable: false, // disables the bell widget
+  //       },
+  //     });
+  //   });
+  // }, []);
 
   return (
     <div className="w-screen h-screen font-medio">

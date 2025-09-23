@@ -17,9 +17,12 @@ const SubscribeButton = () => {
 
   const handleSubscribe = () => {
     if (window.OneSignal && isOneSignalReady) {
+      console.log("Attempting to show native prompt...");
       window.OneSignalDeferred.push(function (OneSignal) {
         OneSignal.showNativePrompt();
       });
+    } else {
+      console.warn("OneSignal not ready");
     }
   };
 
