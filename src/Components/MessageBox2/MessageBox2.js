@@ -294,7 +294,7 @@ const MessageBox2 = ({ setIsCustomerLoginVisible }) => {
   const socketRef = useRef(null);
 
   useEffect(() => {
-    socketRef.current = new WebSocket("wss://api.theprmedia.com");
+    socketRef.current = new WebSocket("wss://api.theprmediaa.com");
     // socketRef.current = new WebSocket("ws://localhost:8080");
 
     socketRef.current.addEventListener("open", () => {
@@ -406,7 +406,7 @@ const MessageBox2 = ({ setIsCustomerLoginVisible }) => {
   useEffect(() => {
     // ✅ Connect WebSocket
     // privateSocketRef.current = new WebSocket("ws://localhost:8080");
-    privateSocketRef.current = new WebSocket("wss://api.theprmedia.com");
+    privateSocketRef.current = new WebSocket("wss://api.theprmediaa.com");
 
     privateSocketRef.current.onopen = () => {
       privateSocketRef.current.send(

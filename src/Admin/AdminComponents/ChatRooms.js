@@ -46,7 +46,7 @@ export default function ChatRooms() {
 
   // ✅ Setup WebSocket
   useEffect(() => {
-    const ws = new WebSocket("wss://api.theprmedia.com");
+    const ws = new WebSocket("wss://api.theprmediaa.com");
     wsRef.current = ws;
 
     ws.onopen = () => {
