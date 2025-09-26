@@ -2,23 +2,23 @@ import { useEffect, useState } from "react";
 import { FaBell } from "react-icons/fa";
 
 const SubscribeButton = () => {
-  const [isOneSignalReady, setIsOneSignalReady] = useState(false);
+  const [isOneSignalReady, setIsOneSignalReady] = useState(true);
 
   const [showButton, setShowButton] = useState(true);
 
-  useEffect(() => {
-    const checkReady = setInterval(() => {
-      if (
-        window.OneSignal &&
-        window.OneSignal.User &&
-        window.OneSignal.User.PushSubscription
-      ) {
-        setIsOneSignalReady(true);
-        clearInterval(checkReady);
-      }
-    }, 100);
-    return () => clearInterval(checkReady);
-  }, []);
+  // useEffect(() => {
+  //   const checkReady = setInterval(() => {
+  //     if (
+  //       window.OneSignal &&
+  //       window.OneSignal.User &&
+  //       window.OneSignal.User.PushSubscription
+  //     ) {
+  //       setIsOneSignalReady(true);
+  //       clearInterval(checkReady);
+  //     }
+  //   }, 100);
+  //   return () => clearInterval(checkReady);
+  // }, []);
 
   const handleSubscribe = () => {
     if (isOneSignalReady) {
