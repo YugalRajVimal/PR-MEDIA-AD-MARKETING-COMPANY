@@ -152,7 +152,7 @@ const SubscribeButton = () => {
         disabled={!isOneSignalReady}
         className={`absolute top-[10vh] left-1/2 -translate-x-1/2 z-50 
           px-6 py-3 rounded-full text-white font-semibold shadow-lg 
-          transition-all duration-300 ease-in-out flex items-center
+          transition-all duration-300 ease-in-out flex items-center w-[90vw] sm:w-auto flex justify-center items-center
           ${
             isOneSignalReady
               ? "bg-gradient-to-r from-black to-black hover:scale-105 hover:bg-black animate-pulse"
