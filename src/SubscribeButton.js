@@ -110,44 +110,17 @@ const SubscribeButton = () => {
     return () => clearInterval(checkReady);
   }, []);
 
-  // const handleSubscribe = () => {
-  //   if (isOneSignalReady) {
-  //     console.log("Triggering push subscription...");
-  //     window.OneSignalDeferred.push(async function (OneSignal) {
-  //       try {
-  //         const res = await OneSignal.User.PushSubscription.optIn();
-  //         console.log("User prompted!", res);
-  //       } catch (error) {
-  //         console.error("Error during subscription prompt:", error);
-  //       }
-  //     });
-  //   }
-  //   setShowButton(false);
-  // };
-  const handleSubscribe = async () => {
-    if (
-      window.OneSignal &&
-      window.OneSignal.User &&
-      window.OneSignal.User.PushSubscription
-    ) {
-      try {
-        const res = await window.OneSignal.User.PushSubscription.optIn();
-        console.log("User prompted!", res);
-      } catch (error) {
-        console.error("Error during subscription prompt:", error);
-      }
-    } else if (window.OneSignalDeferred) {
-      // Fallback if SDK hasn't loaded yet
-      window.OneSignalDeferred.push(async (OneSignal) => {
+  const handleSubscribe = () => {
+    if (isOneSignalReady) {
+      console.log("Triggering push subscription...");
+      window.OneSignalDeferred.push(async function (OneSignal) {
         try {
           const res = await OneSignal.User.PushSubscription.optIn();
-          console.log("User prompted via deferred!", res);
+          console.log("User prompted!", res);
         } catch (error) {
           console.error("Error during subscription prompt:", error);
         }
       });
-    } else {
-      console.error("OneSignal not available yet.");
     }
     setShowButton(false);
   };
