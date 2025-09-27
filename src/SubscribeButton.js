@@ -10,11 +10,9 @@ const SubscribeButton = () => {
 
   useEffect(() => {
     // Detect iOS Safari
-    const ua = window.navigator.userAgent.toLowerCase();
-    const isIos = /iphone|ipad|ipod/.test(ua);
-    const isSafari = /^((?!chrome|android).)*safari/i.test(
-      window.navigator.userAgent
-    );
+    const ua = window.navigator.userAgent || navigator.vendor || window.opera;
+    const isIos = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
+    const isSafari = /^((?!chrome|crios|android).)*safari/i.test(ua);
     setIsIosSafari(isIos && isSafari);
   }, []);
 
