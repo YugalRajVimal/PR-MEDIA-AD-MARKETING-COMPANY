@@ -135,7 +135,7 @@ export const AdminProvider = ({ children }) => {
     const formData = new FormData();
     formData.append("video", file);
     formData.append("text", text);
-  
+
     const adminToken = localStorage.getItem("admin-token");
     try {
       const response = await axios.post(
@@ -155,7 +155,6 @@ export const AdminProvider = ({ children }) => {
       return false;
     }
   };
-  
 
   const getUploadedVideos = async () => {
     const adminToken = localStorage.getItem("admin-token");
@@ -195,6 +194,27 @@ export const AdminProvider = ({ children }) => {
     } catch (error) {
       console.error("Failed to delete all images:", error);
       toast.error("Failed to delete all images");
+      return false;
+    }
+  };
+
+  const deleteAllVideos = async () => {
+    const adminToken = localStorage.getItem("admin-token");
+    try {
+      const response = await axios.delete(
+        `${process.env.REACT_APP_API_URL}/api/admin/delete-all-videos`,
+        {
+          headers: {
+            Authorization: `${adminToken}`,
+          },
+        }
+      );
+
+      toast.success("All videos deleted successfully");
+      return response;
+    } catch (error) {
+      console.error("Failed to delete all videos:", error);
+      toast.error("Failed to delete all videos");
       return false;
     }
   };
@@ -254,6 +274,7 @@ export const AdminProvider = ({ children }) => {
         deleteDuplicateComments,
         getUploadedVideos,
         uploadVideo,
+        deleteAllVideos,
       }}
     >
       {children}
