@@ -368,33 +368,27 @@ const Testimonials3 = ({ timer, remainingSeconds, FULL_TIME, hideTimer }) => {
               {videos.map((video, index) => (
                 <SwiperSlide
                   key={index}
-                  className="flex flex-col justify-center items-center"
+                  className="flex justify-center items-center"
                 >
                   {({ isActive }) => (
-                    <div className="flex flex-col justify-center items-center transition-all duration-500 h-full py-10">
-                      <video
-                        ref={(el) => (videoRefs.current[index] = el)}
-                        className={`rounded-xl object-cover shadow-xl border-[1px] border-[#3B2E22] 
-                        ${
-                          isActive
-                            ? "z-10 min-w-[130px] w-[100%] md:w-[100%] aspect-[19/10] scale-[2.2] md:scale-[1.4] "
-                            : "z-0 min-w-[110px] w-[95%] md:w-[60%] aspect-[19/10]  opacity-50 scale-90 "
-                        } 
-                        transition-all duration-500 `}
-                        src={video.src}
-                        muted
-                        playsInline
-                        controls
-                      />
-                      <p
-                        className={`rounded-xl object-cover
-                        ${
-                          isActive
-                            ? "z-10 min-w-[130px] w-[100%] md:w-[80%] scale-[1.1] translate-y-[40px]"
-                            : "mt-3 text-gray-700 text-sm md:text-base font-medium max-w-[80%]"
-                        } 
-                        transition-all duration-500 `}
+                    <div className="flex flex-col justify-start items-center w-full max-w-xs md:max-w-md pt-10 pb-4">
+                      <div
+                        className={`flex justify-center bg-black rounded-xl object-cover items-center aspect-[19/10] shadow-xl border-[1px] border-[#3B2E22] transition-all duration-500 overflow-hidden w-full ${
+                          isActive ? "scale-[1.2]" : "scale-[1]"
+                        }`}
                       >
+                        <video
+                          ref={(el) => (videoRefs.current[index] = el)}
+                          className="h-full w-full transition-all duration-500"
+                          src={video.src}
+                          muted
+                          playsInline
+                          controls
+                          controlsList="nodownload noremoteplayback"
+                          disablePictureInPicture
+                        />
+                      </div>
+                      <p className="mt-4 pt-3 text-gray-700 text-sm md:text-base font-medium text-center">
                         {video.text}
                       </p>
                     </div>
@@ -404,7 +398,7 @@ const Testimonials3 = ({ timer, remainingSeconds, FULL_TIME, hideTimer }) => {
             </Swiper>
           </div>
 
-          <p className="mt-4 text-sm text-gray-500">
+          <p className=" text-sm text-gray-500">
             (Swipe or scroll to switch videos)
           </p>
         </div>
