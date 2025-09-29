@@ -339,7 +339,12 @@ const Testimonials3 = ({ timer, remainingSeconds, FULL_TIME, hideTimer }) => {
               modules={[Mousewheel]}
               className="flex justify-center items-center"
               spaceBetween={30}
-              slidesPerView={3}
+              slidesPerView={1}
+              breakpoints={{
+                640: { slidesPerView: 1 }, // >= 640px (sm screens)
+                768: { slidesPerView: 3 }, // >= 768px (md screens)
+                1024: { slidesPerView: 3 }, // >= 1024px (lg screens)
+              }}
               cssMode={true}
               centeredSlides={true}
               mousewheel={true}
@@ -371,10 +376,10 @@ const Testimonials3 = ({ timer, remainingSeconds, FULL_TIME, hideTimer }) => {
                   className="flex justify-center items-center"
                 >
                   {({ isActive }) => (
-                    <div className="flex flex-col justify-start items-center w-full max-w-xs md:max-w-md pt-10 pb-4">
+                    <div className="flex flex-col justify-start items-center w-full max-w-xl pt-6 pb-4 px-2">
                       <div
-                        className={`flex justify-center bg-black rounded-xl object-cover items-center aspect-[19/10] shadow-xl border-[1px] border-[#3B2E22] transition-all duration-500 overflow-hidden w-full ${
-                          isActive ? "scale-[1.2]" : "scale-[1]"
+                        className={`flex justify-center bg-black rounded-xl object-cover items-center w-full aspect-[19/10] shadow-xl border-[1px] border-[#3B2E22] transition-all duration-500 overflow-hidden ${
+                          isActive ? "scale-[1.05]" : "scale-[0.95] opacity-70"
                         }`}
                       >
                         <video
@@ -388,7 +393,7 @@ const Testimonials3 = ({ timer, remainingSeconds, FULL_TIME, hideTimer }) => {
                           disablePictureInPicture
                         />
                       </div>
-                      <p className="mt-4 pt-3 text-gray-700 text-sm md:text-base font-medium text-center">
+                      <p className="mt-3 text-gray-700 text-sm sm:text-base md:text-lg font-medium text-center px-2">
                         {video.text}
                       </p>
                     </div>
