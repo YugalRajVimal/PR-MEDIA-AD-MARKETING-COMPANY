@@ -25,7 +25,7 @@ const AdminResetPassword = () => {
     try {
       const response = await forgetPassword(resetPasswordData);
       if (response.status === 200) {
-        navigate("/admin/verify-account", { state: { email } });
+        navigate("/admin/panel/verify-account", { state: { email } });
       }
     } catch (error) {
       setError("Something went wrong. Please try again later.");
