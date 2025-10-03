@@ -92,7 +92,7 @@ const AdminResetPassword = () => {
           <div className="flex items-center justify-between">
             <div className="text-sm">
               <a
-                href="/admin/signin"
+                href="/admin/panel/signin"
                 className="font-medium text-indigo-600 hover:text-indigo-500 px-1"
               >
                 Log In
