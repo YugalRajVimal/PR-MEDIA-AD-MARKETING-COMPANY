@@ -58,7 +58,7 @@ const AdminLogin = () => {
 
           <div className="flex items-center justify-between">
             <a
-              href="/admin/reset-password"
+              href="/admin/panel/reset-password"
               className="text-sm text-indigo-600 hover:text-indigo-500"
             >
               Forgot your password?
