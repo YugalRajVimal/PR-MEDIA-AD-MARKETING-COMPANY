@@ -219,6 +219,9 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import gsap from "gsap";
 import axios from "axios";
+import { FaWhatsapp } from "react-icons/fa";
+import StudentsFeedback from "./New/StudentsFeedback";
+import ClientName from "./New/ClientName";
 
 const Testimonials3 = ({ timer, remainingSeconds, FULL_TIME, hideTimer }) => {
   const videoRefs = useRef([]);
@@ -265,6 +268,60 @@ const Testimonials3 = ({ timer, remainingSeconds, FULL_TIME, hideTimer }) => {
     }
   }, []);
 
+  const [popup, setPopup] = useState(null);
+
+  useEffect(() => {
+    let hidePopupTimeoutId;
+    let scheduleNextPopupTimeoutId;
+
+    const isWithinActiveHours = () => {
+      // Get current time in India IST
+      const now = new Date();
+      const istTime = new Date(
+        now.toLocaleString("en-US", { timeZone: "Asia/Kolkata" })
+      );
+      const hours = istTime.getHours(); // 0 - 23
+
+      // Only allow popups between 9:00 AM and 7:00 PM
+      return hours >= 9 && hours < 19;
+    };
+
+    const schedulePopupCycle = () => {
+      if (!isWithinActiveHours()) {
+        // If outside active hours, check again in 1 minute
+        scheduleNextPopupTimeoutId = setTimeout(schedulePopupCycle, 60000);
+        return;
+      }
+
+      // Random gap delay between popups (4 - 10 seconds)
+      const randomGapDelay =
+        Math.floor(Math.random() * (10000 - 4000 + 1)) + 4000;
+
+      // Show popup
+      setPopup("1 more student joined now!");
+
+      // Hide popup after 3 seconds
+      hidePopupTimeoutId = setTimeout(() => {
+        setPopup(null);
+
+        // Schedule next popup after random gap
+        scheduleNextPopupTimeoutId = setTimeout(
+          schedulePopupCycle,
+          randomGapDelay
+        );
+      }, 3000);
+    };
+
+    // Start first cycle
+    schedulePopupCycle();
+
+    // Cleanup
+    return () => {
+      clearTimeout(hidePopupTimeoutId);
+      clearTimeout(scheduleNextPopupTimeoutId);
+    };
+  }, []);
+
   return (
     <>
       {/* Marquee */}
@@ -277,8 +334,33 @@ const Testimonials3 = ({ timer, remainingSeconds, FULL_TIME, hideTimer }) => {
           <span> One life, One chance, Take the risk!</span>
         </span>
       </div>
+      <div className="relative w-full h-[70px] max-w-sm  my-6 mx-auto flex justify-end items-center p-1">
+        <a
+          href={`http://wa.me/+917500030415?text=Hi%2C%20I%20am%20ready%20for%20the%20paid%20training`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center gap-2 bg-[#25D366] text-white py-2 px-4 rounded-full font-semibold hover:bg-[#1DA851] transition-colors duration-200 w-full cursor-pointer"
+        >
+          <FaWhatsapp className="text-2xl" />
+          <span className="text-base text-center">
+            Secure Your Seat on WhatsApp (Fast!)
+          </span>
+        </a>
+        {/* Popup */}
+        {popup && (
+          <div className="absolute z-50 -top-[20%] shadow shadow-lg shadow-black right-0 bg-[#f8dbb7] text-black whitespace-nowrap text-[10px] px-3 rounded-xl shadow-lg animate-bounce">
+            <div className="relative h-full w-full py-1">
+              <div className="absolute -bottom-[5px] left-1/2 -translate-x-1/2 w-0 h-0 border-t-[12px] border-l-[12px] border-t-[#f8dbb7] border-l-transparent rounded-sm rotate-[135deg] text-base"></div>
+              {popup}
+            </div>
+          </div>
+        )}
+      </div>
+      <ClientName />
 
-      {name && (
+      <StudentsFeedback />
+
+      {/* {name && (
         <div className="max-w-xl mx-auto w-[95vw] my-6 p-6 rounded-2xl shadow-xl bg-gradient-to-r from-orange-100 via-white to-yellow-100 border border-orange-300">
           {!hideTimer && localStorage.getItem("token") && (
             <div className="text-black font-semibold text-base sm:text-lg mb-4 text-center">
@@ -323,7 +405,7 @@ const Testimonials3 = ({ timer, remainingSeconds, FULL_TIME, hideTimer }) => {
             👉 Don’t wait, your moment is NOW! 💯
           </p>
         </div>
-      )}
+      )} */}
 
       {videos.length > 0 && (
         <div

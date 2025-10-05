@@ -68,14 +68,14 @@ const Card1 = () => {
   return (
     <div className="flex flex-col items-center px-6 pb-6 pt-16 text-center">
       {/* Title */}
-      <h2 className="text-lg font-bold uppercase text-white opacity-90 mb-2">
+      {/* <h2 className="text-lg font-bold uppercase text-white opacity-90 mb-2">
         TOTAL REVENUE OUR CLIENTS HAVE EARNED SO FAR
       </h2>
 
-      {/* Revenue Number */}
+
       <h1 className="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400 drop-shadow-lg shadow-yellow-400">
         Rs. 108 Crore
-      </h1>
+      </h1> */}
 
       {/* Cards Grid */}
       <div className="grid grid-cols-1 gap-6 mt-6 w-full max-w-xs text-white">
@@ -94,10 +94,10 @@ const Card1 = () => {
           </div>
         ))}
       </div>
-      <p className="py-6 text-white text-2xl max-w-[905px] ">
+      {/* <p className="py-6 text-white text-2xl max-w-[905px] ">
         “Our strategies have helped those who are hardworking, serious, and
         never give up—ensuring unmatched returns on investment.”
-      </p>
+      </p> */}
     </div>
   );
 };

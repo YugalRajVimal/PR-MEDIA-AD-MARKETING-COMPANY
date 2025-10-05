@@ -11,13 +11,13 @@ const DemoCallCard = () => {
 </div>
 
 
-        <h3 className=" font-semibold">The PR Media</h3>
-        <h2 className="text-2xl font-bold  mt-1">Demo Call</h2>
+        <h3 className=" font-semibold text-xl">The PR Media</h3>
+        {/* <h2 className="text-2xl font-bold  mt-1">Demo Call</h2> */}
 
-        <div className="flex items-center justify-start gap-2 mt-3 ">
+        {/* <div className="flex items-center justify-start gap-2 mt-3 ">
           <PiClockBold size={18} />
           <span>15 min</span>
-        </div>
+        </div> */}
 
         <div className="flex items-center text-left justify-start gap-2 mt-2 ">
           <PiVideoCameraBold size={18} />

@@ -108,7 +108,7 @@ const LandingPage = () => {
         />
 
         <Headline />
-        <AboutUs />
+        {/* <AboutUs /> */}
         <Card3 />
         <VideoCard1 />
         <Card1 />
