@@ -10,7 +10,7 @@ const ClientName = () => {
   return (
     name && (
       <div>
-        <h1 className="text-xl md:text-2xl w-fit bg-[#dab998] py-1 px-6 mx-auto rounded-md   text-gray-900 text-center font-serif">
+        <h1 className="text-lg md:text-xl w-fit bg-[#dab998] py-1 px-6 mx-auto rounded-md   text-gray-900 text-center font-serif">
           {name}
         </h1>
       </div>

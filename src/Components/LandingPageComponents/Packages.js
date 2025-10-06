@@ -191,7 +191,7 @@ const Packages = () => {
       className="p-4 sm:p-10 md:p-20 flex justify-center items-center"
     >
       <div className="h-full w-full md:w-[600px] md:max-w-[600px] flex flex-col justify-evenly items-center gap-4 px-2 py-10 md:p-4 bg-[#3B2E22] text-[#fff2e1] rounded-xl">
-        <h2 className="text-2xl md:text-3xl font-serif ">Monthly Subscription</h2>
+        <h2 className="text-2xl md:text-3xl font-medio ">Monthly Subscription</h2>
         {/* <div className="text-center font-bold text-lg md:text-xl">
           <span className="text-[#FFC300]">
             💥 Limited Time Offer – 53% OFF!
