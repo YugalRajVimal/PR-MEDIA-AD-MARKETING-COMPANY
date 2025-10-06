@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 import MessageBox2 from "./Components/MessageBox2/MessageBox2";
 import SubscribeButton from "./SubscribeButton";
 import axios from "axios";
+import SignInPage from "./SignInPage";
 
 const Layout = () => {
   const [isCustomerLoginVisible, setIsCustomerLoginVisible] = useState(false);
@@ -223,7 +224,8 @@ const Layout = () => {
         />
       )}
       {/* <MessageBox setIsCustomerLoginVisible={setIsCustomerLoginVisible} />  */}
-      <MessageBox2 setIsCustomerLoginVisible={setIsCustomerLoginVisible} />
+      {/* <MessageBox2 setIsCustomerLoginVisible={setIsCustomerLoginVisible} /> */}
+      <SignInPage setIsCustomerLoginVisible={setIsCustomerLoginVisible} />
     </div>
   );
 };

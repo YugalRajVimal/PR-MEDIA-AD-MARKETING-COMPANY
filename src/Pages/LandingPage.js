@@ -85,7 +85,7 @@ const LandingPage = () => {
             animate={{ y: 0, opacity: 1 }} // slide into view
             exit={{ y: -50, opacity: 0 }} // slide back up when removed
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="fixed top-4 left-[10px] transform z-50"
+            className="fixed top-4 left-[10px] transform z-30"
           >
             <div className="bg-white/90 dark:bg-black/80 text-black dark:text-white px-5 py-2 rounded-3xl shadow-lg backdrop-blur-md flex items-center justify-center max-w-md mx-auto">
               <span className="mr-2 text-base md:text-xl animate-bounce">

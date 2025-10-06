@@ -190,8 +190,8 @@ const Packages = () => {
       ref={sectionRef}
       className="p-4 sm:p-10 md:p-20 flex justify-center items-center"
     >
-      <div className="h-full w-full md:w-[600px] md:max-w-[600px] flex flex-col justify-evenly items-center gap-10 px-2 py-10 md:p-4 bg-[#3B2E22] text-[#fff2e1] rounded-xl">
-        <h2 className="text-4xl font-semibold">Packages</h2>
+      <div className="h-full w-full md:w-[600px] md:max-w-[600px] flex flex-col justify-evenly items-center gap-4 px-2 py-10 md:p-4 bg-[#3B2E22] text-[#fff2e1] rounded-xl">
+        <h2 className="text-3xl md:text-4xl font-semibold">Monthly Subscription</h2>
         {/* <div className="text-center font-bold text-lg md:text-xl">
           <span className="text-[#FFC300]">
             💥 Limited Time Offer – 53% OFF!
@@ -203,11 +203,11 @@ const Packages = () => {
           </span>
         </div> */}
 
-        <div className="w-full flex justify-evenly items-center gap-4 md:gap-6">
+        <div className="w-full flex justify-evenly items-center gap-2 md:gap-4">
           {["Rs. 3,850"].map((price, index) => (
             <a
               key={index}
-              href={`/package${index + 1}`}
+              // href={`/package${index + 1}`}
               className="text-center justify-center items-center"
             >
               <button
@@ -223,11 +223,11 @@ const Packages = () => {
           ))}
         </div>
 
-        <div className="text-center font-bold text-lg md:text-xl">
+        {/* <div className="text-center font-bold text-lg md:text-xl">
           <span className="text-[#FFC300]">
             Click on this price to see the value in this package!
           </span>
-        </div>
+        </div> */}
       </div>
     </section>
   );

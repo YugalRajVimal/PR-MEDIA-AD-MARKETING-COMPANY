@@ -68,15 +68,40 @@ const SubscribeButton = () => {
 
   return (
     showButton && (
+      <div className="fixed top-0 h-screen w-screen bg-white z-40">
+            <div className="h-screen w-screen bg-[#FAEEDC] flex flex-col justify-center items-center text-center px-6">
+      {/* Logo & Tagline */}
+      <div className="flex flex-col items-center mb-8">
+      <div
+
+        className="flex flex-col justify-center items-center text-center"
+      >
+        <a href="/">
+          <img src="logo1.svg" className="h-40 object-contain" alt="Logo" />
+        </a>
+      </div>
+        <p className="text-sm tracking-wide text-gray-700 uppercase">
+          Your Story. Our Strategy.
+        </p>
+      </div>
+
+      {/* Headline Text */}
+      <h1 className="text-3xl sm:text-5xl font-serif font-semibold text-gray-900 leading-tight mb-10">
+        One chance <br className="hidden sm:block" />
+        can change your life <br /><span className="font-bold">Join Now</span>
+      </h1>
+
       <button
         onClick={handleSubscribe}
         disabled={!isOneSignalReady}
-        className={`absolute top-[10vh] left-1/2 -translate-x-1/2 z-50
+        className={`
+          bg-[#206A40] text-white text-lg font-semibold px-10 py-3 rounded-md shadow-md hover:bg-[#1A5633] transition-all duration-300 ease-in-out
+          z-40
           px-6 py-3 rounded-full text-white font-semibold shadow-lg
-          transition-all duration-300 ease-in-out  flex  items-center w-[90vw] sm:w-auto flex justify-center items-center
+          transition-all duration-300 ease-in-out  flex  items-center w-fit sm:w-auto flex justify-center items-center
           ${
             isOneSignalReady
-              ? "bg-gradient-to-r from-black  to-black hover:scale-105 hover:bg-black animate-pulse"
+              ? " hover:scale-105 hover:bg-black animate-pulse"
               : "bg-gray-400 cursor-not-allowed"
           }
         `}
@@ -88,6 +113,18 @@ const SubscribeButton = () => {
           ? "Add to Home Screen for Notifications"
           : "Loading..."}
       </button>
+
+      {/* Stats Section */}
+      <div className="flex justify-center gap-6 mt-10 text-gray-700 font-medium">
+        <p>3 Lakh+ Students</p>
+        <span>•</span>
+        <p>5.5k Live</p>
+      </div>
+    </div>
+
+     
+      
+      </div>
     )
   );
 };

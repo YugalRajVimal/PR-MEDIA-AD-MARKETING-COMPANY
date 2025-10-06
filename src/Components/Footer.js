@@ -66,10 +66,12 @@ const Footer = () => {
           {/* Middle Section */}
           <div className="footer-section flex w-1/2 justify-evenly w-full">
             <ul className="text-sm space-y-1">
-              <h3 className="text-lg font-semibold mb-2">Packages</h3>
+              <h3 className="text-lg font-semibold mb-2">Monthly Subscription</h3>
 
               <li>
-                <a href="/package1" className="hover:text-gray-300 transition">
+                <a 
+                // href="/package1" 
+                className="hover:text-gray-300 transition">
                   Rs. 3,850
                 </a>
               </li>
