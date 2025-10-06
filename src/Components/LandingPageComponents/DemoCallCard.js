@@ -4,9 +4,9 @@ import { PiVideoCameraBold, PiClockBold } from "react-icons/pi";
 const DemoCallCard = () => {
   return (
     <div id="call" className="p-6 md:p-20 flex justify-center">
-      <div className="relative p-6 shadow-lg rounded-lg w-[350px]  md:w-[614px] text-center border border-black overflow-hidden">
+      <div className="relative px-6 py-10 shadow-lg rounded-lg w-[350px]  md:w-[614px] text-center border border-black overflow-hidden">
         {/* Ribbon */}
-        <div className="absolute flex flex-col justify-center items-center w-[46%] md:w-[25%] -right-8 top-[42%] md:-right-8 md:top-[45%] bg-gray-700 text-white text-xs font-semibold px-4 py-1 transform rotate-45 origin-top-right text-black drop-shadow-md">
+        <div className="absolute flex flex-col justify-center items-center w-[46%] md:w-[25%] -right-8 top-[48%] md:-right-8 md:top-[54%] bg-gray-700 text-white text-xs font-semibold px-4 py-1 transform rotate-45 origin-top-right text-black drop-shadow-md">
   Powered by <span className="text-white drop-shadow-lg">GoWappily</span>
 </div>
 
@@ -19,8 +19,8 @@ const DemoCallCard = () => {
           <span>15 min</span>
         </div> */}
 
-        <div className="flex items-center text-left justify-start gap-2 mt-2 ">
-          <PiVideoCameraBold size={18} />
+        <div className="flex items-start text-left justify-start gap-2 mt-2 ">
+          <PiVideoCameraBold size={20} className="shrink-0" />
           <span className="text-base ">
             We will share the details on WhatsApp and email for your
             convenience.

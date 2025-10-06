@@ -334,12 +334,12 @@ const Testimonials3 = ({ timer, remainingSeconds, FULL_TIME, hideTimer }) => {
           <span> One life, One chance, Take the risk!</span>
         </span>
       </div>
-      <div className="relative w-full h-[70px] max-w-sm  my-6 mx-auto flex justify-end items-center p-1">
+      <div className="relative w-full h-[80px] max-w-sm   my-6 mx-auto flex justify-end items-center px-1">
         <a
           href={`http://wa.me/+917500030415?text=Hi%2C%20I%20am%20ready%20for%20the%20paid%20training`}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center gap-2 bg-[#25D366] text-white py-2 px-4 rounded-full font-semibold hover:bg-[#1DA851] transition-colors duration-200 w-full cursor-pointer"
+          className="flex items-center justify-center  gap-2 bg-[#25D366] text-white py-2 px-4 rounded-full font-semibold hover:bg-[#1DA851] transition-colors duration-200 w-full cursor-pointer"
         >
           <FaWhatsapp className="text-2xl" />
           <span className="text-base text-center">

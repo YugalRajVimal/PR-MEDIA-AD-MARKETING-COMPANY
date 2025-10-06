@@ -6,12 +6,12 @@ const AuditCallCard = () => {
   return (
     <div className="p-4 sm:p-10 md:p-20 flex justify-center items-center">
       <div className=" p-6 md:p-8  rounded-lg w-full">
-        <div className="h-12 aspect-[1/1] text-white text-2xl rounded-full bg-black mx-auto flex justify-center items-center">
+        {/* <div className="h-12 aspect-[1/1] text-white text-2xl rounded-full bg-black mx-auto flex justify-center items-center">
           <FaPhone />
-        </div>
+        </div> */}
         {/* Title */}
         <h2 className=" text-lg md:text-xl font-extrabold uppercase text-center pt-3">
-          This audit call is perfect for:
+          This is perfect for:
         </h2>
 
         <div className="w-[90%] md:w-[70%] lg:w-[60%] border border-[1px] border-black mx-auto"></div>

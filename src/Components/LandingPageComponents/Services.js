@@ -19,7 +19,7 @@ const services = [
     ],
   },
   {
-    title: "Learn Real Sales",
+    title: "Learn Real Skills",
     items: [
       {
         image: "/one.png",
