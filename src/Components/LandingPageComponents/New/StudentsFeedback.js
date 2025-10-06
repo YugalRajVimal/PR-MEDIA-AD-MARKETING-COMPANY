@@ -91,8 +91,10 @@ const StudentsFeedback = () => {
 
   return (
     <div className="w-full flex flex-col items-center pt-10 px-4 relative overflow-visible">
-  <h2 className="text-3xl md:text-4xl lg:text-5xl text-[#3B2E22] font-bold tracking-tight mb-8">
-    Student Feedback
+  <h2 className="text-3xl md:text-4xl lg:text-5xl text-[#3B2E22]   font-serif tracking-tight mb-8">
+    {/* Student Feedback */}
+    Students' Feedbacks 
+
   </h2>
 
   <div className="relative w-full z-50 max-w-md h-[130px] flex flex-col items-center justify-end overflow-visible">

@@ -78,7 +78,7 @@ const LandingPage = () => {
 
   return (
     <div className="pt-[70px] text-[#3B2E22] bg-[#dbc3ab] md:bg-[#f7dbb6]">
-      <AnimatePresence>
+      {/* <AnimatePresence>
         {showPopup && (
           <motion.div
             initial={{ y: -50, opacity: 0 }} // start slightly above
@@ -97,7 +97,7 @@ const LandingPage = () => {
             </div>
           </motion.div>
         )}
-      </AnimatePresence>
+      </AnimatePresence> */}
 
       <div className="z-[10] bg-[#dbc3ab] md:bg-[#f7dbb6] backdrop-blur-md">
         <Testimonials3

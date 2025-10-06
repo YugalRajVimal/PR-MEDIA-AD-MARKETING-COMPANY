@@ -191,7 +191,7 @@ const Packages = () => {
       className="p-4 sm:p-10 md:p-20 flex justify-center items-center"
     >
       <div className="h-full w-full md:w-[600px] md:max-w-[600px] flex flex-col justify-evenly items-center gap-4 px-2 py-10 md:p-4 bg-[#3B2E22] text-[#fff2e1] rounded-xl">
-        <h2 className="text-3xl md:text-4xl font-semibold">Monthly Subscription</h2>
+        <h2 className="text-2xl md:text-3xl font-serif ">Monthly Subscription</h2>
         {/* <div className="text-center font-bold text-lg md:text-xl">
           <span className="text-[#FFC300]">
             💥 Limited Time Offer – 53% OFF!
@@ -215,7 +215,7 @@ const Packages = () => {
                   index == 0 && "text-center"
                 }  ${
                   index == 2 && "text-right"
-                } md:px-2 py-1 md:py-2 my-auto text-[22px] text-[#fff2e1] rounded-full hover:bg-[#3B2E22] transition-transform transform whitespace-nowrap`}
+                } md:px-2 py-1 md:py-2 my-auto  text-[24px] text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400 drop-shadow-md shadow-yellow-400 whitespace-nowrap rounded-full hover:bg-[#3B2E22] transition-transform transform whitespace-nowrap`}
               >
                 {price}
               </button>

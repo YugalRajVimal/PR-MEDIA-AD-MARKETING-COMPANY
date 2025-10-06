@@ -342,7 +342,7 @@ const Testimonials3 = ({ timer, remainingSeconds, FULL_TIME, hideTimer }) => {
           className="flex items-center justify-center  gap-2 bg-[#25D366] text-white py-2 px-4 rounded-full font-semibold hover:bg-[#1DA851] transition-colors duration-200 w-full cursor-pointer"
         >
           <FaWhatsapp className="text-2xl" />
-          <span className="text-base text-center">
+          <span className="text-sm text-semibold text-white text-center font-serif">
             Secure Your Seat on WhatsApp (Fast!)
           </span>
         </a>

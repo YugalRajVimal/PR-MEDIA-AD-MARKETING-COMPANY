@@ -26,8 +26,8 @@ const SignInPage = ({ setIsCustomerLoginVisible }) => {
           {!isCustomerAuthenticated && isSignInOpen && (
 
 
-             <div className="fixed top-0 h-screen w-screen bg-white z-50">
-            <div className="h-screen w-screen bg-[#FAEEDC] flex flex-col justify-center items-center text-center px-6">
+             <div className="fixed top-0 h-screen w-screen bg-[#dbc3ab] z-50">
+            <div className="h-screen w-screen  bg-[#dbc3ab] flex flex-col justify-center items-center text-center px-6">
       {/* Logo & Tagline */}
       <div className="flex flex-col items-center mb-8">
       <div
@@ -64,8 +64,7 @@ const SignInPage = ({ setIsCustomerLoginVisible }) => {
       {/* Stats Section */}
       <div className="flex justify-center gap-6 mt-10 text-gray-700 font-medium">
         <p>3 Lakh+ Students</p>
-        <span>•</span>
-        <p>5.5k Live</p>
+       
       </div>
     </div>
 
