@@ -407,7 +407,7 @@ const Testimonials3 = ({ timer, remainingSeconds, FULL_TIME, hideTimer }) => {
         </div>
       )} */}
 
-       {videos.length > 0 && (
+      {/* {videos.length > 0 && (
         <div
           id="testimonials"
           className="flex flex-col justify-center items-center px-6 pt-10 text-center"
@@ -489,7 +489,7 @@ const Testimonials3 = ({ timer, remainingSeconds, FULL_TIME, hideTimer }) => {
             (Swipe or scroll to switch videos)
           </p>
         </div>
-      )} 
+      )} */}
     </>
   );
 };
