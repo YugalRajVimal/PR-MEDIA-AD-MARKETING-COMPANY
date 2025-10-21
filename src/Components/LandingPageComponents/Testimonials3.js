@@ -407,10 +407,10 @@ const Testimonials3 = ({ timer, remainingSeconds, FULL_TIME, hideTimer }) => {
         </div>
       )} */}
 
-      {/* {videos.length > 0 && (
+       {videos.length > 0 && (
         <div
           id="testimonials"
-          className="flex flex-col justify-center items-center px-6 text-center"
+          className="flex flex-col justify-center items-center px-6 pt-10 text-center"
         >
           <h2 className="text-3xl md:text-4xl lg:text-6xl text-[#3B2E22] font-semibold p-6 pt-10 pb-2">
             Today's Update
@@ -489,7 +489,7 @@ const Testimonials3 = ({ timer, remainingSeconds, FULL_TIME, hideTimer }) => {
             (Swipe or scroll to switch videos)
           </p>
         </div>
-      )} */}
+      )} 
     </>
   );
 };
