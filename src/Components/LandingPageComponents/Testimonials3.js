@@ -298,7 +298,7 @@ const Testimonials3 = ({ timer, remainingSeconds, FULL_TIME, hideTimer }) => {
         Math.floor(Math.random() * (10000 - 4000 + 1)) + 4000;
 
       // Show popup
-      setPopup("1 more student joined now!");
+      setPopup("1 more Author on board!");
 
       // Hide popup after 3 seconds
       hidePopupTimeoutId = setTimeout(() => {
@@ -330,8 +330,7 @@ const Testimonials3 = ({ timer, remainingSeconds, FULL_TIME, hideTimer }) => {
         className="relative text-[#3B2E22] w-fit pt-4 flex justify-center "
       >
         <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl flex flex-col md:flex-row justify-center w-screen text-center font-bold inline-block whitespace-nowrap">
-          <span>Become a Freelancer,</span>
-          <span> One life, One chance, Take the risk!</span>
+          <span>Become a #1 Bestseller Author, Your story, our strategy!</span>
         </span>
       </div>
       <div className="relative w-full h-[80px] max-w-sm   my-6 mx-auto flex justify-end items-center px-1">
@@ -343,7 +342,7 @@ const Testimonials3 = ({ timer, remainingSeconds, FULL_TIME, hideTimer }) => {
         >
           <FaWhatsapp className="text-2xl" />
           <span className="text-sm text-semibold text-white text-center font-serif">
-            Secure Your Seat on WhatsApp (Fast!)
+            Claim Your Bestseller Package on WhatsApp!
           </span>
         </a>
         {/* Popup */}
@@ -356,7 +355,11 @@ const Testimonials3 = ({ timer, remainingSeconds, FULL_TIME, hideTimer }) => {
           </div>
         )}
       </div>
-      <ClientName />
+      {/* <ClientName /> */}
+      <h1 className="max-w-3xl mx-auto p-4 bg-[#f8dbb7] border border-yellow-500 rounded-xl shadow-md text-center text-sm md:text-base text-gray-800 font-serif flex items-center justify-center gap-2">
+        {/* <span role="img" aria-label="privacy padlock">🔏</span> */}
+        Your privacy 🔏 is fully protected and respected by our company. You can collaborate with us with complete confidence.”
+      </h1>
 
       <StudentsFeedback />
 

@@ -12,6 +12,7 @@ import Card2 from "../Components/LandingPageComponents/Card2";
 import AuditCallCard from "../Components/LandingPageComponents/AuditCallCard";
 import Services from "../Components/LandingPageComponents/Services";
 import { motion, AnimatePresence } from "framer-motion";
+import HowItWorks from "../Components/LandingPageComponents/HowItWorks";
 
 const LandingPage = () => {
   const [hideTimer, setHideTimer] = useState(false);
@@ -119,6 +120,7 @@ const LandingPage = () => {
         <Card2 />
         <AuditCallCard />
         <Services />
+        <HowItWorks />
         <div className="pb-10">
           <Card3 />
         </div>

@@ -11,12 +11,11 @@ const Footer = () => {
         <div className="footer-section flex flex-col gap-4">
           <h2 className="text-2xl font-bold mb-2">About Us</h2>
           <p className="text-sm">
-            We create innovative freelancing systems to help individuals grow
-            and thrive in the digital world. Please note: it's non-refundable
-            payment.
+          We make your book a market-leading bestseller by combining expert marketing, engaging visuals, and a personalized luxury platform. Please note: it's non-refundable payment.
+
           </p>
           <div>
-            <p className="text-sm">Open 10 Am to 6 Pm</p>
+            <p className="text-sm">Open 10 AM to 7 PM</p>
             <p className="text-sm">Mon to Sat</p>
           </div>
         </div>
@@ -66,13 +65,13 @@ const Footer = () => {
           {/* Middle Section */}
           <div className="footer-section flex w-1/2 justify-evenly w-full">
             <ul className="text-sm space-y-1">
-              <h3 className="text-lg font-semibold mb-2">Monthly Subscription</h3>
+              <h3 className="text-lg font-semibold mb-2">Best Package</h3>
 
               <li>
                 <a 
                 // href="/package1" 
                 className="hover:text-gray-300 transition">
-                  Rs. 3,850
+                  Rs. 99,000
                 </a>
               </li>
               {/* <li>

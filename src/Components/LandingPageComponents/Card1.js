@@ -80,7 +80,7 @@ const Card1 = () => {
       {/* Cards Grid */}
       <div className="grid grid-cols-1 gap-6 mt-6 w-full max-w-xs text-white">
         {[
-          { label: "Clients Helped", value: "3L+" },
+          { label: "Clients' Helped", value: "6000+" },
           // { label: "Total Ad Spend", value: "Rs. 114.3 Cr." }
         ].map((item, index) => (
           <div
