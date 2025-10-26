@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 
 const Testimonials2 = () => {
   return (
-    <div id="testimonials" className="p-4 sm:p-10 md:p-20  text-[#fff2e1] ">
+    <div id="our-team" className="p-4 sm:p-10 md:p-20  text-[#fff2e1] ">
       {/* <h2 className="text-4xl md:text-5xl lg:text-6xl text-center text-[#3B2E22] font-semibold p-6">
         Testimonials
       </h2> */}

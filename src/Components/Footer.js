@@ -11,8 +11,9 @@ const Footer = () => {
         <div className="footer-section flex flex-col gap-4">
           <h2 className="text-2xl font-bold mb-2">About Us</h2>
           <p className="text-sm">
-          We make your book a market-leading bestseller by combining expert marketing, engaging visuals, and a personalized luxury platform. Please note: it's non-refundable payment.
-
+            We make your book a market-leading bestseller by combining expert
+            marketing, engaging visuals, and a personalized luxury platform.
+            Please note: it's non-refundable payment.
           </p>
           <div>
             <p className="text-sm">Open 10 AM to 7 PM</p>
@@ -25,28 +26,44 @@ const Footer = () => {
               <h3 className="text-lg font-semibold mb-2">Quick Links</h3>
 
               <li>
-                <a href="/" className="hover:text-gray-300 transition">
+                <a href="/" className="hover:text-gray-300 transition whitespace-nowrap">
                   Home
                 </a>
               </li>
               <li>
                 <a
-                  href="#testimonials"
+                  href="#clients-feedbacks"
                   className="hover:text-gray-300 transition whitespace-nowrap"
                 >
-                  Testimonials
+                  Clients' Feedbacks
                 </a>
               </li>
 
               <li>
-                <a href="#call" className="hover:text-gray-300 transition">
-                  Demo Call
+                <a
+                  href="#monthly-subscription"
+                  className="hover:text-gray-300 transition whitespace-nowrap"
+                >
+                  Monthly Subscriptions
+                </a>
+              </li>
+              <li>
+                <a href="#our-team" className="hover:text-gray-300 transition whitespace-nowrap">
+                  Our Team
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#how-it-works"
+                  className="hover:text-gray-300 transition whitespace-nowrap"
+                >
+                  How It Works
                 </a>
               </li>
               <li>
                 <a
                   href="/terms-of-services"
-                  className="hover:text-gray-300 transition"
+                  className="hover:text-gray-300 transition whitespace-nowrap"
                 >
                   Terms of Services
                 </a>
@@ -54,7 +71,7 @@ const Footer = () => {
               <li>
                 <a
                   href="/privacy-policy"
-                  className="hover:text-gray-300 transition"
+                  className="hover:text-gray-300 transition whitespace-nowrap"
                 >
                   Privacy Policy
                 </a>
@@ -68,9 +85,10 @@ const Footer = () => {
               <h3 className="text-lg font-semibold mb-2">Best Package</h3>
 
               <li>
-                <a 
-                // href="/package1" 
-                className="hover:text-gray-300 transition">
+                <a
+                  // href="/package1"
+                  className="hover:text-gray-300 transition"
+                >
                   Rs. 99,000
                 </a>
               </li>

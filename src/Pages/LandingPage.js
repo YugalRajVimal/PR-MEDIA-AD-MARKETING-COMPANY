@@ -111,6 +111,12 @@ const LandingPage = () => {
         <Headline />
         {/* <AboutUs /> */}
         <Card3 />
+        <div className="mx-auto w-fit">
+          <img
+            src="/books1.jpeg"
+            className="w-[90vw] md:w-[40vw] my-4 rounded-xl max-w-[400px]"
+          />
+        </div>
         <VideoCard1 />
         <Card1 />
         <Packages />

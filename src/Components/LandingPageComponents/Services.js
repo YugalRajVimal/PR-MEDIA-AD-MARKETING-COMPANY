@@ -151,6 +151,12 @@ const BusinessSalesSection = () => {
           </div>
         </div>
       </div>
+      <div className="mx-auto w-fit">
+        <img
+          src="/books3.jpeg"
+          className="w-[90vw] md:w-[40vw] my-4 rounded-xl max-w-[400px]"
+        />
+      </div>
     </div>
   );
 };

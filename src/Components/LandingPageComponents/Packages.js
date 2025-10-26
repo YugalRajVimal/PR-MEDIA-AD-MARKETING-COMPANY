@@ -154,6 +154,87 @@
 // };
 
 // export default Packages;
+
+// import React, { useEffect, useRef } from "react";
+
+// const Packages = () => {
+//   const sectionRef = useRef(null);
+
+//   useEffect(() => {
+//     const observer = new IntersectionObserver(
+//       ([entry]) => {
+//         if (entry.isIntersecting) {
+//           document.querySelectorAll(".price-button").forEach((btn) => {
+//             btn.classList.add("animate-vibrate");
+//           });
+
+//           setTimeout(() => {
+//             document.querySelectorAll(".price-button").forEach((btn) => {
+//               btn.classList.remove("animate-vibrate");
+//               btn.style.transform = "translateX(0) translateY(0)"; // Reset position
+//             });
+//           }, 1000);
+//         }
+//       },
+//       { threshold: 0.6 }
+//     );
+
+//     if (sectionRef.current) {
+//       observer.observe(sectionRef.current);
+//     }
+
+//     return () => observer.disconnect();
+//   }, []);
+
+//   return (
+//     <section
+//       ref={sectionRef}
+//       className="p-4 sm:p-10 md:p-20 flex justify-center items-center"
+//     >
+//       <div className="h-full w-full md:w-[600px] md:max-w-[600px] flex flex-col justify-evenly items-center gap-4 px-2 py-10 md:p-4 bg-[#3B2E22] text-[#fff2e1] rounded-xl">
+//         <h2 className="text-2xl md:text-3xl font-medio ">Monthly Subscription</h2>
+//         {/* <div className="text-center font-bold text-lg md:text-xl">
+//           <span className="text-[#FFC300]">
+//             💥 Limited Time Offer – 53% OFF!
+//           </span>
+//           <br />
+//           <span className="text-[#FFC300]">
+//             Original Fee: ₹3,850 → Now Only: ₹5,790 Save ₹6,560 today – Act
+//             Fast!
+//           </span>
+//         </div> */}
+
+//         <div className="w-full flex justify-evenly items-center gap-2 md:gap-4">
+//           {["Rs. 3,850"].map((price, index) => (
+//             <a
+//               key={index}
+//               // href={`/package${index + 1}`}
+//               className="text-center justify-center items-center"
+//             >
+//               <button
+//                 className={`price-button w-full ${index == 0 && "text-left"} ${
+//                   index == 0 && "text-center"
+//                 }  ${
+//                   index == 2 && "text-right"
+//                 } md:px-2 py-1 md:py-2 my-auto  text-[24px] text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400 drop-shadow-md shadow-yellow-400 whitespace-nowrap rounded-full hover:bg-[#3B2E22] transition-transform transform whitespace-nowrap`}
+//               >
+//                 {price}
+//               </button>
+//             </a>
+//           ))}
+//         </div>
+
+//         {/* <div className="text-center font-bold text-lg md:text-xl">
+//           <span className="text-[#FFC300]">
+//             Click on this price to see the value in this package!
+//           </span>
+//         </div> */}
+//       </div>
+//     </section>
+//   );
+// };
+
+// export default Packages;
 import React, { useEffect, useRef } from "react";
 
 const Packages = () => {
@@ -170,7 +251,7 @@ const Packages = () => {
           setTimeout(() => {
             document.querySelectorAll(".price-button").forEach((btn) => {
               btn.classList.remove("animate-vibrate");
-              btn.style.transform = "translateX(0) translateY(0)"; // Reset position
+              btn.style.transform = "translateX(0) translateY(0)";
             });
           }, 1000);
         }
@@ -187,47 +268,80 @@ const Packages = () => {
 
   return (
     <section
+    id="monthly-subscriptions"
       ref={sectionRef}
-      className="p-4 sm:p-10 md:p-20 flex justify-center items-center"
+      className="p-6 sm:p-10 md:p-20 flex flex-col justify-center items-center "
     >
-      <div className="h-full w-full md:w-[600px] md:max-w-[600px] flex flex-col justify-evenly items-center gap-4 px-2 py-10 md:p-4 bg-[#3B2E22] text-[#fff2e1] rounded-xl">
-        <h2 className="text-2xl md:text-3xl font-medio ">Monthly Subscription</h2>
-        {/* <div className="text-center font-bold text-lg md:text-xl">
-          <span className="text-[#FFC300]">
-            💥 Limited Time Offer – 53% OFF!
-          </span>
-          <br />
-          <span className="text-[#FFC300]">
-            Original Fee: ₹3,850 → Now Only: ₹5,790 Save ₹6,560 today – Act
-            Fast!
-          </span>
-        </div> */}
+      <h2 className="text-3xl md:text-4xl font-bold text-[#3B2E22] mb-10 text-center">
+        Monthly Subscription
+      </h2>
 
-        <div className="w-full flex justify-evenly items-center gap-2 md:gap-4">
-          {["Rs. 3,850"].map((price, index) => (
-            <a
-              key={index}
-              // href={`/package${index + 1}`}
-              className="text-center justify-center items-center"
-            >
-              <button
-                className={`price-button w-full ${index == 0 && "text-left"} ${
-                  index == 0 && "text-center"
-                }  ${
-                  index == 2 && "text-right"
-                } md:px-2 py-1 md:py-2 my-auto  text-[24px] text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400 drop-shadow-md shadow-yellow-400 whitespace-nowrap rounded-full hover:bg-[#3B2E22] transition-transform transform whitespace-nowrap`}
-              >
-                {price}
-              </button>
-            </a>
-          ))}
+      <div className="grid md:grid-cols-2 gap-8 w-full max-w-5xl">
+        {/* Package 1 */}
+        <div className="bg-[#3B2E22] text-[#fff2e1] rounded-2xl p-8 shadow-xl flex flex-col justify-between transition-transform hover:-translate-y-1 hover:shadow-2xl">
+          <div>
+            <h3 className="text-2xl font-bold mb-2">E-Book Publishing</h3>
+            <p className="text-xl font-semibold text-[#FFD700] mb-6">₹7,999</p>
+            <h4 className="text-lg font-semibold mb-3">You Get:</h4>
+            <ul className="list-disc list-inside space-y-2 text-sm md:text-base leading-relaxed">
+              <li>Amazon Kindle publishing</li>
+              <li>80% royalty goes to you</li>
+              <li>Author page on Amazon</li>
+              <li>Proofreading</li>
+              <li>Editing</li>
+              <li>Book cover design</li>
+              <li>Monthly royalty payments</li>
+            </ul>
+          </div>
+
+          <a
+            href={`http://wa.me/+917500030415?text=Hi%2C%20I%20want%20a%20monthly%20subscription!`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="price-button mt-6 bg-[#fff2e1] text-[#3B2E22] text-center font-bold py-3 px-6 rounded-xl hover:bg-[#4c3a2b] transition-all duration-300"
+          >
+            Enroll Now
+          </a>
         </div>
 
-        {/* <div className="text-center font-bold text-lg md:text-xl">
-          <span className="text-[#FFC300]">
-            Click on this price to see the value in this package!
-          </span>
-        </div> */}
+        {/* Package 2 */}
+        <div className="bg-[#fff2e1] text-[#3B2E22] rounded-2xl p-8 shadow-xl flex flex-col justify-between border border-[#3B2E22] transition-transform hover:-translate-y-1 hover:shadow-2xl">
+          <div>
+            <h3 className="text-2xl font-bold mb-2">
+              Premium Bestseller Program
+            </h3>
+            <p className="text-xl font-semibold text-[#b8860b] mb-6">₹99,000</p>
+            <h4 className="text-lg font-semibold mb-3">You Get:</h4>
+            <ul className="list-disc list-inside space-y-2 text-sm md:text-base leading-relaxed">
+              <li>Guaranteed #1 Bestseller in 15–20 days</li>
+              <li>2.5 months promotion with targeted ads</li>
+              <li>
+                Get our expert PR team with a proven strategy to elevate your
+                book’s image and credibility
+              </li>
+              <li>Professionally designed high-quality ad visuals</li>
+              <li>Your own luxury personal website to showcase your book</li>
+              <li>Weekly performance reports to track your progress</li>
+              <li>Boosted book sales & long-term discoverability</li>
+              <li>
+                Build strong credibility in the market with our PR strategy
+              </li>
+              <li>
+                Greater media exposure, reviews, and speaking opportunities
+              </li>
+              <li>Earn the prestigious orange #1 Bestseller tag</li>
+            </ul>
+          </div>
+
+          <a
+            href={`http://wa.me/+917500030415?text=Hi%2C%20I%20want%20a%20monthly%20subscription!`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="price-button mt-6 bg-[#3B2E22] text-center text-[#fff2e1] font-bold py-3 px-6 rounded-xl hover:bg-[#4c3a2b] transition-all duration-300"
+          >
+            Enroll Now
+          </a>
+        </div>
       </div>
     </section>
   );

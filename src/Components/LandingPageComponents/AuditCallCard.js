@@ -10,9 +10,16 @@ const AuditCallCard = () => {
           <FaPhone />
         </div> */}
         {/* Title */}
-        <h2 className=" text-lg md:text-xl font-extrabold uppercase text-center pt-3">
+        {/* <h2 className=" text-lg md:text-xl font-extrabold uppercase text-center pt-3">
           This is perfect for:
-        </h2>
+        </h2> */}
+
+        <div className="mx-auto w-fit">
+          <img
+            src="/books2.jpeg"
+            className="w-full md:w-[40vw] my-4 rounded-xl max-w-[400px]"
+          />
+        </div>
 
         <div className="w-[90%] md:w-[70%] lg:w-[60%] border border-[1px] border-black mx-auto"></div>
 
@@ -28,8 +35,10 @@ const AuditCallCard = () => {
                 funnel.
               </p> */}
               <p>
-              Anyone serious about starting a{" "}
-                <span className="font-extrabold">genuine freelancing career.</span>
+                Anyone serious about starting a{" "}
+                <span className="font-extrabold">
+                  genuine freelancing career.
+                </span>
               </p>
             </li>
 
@@ -44,8 +53,10 @@ const AuditCallCard = () => {
                 .
               </p> */}
               <p>
-              Beginners confused by too many earning options — creators or{" "}
-                <span className="font-extrabold">freelancers stuck without results.</span>
+                Beginners confused by too many earning options — creators or{" "}
+                <span className="font-extrabold">
+                  freelancers stuck without results.
+                </span>
               </p>
             </li>
 
@@ -57,9 +68,9 @@ const AuditCallCard = () => {
                 better funnels and conversion strategies.
               </p> */}
               <p>
-              People tired of fake promises and{" "}
+                People tired of fake promises and{" "}
                 <span className="font-extrabold">
-                looking for real freelancing strategy.
+                  looking for real freelancing strategy.
                 </span>
               </p>
             </li>
@@ -72,14 +83,12 @@ const AuditCallCard = () => {
                 increase their profits.
               </p> */}
               <p>
-              Those {" "}
+                Those{" "}
                 <span className="font-extrabold">
-                who want clear, step-by-step freelancing guidance.
+                  who want clear, step-by-step freelancing guidance.
                 </span>
               </p>
             </li>
-
-          
           </ul>
         </div>
       </div>
