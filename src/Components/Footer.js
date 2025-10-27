@@ -10,7 +10,7 @@ const Footer = () => {
         {/* Left Section */}
         <div className="footer-section flex flex-col gap-4">
           <h2 className="text-2xl font-bold mb-2">About Us</h2>
-          <p className="text-sm">
+          <p className="text-xs md:text-sm">
             We make your book a market-leading bestseller by combining expert
             marketing, engaging visuals, and a personalized luxury platform.
             Please note: it's non-refundable payment.
@@ -26,7 +26,10 @@ const Footer = () => {
               <h3 className="text-lg font-semibold mb-2">Quick Links</h3>
 
               <li>
-                <a href="/" className="hover:text-gray-300 transition whitespace-nowrap">
+                <a
+                  href="/"
+                  className="hover:text-gray-300 transition whitespace-nowrap"
+                >
                   Home
                 </a>
               </li>
@@ -44,11 +47,14 @@ const Footer = () => {
                   href="#monthly-subscription"
                   className="hover:text-gray-300 transition whitespace-nowrap"
                 >
-                  Monthly Subscriptions
+                  Packages
                 </a>
               </li>
               <li>
-                <a href="#our-team" className="hover:text-gray-300 transition whitespace-nowrap">
+                <a
+                  href="#our-team"
+                  className="hover:text-gray-300 transition whitespace-nowrap"
+                >
                   Our Team
                 </a>
               </li>
@@ -60,7 +66,7 @@ const Footer = () => {
                   How It Works
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <a
                   href="/terms-of-services"
                   className="hover:text-gray-300 transition whitespace-nowrap"
@@ -75,7 +81,7 @@ const Footer = () => {
                 >
                   Privacy Policy
                 </a>
-              </li>
+              </li> */}
             </ul>
           </div>
 
@@ -129,9 +135,9 @@ const Footer = () => {
               className="flex items-center gap-2"
             >
               <span>
-                <FaInstagram className="text-pink-500 text-2xl hover:scale-110 transition-transform duration-200" />
+                <FaInstagram className="text-pink-500 text-3xl hover:scale-110 transition-transform duration-200" />
               </span>
-              <span className="pt-1">The PR Media</span>
+              <span className="pt-1 text-lg">The PR Media</span>
             </a>
           </p>
 

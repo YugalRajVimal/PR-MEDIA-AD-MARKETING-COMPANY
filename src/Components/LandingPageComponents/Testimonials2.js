@@ -13,11 +13,15 @@ const Testimonials2 = () => {
         {[
           { name: "Kapil Poswal", role: "Founder & CEO", img: "kapil.png" },
           {
-            name: "Rohan Bhati",
+            name: "Vivaan Sharma",
             role: "Copywriter",
             img: "rohan.png",
           },
-          { name: "Ashish Chhawri", role: "Performance Marketer", img: "vineet.png" },
+          {
+            name: "Arjun Mehra",
+            role: "Performance Marketer",
+            img: "vineet.png",
+          },
         ].map((person, index) => (
           <div
             key={index}

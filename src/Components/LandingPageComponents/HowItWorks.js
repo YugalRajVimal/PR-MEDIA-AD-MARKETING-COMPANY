@@ -4,7 +4,7 @@ const HowItWorks = () => {
   return (
     <section
       id="how-it-works"
-      className="max-w-4xl mx-auto p-6  rounded-2xl shadow-lg space-y-8"
+      className="max-w-4xl mx-auto p-6   space-y-8"
     >
       <h2 className="text-4xl font-bold text-center text-gray-900">
         How It Works

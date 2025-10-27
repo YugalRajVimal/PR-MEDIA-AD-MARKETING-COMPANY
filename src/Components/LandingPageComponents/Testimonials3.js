@@ -329,8 +329,8 @@ const Testimonials3 = ({ timer, remainingSeconds, FULL_TIME, hideTimer }) => {
         ref={marqueeRef}
         className="relative text-[#3B2E22] w-fit pt-4 flex justify-center "
       >
-        <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl flex flex-col gap-2 md:flex-row justify-center w-screen text-center font-bold inline-block whitespace-nowrap">
-          <span>Become a #1 Bestseller Author,</span>
+        <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl flex flex-col  justify-center w-screen text-center font-bold inline-block whitespace-nowrap">
+          <span>Become a #1 Bestseller Author</span>
           <span>Your story, our strategy!</span>
         </span>
       </div>
@@ -358,9 +358,8 @@ const Testimonials3 = ({ timer, remainingSeconds, FULL_TIME, hideTimer }) => {
       </div>
       {/* <ClientName /> */}
       <h1 className="max-w-3xl mx-auto p-4   text-center text-sm md:text-base text-gray-800 font-serif flex items-center justify-center gap-2">
-        {/* <span role="img" aria-label="privacy padlock">🔏</span> */}
-        Your privacy 🔏 is fully protected and respected by our company. You can
-        collaborate with us with complete confidence.”
+        ”Your privacy 🔏 is fully protected and respected by our company. You
+        can collaborate with us with complete confidence.”
       </h1>
 
       <StudentsFeedback />

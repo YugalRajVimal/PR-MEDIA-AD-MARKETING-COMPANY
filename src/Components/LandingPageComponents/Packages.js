@@ -273,20 +273,23 @@ const Packages = () => {
       ref={sectionRef}
       className="p-2 sm:p-10 md:p-20 flex flex-col justify-center items-center "
     >
-      <h2 className="text-3xl md:text-4xl font-bold text-[#3B2E22] mb-10 text-center">
+      <h2 className="text-3xl md:text-4xl font-bold text-[#3B2E22] mt-6 text-center">
         Packages
       </h2>
 
-      <div className="flex gap-4 md:gap-8 w-full  overflow-x-scroll">
-        {/* Package 1 */}
+      {/* <div className="flex gap-4 md:gap-8 w-full  overflow-x-scroll">
+
         <div className=" flex-1 bg-[#3B2E22] text-[#fff2e1] min-w-[85vw] md:min-w-[40vw] rounded-2xl p-4 md:p-8 shadow-xl flex flex-col justify-between transition-transform hover:-translate-y-1 hover:shadow-2xl">
           <div>
-            <h3 className="text-2xl font-bold mb-2">
-              Premium Bestseller Program
-            </h3>
+            <div className="flex items-center mb-2">
+              <h3 className="text-2xl font-bold">
+                Premium Bestseller Program
+                <span className="text-xl mr-2">💎</span>
+              </h3>
+            </div>
             <p className="text-xl font-bold text-[#FFD700]  mb-6">₹99,000</p>
             <h4 className="text-lg font-bold mb-3">You Get:</h4>
-            <ul className="list-disc list-outside pl-6 space-y-2 text-base md:text-base leading-relaxed [text-indent:0em] [padding-left:1em]">
+            <ul className="list-disc list-outside pl-6 space-y-2 text-sm md:text-base leading-relaxed [text-indent:0em] [padding-left:1em]">
               <li>Guaranteed #1 Bestseller in 15–20 days</li>
               <li>2.5 months promotion with targeted ads</li>
               <li>
@@ -317,13 +320,15 @@ const Packages = () => {
           </a>
         </div>
 
-        {/* Package 2 */}
+
         <div className="flex-1  bg-[#fff2e1] text-[#3B2E22] min-w-[85vw] md:min-w-[40vw]  rounded-2xl p-8 shadow-xl flex flex-col justify-between border border-[#3B2E22] transition-transform hover:-translate-y-1 hover:shadow-2xl">
           <div>
-            <h3 className="text-2xl font-bold mb-2">E-Book Publishing</h3>
+            <h3 className="text-2xl font-bold mb-2">
+              E-Book Publishing <span className="text-xl mr-2">📚</span>
+            </h3>
             <p className="text-xl font-bold text-[#b8860b]  mb-6">₹7,999</p>
             <h4 className="text-lg font-bold mb-3">You Get:</h4>
-            <ul className="list-disc list-inside space-y-2 text-base md:text-base leading-relaxed">
+            <ul className="list-disc list-inside space-y-2 text-sm md:text-base leading-relaxed">
               <li>Amazon Kindle publishing</li>
               <li>80% royalty goes to you</li>
               <li>Author page on Amazon</li>
@@ -338,6 +343,82 @@ const Packages = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="price-button mt-6 bg-[#3B2E22] text-center text-[#fff2e1] font-bold py-3 px-6 rounded-xl hover:bg-[#4c3a2b] transition-all duration-300"
+          >
+            Enroll Now
+          </a>
+        </div>
+      </div> */}
+      <div className="flex items-center gap-4 md:gap-8 w-full overflow-x-scroll no-scrollbar pt-4 [direction:rtl]">
+        {/* Package 1 */}
+        <div className="[direction:ltr] flex-1 bg-gradient-to-br from-[#3B2E22] to-[#2a1e15] text-[#fff2e1] min-w-[85vw] md:min-w-[40vw] rounded-2xl p-4 md:p-8 flex flex-col justify-between border border-[#ffffff1a] backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_15px_40px_rgba(0,0,0,0.5)] hover:scale-[1.01]">
+          <div>
+            <div className="flex items-center mb-2">
+              <h3 className="text-2xl font-bold">
+                Premium Bestseller Program
+                <span className="text-xl mr-2">💎</span>
+              </h3>
+            </div>
+            <p className="text-xl font-bold text-[#FFD700] mb-6 drop-shadow-[0_2px_6px_rgba(255,215,0,0.5)]">
+              ₹99,000
+            </p>
+            <h4 className="text-lg font-bold mb-3">You Get:</h4>
+            <ul className="list-disc list-outside pl-6 space-y-2 text-sm font-bold md:text-base leading-relaxed [text-indent:0em] [padding-left:1em]">
+              <li>Guaranteed #1 Bestseller in 15–20 days</li>
+              <li>2.5 months promotion with targeted ads</li>
+              <li>
+                Get our expert PR team with a proven strategy to elevate your
+                book’s image and credibility
+              </li>
+              <li>Professionally designed high-quality ad visuals</li>
+              <li>Your own luxury personal website to showcase your book</li>
+              <li>Weekly performance reports to track your progress</li>
+              <li>Boosted book sales & long-term discoverability</li>
+              <li>
+                Build strong credibility in the market with our PR strategy
+              </li>
+              <li>
+                Greater media exposure, reviews, and speaking opportunities
+              </li>
+              <li>Earn the prestigious orange #1 Bestseller tag</li>
+            </ul>
+          </div>
+
+          <a
+            href="http://wa.me/+917500030415?text=Hi%2C%20I%20want%20a%20monthly%20subscription!"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="price-button mt-6 bg-[#fff2e1] text-[#3B2E22] text-center font-bold py-3 px-6 rounded-xl hover:bg-[#4c3a2b] hover:text-[#fff2e1] transition-all duration-300 shadow-[0_0_0_rgba(0,0,0,0)] hover:shadow-[0_4px_20px_rgba(0,0,0,0.4)]"
+          >
+            Enroll Now
+          </a>
+        </div>
+
+        {/* Package 2 */}
+        <div className="[direction:ltr] flex-1 h-fit bg-gradient-to-br from-[#fff2e1] to-[#f3e7d1] text-[#3B2E22] min-w-[85vw] md:min-w-[40vw] rounded-2xl p-8  flex flex-col justify-between border border-[#3B2E22]/20 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_15px_40px_rgba(0,0,0,0.25)] hover:scale-[1.01]">
+          <div>
+            <h3 className="text-2xl font-bold mb-2">
+              E-Book Publishing <span className="text-xl mr-2">📚</span>
+            </h3>
+            <p className="text-xl font-bold text-[#b8860b] mb-6 drop-shadow-[0_1px_4px_rgba(184,134,11,0.5)]">
+              ₹7,999
+            </p>
+            <h4 className="text-lg font-bold mb-3">You Get:</h4>
+            <ul className="list-disc list-outside pl-6 space-y-2 text-sm font-bold md:text-base leading-relaxed [text-indent:0em] [padding-left:1em]">
+              <li>Amazon Kindle publishing</li>
+              <li>80% royalty goes to you</li>
+              <li>Author page on Amazon</li>
+              <li>Proofreading</li>
+              <li>Editing</li>
+              <li>Book cover design</li>
+              <li>Monthly royalty payments</li>
+            </ul>
+          </div>
+
+          <a
+            href="http://wa.me/+917500030415?text=Hi%2C%20I%20want%20a%20monthly%20subscription!"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="price-button mt-6 bg-[#3B2E22] text-center text-[#fff2e1] font-bold py-3 px-6 rounded-xl hover:bg-[#4c3a2b] transition-all duration-300 shadow-[0_0_0_rgba(0,0,0,0)] hover:shadow-[0_4px_20px_rgba(0,0,0,0.4)]"
           >
             Enroll Now
           </a>

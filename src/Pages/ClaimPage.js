@@ -6,15 +6,14 @@ const ClaimPage = () => {
     <div className="bg-[#dbc3ab] md:bg-[#f7dbb6] h-screen w-screen">
       <div className="relative backdrop-blur-sm z-[30] gap-10 h-full flex flex-col justify-center items-center">
         {/* Logo Image - Making sure it's on top */}
-        <a
-          href="/"
+        <div
           className="relative h-[120px] md:h-[280px] w-full overflow-hidden flex justify-center items-center"
         >
           <img
             src="logo2.svg"
             className="h-[170%] w-[70vw] md:w-full object-cover md:object-contain"
           />
-        </a>
+        </div>
 
         <p className="text-center text-2xl md:text-3xl  font-medio font-bold text-[#3B2E22] mt-14">
           Hi Author 🙂 <br />

@@ -66,7 +66,7 @@ import React from "react";
 
 const Card1 = () => {
   return (
-    <div className="flex flex-col items-center px-6 pb-6 pt-16 text-center">
+    <div className="flex flex-col items-center px-6 pb-6  text-center">
       {/* Title */}
       {/* <h2 className="text-lg font-bold uppercase text-white opacity-90 mb-2">
         TOTAL REVENUE OUR CLIENTS HAVE EARNED SO FAR
@@ -78,7 +78,7 @@ const Card1 = () => {
       </h1> */}
 
       {/* Cards Grid */}
-      <div className="grid grid-cols-1 gap-6 mt-6 w-full max-w-xs text-white">
+      <div className="grid grid-cols-1 gap-6 w-full max-w-xs text-white">
         {[
           { label: "Clients' Helped", value: "6000+" },
           // { label: "Total Ad Spend", value: "Rs. 114.3 Cr." }
