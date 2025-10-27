@@ -236,6 +236,7 @@
 
 // export default Packages;
 import React, { useEffect, useRef } from "react";
+import { FaCheckCircle, FaCircle } from "react-icons/fa";
 
 const Packages = () => {
   const sectionRef = useRef(null);
@@ -268,51 +269,24 @@ const Packages = () => {
 
   return (
     <section
-    id="monthly-subscriptions"
+      id="monthly-subscriptions"
       ref={sectionRef}
-      className="p-6 sm:p-10 md:p-20 flex flex-col justify-center items-center "
+      className="p-2 sm:p-10 md:p-20 flex flex-col justify-center items-center "
     >
       <h2 className="text-3xl md:text-4xl font-bold text-[#3B2E22] mb-10 text-center">
         Monthly Subscription
       </h2>
 
-      <div className="grid md:grid-cols-2 gap-8 w-full max-w-5xl">
+      <div className="flex gap-4 md:gap-8 w-full  overflow-x-scroll">
         {/* Package 1 */}
-        <div className="bg-[#3B2E22] text-[#fff2e1] rounded-2xl p-8 shadow-xl flex flex-col justify-between transition-transform hover:-translate-y-1 hover:shadow-2xl">
-          <div>
-            <h3 className="text-2xl font-bold mb-2">E-Book Publishing</h3>
-            <p className="text-xl font-semibold text-[#FFD700] mb-6">₹7,999</p>
-            <h4 className="text-lg font-semibold mb-3">You Get:</h4>
-            <ul className="list-disc list-inside space-y-2 text-sm md:text-base leading-relaxed">
-              <li>Amazon Kindle publishing</li>
-              <li>80% royalty goes to you</li>
-              <li>Author page on Amazon</li>
-              <li>Proofreading</li>
-              <li>Editing</li>
-              <li>Book cover design</li>
-              <li>Monthly royalty payments</li>
-            </ul>
-          </div>
-
-          <a
-            href={`http://wa.me/+917500030415?text=Hi%2C%20I%20want%20a%20monthly%20subscription!`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="price-button mt-6 bg-[#fff2e1] text-[#3B2E22] text-center font-bold py-3 px-6 rounded-xl hover:bg-[#4c3a2b] transition-all duration-300"
-          >
-            Enroll Now
-          </a>
-        </div>
-
-        {/* Package 2 */}
-        <div className="bg-[#fff2e1] text-[#3B2E22] rounded-2xl p-8 shadow-xl flex flex-col justify-between border border-[#3B2E22] transition-transform hover:-translate-y-1 hover:shadow-2xl">
+        <div className=" flex-1 bg-[#3B2E22] text-[#fff2e1] min-w-[85vw] md:min-w-[40vw] rounded-2xl p-4 md:p-8 shadow-xl flex flex-col justify-between transition-transform hover:-translate-y-1 hover:shadow-2xl">
           <div>
             <h3 className="text-2xl font-bold mb-2">
               Premium Bestseller Program
             </h3>
-            <p className="text-xl font-semibold text-[#b8860b] mb-6">₹99,000</p>
-            <h4 className="text-lg font-semibold mb-3">You Get:</h4>
-            <ul className="list-disc list-inside space-y-2 text-sm md:text-base leading-relaxed">
+            <p className="text-xl font-bold text-[#FFD700]  mb-6">₹99,000</p>
+            <h4 className="text-lg font-bold mb-3">You Get:</h4>
+            <ul className="list-disc list-outside pl-6 space-y-2 text-base md:text-base leading-relaxed [text-indent:0em] [padding-left:1em]">
               <li>Guaranteed #1 Bestseller in 15–20 days</li>
               <li>2.5 months promotion with targeted ads</li>
               <li>
@@ -333,6 +307,32 @@ const Packages = () => {
             </ul>
           </div>
 
+          <a
+            href={`http://wa.me/+917500030415?text=Hi%2C%20I%20want%20a%20monthly%20subscription!`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="price-button mt-6 bg-[#fff2e1] text-[#3B2E22] text-center font-bold py-3 px-6 rounded-xl hover:bg-[#4c3a2b] transition-all duration-300"
+          >
+            Enroll Now
+          </a>
+        </div>
+
+        {/* Package 2 */}
+        <div className="flex-1  bg-[#fff2e1] text-[#3B2E22] min-w-[85vw] md:min-w-[40vw]  rounded-2xl p-8 shadow-xl flex flex-col justify-between border border-[#3B2E22] transition-transform hover:-translate-y-1 hover:shadow-2xl">
+          <div>
+            <h3 className="text-2xl font-bold mb-2">E-Book Publishing</h3>
+            <p className="text-xl font-bold text-[#b8860b]  mb-6">₹7,999</p>
+            <h4 className="text-lg font-bold mb-3">You Get:</h4>
+            <ul className="list-disc list-inside space-y-2 text-base md:text-base leading-relaxed">
+              <li>Amazon Kindle publishing</li>
+              <li>80% royalty goes to you</li>
+              <li>Author page on Amazon</li>
+              <li>Proofreading</li>
+              <li>Editing</li>
+              <li>Book cover design</li>
+              <li>Monthly royalty payments</li>
+            </ul>
+          </div>
           <a
             href={`http://wa.me/+917500030415?text=Hi%2C%20I%20want%20a%20monthly%20subscription!`}
             target="_blank"

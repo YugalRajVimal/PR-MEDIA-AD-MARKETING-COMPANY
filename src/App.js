@@ -27,6 +27,7 @@ import TermsOfService from "./Pages/TermsOfServices";
 import PrivacyPolicy from "./Pages/PrivacyPolicy";
 import ChatRooms from "./Admin/AdminComponents/ChatRooms";
 import UploadVideo from "./Admin/AdminComponents/UploadVideo";
+import WelcomePage from "./Pages/WelcomePage";
 
 axios.defaults.withCredentials = true;
 
@@ -100,6 +101,8 @@ const App = () => {
 
             <Route path="*" element={<Navigate to="/" replace />} />
           </Route>
+
+          <Route path="/welcome-author" element={<WelcomePage />} />
 
           <Route
             path="/admin"
