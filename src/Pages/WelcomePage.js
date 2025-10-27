@@ -9,7 +9,7 @@ const WelcomePage = () => {
         <a href="/" className="relative h-[120px] md:h-[280px] w-full overflow-hidden flex justify-center items-center">
           <img
             src="logo2.svg"
-            className="h-[170%] w-full object-cover md:object-contain"
+            className="h-[170%] w-[70vw] md:w-full object-cover md:object-contain"
           />
         </a>
 
