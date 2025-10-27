@@ -354,7 +354,7 @@ const Packages = () => {
           <div>
             <div className="flex items-center mb-2">
               <h3 className="text-2xl font-bold">
-                Premium Bestseller Program
+                Premium Bestseller Program{" "}
                 <span className="text-xl mr-2">💎</span>
               </h3>
             </div>
