@@ -1,7 +1,7 @@
 import React from "react";
 import { FaWhatsapp } from "react-icons/fa";
 
-const WelcomePage = () => {
+const ClaimPage = () => {
   return (
     <div className="bg-[#dbc3ab] md:bg-[#f7dbb6] h-screen w-screen">
       <div className="relative backdrop-blur-sm z-[30] gap-10 h-full flex flex-col justify-center items-center">
@@ -29,7 +29,8 @@ const WelcomePage = () => {
         >
           <FaWhatsapp className="text-2xl" />
           <span className="text-sm text-semibold text-white text-center font-serif">
-            Claim Your Bestseller Package on WhatsApp!
+
+            Claim your E-Book Publishing package on WhatsApp!
           </span>
         </a>
       </div>
@@ -37,4 +38,4 @@ const WelcomePage = () => {
   );
 };
 
-export default WelcomePage;
+export default ClaimPage;

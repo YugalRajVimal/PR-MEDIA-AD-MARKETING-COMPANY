@@ -336,7 +336,7 @@ const Testimonials3 = ({ timer, remainingSeconds, FULL_TIME, hideTimer }) => {
       </div>
       <div className="relative w-full h-[80px] max-w-sm   my-6 mx-auto flex justify-end items-center px-1">
         <a
-          href={`http://wa.me/+917500030415?text=Hi%2C%20I%20want%20a%20monthly%20subscription!`}
+          href={`http://wa.me/+917500030415?text=Hi%2C%20want%20to%20know%20more`}
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center justify-center  gap-2 bg-[#25D366] text-white py-2 px-4 rounded-full font-semibold hover:bg-[#1DA851] transition-colors duration-200 w-full cursor-pointer"

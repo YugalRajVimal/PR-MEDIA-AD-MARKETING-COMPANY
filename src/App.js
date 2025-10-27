@@ -28,6 +28,7 @@ import PrivacyPolicy from "./Pages/PrivacyPolicy";
 import ChatRooms from "./Admin/AdminComponents/ChatRooms";
 import UploadVideo from "./Admin/AdminComponents/UploadVideo";
 import WelcomePage from "./Pages/WelcomePage";
+import ClaimPage from "./Pages/ClaimPage";
 
 axios.defaults.withCredentials = true;
 
@@ -103,6 +104,7 @@ const App = () => {
           </Route>
 
           <Route path="/welcome-author" element={<WelcomePage />} />
+          <Route path="/claim-ebook" element={<ClaimPage />} />
 
           <Route
             path="/admin"
