@@ -350,7 +350,7 @@ const Packages = () => {
       </div> */}
       <div className="flex items-center gap-4 md:gap-8 w-full overflow-x-scroll no-scrollbar pt-4 [direction:rtl]">
         {/* Package 1 */}
-        <div className="[direction:ltr] flex-1 bg-gradient-to-br from-[#3B2E22] to-[#2a1e15] text-[#fff2e1] min-w-[85vw] md:min-w-[40vw] rounded-2xl p-4 md:p-8 flex flex-col justify-between border border-[#ffffff1a] backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_15px_40px_rgba(0,0,0,0.5)] hover:scale-[1.01]">
+        <div className="[direction:ltr] flex-1 bg-gradient-to-br from-[#3B2E22] to-[#2a1e15] text-[#fff2e1] min-w-[85vw] md:min-w-[40vw] rounded-2xl py-10 px-4 md:p-8 flex flex-col justify-between border border-[#ffffff1a] backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_15px_40px_rgba(0,0,0,0.5)] hover:scale-[1.01]">
           <div>
             <div className="flex items-center mb-2">
               <h3 className="text-2xl font-bold">
@@ -394,16 +394,16 @@ const Packages = () => {
         </div>
 
         {/* Package 2 */}
-        <div className="[direction:ltr] flex-1 h-fit bg-gradient-to-br from-[#fff2e1] to-[#f3e7d1] text-[#3B2E22] min-w-[85vw] md:min-w-[40vw] rounded-2xl p-8  flex flex-col justify-between border border-[#3B2E22]/20 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_15px_40px_rgba(0,0,0,0.25)] hover:scale-[1.01]">
+        <div className="[direction:ltr] flex-1 h-fit bg-gradient-to-br from-[#fff2e1] to-[#f3e7d1] text-[#3B2E22] min-w-[85vw] md:min-w-[40vw] rounded-2xl p-4  flex flex-col justify-between border border-[#3B2E22]/20 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_15px_40px_rgba(0,0,0,0.25)] hover:scale-[1.01]">
           <div>
             <h3 className="text-2xl font-bold mb-2">
               E-Book Publishing <span className="text-xl mr-2">📚</span>
             </h3>
-            <p className="text-xl font-bold text-[#b8860b] mb-6 drop-shadow-[0_1px_4px_rgba(184,134,11,0.5)]">
+            <p className="text-xl font-bold text-[#b8860b] mb-2 drop-shadow-[0_1px_4px_rgba(184,134,11,0.5)]">
               ₹7,999
             </p>
-            <h4 className="text-lg font-bold mb-3">You Get:</h4>
-            <ul className="list-disc list-outside pl-6 space-y-2 text-sm font-bold md:text-base leading-relaxed [text-indent:0em] [padding-left:1em]">
+            <h4 className="text-lg font-bold mb-1">You Get:</h4>
+            <ul className="list-disc list-outside pl-6 space-y-1 text-sm font-bold md:text-base leading-relaxed [text-indent:0em] [padding-left:1em]">
               <li>Amazon Kindle publishing</li>
               <li>80% royalty goes to you</li>
               <li>Author page on Amazon</li>

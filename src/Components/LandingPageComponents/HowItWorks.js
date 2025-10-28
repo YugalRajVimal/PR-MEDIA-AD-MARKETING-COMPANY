@@ -18,7 +18,7 @@ const HowItWorks = () => {
           <h3 className="text-xl font-bold mb-3">
             1. Strategic, Personalized Approach
           </h3>
-          <p className="font-bold text-base">
+          <p className="font-bold text-lg">
             We know how Amazon’s algorithm operates, every 2.5 hours, rankings
             are updated based on which books deliver the most engagement and
             value. We leverage this insight to maximize your book’s visibility.
@@ -35,7 +35,7 @@ const HowItWorks = () => {
           <h3 className="text-xl font-bold mb-3">
             2. Achieve Guaranteed Bestseller Status
           </h3>
-          <p className="font-bold text-base">
+          <p className="font-bold text-lg">
             Our expert approach ensures your book hits #1 in its category. This
             isn’t theoretical—we’ve successfully done this multiple times and
             know exactly what drives results.
@@ -43,7 +43,7 @@ const HowItWorks = () => {
         </div>
         <div className="p-6  ">
           <h3 className="text-xl font-bold mb-4">What You Receive</h3>
-          <ul className="list-disc list-inside font-bold text-base space-y-2 text-gray-700">
+          <ul className="list-disc list-inside font-bold text-lg space-y-2 text-gray-700">
             <li>Instant credibility as a bestselling author</li>
             <li>Boosted book sales and sustained discoverability</li>
             <li>2 months of targeted ad promotion</li>
@@ -58,14 +58,14 @@ const HowItWorks = () => {
 
         <div className="p-6  ">
           <h3 className="text-xl font-bold mb-3">Sustained Success</h3>
-          <p className=" mb-3 font-bold text-base">
+          <p className=" mb-3 font-bold text-lg">
             Hitting #1 is just the beginning, staying there is even more
             challenging. With our system, books rarely drop quickly after
             reaching the top. Many maintain their #1 status for weeks, even
             months. This kind of visibility is invaluable—but only if you act at
             the right time.
           </p>
-          <p className="text-gray-900 font-semibold font-bold text-base">
+          <p className="text-gray-900 font-semibold font-bold text-lg">
             Let’s ensure your book doesn’t just compete—it dominates.
           </p>
         </div>

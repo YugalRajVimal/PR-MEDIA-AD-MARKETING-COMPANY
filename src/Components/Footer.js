@@ -10,7 +10,7 @@ const Footer = () => {
         {/* Left Section */}
         <div className="footer-section flex flex-col gap-4">
           <h2 className="text-2xl font-bold mb-2">About Us</h2>
-          <p className="text-xs md:text-sm">
+          <p className="text-[8px] md:text-xs">
             We make your book a market-leading bestseller by combining expert
             marketing, engaging visuals, and a personalized luxury platform.
             Please note: it's non-refundable payment.
