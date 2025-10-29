@@ -24,7 +24,7 @@ const ClaimPage = () => {
           href={`http://wa.me/+917500030415?text=Hi%2C%20want%20to%20know%20more`}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center mx-auto w-fit justify-center  mx-2 gap-2 bg-[#1DA851] hover:bg-[#25D366]  text-white py-1 md:py-4 px-6 rounded-full font-semibold transition-colors duration-200 cursor-pointer"
+          className="flex items-center  w-fit justify-center  mx-2 gap-2 bg-[#1DA851] hover:bg-[#25D366]  text-white py-1 md:py-4 px-6 rounded-full font-semibold transition-colors duration-200 cursor-pointer"
         >
           <FaWhatsapp className="text-2xl" />
           <span className="text-sm text-semibold text-white text-center font-serif">

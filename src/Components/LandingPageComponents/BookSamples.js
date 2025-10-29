@@ -218,8 +218,11 @@ export default function BookSamples() {
   return (
     <section
       id="our-work"
-      className="py-10 flex flex-col justify-center items-center w-screen"
+      className="relative py-10 flex flex-col justify-center items-center w-screen"
     >
+      <div className="h-full w-full z-50 absolute top-0 left-0">
+
+      </div>
       <h2 className="px-6 md:px-16 text-3xl font-medio md:text-4xl font-bold text-[#3c2b61] mb-8">
         Samples
       </h2>
