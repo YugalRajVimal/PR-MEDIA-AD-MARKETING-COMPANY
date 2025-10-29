@@ -144,17 +144,17 @@ const LandingPage = () => {
                   in just 15–20 days?
                 </p>
 
-                <p className="text-base md:text-lg font-semibold mt-6">
+                {/* <p className="text-base md:text-lg font-semibold mt-6">
                   Promotion Duration: 2.5 months
-                </p>
+                </p> */}
                 <ul className="mt-2 space-y-2 text-base md:text-lg">
                   <li className="flex items-start gap-2">
                     <span className="shrink-0">✅</span>
-                    <span>2 months of targeted ad promotion</span>
+                    <span>Targeted Ad promotion</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="shrink-0">✅</span>
-                    <span>Professionally designed high-quality ad visuals</span>
+                    <span>Professionally designed high-quality ad visual</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="shrink-0">✅</span>

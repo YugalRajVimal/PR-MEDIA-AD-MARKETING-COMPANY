@@ -1,7 +1,7 @@
 // components/OtherBooks.js
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Autoplay } from "swiper/modules";
+import {  Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -130,87 +130,87 @@ const books = [
   {
     title: "Best Of Enimies",
     price: "40$",
-    image: "/Books/Books/kindle1.jpg",
+    image: "/Books/kindle1.jpg",
   },
   {
     title: "Instant Cookkindle",
     price: "40$",
-    image: "/Books/Books/kindle2.jpg",
+    image: "/Books/kindle2.jpg",
   },
   {
     title: "A Man Of The People",
     price: "40$",
-    image: "/Books/Books/kindle3.jpg",
+    image: "/Books/kindle3.jpg",
   },
   {
     title: "Penguin Classics",
     price: "40$",
-    image: "/Books/Books/kindle4.jpg",
+    image: "/Books/kindle4.jpg",
   },
   {
     title: "Sample kindle 5",
     price: "40$",
-    image: "/Books/Books/kindle5.jpg",
+    image: "/Books/kindle5.jpg",
   },
   {
     title: "Sample kindle 6",
     price: "40$",
-    image: "/Books/Books/kindle6.jpg",
+    image: "/Books/kindle6.jpg",
   },
   {
     title: "Sample kindle 7",
     price: "40$",
-    image: "/Books/Books/kindle7.jpg",
+    image: "/Books/kindle7.jpg",
   },
   {
     title: "Sample kindle 8",
     price: "40$",
-    image: "/Books/Books/kindle8.jpg",
+    image: "/Books/kindle8.jpg",
   },
   {
     title: "Sample kindle 9",
     price: "40$",
-    image: "/Books/Books/kindle9.jpg",
+    image: "/Books/kindle9.jpg",
   },
   {
     title: "Sample kindle 10",
     price: "40$",
-    image: "/Books/Books/kindle10.jpg",
+    image: "/Books/kindle10.jpg",
   },
   {
     title: "Sample kindle 11",
     price: "40$",
-    image: "/Books/Books/kindle11.jpg",
+    image: "/Books/kindle11.jpg",
   },
   {
     title: "Sample kindle 12",
     price: "40$",
-    image: "/Books/Books/kindle12.jpg",
+    image: "/Books/kindle12.jpg",
   },
   {
     title: "Sample kindle 13",
     price: "40$",
-    image: "/Books/Books/kindle13.jpg",
+    image: "/Books/kindle13.jpg",
   },
   {
     title: "Sample kindle 14",
     price: "40$",
-    image: "/Books/Books/kindle14.jpg",
+    image: "/Books/kindle14.jpg",
   },
   {
     title: "Sample kindle 15",
     price: "40$",
-    image: "/Books/Books/kindle15.jpg",
+    image: "/Books/kindle15.jpg",
   },
   {
     title: "Sample kindle 16",
     price: "40$",
-    image: "/Books/Books/kindle16.jpg",
+    image: "/Books/kindle16.jpg",
   },
   {
     title: "Sample kindle 17",
     price: "40$",
-    image: "/Books/Books/kindle17.jpg",
+    image: "/Books/kindle17.jpg",
   },
 ];
 
@@ -224,25 +224,25 @@ export default function BookSamples() {
         Samples
       </h2>
       <Swiper
-        modules={[Navigation, Autoplay]}
+        modules={[ Autoplay]}
         spaceBetween={10}
         slidesPerView={1}
         breakpoints={{
           768: { slidesPerView: 2 },
           1024: { slidesPerView: 3 },
         }}
-        navigation
+        // navigation
         pagination={{ clickable: true }}
         autoplay={{ delay: 2000 }}
-        className="pb-10 px-6 md:px-16 w-screen"
+        className="pb-10 px-6 md:px-16 h-fit w-screen"
       >
         {books.map((book, index) => (
           <SwiperSlide key={index}>
-            <div className="text-center flex flex-col justify-center items-center">
+            <div className="text-center flex flex-col h-full justify-center items-center">
               <img
                 src={book.image}
                 alt={book.title}
-                className="w-[290px] object-cover shadow-md rounded"
+                className="w-[290px] my-auto  object-cover shadow-md rounded"
               />
               {/* <h3 className="mt-4 text-lg font-semibold text-[#3c2b61]">
                 {book.title}

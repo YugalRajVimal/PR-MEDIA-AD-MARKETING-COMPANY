@@ -2,10 +2,7 @@ import React from "react";
 
 const HowItWorks = () => {
   return (
-    <section
-      id="how-it-works"
-      className="max-w-4xl mx-auto p-6   space-y-8"
-    >
+    <section id="how-it-works" className="max-w-4xl mx-auto p-6   space-y-8">
       <h2 className="text-4xl font-bold text-center text-gray-900">
         How It Works
       </h2>
@@ -46,8 +43,8 @@ const HowItWorks = () => {
           <ul className="list-disc list-inside font-bold text-lg space-y-2 text-gray-700">
             <li>Instant credibility as a bestselling author</li>
             <li>Boosted book sales and sustained discoverability</li>
-            <li>2 months of targeted ad promotion</li>
-            <li>Professionally designed high-quality ad visuals</li>
+            <li>Targeted Ad promotion.</li>
+            <li>Professionally designed high-quality ad visual</li>
             <li>
               Your own luxury personal website to highlight and market your book
             </li>

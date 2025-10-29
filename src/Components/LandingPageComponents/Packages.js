@@ -364,12 +364,12 @@ const Packages = () => {
             <h4 className="text-lg font-bold mb-3">You Get:</h4>
             <ul className="list-disc list-outside pl-6 space-y-2 text-sm font-bold md:text-base leading-relaxed [text-indent:0em] [padding-left:1em]">
               <li>Guaranteed #1 Bestseller in 15–20 days</li>
-              <li>2.5 months promotion with targeted ads</li>
+              <li>Promotion with Targeted Ads</li>
               <li>
                 Get our expert PR team with a proven strategy to elevate your
                 book’s image and credibility
               </li>
-              <li>Professionally designed high-quality ad visuals</li>
+              <li>Professionally designed high-quality ad visual</li>
               <li>Your own luxury personal website to showcase your book</li>
               <li>Weekly performance reports to track your progress</li>
               <li>Boosted book sales & long-term discoverability</li>
