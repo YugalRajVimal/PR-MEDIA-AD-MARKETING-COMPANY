@@ -13,6 +13,7 @@ import AuditCallCard from "../Components/LandingPageComponents/AuditCallCard";
 import Services from "../Components/LandingPageComponents/Services";
 import { motion, AnimatePresence } from "framer-motion";
 import HowItWorks from "../Components/LandingPageComponents/HowItWorks";
+import BookSamples from "../Components/LandingPageComponents/BookSamples";
 
 const LandingPage = () => {
   const [hideTimer, setHideTimer] = useState(false);
@@ -206,6 +207,7 @@ const LandingPage = () => {
 
         <HowItWorks />
 
+        <BookSamples />
         <Card3 />
         <Testimonials2 />
         <DemoCallCard />
