@@ -274,7 +274,7 @@ const Packages = () => {
       className="p-2 sm:p-10 md:p-20 flex flex-col justify-center items-center "
     >
       <h2 className="text-3xl md:text-4xl font-bold text-[#3B2E22] mt-6 text-center">
-        Packages
+        Package
       </h2>
 
       {/* <div className="flex gap-4 md:gap-8 w-full  overflow-x-scroll">
