@@ -130,88 +130,88 @@ const books = [
   {
     title: "Best Of Enimies",
     price: "40$",
-    image: "/Books/kindle1.jpg",
+    image: "/Books/book25.jpg",
   },
   {
     title: "Instant Cookkindle",
     price: "40$",
-    image: "/Books/kindle2.jpg",
+    image: "/Books/book26.jpg",
   },
   {
     title: "A Man Of The People",
     price: "40$",
-    image: "/Books/kindle3.jpg",
+    image: "/Books/book27.jpg",
   },
   {
     title: "Penguin Classics",
     price: "40$",
-    image: "/Books/kindle4.jpg",
+    image: "/Books/book28.jpg",
   },
   {
     title: "Sample kindle 5",
     price: "40$",
-    image: "/Books/kindle5.jpg",
+    image: "/Books/book29.jpg",
   },
   {
     title: "Sample kindle 6",
     price: "40$",
-    image: "/Books/kindle6.jpg",
+    image: "/Books/book30.jpg",
   },
   {
     title: "Sample kindle 7",
     price: "40$",
-    image: "/Books/kindle7.jpg",
+    image: "/Books/book31.jpg",
   },
   {
     title: "Sample kindle 8",
     price: "40$",
-    image: "/Books/kindle8.jpg",
+    image: "/Books/book32.jpg",
   },
-  {
-    title: "Sample kindle 9",
-    price: "40$",
-    image: "/Books/kindle9.jpg",
-  },
-  {
-    title: "Sample kindle 10",
-    price: "40$",
-    image: "/Books/kindle10.jpg",
-  },
-  {
-    title: "Sample kindle 11",
-    price: "40$",
-    image: "/Books/kindle11.jpg",
-  },
-  {
-    title: "Sample kindle 12",
-    price: "40$",
-    image: "/Books/kindle12.jpg",
-  },
-  {
-    title: "Sample kindle 13",
-    price: "40$",
-    image: "/Books/kindle13.jpg",
-  },
-  {
-    title: "Sample kindle 14",
-    price: "40$",
-    image: "/Books/kindle14.jpg",
-  },
-  {
-    title: "Sample kindle 15",
-    price: "40$",
-    image: "/Books/kindle15.jpg",
-  },
-  {
-    title: "Sample kindle 16",
-    price: "40$",
-    image: "/Books/kindle16.jpg",
-  },
-  {
-    title: "Sample kindle 17",
-    price: "40$",
-    image: "/Books/kindle17.jpg",
-  },
+  // {
+  //   title: "Sample kindle 9",
+  //   price: "40$",
+  //   image: "/Books/book.jpg",
+  // },
+  // {
+  //   title: "Sample kindle 10",
+  //   price: "40$",
+  //   image: "/Books/book.jpg",
+  // },
+  // {
+  //   title: "Sample kindle 11",
+  //   price: "40$",
+  //   image: "/Books/book.jpg",
+  // },
+  // {
+  //   title: "Sample kindle 12",
+  //   price: "40$",
+  //   image: "/Books/book.jpg",
+  // },
+  // {
+  //   title: "Sample kindle 13",
+  //   price: "40$",
+  //   image: "/Books/book.jpg",
+  // },
+  // {
+  //   title: "Sample kindle 14",
+  //   price: "40$",
+  //   image: "/Books/book.jpg",
+  // },
+  // {
+  //   title: "Sample kindle 15",
+  //   price: "40$",
+  //   image: "/Books/book.jpg",
+  // },
+  // {
+  //   title: "Sample kindle 16",
+  //   price: "40$",
+  //   image: "/Books/book.jpg",
+  // },
+  // {
+  //   title: "Sample kindle 17",
+  //   price: "40$",
+  //   image: "/Books/book.jpg",
+  // },
 ];
 
 export default function BookSamples() {
