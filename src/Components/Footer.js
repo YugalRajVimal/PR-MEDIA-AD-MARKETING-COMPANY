@@ -16,8 +16,8 @@ const Footer = () => {
             Please note: it's non-refundable payment.
           </p>
           <div>
-            <p className="text-sm">Open 10 AM to 7 PM</p>
-            <p className="text-sm">Mon to Sat</p>
+            <p className="text-sm">Open 9AM to 7PM</p>
+            <p className="text-sm">Monday to Sunday</p>
           </div>
         </div>
         <div className="footer-section w-full flex justify-between">

@@ -188,7 +188,7 @@ const LandingPage = () => {
                 </ul>
 
                 <p className="text-lg md:text-xl font-bold mt-6">
-                  💰 Investment: ₹99,000 — unmatched value for{" "}
+                  💰 Package Price : ₹99,000 — unmatched value for{" "}
                   <span className="font-extrabold">guaranteed results</span>
                 </p>
                 <p className="text-base md:text-lg">
