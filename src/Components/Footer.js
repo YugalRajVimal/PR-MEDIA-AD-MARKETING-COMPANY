@@ -11,9 +11,9 @@ const Footer = () => {
         <div className="footer-section flex flex-col gap-4">
           <h2 className="text-2xl font-bold mb-2">About Us</h2>
           <p className="text-[10px] md:text-xs">
-            We make your book a market-leading bestseller by combining expert
-            marketing, engaging visuals, and a personalized luxury platform.
-            Please note: it's non-refundable payment.
+            We help your book reach top bestseller status with professional
+            marketing and algorithm strategy. Please note, the payment is
+            non-refundable.
           </p>
           <div>
             <p className="text-sm">Open 10AM to 7PM</p>
@@ -86,12 +86,11 @@ const Footer = () => {
           </div>
 
           {/* Middle Section */}
-       
         </div>
 
         {/* End Section */}
         <div className="footer-section flex flex-col gap-4 items-center md:items-center">
-          <p className="text-sm">
+          <p className="text-xs">
             Office No-109, Second Floor, Om Tower, Commercial Belt, Alfa-1, Near
             Pari Chowk, Greater Noida, India ( Pin code - 201310 )
           </p>

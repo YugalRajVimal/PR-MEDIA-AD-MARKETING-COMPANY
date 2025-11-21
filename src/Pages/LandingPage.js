@@ -144,7 +144,7 @@ const LandingPage = () => {
                   <span className="font-extrabold">#1 Amazon Bestseller</span> in just 15–20 days?
                 </p>
 
-                <ul className="mt-2 space-y-2 text-base md:text-lg">
+                <ul className="mt-2 font-bold space-y-2 text-base md:text-lg">
                   <li className="flex items-start gap-2">
                     <span className="shrink-0">✅</span>
                     <span>
