@@ -16,12 +16,12 @@ const Footer = () => {
             Please note: it's non-refundable payment.
           </p>
           <div>
-            <p className="text-sm">Open 9AM to 7PM</p>
+            <p className="text-sm">Open 10AM to 7PM</p>
             <p className="text-sm">Monday to Sunday</p>
           </div>
         </div>
         <div className="footer-section w-full flex justify-between">
-          <div className="footer-section flex w-1/2 justify-center">
+          <div className="footer-section flex  justify-center">
             <ul className="text-sm space-y-1">
               <h3 className="text-lg font-semibold mb-2">Quick Links</h3>
 
@@ -50,14 +50,14 @@ const Footer = () => {
                   Packages
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <a
                   href="#our-team"
                   className="hover:text-gray-300 transition whitespace-nowrap"
                 >
                   Our Team
                 </a>
-              </li>
+              </li> */}
               <li>
                 <a
                   href="#how-it-works"
@@ -86,31 +86,7 @@ const Footer = () => {
           </div>
 
           {/* Middle Section */}
-          <div className="footer-section flex w-1/2 justify-evenly w-full">
-            <ul className="text-sm space-y-1">
-              <h3 className="text-lg font-semibold mb-2">Best Package</h3>
-
-              <li>
-                <a
-                  // href="/package1"
-                  className="hover:text-gray-300 transition"
-                >
-                  Rs. 99,000
-                </a>
-              </li>
-              {/* <li>
-                <a href="/package2" className="hover:text-gray-300 transition">
-                  3.99 Crore
-                </a>
-              </li>
-
-              <li>
-                <a href="/package3" className="hover:text-gray-300 transition">
-                  99 Lakh
-                </a>
-              </li> */}
-            </ul>
-          </div>
+       
         </div>
 
         {/* End Section */}

@@ -357,10 +357,10 @@ const Testimonials3 = ({ timer, remainingSeconds, FULL_TIME, hideTimer }) => {
         )}
       </div>
       {/* <ClientName /> */}
-      <h1 className="max-w-3xl mx-auto p-4   text-center text-xs md:text-sm text-gray-800 font-serif flex items-center justify-center gap-2">
+      {/* <h1 className="max-w-3xl mx-auto p-4   text-center text-xs md:text-sm text-gray-800 font-serif flex items-center justify-center gap-2">
         “ Your privacy 🔏 is fully protected and respected by our company. You
         can collaborate with us with complete confidence.”
-      </h1>
+      </h1> */}
 
       <StudentsFeedback />
 

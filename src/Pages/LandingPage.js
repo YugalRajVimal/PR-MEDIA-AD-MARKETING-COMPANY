@@ -121,7 +121,7 @@ const LandingPage = () => {
           />
         </div>
         <Card1 />
-        <Packages />
+        {/* <Packages /> */}
 
         <div className="flex flex-col items-center space-y-10  p-2 md:p-8 rounded-xl">
           <div className="  w-full md:w-full rounded-lg  p-4 md:p-6  relative">
@@ -133,67 +133,51 @@ const LandingPage = () => {
             <div className="w-fit mx-auto rounded-lg p-1 md:p-1 relative ">
               <div className="h-full w-full absolute top-4 left-4 bg-zinc-500 z-[-2] rounded-xl"></div>
               <div className="h-full w-full absolute top-[6px] left-[6px] bg-[#dbc3ab] md:bg-[#f7dbb6] z-[-1] rounded-xl"></div>
-              <div className="max-w-[700px] mx-auto  w-fit mx-auto text-left space-y-4 p-10 text-black bg-[#dbc3ab] md:bg-[#f7dbb6] border-[2px] rounded-xl border border-black">
+              <div className="max-w-[700px] mx-auto w-fit text-left space-y-4 p-10 text-black bg-[#dbc3ab] md:bg-[#f7dbb6] border-[2px] rounded-xl border border-black">
                 <h2 className="text-2xl font-bold text-left pt-3">
                   Premium Bestseller Program for Authors
                 </h2>
                 <p className="text-lg md:text-xl font-semibold">Hi Author 🙂</p>
+
                 <p className="text-base md:text-lg">
                   Are you ready to make your book a{" "}
-                  <span className="font-extrabold">#1 Amazon Bestseller</span>{" "}
-                  in just 15–20 days?
+                  <span className="font-extrabold">#1 Amazon Bestseller</span> in just 15–20 days?
                 </p>
 
-                {/* <p className="text-base md:text-lg font-semibold mt-6">
-                  Promotion Duration: 2.5 months
-                </p> */}
                 <ul className="mt-2 space-y-2 text-base md:text-lg">
                   <li className="flex items-start gap-2">
                     <span className="shrink-0">✅</span>
-                    <span>Targeted Ad promotion</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="shrink-0">✅</span>
-                    <span>Professionally designed high-quality ad visual</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="shrink-0">✅</span>
                     <span>
-                      Your own luxury, personalized website to showcase your
-                      book
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="shrink-0">✅</span>
-                    <span>Significantly boost your book sales</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="shrink-0">✅</span>
-                    <span>Build strong credibility in the market</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="shrink-0">✅</span>
-                    <span>
-                      Earn the prestigious orange{" "}
-                      <span className="font-extrabold">#1 Bestseller tag</span>
+                      Guaranteed <span className="font-extrabold">#1 Bestseller</span> in just 15–20 days
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="shrink-0">✅</span>
                     <span>
-                      Receive weekly performance reports to track your book’s
-                      progress
+                      Instant boost in book sales & author credibility
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="shrink-0">💰</span>
+                    <span>
+                      Package Price: <span className="text-black">₹44,654</span> | <span className=" text-black">Now Only: ₹18,750</span> <span className="font-semibold text-black">(58% OFF)</span>
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="shrink-0">⏳</span>
+                    <span>
+                      Limited Time – Offer valid for the next 48 hours only!
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="shrink-0">📩</span>
+                    <span>
+                      <span className="font-semibold text-black">Reply NOW on WhatsApp to grab this exclusive opportunity!</span>
                     </span>
                   </li>
                 </ul>
 
-                <p className="text-lg md:text-xl font-bold mt-6">
-                  💰 Package Price : ₹99,000 — unmatched value for{" "}
-                  <span className="font-extrabold">guaranteed results</span>
-                </p>
-                <p className="text-base md:text-lg">
-                  If you’re interested, send us a message on WhatsApp today 🙂
-                </p>
+             
               </div>
             </div>
           </div>
@@ -209,7 +193,7 @@ const LandingPage = () => {
 
         <BookSamples />
         <Card3 />
-        <Testimonials2 />
+        {/* <Testimonials2 /> */}
         <DemoCallCard />
         <Card2 />
         <AuditCallCard />

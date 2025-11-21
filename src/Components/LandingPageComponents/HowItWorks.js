@@ -9,61 +9,43 @@ const HowItWorks = () => {
       <p className="text-xl text-center font-semibold">
         Unlock Your Book’s #1 Bestseller Potential on Amazon
       </p>
+      <div className="rounded-xl border border-gray-700 border-[2px] p-6 space-y-6">
+        <h3 className="text-2xl font-bold mb-4 text-center">Here’s How It Works</h3>
 
-      <div className=" rounded-xl border border-gray-700 border-[2px]">
-        <div className="p-6  ">
-          <h3 className="text-xl font-bold mb-3">
-            1. Strategic, Personalized Approach
-          </h3>
+        <div>
+          <h4 className="text-xl font-bold mb-2">1.⁠ ⁠Smart, Customized Strategy:</h4>
+          <p className="font-bold text-lg mb-2">
+            Amazon’s algorithm updates the rankings every 2.5 hours based on real engagement, and our team uses this to your advantage.
+          </p>
           <p className="font-bold text-lg">
-            We know how Amazon’s algorithm operates, every 2.5 hours, rankings
-            are updated based on which books deliver the most engagement and
-            value. We leverage this insight to maximize your book’s visibility.
-            By combining our proven techniques—including targeted ad campaigns
-            with professional, high-quality visuals, strategic promotion across
-            large reader communities, and a luxury personal website to showcase
-            your book—we create a surge in both attention and sales. When Amazon
-            refreshes its rankings, your book stands out as a top performer,
-            reaching its rightful place: #1 bestseller in its category.
+            With our proven strategy, strategic affiliate marketing, and promotion across numerous large reader groups, we create a powerful surge in attention and sales. When Amazon refreshes the rankings, your book rises as a top performer, securing its place as the #1 Bestseller in its category.
           </p>
         </div>
 
-        <div className="p-6  ">
-          <h3 className="text-xl font-bold mb-3">
-            2. Achieve Guaranteed Bestseller Status
-          </h3>
+        <div>
+          <h4 className="text-xl font-bold mb-2">2.⁠ ⁠Achieve Guaranteed Bestseller Status:</h4>
           <p className="font-bold text-lg">
-            Our expert approach ensures your book hits #1 in its category. This
-            isn’t theoretical—we’ve successfully done this multiple times and
-            know exactly what drives results.
+            Our approach is tested, predictable and result-driven. We’ve done this multiple times, and we know exactly how to get your book to #1. 
           </p>
         </div>
-        <div className="p-6  ">
-          <h3 className="text-xl font-bold mb-4">What You Receive</h3>
+
+        <div>
+          <h4 className="text-xl font-bold mb-2">What You Receive:</h4>
           <ul className="list-disc list-inside font-bold text-lg space-y-2 text-gray-700">
-            <li>Instant credibility as a bestselling author</li>
-            <li>Boosted book sales and sustained discoverability</li>
-            <li>Targeted Ad promotion.</li>
-            <li>Professionally designed high-quality ad visual</li>
-            <li>
-              Your own luxury personal website to highlight and market your book
-            </li>
-            <li>Weekly performance reports to track your progress</li>
-            <li>Greater media exposure, reviews, and speaking opportunities</li>
+            <li>Guaranteed #1 Bestseller in 15–20 days</li>
+            <li>Our expert PR team executing a proven bestseller strategy</li>
+            <li>Higher reviews, better visibility opportunity</li>
+            <li>Earn the prestigious #1 Bestseller tag</li>
+            <li>Strong credibility and long-term audience trust</li>
           </ul>
         </div>
 
-        <div className="p-6  ">
-          <h3 className="text-xl font-bold mb-3">Sustained Success</h3>
-          <p className=" mb-3 font-bold text-lg">
-            Hitting #1 is just the beginning, staying there is even more
-            challenging. With our system, books rarely drop quickly after
-            reaching the top. Many maintain their #1 status for weeks, even
-            months. This kind of visibility is invaluable—but only if you act at
-            the right time.
+        <div>
+          <p className="font-bold text-lg mb-2">
+            Many authors know hitting #1 is tough—staying there is even tougher. With our system, books rarely fall quickly, and many hold their #1 spot for weeks or months. This visibility is priceless, but only if you act at the right moment. 
           </p>
           <p className="text-gray-900 font-semibold font-bold text-lg">
-            Let’s ensure your book doesn’t just compete—it dominates.
+            This is your chance to grab that opportunity and make your book a lasting success.
           </p>
         </div>
       </div>
