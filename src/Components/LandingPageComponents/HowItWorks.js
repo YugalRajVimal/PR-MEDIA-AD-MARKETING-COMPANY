@@ -13,9 +13,10 @@ const HowItWorks = () => {
         <h3 className="text-2xl font-bold mb-4 text-center">Here’s How It Works</h3>
 
         <div>
-          <h4 className="text-xl font-bold mb-2">1.⁠ ⁠Smart, Customized Strategy:</h4>
+          <h4 className="text-xl font-bold mb-2"> 1.⁠ ⁠Optimized Ranking Execution:</h4>
           <p className="font-bold text-lg mb-2">
-            Amazon’s algorithm updates the rankings every 2.5 hours based on real engagement, and our team uses this to your advantage.
+           
+We have deep, core knowledge of Amazon’s algorithm, and Amazon updates book categories every 2.5 hours based on real engagement, and our team uses this to your advantage.
           </p>
           <p className="font-bold text-lg">
             With our proven strategy, strategic affiliate marketing, and promotion across numerous large reader groups, we create a powerful surge in attention and sales. When Amazon refreshes the rankings, your book rises as a top performer, securing its place as the #1 Bestseller in its category.
