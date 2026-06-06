@@ -334,6 +334,29 @@ const Testimonials3 = ({ timer, remainingSeconds, FULL_TIME, hideTimer }) => {
           <span>Your story, our strategy!</span>
         </span>
       </div>
+
+       <div className="relative w-full h-[80px] max-w-sm   my-6 mx-auto flex justify-end items-center px-1">
+        <a
+          href={`http://wa.me/+917500030415?text=Hi%2C%20want%20to%20know%20more`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center  gap-2 bg-[#25D366] text-white py-2 px-4 rounded-full font-semibold hover:bg-[#1DA851] transition-colors duration-200 w-full cursor-pointer"
+        >
+          <FaWhatsapp className="text-2xl" />
+          <span className="text-sm text-semibold text-white text-center font-serif">
+            Claim Your Bestseller Package on WhatsApp!
+          </span>
+        </a>
+        {/* Popup */}
+        {popup && (
+          <div className="absolute z-50 -top-[20%] shadow shadow-lg shadow-black right-0 bg-[#f8dbb7] text-black whitespace-nowrap text-[10px] px-3 rounded-xl shadow-lg animate-bounce">
+            <div className="relative h-full w-full py-1">
+              <div className="absolute -bottom-[5px] left-1/2 -translate-x-1/2 w-0 h-0 border-t-[12px] border-l-[12px] border-t-[#f8dbb7] border-l-transparent rounded-sm rotate-[135deg] text-base"></div>
+              {popup}
+            </div>
+          </div>
+        )}
+      </div>
     
       {/* <ClientName /> */}
       {/* <h1 className="max-w-3xl mx-auto p-4   text-center text-xs md:text-sm text-gray-800 font-serif flex items-center justify-center gap-2">
