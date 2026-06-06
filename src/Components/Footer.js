@@ -102,7 +102,7 @@ const Footer = () => {
               Contact No. +91 75000 30415
             </a>
           </p>
-          <p className="text-base text-left w-full h-[30px] ">
+          {/* <p className="text-base text-left w-full h-[30px] ">
             <a
               href="https://instagram.com/theprmedia01"
               target="_blank"
@@ -114,7 +114,7 @@ const Footer = () => {
               </span>
               <span className="pt-1 text-lg">The PR Media</span>
             </a>
-          </p>
+          </p> */}
 
           <div>
             <p className="text-sm md:text-left md:w-full">
